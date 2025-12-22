@@ -1,3 +1,5 @@
+// script.js
+
 // prevent background scroll when modal open
 function lock(){ document.body.classList.add('modal-open'); }
 function unlock(){ document.body.classList.remove('modal-open'); }
@@ -67,27 +69,36 @@ function closeFolder(){
   setTimeout(() => { folderContent.innerHTML = ""; }, 150);
 }
 
-// =========================
-// NEW: CV Lightbox
-// =========================
-const cvb = document.getElementById('cvbox');
+// ===== CV Lightbox =====
+const cvBox = document.getElementById('cvbox');
+const navCv = document.querySelector('.nav-cv');
 
 function openCV(){
-  if(!cvb) return;
-  cvb.classList.add('is-open');
-  cvb.setAttribute('aria-hidden','false');
+  cvBox.classList.add('is-open');
+  cvBox.setAttribute('aria-hidden','false');
   lock();
+  if(navCv) navCv.classList.add('is-open'); // keep red glow on the navbar item
 }
 
 function closeCV(){
-  if(!cvb) return;
-  cvb.classList.remove('is-open');
-  cvb.setAttribute('aria-hidden','true');
+  cvBox.classList.remove('is-open');
+  cvBox.setAttribute('aria-hidden','true');
   unlock();
+  if(navCv) navCv.classList.remove('is-open');
 }
 
 // ===== Event Delegation (dynamic folder items work) =====
 document.addEventListener('click', (e) => {
+
+  // open CV
+  const cvBtn = e.target.closest('[data-open-cv="1"]');
+  if(cvBtn){
+    e.preventDefault();
+    e.stopPropagation();
+    openCV();
+    return;
+  }
+
   const previewBtn = e.target.closest('[data-preview]');
   if(previewBtn){
     e.preventDefault();
@@ -104,14 +115,6 @@ document.addEventListener('click', (e) => {
     e.stopPropagation();
     const key = folderBtn.getAttribute('data-open-folder');
     openFolder(key);
-    return;
-  }
-
-  const cvBtn = e.target.closest('[data-open-cv="1"]');
-  if(cvBtn){
-    e.preventDefault();
-    e.stopPropagation();
-    openCV();
     return;
   }
 
@@ -134,7 +137,7 @@ document.addEventListener('click', (e) => {
 // ESC to close
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    if (cvb && cvb.classList.contains('is-open')) closeCV();
+    if (cvBox.classList.contains('is-open')) closeCV();
     else if (fb.classList.contains('is-open')) closeFolder();
     else if (lb.classList.contains('is-open')) closeLightbox();
   }
@@ -142,7 +145,7 @@ document.addEventListener('keydown', (e) => {
 
 
 // =====================================================
-// NEW: Hover Pop-up (Tooltip) for ALL clickable cards
+// Hover Pop-up (Tooltip) for ALL clickable elements
 // =====================================================
 
 // Create tooltip element once
@@ -157,24 +160,22 @@ let ttActiveEl = null;
 function getTooltipText(el){
   if(!el) return null;
 
-  // Prefer data-title if exists
-  const dt = el.getAttribute('data-title');
-  if(dt && dt.trim()) return { title: dt.trim(), sub: '' };
-
-  // CV card (has data-open-cv): use fixed
-  if(el.getAttribute('data-open-cv') === '1'){
-    const t1 = el.querySelector?.('.card-title')?.textContent?.trim();
-    const t2 = el.querySelector?.('.card-meta')?.textContent?.trim();
-    return { title: t1 || 'Curriculum Vitae', sub: t2 || 'PDF • Resume' };
+  // CV nav tooltip
+  if(el.matches && el.matches('[data-open-cv="1"]')){
+    return { title: 'Open CV', sub: 'PDF Preview (blur + red glow)' };
   }
 
-  // If folder cover: use card titles inside foot if possible
+  // Prefer data-title if exists
+  const dt = el.getAttribute && el.getAttribute('data-title');
+  if(dt && dt.trim()) return { title: dt.trim(), sub: '' };
+
+  // If card: use card titles inside foot if possible
   const t1 = el.querySelector?.('.card-title')?.textContent?.trim();
   const t2 = el.querySelector?.('.card-meta')?.textContent?.trim();
   if(t1) return { title: t1, sub: t2 || '' };
 
   // aria-label fallback
-  const ar = el.getAttribute('aria-label');
+  const ar = el.getAttribute && el.getAttribute('aria-label');
   if(ar && ar.trim()) return { title: ar.trim(), sub: '' };
 
   // image alt fallback
@@ -204,11 +205,9 @@ function hideTooltip(){
 }
 
 function moveTooltip(x, y){
-  // offset so it doesn’t cover the cursor
   const offsetX = 14;
   const offsetY = 18;
 
-  // keep inside viewport
   const pad = 10;
   const rect = tooltip.getBoundingClientRect();
   let left = x + offsetX;
@@ -224,7 +223,6 @@ function moveTooltip(x, y){
   tooltip.style.top = top + 'px';
 }
 
-// Escape HTML
 function escapeHtml(str){
   return String(str)
     .replaceAll('&', '&amp;')
@@ -234,26 +232,21 @@ function escapeHtml(str){
     .replaceAll("'", '&#039;');
 }
 
-// Disable tooltip on touch devices (avoids annoying behavior)
+// Disable tooltip on touch devices
 const isTouch =
   ('ontouchstart' in window) ||
   (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
 
 if(!isTouch){
-  // We show tooltip for: buttons/links with data-preview OR data-open-folder OR data-open-cv
-  // plus .card, .post-card, .folder-cover (safe broad match)
   document.addEventListener('mouseover', (e) => {
     const el =
+      e.target.closest('[data-open-cv="1"]') ||
       e.target.closest('[data-preview]') ||
       e.target.closest('[data-open-folder]') ||
-      e.target.closest('[data-open-cv]') ||
-      e.target.closest('.post-card') ||
       e.target.closest('.folder-cover') ||
       e.target.closest('.card');
 
     if(!el) return;
-
-    // Avoid re-showing when moving inside same element
     if(ttActiveEl === el) return;
 
     showTooltip(el);
@@ -267,19 +260,16 @@ if(!isTouch){
 
   document.addEventListener('mouseout', (e) => {
     if(!ttActiveEl) return;
-
-    // If mouse left the active element entirely, hide
     const related = e.relatedTarget;
     if(related && ttActiveEl.contains(related)) return;
 
-    // If leaving active element
     const leaving = e.target;
     if(leaving === ttActiveEl || ttActiveEl.contains(leaving)){
       hideTooltip();
     }
   });
 
-  // Hide tooltip on scroll (especially inside folder modal)
   window.addEventListener('scroll', hideTooltip, { passive:true });
   fb?.addEventListener('scroll', hideTooltip, { passive:true });
+  cvBox?.addEventListener('scroll', hideTooltip, { passive:true });
 }
