@@ -86,7 +86,7 @@
                 <div class="play"></div>
                 <div class="preview-text">
                   <div class="preview-title">Click any design</div>
-                  <div class="preview-sub">It opens a fullscreen preview with blur.</div>
+                  <div class="preview-sub">Design opens fullscreen preview with blur.</div>
                 </div>
               </div>
 
@@ -154,68 +154,28 @@
       </div>
     </section>
 
-    <!-- Editing -->
+    <!-- Editing (FOLDER COVER) -->
     <section id="editing" class="section">
       <div class="wrap">
         <div class="section-head">
           <h2>Editing</h2>
-          <p>Video edits — add YouTube embeds anytime.</p>
+          <p>Open a folder to view the long-form videos.</p>
         </div>
 
         <div class="grid">
 
-          <!-- Video 1 -->
-          <article class="card video">
-            <div class="video-box">
-              <iframe
-                width="100%"
-                height="280"
-                src="https://www.youtube.com/embed/AzAXmB-KY5M"
-                title="How Booking manipulates you"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-              </iframe>
-            </div>
+          <!-- Folder / Cover -->
+          <button class="card card-click"
+                  type="button"
+                  data-open-folder="sebastien"
+                  aria-label="Open folder: Sébastien Koubar">
+            <!-- IMPORTANT: Add the correct extension if needed (jpg/png) -->
+            <img src="WhatsApp Image 2025-12-22 at 7.49.39 PM" alt="Sébastien Koubar cover">
             <div class="card-foot">
-              <div class="card-title">How Booking manipulates you</div>
-              <div class="card-meta">Long-form YouTube Video</div>
+              <div class="card-title">Sébastien Koubar</div>
+              <div class="card-meta">Long-form YouTube Videos</div>
             </div>
-          </article>
-
-          <!-- Video 2 -->
-          <article class="card video">
-            <div class="video-box">
-              <iframe
-                width="100%"
-                height="280"
-                src="https://www.youtube.com/embed/ChGxyGwRdFE"
-                title="Ryanair: The dark truth behind €9 flights"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <div class="card-foot">
-              <div class="card-title">Ryanair: The dark truth behind €9 flights</div>
-              <div class="card-meta">Long-form YouTube Video</div>
-            </div>
-          </article>
-
-          <!-- Placeholder (optional) -->
-          <article class="card video">
-            <div class="video-box">
-              <div class="video-placeholder">
-                <div class="big-play"></div>
-                <div class="vp-title">Your YouTube Video</div>
-                <div class="vp-sub">Replace this block with an embed.</div>
-              </div>
-            </div>
-            <div class="card-foot">
-              <div class="card-title">Brand Ad Cut</div>
-              <div class="card-meta">Promo / Commercial</div>
-            </div>
-          </article>
+          </button>
 
         </div>
       </div>
@@ -407,7 +367,7 @@
 
   </main>
 
-  <!-- ===== Lightbox (Preview) ===== -->
+  <!-- ===== Lightbox (Design Preview) ===== -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-backdrop" data-close="1"></div>
 
@@ -424,7 +384,66 @@
     </div>
   </div>
 
+  <!-- ===== Folder Lightbox (Videos) ===== -->
+  <div class="lightbox" id="folderbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-folder-close="1"></div>
+
+    <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Folder videos">
+      <button class="lightbox-close" type="button" aria-label="Close folder" data-folder-close="1">×</button>
+
+      <div class="lightbox-foot">
+        <div class="lightbox-title">Sébastien Koubar</div>
+      </div>
+
+      <div style="padding:14px;">
+        <div class="grid" style="grid-template-columns:1fr 1fr; gap:14px;">
+
+          <!-- Video 1 -->
+          <article class="card video" style="cursor:default;">
+            <div class="video-box">
+              <iframe
+                width="100%"
+                height="280"
+                src="https://www.youtube.com/embed/AzAXmB-KY5M"
+                title="How Booking manipulates you"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="card-foot">
+              <div class="card-title">How Booking manipulates you</div>
+              <div class="card-meta">Long-form YouTube Video</div>
+            </div>
+          </article>
+
+          <!-- Video 2 -->
+          <article class="card video" style="cursor:default;">
+            <div class="video-box">
+              <iframe
+                width="100%"
+                height="280"
+                src="https://www.youtube.com/embed/ChGxyGwRdFE"
+                title="Ryanair: The dark truth behind €9 flights"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="card-foot">
+              <div class="card-title">Ryanair: The dark truth behind €9 flights</div>
+              <div class="card-meta">Long-form YouTube Video</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <script>
+    // ===== Design Lightbox =====
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightboxImg');
     const lbTitle = document.getElementById('lightboxTitle');
@@ -448,7 +467,27 @@
       }, 150);
     }
 
-    // Click anything that has data-preview
+    // ===== Folder Lightbox =====
+    const fb = document.getElementById('folderbox');
+
+    function openFolder(){
+      fb.classList.add('is-open');
+      fb.setAttribute('aria-hidden','false');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeFolder(){
+      fb.classList.remove('is-open');
+      fb.setAttribute('aria-hidden','true');
+      document.body.classList.remove('modal-open');
+      // Stop videos when closing: reset iframes
+      fb.querySelectorAll('iframe').forEach(f => {
+        const src = f.getAttribute('src');
+        f.setAttribute('src', src);
+      });
+    }
+
+    // Click: any element with data-preview (design & client previews)
     document.querySelectorAll('[data-preview]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -459,17 +498,30 @@
       });
     });
 
-    // Close buttons / backdrop
-    lb.addEventListener('click', (e) => {
-      if (e.target && e.target.getAttribute('data-close') === '1') {
-        closeLightbox();
-      }
+    // Click: folder cover
+    document.querySelectorAll('[data-open-folder="sebastien"]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openFolder();
+      });
     });
 
-    // ESC to close
+    // Close design lightbox
+    lb.addEventListener('click', (e) => {
+      if (e.target && e.target.getAttribute('data-close') === '1') closeLightbox();
+    });
+
+    // Close folder lightbox
+    fb.addEventListener('click', (e) => {
+      if (e.target && e.target.getAttribute('data-folder-close') === '1') closeFolder();
+    });
+
+    // ESC to close (prioritize folder)
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lb.classList.contains('is-open')) {
-        closeLightbox();
+      if (e.key === 'Escape') {
+        if (fb.classList.contains('is-open')) closeFolder();
+        else if (lb.classList.contains('is-open')) closeLightbox();
       }
     });
   </script>
