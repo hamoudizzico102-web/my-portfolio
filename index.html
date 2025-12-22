@@ -2,111 +2,404 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Client Work — Company</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohamed Moukaddem — Creative Video Editor</title>
 
   <!-- Poppins Bold -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <div class="left">
-      <span class="badge">CLIENT WORK</span>
-      <span class="title">Company Showcase</span>
-    </div>
-  </div>
-</header>
-
-<main>
-
-  <!-- ===== COVER (LOGO) ===== -->
-  <section class="hero">
-    <div class="wrap">
-      <button class="cover"
-        data-preview="logo (2).png"
-        data-title="Company Logo">
-        <img src="logo (2).png" alt="Company Logo" class="cover-img">
-        <div class="cover-overlay"></div>
-
+  <!-- Header -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#home">
+        <img class="brand-avatar" src="Untitled-1.png" alt="Mohamed Moukaddem">
         <div class="brand-text">
-          <h1>Company Name</h1>
-          <p>Design & Social Media Posts</p>
+          <span class="brand-name">Mohamed Moukaddem</span>
+          <span class="brand-role">Creative Video Editor • Graphic Designer</span>
         </div>
-      </button>
-    </div>
-  </section>
+      </a>
 
-  <!-- ===== POSTS SLIDER ===== -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Posts</h2>
-        <p>Click any post to preview</p>
+      <nav class="nav">
+        <a href="#design">Design</a>
+        <a href="#editing">Editing</a>
+        <a href="#client">Client Work</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="cta" href="#contact">Hire Me</a>
+    </div>
+  </header>
+
+  <main id="home">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-left">
+          <div class="tag">AVAILABLE FOR FREELANCE</div>
+          <h1 class="headline">Cinematic edits &amp; modern visuals that feel premium.</h1>
+          <p class="sub">
+            I craft high-impact video edits, brand visuals, and motion-ready content
+            designed for social platforms and digital campaigns.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="#editing">View Editing</a>
+            <a class="btn ghost" href="#design">View Design</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-num">Fast</div>
+              <div class="stat-label">Delivery</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">Clean</div>
+              <div class="stat-label">Cuts + Timing</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">Sharp</div>
+              <div class="stat-label">Visual Style</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-top">
+              <div class="dot red"></div>
+              <div class="dot yellow"></div>
+              <div class="dot green"></div>
+              <div class="hero-card-title">Showreel Preview</div>
+            </div>
+
+            <div class="hero-card-body">
+              <div class="preview">
+                <div class="play"></div>
+                <div class="preview-text">
+                  <div class="preview-title">Click any design</div>
+                  <div class="preview-sub">It opens a fullscreen preview with blur.</div>
+                </div>
+              </div>
+
+              <div class="chips">
+                <span class="chip">Color Grading</span>
+                <span class="chip">Sound Design</span>
+                <span class="chip">Motion</span>
+                <span class="chip">Branding</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="hero-glow" aria-hidden="true"></div>
+    </section>
+
+    <!-- Design -->
+    <section id="design" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Design</h2>
+          <p>Click a project to preview.</p>
+        </div>
+
+        <div class="grid">
+
+          <!-- Card 1 -->
+          <button class="card card-click"
+                  type="button"
+                  data-preview="5.png"
+                  data-title="Saudi National Day"
+                  aria-label="Open preview: Saudi National Day">
+            <img src="5.png" alt="Saudi National Day design">
+            <div class="card-foot">
+              <div class="card-title">Saudi National Day</div>
+              <div class="card-meta">Poster / Visual</div>
+            </div>
+          </button>
+
+          <!-- Card 2 -->
+          <button class="card card-click"
+                  type="button"
+                  data-preview="1.png"
+                  data-title="Creative Visual Identity"
+                  aria-label="Open preview: Creative Visual Identity">
+            <img src="1.png" alt="Creative Visual Identity design">
+            <div class="card-foot">
+              <div class="card-title">Creative Visual Identity</div>
+              <div class="card-meta">Brand / Identity</div>
+            </div>
+          </button>
+
+          <!-- Card 3 -->
+          <button class="card card-click"
+                  type="button"
+                  data-preview="me.png"
+                  data-title="Course Design"
+                  aria-label="Open preview: Course Design">
+            <img src="me.png" alt="Course Design">
+            <div class="card-foot">
+              <div class="card-title">Course Design</div>
+              <div class="card-meta">Course / Visual System</div>
+            </div>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Editing (placeholders as before) -->
+    <section id="editing" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Editing</h2>
+          <p>Video edits — add YouTube embeds anytime.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card video">
+            <div class="video-box">
+              <div class="video-placeholder">
+                <div class="big-play"></div>
+                <div class="vp-title">Your YouTube Video</div>
+                <div class="vp-sub">Replace this block with an embed.</div>
+              </div>
+            </div>
+            <div class="card-foot">
+              <div class="card-title">Cinematic Edit</div>
+              <div class="card-meta">Short Film / Trailer Style</div>
+            </div>
+          </article>
+
+          <article class="card video">
+            <div class="video-box">
+              <div class="video-placeholder">
+                <div class="big-play"></div>
+                <div class="vp-title">Your YouTube Video</div>
+                <div class="vp-sub">Replace this block with an embed.</div>
+              </div>
+            </div>
+            <div class="card-foot">
+              <div class="card-title">Social Reel</div>
+              <div class="card-meta">Reels / TikTok</div>
+            </div>
+          </article>
+
+          <article class="card video">
+            <div class="video-box">
+              <div class="video-placeholder">
+                <div class="big-play"></div>
+                <div class="vp-title">Your YouTube Video</div>
+                <div class="vp-sub">Replace this block with an embed.</div>
+              </div>
+            </div>
+            <div class="card-foot">
+              <div class="card-title">Brand Ad Cut</div>
+              <div class="card-meta">Promo / Commercial</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEW SECTION: Client Work ===== -->
+    <section id="client" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Client Work</h2>
+          <p>Cover + posts slider (click to preview).</p>
+        </div>
+
+        <!-- Cover (your logo as cover) -->
+        <button class="client-cover card-click"
+                type="button"
+                data-preview="logo (2).png"
+                data-title="Client Cover"
+                aria-label="Open preview: Client Cover">
+          <img class="client-cover-img" src="logo (2).png" alt="Client Cover">
+          <div class="client-cover-overlay"></div>
+
+          <div class="client-cover-text">
+            <div class="client-pill">CLIENT</div>
+            <div class="client-name">Company</div>
+            <div class="client-sub">Design • Editing • Social Media</div>
+          </div>
+        </button>
+
+        <!-- Posts slider -->
+        <div class="posts-slider" aria-label="Client posts slider">
+
+          <button class="post-card card-click"
+                  type="button"
+                  data-preview="caro 3-4.png"
+                  data-title="caro 3-4"
+                  aria-label="Open preview: caro 3-4">
+            <img src="caro 3-4.png" alt="caro 3-4">
+            <div class="post-caption">caro 3-4</div>
+          </button>
+
+          <button class="post-card card-click"
+                  type="button"
+                  data-preview="MOTHER.png"
+                  data-title="MOTHER"
+                  aria-label="Open preview: MOTHER">
+            <img src="MOTHER.png" alt="MOTHER">
+            <div class="post-caption">MOTHER</div>
+          </button>
+
+          <button class="post-card card-click"
+                  type="button"
+                  data-preview="post.png"
+                  data-title="post"
+                  aria-label="Open preview: post">
+            <img src="post.png" alt="post">
+            <div class="post-caption">post</div>
+          </button>
+
+        </div>
+
+        <div class="note" style="margin-top:12px;">
+          Add more posts by duplicating a post card and changing the file name + title.
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p>What I can do for you.</p>
+        </div>
+
+        <div class="services">
+          <div class="service">
+            <div class="service-title">Video Editing</div>
+            <div class="service-desc">Pacing, cuts, sound, export for social platforms.</div>
+          </div>
+          <div class="service">
+            <div class="service-title">Color Grading</div>
+            <div class="service-desc">Cinematic look, tone, contrast, and consistency.</div>
+          </div>
+          <div class="service">
+            <div class="service-title">Motion Graphics</div>
+            <div class="service-desc">Intros, lower thirds, transitions, titles.</div>
+          </div>
+          <div class="service">
+            <div class="service-title">Graphic Design</div>
+            <div class="service-desc">Posters, identities, social media packs.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+      <div class="wrap contact-inner">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>Let’s work together.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="label">Email</div>
+            <a class="contact-link" href="mailto:hamoudizzico102@outlook.com">hamoudizzico102@outlook.com</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="label">Phone</div>
+            <a class="contact-link" href="tel:+96170577697">+961 70577697</a>
+          </div>
+        </div>
+
+        <div class="note">
+          For editing work, send me your YouTube link (Unlisted) and I’ll embed it into the Editing section.
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">© 2025 Mohamed Moukaddem</div>
+    </footer>
+
+  </main>
+
+  <!-- ===== Lightbox (Preview) ===== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-close="1"></div>
+
+    <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Design preview">
+      <button class="lightbox-close" type="button" aria-label="Close preview" data-close="1">×</button>
+
+      <div class="lightbox-media">
+        <img id="lightboxImg" src="" alt="Preview">
       </div>
 
-      <div class="slider">
-
-        <button class="post"
-          data-preview="caro 3-4.png"
-          data-title="Carousel Design">
-          <img src="caro 3-4.png" alt="Carousel Design">
-        </button>
-
-        <button class="post"
-          data-preview="MOTHER.png"
-          data-title="Mother Campaign">
-          <img src="MOTHER.png" alt="Mother Campaign">
-        </button>
-
-        <button class="post"
-          data-preview="post.png"
-          data-title="Social Media Post">
-          <img src="post.png" alt="Social Media Post">
-        </button>
-
+      <div class="lightbox-foot">
+        <div class="lightbox-title" id="lightboxTitle"></div>
       </div>
     </div>
-  </section>
-
-</main>
-
-<!-- ===== LIGHTBOX PREVIEW ===== -->
-<div class="lightbox" id="lightbox">
-  <div class="lightbox-backdrop" data-close="1"></div>
-
-  <div class="lightbox-panel">
-    <button class="lightbox-close" data-close="1">×</button>
-    <img id="lightboxImg" src="" alt="">
-    <div class="lightbox-title" id="lightboxTitle"></div>
   </div>
-</div>
 
-<script>
-const lb = document.getElementById('lightbox');
-const lbImg = document.getElementById('lightboxImg');
-const lbTitle = document.getElementById('lightboxTitle');
+  <script>
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbTitle = document.getElementById('lightboxTitle');
 
-document.querySelectorAll('[data-preview]').forEach(el => {
-  el.addEventListener('click', e => {
-    e.stopPropagation();
-    lbImg.src = el.dataset.preview;
-    lbTitle.textContent = el.dataset.title || '';
-    lb.classList.add('open');
-    document.body.classList.add('blurred');
-  });
-});
+    function openLightbox(src, title){
+      lbImg.src = src;
+      lbImg.alt = title ? (title + " preview") : "Preview";
+      lbTitle.textContent = title || "";
+      lb.classList.add('is-open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
 
-document.querySelectorAll('[data-close]').forEach(el => {
-  el.addEventListener('click', () => {
-    lb.classList.remove('open');
-    document.body.classList.remove('blurred');
-  });
-});
-</script>
+    function closeLightbox(){
+      lb.classList.remove('is-open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      setTimeout(() => {
+        lbImg.src = "";
+        lbTitle.textContent = "";
+      }, 150);
+    }
+
+    // Click anything that has data-preview (Design + Client + Posts)
+    document.querySelectorAll('[data-preview]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const src = btn.getAttribute('data-preview');
+        const title = btn.getAttribute('data-title') || "";
+        openLightbox(src, title);
+      });
+    });
+
+    // Close buttons / backdrop
+    lb.addEventListener('click', (e) => {
+      if (e.target && e.target.getAttribute('data-close') === '1') {
+        closeLightbox();
+      }
+    });
+
+    // ESC to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lb.classList.contains('is-open')) {
+        closeLightbox();
+      }
+    });
+  </script>
 
 </body>
 </html>
