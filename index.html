@@ -50,8 +50,58 @@
             I craft high-impact video edits, brand visuals, and motion-ready content
             designed for social platforms and digital campaigns.
           </p>
+
+          <div class="actions">
+            <a class="btn primary" href="#editing">View Editing</a>
+            <a class="btn ghost" href="#design">View Design</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-num">Fast</div>
+              <div class="stat-label">Delivery</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">Clean</div>
+              <div class="stat-label">Cuts + Timing</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">Sharp</div>
+              <div class="stat-label">Visual Style</div>
+            </div>
+          </div>
         </div>
+
+        <div class="hero-right" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-top">
+              <div class="dot red"></div>
+              <div class="dot yellow"></div>
+              <div class="dot green"></div>
+              <div class="hero-card-title">Showreel Preview</div>
+            </div>
+
+            <div class="hero-card-body">
+              <div class="preview">
+                <div class="play"></div>
+                <div class="preview-text">
+                  <div class="preview-title">Click any design</div>
+                  <div class="preview-sub">It opens a fullscreen preview with blur.</div>
+                </div>
+              </div>
+
+              <div class="chips">
+                <span class="chip">Color Grading</span>
+                <span class="chip">Sound Design</span>
+                <span class="chip">Motion</span>
+                <span class="chip">Branding</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+      <div class="hero-glow" aria-hidden="true"></div>
     </section>
 
     <!-- Design -->
@@ -63,42 +113,77 @@
         </div>
 
         <div class="grid">
-          <!-- Design cards remain the same -->
+
+          <button class="card card-click"
+                  type="button"
+                  data-preview="5.png"
+                  data-title="Saudi National Day"
+                  aria-label="Open preview: Saudi National Day">
+            <img src="5.png" alt="Saudi National Day design">
+            <div class="card-foot">
+              <div class="card-title">Saudi National Day</div>
+              <div class="card-meta">Poster / Visual</div>
+            </div>
+          </button>
+
+          <button class="card card-click"
+                  type="button"
+                  data-preview="1.png"
+                  data-title="Creative Visual Identity"
+                  aria-label="Open preview: Creative Visual Identity">
+            <img src="1.png" alt="Creative Visual Identity design">
+            <div class="card-foot">
+              <div class="card-title">Creative Visual Identity</div>
+              <div class="card-meta">Brand / Identity</div>
+            </div>
+          </button>
+
+          <button class="card card-click"
+                  type="button"
+                  data-preview="me.png"
+                  data-title="Course Design"
+                  aria-label="Open preview: Course Design">
+            <img src="me.png" alt="Course Design">
+            <div class="card-foot">
+              <div class="card-title">Course Design</div>
+              <div class="card-meta">Course / Visual System</div>
+            </div>
+          </button>
+
         </div>
       </div>
     </section>
 
-    <!-- 🎬 Editing (with your YouTube embed) -->
+    <!-- Editing -->
     <section id="editing" class="section">
       <div class="wrap">
         <div class="section-head">
           <h2>Editing</h2>
-          <p>Check out some of my video edits & reels below.</p>
+          <p>Video edits — add YouTube embeds anytime.</p>
         </div>
 
         <div class="grid">
 
-          <!-- Your YouTube Reel -->
+          <!-- Your YouTube video (long-form) -->
           <article class="card video">
             <div class="video-box">
-              <!-- Embedded YouTube video -->
               <iframe
                 width="100%"
                 height="280"
                 src="https://www.youtube.com/embed/AzAXmB-KY5M"
-                title="YouTube Reel by Mohamed Moukaddem"
+                title="How Booking manipulates you"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
               </iframe>
             </div>
             <div class="card-foot">
-              <div class="card-title">Featured Reel</div>
-              <div class="card-meta">Creative Edit / Showreel</div>
+              <div class="card-title">How Booking manipulates you</div>
+              <div class="card-meta">Long-form YouTube Video</div>
             </div>
           </article>
 
-          <!-- Existing placeholders (optional remove if not needed) -->
+          <!-- Placeholder 1 -->
           <article class="card video">
             <div class="video-box">
               <div class="video-placeholder">
@@ -108,8 +193,23 @@
               </div>
             </div>
             <div class="card-foot">
-              <div class="card-title">Cinematic Edit</div>
-              <div class="card-meta">Short Film / Trailer Style</div>
+              <div class="card-title">Social Reel</div>
+              <div class="card-meta">Reels / TikTok</div>
+            </div>
+          </article>
+
+          <!-- Placeholder 2 -->
+          <article class="card video">
+            <div class="video-box">
+              <div class="video-placeholder">
+                <div class="big-play"></div>
+                <div class="vp-title">Your YouTube Video</div>
+                <div class="vp-sub">Replace this block with an embed.</div>
+              </div>
+            </div>
+            <div class="card-foot">
+              <div class="card-title">Brand Ad Cut</div>
+              <div class="card-meta">Promo / Commercial</div>
             </div>
           </article>
 
@@ -120,21 +220,188 @@
     <!-- Client Work -->
     <section id="client" class="section">
       <div class="wrap">
-        <!-- (your existing Client Work content stays here) -->
+        <div class="section-head">
+          <h2>Client Work</h2>
+          <p>Brand covers + social posts (click to preview).</p>
+        </div>
+
+        <!-- Client 1: Intellident Dental Clinic -->
+        <div class="client-block">
+          <div class="client-head">
+            <div class="client-title">Intellident Dental Clinic</div>
+            <div class="client-subtitle">Design • Social Media</div>
+          </div>
+
+          <button class="client-cover card-click"
+                  type="button"
+                  data-preview="logo (2).png"
+                  data-title="Intellident Dental Clinic — Brand Cover"
+                  aria-label="Open preview: Intellident Dental Clinic cover">
+            <img class="client-cover-img" src="logo (2).png" alt="Intellident Dental Clinic cover">
+            <div class="client-cover-overlay"></div>
+
+            <div class="client-cover-text">
+              <div class="client-pill">CLIENT</div>
+              <div class="client-name">Intellident Dental Clinic</div>
+              <div class="client-sub">Design • Social Media</div>
+            </div>
+          </button>
+
+          <div class="posts-slider" aria-label="Intellident posts slider">
+            <button class="post-card card-click"
+                    type="button"
+                    data-preview="caro 3-4.png"
+                    data-title="Clinic Brand Launch"
+                    aria-label="Open preview: Clinic Brand Launch">
+              <img src="caro 3-4.png" alt="Clinic Brand Launch">
+              <div class="post-caption">Clinic Brand Launch</div>
+            </button>
+
+            <button class="post-card card-click"
+                    type="button"
+                    data-preview="MOTHER.png"
+                    data-title="Dental Awareness Campaign"
+                    aria-label="Open preview: Dental Awareness Campaign">
+              <img src="MOTHER.png" alt="Dental Awareness Campaign">
+              <div class="post-caption">Dental Awareness Campaign</div>
+            </button>
+
+            <button class="post-card card-click"
+                    type="button"
+                    data-preview="post.png"
+                    data-title="Social Media Promo Post"
+                    aria-label="Open preview: Social Media Promo Post">
+              <img src="post.png" alt="Social Media Promo Post">
+              <div class="post-caption">Social Media Promo Post</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Client 2: Oqunet Software -->
+        <div class="client-block" style="margin-top:26px;">
+          <div class="client-head">
+            <div class="client-title">Oqunet Software</div>
+            <div class="client-subtitle">Branding • Campaigns • Social Design</div>
+          </div>
+
+          <button class="client-cover card-click"
+                  type="button"
+                  data-preview="logo-01.png"
+                  data-title="Oqunet Software — Brand Cover"
+                  aria-label="Open preview: Oqunet Software cover">
+            <img class="client-cover-img" src="logo-01.png" alt="Oqunet Software cover">
+            <div class="client-cover-overlay"></div>
+
+            <div class="client-cover-text">
+              <div class="client-pill">CLIENT</div>
+              <div class="client-name">Oqunet Software</div>
+              <div class="client-sub">Design • Campaign • Social Media</div>
+            </div>
+          </button>
+
+          <div class="posts-slider" aria-label="Oqunet posts slider">
+            <button class="post-card card-click"
+                    type="button"
+                    data-preview="labor day.png"
+                    data-title="Labor Day Campaign"
+                    aria-label="Open preview: Labor Day Campaign">
+              <img src="labor day.png" alt="Labor Day Campaign">
+              <div class="post-caption">Labor Day Campaign</div>
+            </button>
+
+            <button class="post-card card-click"
+                    type="button"
+                    data-preview="COVERLIE 5.png"
+                    data-title="Product Highlights — Slide 01"
+                    aria-label="Open preview: Product Highlights — Slide 01">
+              <img src="COVERLIE 5.png" alt="Product Highlights — Slide 01">
+              <div class="post-caption">Product Highlights — Slide 01</div>
+            </button>
+
+            <button class="post-card card-click"
+                    type="button"
+                    data-preview="COVERLIE 3.png"
+                    data-title="Product Highlights — Slide 02"
+                    aria-label="Open preview: Product Highlights — Slide 02">
+              <img src="COVERLIE 3.png" alt="Product Highlights — Slide 02">
+              <div class="post-caption">Product Highlights — Slide 02</div>
+            </button>
+
+            <button class="post-card card-click"
+                    type="button"
+                    data-preview="COVERLIEE.png"
+                    data-title="Brand Story — Key Visual"
+                    aria-label="Open preview: Brand Story — Key Visual">
+              <img src="COVERLIEE.png" alt="Brand Story — Key Visual">
+              <div class="post-caption">Brand Story — Key Visual</div>
+            </button>
+
+            <button class="post-card card-click"
+                    type="button"
+                    data-preview="oqunet single.png"
+                    data-title="Single Post — Promo"
+                    aria-label="Open preview: Single Post — Promo">
+              <img src="oqunet single.png" alt="Single Post — Promo">
+              <div class="post-caption">Single Post — Promo</div>
+            </button>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- Services -->
     <section id="services" class="section">
       <div class="wrap">
-        <!-- (your Services content stays here) -->
+        <div class="section-head">
+          <h2>Services</h2>
+          <p>What I can do for you.</p>
+        </div>
+
+        <div class="services">
+          <div class="service">
+            <div class="service-title">Video Editing</div>
+            <div class="service-desc">Pacing, cuts, sound, export for social platforms.</div>
+          </div>
+          <div class="service">
+            <div class="service-title">Color Grading</div>
+            <div class="service-desc">Cinematic look, tone, contrast, and consistency.</div>
+          </div>
+          <div class="service">
+            <div class="service-title">Motion Graphics</div>
+            <div class="service-desc">Intros, lower thirds, transitions, titles.</div>
+          </div>
+          <div class="service">
+            <div class="service-title">Graphic Design</div>
+            <div class="service-desc">Posters, identities, social media packs.</div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="section contact">
       <div class="wrap contact-inner">
-        <!-- (your Contact block stays here) -->
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>Let’s work together.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="label">Email</div>
+            <a class="contact-link" href="mailto:hamoudizzico102@outlook.com">hamoudizzico102@outlook.com</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="label">Phone</div>
+            <a class="contact-link" href="tel:+96170577697">+961 70577697</a>
+          </div>
+        </div>
+
+        <div class="note">
+          For editing work, send me your YouTube link (Unlisted) and I’ll embed it into the Editing section.
+        </div>
       </div>
     </section>
 
@@ -143,6 +410,73 @@
     </footer>
 
   </main>
+
+  <!-- ===== Lightbox (Preview) ===== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-close="1"></div>
+
+    <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Preview">
+      <button class="lightbox-close" type="button" aria-label="Close preview" data-close="1">×</button>
+
+      <div class="lightbox-media">
+        <img id="lightboxImg" src="" alt="Preview">
+      </div>
+
+      <div class="lightbox-foot">
+        <div class="lightbox-title" id="lightboxTitle"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbTitle = document.getElementById('lightboxTitle');
+
+    function openLightbox(src, title){
+      lbImg.src = src;
+      lbImg.alt = title ? (title + " preview") : "Preview";
+      lbTitle.textContent = title || "";
+      lb.classList.add('is-open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeLightbox(){
+      lb.classList.remove('is-open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      setTimeout(() => {
+        lbImg.src = "";
+        lbTitle.textContent = "";
+      }, 150);
+    }
+
+    // Click anything that has data-preview
+    document.querySelectorAll('[data-preview]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const src = btn.getAttribute('data-preview');
+        const title = btn.getAttribute('data-title') || "";
+        openLightbox(src, title);
+      });
+    });
+
+    // Close buttons / backdrop
+    lb.addEventListener('click', (e) => {
+      if (e.target && e.target.getAttribute('data-close') === '1') {
+        closeLightbox();
+      }
+    });
+
+    // ESC to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lb.classList.contains('is-open')) {
+        closeLightbox();
+      }
+    });
+  </script>
 
 </body>
 </html>
