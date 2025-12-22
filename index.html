@@ -5,45 +5,59 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mohamed Moukaddem — Graphic Designer & Video Editor</title>
 
-  <!-- Google font: Poppins Bold -->
+  <!-- Google Font: Poppins Bold -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Link to the single CSS file -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <!-- Top navigation / title -->
+
+  <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="container header-inner">
+
+      <!-- Brand with small circular avatar -->
       <div class="brand">
         <a href="#home" class="logo" aria-label="Go to top">
-          <span class="name">Mohamed Moukaddem</span>
-          <span class="role">Graphic Designer &amp; Video Editor</span>
+          <img
+            class="avatar"
+            src="IMG_20251201_031908_081.jpeg.jpg"
+            alt="Mohamed Moukaddem"
+          >
+          <div class="brand-text">
+            <span class="name">Mohamed Moukaddem</span>
+            <span class="role">Graphic Designer &amp; Video Editor</span>
+          </div>
         </a>
       </div>
+
+      <!-- Navigation -->
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#portfolio">Portfolio</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </nav>
+
     </div>
   </header>
 
+  <!-- ===== Main ===== -->
   <main>
-    <!-- Hero / intro -->
+
+    <!-- Hero / Intro -->
     <section id="home" class="hero">
       <div class="container">
-        <!-- Your photo -->
-        <img class="profile-pic" src="IMG_20251201_031908_081.jpeg.jpg" alt="Mohamed Moukaddem">
-
         <h1>Mohamed Moukaddem</h1>
         <h2 class="title">Graphic Designer &amp; Video Editor</h2>
         <p class="intro">
-          Graphic Designer &amp; Video Editor focused on modern visuals, branding, and cinematic video content
-          for social media and digital platforms.
+          Graphic Designer &amp; Video Editor focused on modern visuals, branding,
+          and cinematic video content for social media and digital platforms.
         </p>
+
         <div class="hero-actions">
           <a class="btn" href="#portfolio">View Portfolio</a>
           <a class="btn btn-outline" href="#contact">Contact</a>
@@ -51,15 +65,18 @@
       </div>
     </section>
 
-    <!-- Portfolio -->
+    <!-- ===== Portfolio ===== -->
     <section id="portfolio" class="section">
       <div class="container">
         <h2>Portfolio</h2>
-        <p class="muted">A few recent projects — placeholders for now. Replace images and text with your own work.</p>
+        <p class="muted">
+          A few recent projects — placeholders for now. Replace images and text with your own work.
+        </p>
 
         <div class="grid portfolio-grid">
+
           <article class="work">
-            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+1" alt="Project 1 placeholder">
+            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+1" alt="Project 1">
             <div class="work-body">
               <h3>Project 1</h3>
               <p class="muted">Branding and poster design.</p>
@@ -67,7 +84,7 @@
           </article>
 
           <article class="work">
-            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+2" alt="Project 2 placeholder">
+            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+2" alt="Project 2">
             <div class="work-body">
               <h3>Project 2</h3>
               <p class="muted">Promotional video edit.</p>
@@ -75,7 +92,7 @@
           </article>
 
           <article class="work">
-            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+3" alt="Project 3 placeholder">
+            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+3" alt="Project 3">
             <div class="work-body">
               <h3>Project 3</h3>
               <p class="muted">Social media visuals.</p>
@@ -83,23 +100,25 @@
           </article>
 
           <article class="work">
-            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+4" alt="Project 4 placeholder">
+            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+4" alt="Project 4">
             <div class="work-body">
               <h3>Project 4</h3>
               <p class="muted">Motion graphics short clip.</p>
             </div>
           </article>
+
         </div>
       </div>
     </section>
 
-    <!-- Services -->
+    <!-- ===== Services ===== -->
     <section id="services" class="section">
       <div class="container">
         <h2>Services</h2>
         <p class="muted">What I can do for you.</p>
 
         <div class="services">
+
           <div class="service">
             <div class="service-icon">🎨</div>
             <h3>Graphic Design</h3>
@@ -109,25 +128,26 @@
           <div class="service">
             <div class="service-icon">🎬</div>
             <h3>Video Editing</h3>
-            <p class="muted">Cutting, color grading, sound, and final delivery for social platforms.</p>
+            <p class="muted">Cutting, color grading, sound, and final delivery.</p>
           </div>
 
           <div class="service">
             <div class="service-icon">🏷️</div>
             <h3>Branding</h3>
-            <p class="muted">Identity systems, style guides, and visual strategy.</p>
+            <p class="muted">Identity systems and visual strategy.</p>
           </div>
 
           <div class="service">
             <div class="service-icon">✨</div>
             <h3>Motion Graphics</h3>
-            <p class="muted">Animated intros, transitions, and short motion pieces.</p>
+            <p class="muted">Animated intros and transitions.</p>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- ===== Contact ===== -->
     <section id="contact" class="section">
       <div class="container">
         <h2>Contact</h2>
@@ -142,8 +162,7 @@
           </div>
 
           <div class="contact-card">
-            <h3>Social / Profiles</h3>
-            <p class="muted">Replace these placeholder links with your own profiles.</p>
+            <h3>Social</h3>
             <p>
               <a class="link" href="#">Instagram</a> •
               <a class="link" href="#">Behance</a> •
@@ -151,20 +170,23 @@
             </p>
           </div>
         </div>
-
-        <p class="muted small">Tip: If you later want a contact form (instead of an email link), you can use a free form service like Formspree or Netlify Forms.</p>
       </div>
     </section>
+
   </main>
 
+  <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="muted small">© <span id="year"></span> Mohamed Moukaddem — Graphic Designer &amp; Video Editor · Hosted on GitHub Pages</p>
+      <p class="muted small">
+        © <span id="year"></span> Mohamed Moukaddem — Hosted on GitHub Pages
+      </p>
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
