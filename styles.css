@@ -1,6 +1,5 @@
 :root{
   --bg:#0b0f12;
-  --surface:#0f1720;
   --text:#e6eef6;
   --muted:#9aa6b2;
   --accent:#2dd4bf;
@@ -37,7 +36,6 @@ body{
   justify-content:space-between;
 }
 
-/* Logo + name */
 .logo{
   display:flex;
   align-items:center;
@@ -79,9 +77,7 @@ body{
   color:var(--muted);
 }
 
-.hero-actions{
-  margin-top:20px;
-}
+.hero-actions{margin-top:20px}
 
 .btn{
   background:var(--accent);
@@ -99,9 +95,7 @@ body{
 }
 
 /* ===== Sections ===== */
-.section h2{
-  margin-bottom:16px;
-}
+.section h2{margin-bottom:16px}
 
 /* ===== Portfolio ===== */
 .portfolio-grid{
@@ -109,9 +103,25 @@ body{
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:16px;
 }
+
+.work{
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:12px;
+  overflow:hidden;
+}
+
 .work img{
   width:100%;
-  border-radius:10px;
+  display:block;
+  object-fit:cover;
+}
+
+.work-caption{
+  padding:12px 12px 14px;
+  font-size:0.95rem;
+  font-weight:700; /* Poppins Bold */
+  color:var(--text);
 }
 
 /* ===== Services ===== */
@@ -119,16 +129,10 @@ body{
   list-style:none;
   padding:0;
 }
-.services li{
-  padding:6px 0;
-}
+.services li{padding:6px 0}
 
 /* ===== Contact ===== */
-#contact p{
-  margin-bottom:16px;
-  line-height:1.6;
-}
-
+#contact p{margin-bottom:16px; line-height:1.6}
 #contact strong{
   display:block;
   margin-bottom:4px;
