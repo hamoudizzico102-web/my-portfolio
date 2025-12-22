@@ -67,6 +67,25 @@ function closeFolder(){
   setTimeout(() => { folderContent.innerHTML = ""; }, 150);
 }
 
+// =========================
+// NEW: CV Lightbox
+// =========================
+const cvb = document.getElementById('cvbox');
+
+function openCV(){
+  if(!cvb) return;
+  cvb.classList.add('is-open');
+  cvb.setAttribute('aria-hidden','false');
+  lock();
+}
+
+function closeCV(){
+  if(!cvb) return;
+  cvb.classList.remove('is-open');
+  cvb.setAttribute('aria-hidden','true');
+  unlock();
+}
+
 // ===== Event Delegation (dynamic folder items work) =====
 document.addEventListener('click', (e) => {
   const previewBtn = e.target.closest('[data-preview]');
@@ -88,6 +107,14 @@ document.addEventListener('click', (e) => {
     return;
   }
 
+  const cvBtn = e.target.closest('[data-open-cv="1"]');
+  if(cvBtn){
+    e.preventDefault();
+    e.stopPropagation();
+    openCV();
+    return;
+  }
+
   if (e.target && e.target.getAttribute('data-close') === '1') {
     closeLightbox();
     return;
@@ -97,12 +124,18 @@ document.addEventListener('click', (e) => {
     closeFolder();
     return;
   }
+
+  if (e.target && e.target.getAttribute('data-cv-close') === '1') {
+    closeCV();
+    return;
+  }
 });
 
 // ESC to close
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    if (fb.classList.contains('is-open')) closeFolder();
+    if (cvb && cvb.classList.contains('is-open')) closeCV();
+    else if (fb.classList.contains('is-open')) closeFolder();
     else if (lb.classList.contains('is-open')) closeLightbox();
   }
 });
@@ -127,6 +160,13 @@ function getTooltipText(el){
   // Prefer data-title if exists
   const dt = el.getAttribute('data-title');
   if(dt && dt.trim()) return { title: dt.trim(), sub: '' };
+
+  // CV card (has data-open-cv): use fixed
+  if(el.getAttribute('data-open-cv') === '1'){
+    const t1 = el.querySelector?.('.card-title')?.textContent?.trim();
+    const t2 = el.querySelector?.('.card-meta')?.textContent?.trim();
+    return { title: t1 || 'Curriculum Vitae', sub: t2 || 'PDF • Resume' };
+  }
 
   // If folder cover: use card titles inside foot if possible
   const t1 = el.querySelector?.('.card-title')?.textContent?.trim();
@@ -200,20 +240,18 @@ const isTouch =
   (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
 
 if(!isTouch){
-  // We show tooltip for: buttons/links with data-preview OR data-open-folder
+  // We show tooltip for: buttons/links with data-preview OR data-open-folder OR data-open-cv
   // plus .card, .post-card, .folder-cover (safe broad match)
   document.addEventListener('mouseover', (e) => {
     const el =
       e.target.closest('[data-preview]') ||
       e.target.closest('[data-open-folder]') ||
+      e.target.closest('[data-open-cv]') ||
       e.target.closest('.post-card') ||
       e.target.closest('.folder-cover') ||
       e.target.closest('.card');
 
     if(!el) return;
-
-    // Don’t show tooltip when any modal is open if you prefer—comment out if you want it inside modals too.
-    // if (document.body.classList.contains('modal-open')) return;
 
     // Avoid re-showing when moving inside same element
     if(ttActiveEl === el) return;
