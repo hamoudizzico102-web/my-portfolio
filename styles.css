@@ -16,14 +16,14 @@ body{
   color:var(--text);
 }
 
-/* ===== Layout ===== */
+/* Layout */
 .container{
   max-width:var(--max-width);
   margin:auto;
   padding:32px 20px;
 }
 
-/* ===== Header ===== */
+/* Header */
 .site-header{
   position:sticky;
   top:0;
@@ -67,7 +67,7 @@ body{
 }
 .main-nav a:hover{color:var(--text)}
 
-/* ===== Hero ===== */
+/* Hero */
 .hero h1{
   margin:0;
   font-size:2.2rem;
@@ -94,13 +94,13 @@ body{
   color:var(--accent);
 }
 
-/* ===== Sections ===== */
+/* Sections */
 .section h2{
   margin-bottom:16px;
   font-weight:700;
 }
 
-/* ===== Portfolio / Design ===== */
+/* Portfolio / Editing grid */
 .portfolio-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -123,18 +123,18 @@ body{
 .work-caption{
   padding:12px 12px 14px;
   font-size:0.95rem;
-  font-weight:700; /* Poppins Bold */
+  font-weight:700;
   color:var(--text);
 }
 
-/* ===== Services ===== */
+/* Services */
 .services{
   list-style:none;
   padding:0;
 }
 .services li{padding:6px 0}
 
-/* ===== Contact ===== */
+/* Contact */
 #contact p{margin-bottom:16px; line-height:1.6}
 #contact strong{
   display:block;
@@ -145,11 +145,10 @@ body{
 .link{
   color:var(--accent);
   text-decoration:none;
-  font-size:1rem;
 }
 .link:hover{text-decoration:underline}
 
-/* ===== Footer ===== */
+/* Footer */
 .site-footer{
   text-align:center;
   padding:20px;
@@ -157,7 +156,7 @@ body{
   font-size:0.85rem;
 }
 
-/* ===== Responsive ===== */
+/* Responsive */
 @media(max-width:640px){
   .header-inner{
     flex-direction:column;
