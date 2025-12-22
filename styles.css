@@ -1,5 +1,6 @@
 :root{
   --bg:#0b0f12;
+  --surface:#0f1720;
   --text:#e6eef6;
   --muted:#9aa6b2;
   --accent:#2dd4bf;
@@ -15,14 +16,14 @@ body{
   color:var(--text);
 }
 
-/* ===== LAYOUT ===== */
+/* ===== Layout ===== */
 .container{
   max-width:var(--max-width);
   margin:auto;
   padding:32px 20px;
 }
 
-/* ===== HEADER ===== */
+/* ===== Header ===== */
 .site-header{
   position:sticky;
   top:0;
@@ -36,7 +37,7 @@ body{
   justify-content:space-between;
 }
 
-/* Logo + small avatar */
+/* Logo + name */
 .logo{
   display:flex;
   align-items:center;
@@ -53,13 +54,12 @@ body{
   border:1px solid rgba(255,255,255,0.2);
 }
 
-/* Name */
 .name{
   font-size:0.95rem;
   font-weight:700;
 }
 
-/* NAV */
+/* Navigation */
 .main-nav a{
   margin-left:16px;
   text-decoration:none;
@@ -68,7 +68,7 @@ body{
 }
 .main-nav a:hover{color:var(--text)}
 
-/* ===== HERO ===== */
+/* ===== Hero ===== */
 .hero h1{
   margin:0;
   font-size:2.2rem;
@@ -98,7 +98,12 @@ body{
   color:var(--accent);
 }
 
-/* ===== PORTFOLIO ===== */
+/* ===== Sections ===== */
+.section h2{
+  margin-bottom:16px;
+}
+
+/* ===== Portfolio ===== */
 .portfolio-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -109,7 +114,7 @@ body{
   border-radius:10px;
 }
 
-/* ===== SERVICES ===== */
+/* ===== Services ===== */
 .services{
   list-style:none;
   padding:0;
@@ -118,20 +123,35 @@ body{
   padding:6px 0;
 }
 
-/* ===== CONTACT ===== */
+/* ===== Contact ===== */
+#contact p{
+  margin-bottom:16px;
+  line-height:1.6;
+}
+
+#contact strong{
+  display:block;
+  margin-bottom:4px;
+  font-size:0.9rem;
+  color:var(--muted);
+}
+
 .link{
   color:var(--accent);
   text-decoration:none;
+  font-size:1rem;
 }
+.link:hover{text-decoration:underline}
 
-/* ===== FOOTER ===== */
+/* ===== Footer ===== */
 .site-footer{
   text-align:center;
   padding:20px;
   color:var(--muted);
+  font-size:0.85rem;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== Responsive ===== */
 @media(max-width:640px){
   .header-inner{
     flex-direction:column;
