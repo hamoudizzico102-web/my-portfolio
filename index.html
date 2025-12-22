@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohamed Moukaddem — Graphic Designer & Video Editor</title>
+  <title>Mohamed Moukaddem — Portfolio</title>
 
-  <!-- Google Font: Poppins Bold -->
+  <!-- Poppins Bold -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
@@ -15,130 +15,156 @@
 
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="site-header">
-    <div class="container header-inner">
-
-      <a href="#home" class="logo">
-        <img src="Untitled-1.png" alt="Mohamed Moukaddem" class="avatar">
-        <span class="name">Mohamed Moukaddem</span>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#home">
+        <img class="brand-avatar" src="Untitled-1.png" alt="Mohamed Moukaddem">
+        <span class="brand-name">Mohamed</span>
       </a>
 
-      <nav class="main-nav">
+      <nav class="nav">
         <a href="#design">Design</a>
         <a href="#editing">Editing</a>
-        <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </nav>
 
+      <div class="topbar-actions">
+        <a class="btn btn-ghost" href="#contact">Hire Me</a>
+      </div>
     </div>
   </header>
 
-  <!-- ===== MAIN ===== -->
-  <main>
+  <!-- Hero -->
+  <main id="home" class="page">
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
 
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="container">
-        <h1>Graphic Designer &amp; Video Editor</h1>
-        <p class="intro">
-          Focused on modern visuals, branding, and cinematic video content
-          for social media and digital platforms.
+      <div class="hero-content">
+        <div class="hero-kicker">Featured</div>
+        <h1 class="hero-title">Mohamed Moukaddem</h1>
+        <p class="hero-subtitle">Graphic Designer &amp; Video Editor</p>
+
+        <p class="hero-desc">
+          Modern visual identity, cinematic edits, and motion-ready content built for social platforms.
         </p>
 
-        <div class="hero-actions">
-          <a class="btn" href="#design">View Design</a>
-          <a class="btn btn-outline" href="#editing">View Editing</a>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#design">View Design</a>
+          <a class="btn btn-secondary" href="#editing">View Editing</a>
+        </div>
+
+        <div class="hero-meta">
+          <span class="pill">Branding</span>
+          <span class="pill">Posters</span>
+          <span class="pill">Reels</span>
+          <span class="pill">Motion</span>
         </div>
       </div>
     </section>
 
-    <!-- ===== DESIGN ===== -->
-    <section id="design" class="section">
-      <div class="container">
-        <h2>Design</h2>
+    <!-- Row: Design -->
+    <section id="design" class="row">
+      <div class="row-head">
+        <h2 class="row-title">Design</h2>
+        <a class="row-link" href="#contact">Contact →</a>
+      </div>
 
-        <div class="portfolio-grid">
-          <div class="work">
-            <img src="5.png" alt="Saudi National Day design">
-            <div class="work-caption">Saudi National Day</div>
+      <div class="rail">
+        <article class="card">
+          <img src="5.png" alt="Saudi National Day design">
+          <div class="card-overlay">
+            <div class="card-title">Saudi National Day</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="1.png" alt="Creative Visual Identity design">
+          <div class="card-overlay">
+            <div class="card-title">Creative Visual Identity</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="me.png" alt="Course Design">
+          <div class="card-overlay">
+            <div class="card-title">Course Design</div>
+          </div>
+        </article>
+
+        <!-- Extra placeholders if you want to add more later -->
+        <article class="card card-placeholder">
+          <div class="ph">Add more designs</div>
+        </article>
+        <article class="card card-placeholder">
+          <div class="ph">Add more designs</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Row: Editing -->
+    <section id="editing" class="row">
+      <div class="row-head">
+        <h2 class="row-title">Editing</h2>
+        <a class="row-link" href="#contact">Contact →</a>
+      </div>
+
+      <div class="rail">
+        <!-- Replace iframe src with your YouTube embed later -->
+        <article class="card card-video">
+          <div class="video-frame">
+            <div class="video-ph">Paste YouTube Embed Here</div>
+          </div>
+          <div class="card-overlay">
+            <div class="card-title">Cinematic Edit</div>
+          </div>
+        </article>
+
+        <article class="card card-video">
+          <div class="video-frame">
+            <div class="video-ph">Paste YouTube Embed Here</div>
+          </div>
+          <div class="card-overlay">
+            <div class="card-title">Social Reel</div>
+          </div>
+        </article>
+
+        <article class="card card-placeholder">
+          <div class="ph">Add editing projects</div>
+        </article>
+        <article class="card card-placeholder">
+          <div class="ph">Add editing projects</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="contact-inner">
+        <h2 class="contact-title">Contact</h2>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-label">Email</div>
+            <a class="contact-link" href="mailto:hamoudizzico102@outlook.com">hamoudizzico102@outlook.com</a>
           </div>
 
-          <div class="work">
-            <img src="1.png" alt="Creative Visual Identity design">
-            <div class="work-caption">Creative Visual Identity</div>
-          </div>
-
-          <div class="work">
-            <img src="me.png" alt="Course Design">
-            <div class="work-caption">Course Design</div>
+          <div class="contact-card">
+            <div class="contact-label">Phone</div>
+            <a class="contact-link" href="tel:+96170577697">+961 70577697</a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ===== EDITING ===== -->
-    <section id="editing" class="section">
-      <div class="container">
-        <h2>Editing</h2>
-
-        <div class="portfolio-grid">
-
-          <!-- Placeholder projects – replace later -->
-          <div class="work">
-            <img src="https://via.placeholder.com/800x450?text=Video+Edit+1" alt="Video Editing Project">
-            <div class="work-caption">Cinematic Video Edit</div>
-          </div>
-
-          <div class="work">
-            <img src="https://via.placeholder.com/800x450?text=Video+Edit+2" alt="Video Editing Project">
-            <div class="work-caption">Social Media Reel</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SERVICES ===== -->
-    <section id="services" class="section">
-      <div class="container">
-        <h2>Services</h2>
-        <ul class="services">
-          <li>Graphic Design</li>
-          <li>Video Editing</li>
-          <li>Branding</li>
-          <li>Motion Graphics</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-
-        <p>
-          <strong>Email:</strong><br>
-          <a class="link" href="mailto:hamoudizzico102@outlook.com">
-            hamoudizzico102@outlook.com
-          </a>
-        </p>
-
-        <p>
-          <strong>Phone:</strong><br>
-          <a class="link" href="tel:+96170577697">
-            +961 70577697
-          </a>
+        <p class="contact-note">
+          Tip: For video projects, share a YouTube “Unlisted” link and I’ll embed it here.
         </p>
       </div>
     </section>
 
+    <footer class="footer">
+      <p>© 2025 Mohamed Moukaddem</p>
+    </footer>
   </main>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <p>© 2025 Mohamed Moukaddem</p>
-  </footer>
 
 </body>
 </html>
