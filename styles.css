@@ -5,8 +5,8 @@
   --text:#eef2ff;
   --muted:rgba(238,242,255,0.72);
   --line:rgba(255,255,255,0.08);
-  --accent:#7c3aed;   /* purple */
-  --accent2:#22c55e;  /* green */
+  --accent:#7c3aed;
+  --accent2:#22c55e;
   --radius:18px;
   --shadow: 0 18px 60px rgba(0,0,0,0.55);
 }
@@ -21,6 +21,11 @@ body{
              radial-gradient(900px 520px at 70% 20%, rgba(34,197,94,0.18), transparent 60%),
              linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
   color:var(--text);
+}
+
+/* prevent background scroll when modal open */
+body.modal-open{
+  overflow:hidden;
 }
 
 /* Wrap */
@@ -283,6 +288,7 @@ body{
   gap:14px;
 }
 
+/* clickable card -> use button reset */
 .card{
   border-radius:var(--radius);
   overflow:hidden;
@@ -290,11 +296,27 @@ body{
   border:1px solid rgba(255,255,255,0.10);
   box-shadow: 0 16px 48px rgba(0,0,0,0.35);
   transition:transform .18s ease, box-shadow .18s ease;
+  cursor:pointer;
+}
+
+.card-click{
+  padding:0;
+  text-align:left;
+  display:block;
+  width:100%;
+  color:inherit;
+  border:1px solid rgba(255,255,255,0.10);
+  background:rgba(255,255,255,0.03);
+  outline:none;
 }
 
 .card:hover{
   transform:translateY(-4px);
   box-shadow: 0 22px 70px rgba(0,0,0,0.55);
+}
+
+.card:focus-visible{
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.35), 0 22px 70px rgba(0,0,0,0.55);
 }
 
 .card img{
@@ -313,6 +335,7 @@ body{
 .card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
 
 /* Video card placeholder */
+.video{cursor:default}
 .video .video-box{
   height:280px;
   background:rgba(0,0,0,0.35);
@@ -320,7 +343,6 @@ body{
   align-items:center;
   justify-content:center;
 }
-
 .video-placeholder{
   text-align:center;
   padding:14px;
@@ -329,7 +351,6 @@ body{
   background:rgba(255,255,255,0.04);
   color:rgba(255,255,255,0.86);
 }
-
 .big-play{
   width:52px;
   height:52px;
@@ -348,7 +369,6 @@ body{
   border-top:9px solid transparent;
   border-bottom:9px solid transparent;
 }
-
 .vp-title{font-size:0.9rem}
 .vp-sub{margin-top:4px; font-size:0.78rem; color:var(--muted)}
 
@@ -358,7 +378,6 @@ body{
   grid-template-columns:repeat(4, minmax(0,1fr));
   gap:12px;
 }
-
 .service{
   padding:14px;
   border-radius:16px;
@@ -375,30 +394,25 @@ body{
   border:1px solid rgba(255,255,255,0.10);
   background:rgba(255,255,255,0.04);
 }
-
 .contact-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
   margin-top:12px;
 }
-
 .contact-card{
   padding:14px;
   border-radius:16px;
   background:rgba(0,0,0,0.35);
   border:1px solid rgba(255,255,255,0.08);
 }
-
 .label{font-size:0.78rem; color:var(--muted); margin-bottom:6px}
-
 .contact-link{
   color:var(--text);
   text-decoration:none;
   font-size:0.95rem;
 }
 .contact-link:hover{opacity:0.85}
-
 .note{
   margin-top:12px;
   color:rgba(255,255,255,0.65);
@@ -410,6 +424,79 @@ body{
   padding:18px 0 26px;
   color:rgba(255,255,255,0.55);
   font-size:0.85rem;
+}
+
+/* ===== Lightbox Preview (Blur Background) ===== */
+.lightbox{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:999;
+}
+
+.lightbox.is-open{
+  display:block;
+}
+
+.lightbox-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+}
+
+.lightbox-panel{
+  position:relative;
+  max-width:min(980px, 92vw);
+  margin:72px auto 26px;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(10,12,16,0.75);
+  box-shadow: 0 30px 120px rgba(0,0,0,0.75);
+}
+
+.lightbox-close{
+  position:absolute;
+  top:10px;
+  right:12px;
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.16);
+  background:rgba(0,0,0,0.45);
+  color:rgba(255,255,255,0.92);
+  font-size:22px;
+  cursor:pointer;
+  line-height:1;
+}
+
+.lightbox-close:hover{
+  background:rgba(0,0,0,0.62);
+}
+
+.lightbox-media{
+  width:100%;
+  background:rgba(0,0,0,0.4);
+}
+
+.lightbox-media img{
+  width:100%;
+  height:auto;
+  display:block;
+  max-height:78vh;
+  object-fit:contain;
+}
+
+.lightbox-foot{
+  padding:12px 14px 16px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.35));
+}
+
+.lightbox-title{
+  font-size:0.95rem;
+  color:rgba(255,255,255,0.92);
 }
 
 /* Responsive */
@@ -425,4 +512,5 @@ body{
   .grid{grid-template-columns:1fr}
   .services{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
+  .lightbox-panel{margin:62px auto 18px}
 }
