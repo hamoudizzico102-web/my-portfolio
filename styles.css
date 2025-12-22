@@ -1,267 +1,115 @@
-:root{
-  --bg:#0b0f12;
-  --surface:#0f1720;
-  --text:#e6eef6;
-  --muted:#9aa6b2;
-  --accent:#2dd4bf; /* teal accent */
-  --radius:12px;
-  --max-width:1100px;
-}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohamed Moukaddem — Graphic Designer & Video Editor</title>
 
-*{box-sizing:border-box}
-html,body{height:100%}
+  <!-- Google Font: Poppins Bold -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
-body{
-  margin:0;
-  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-  font-weight:700;
-  background:linear-gradient(180deg,#06080a 0%, var(--bg) 100%);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.5;
-}
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-/* Utility container */
-.container{
-  width:calc(100% - 32px);
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:40px 0;
-}
+<body>
 
-/* Header */
-.site-header{
-  border-bottom:1px solid rgba(255,255,255,0.03);
-  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-  position:sticky;
-  top:0;
-  z-index:10;
-}
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
 
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-}
+      <a href="#home" class="logo">
+        <img
+          class="avatar"
+          src="IMG_20251201_031908_081.jpeg.jpg"
+          alt="Mohamed Moukaddem"
+        >
+        <div class="brand-text">
+          <span class="name">Mohamed Moukaddem</span>
+          <span class="role">Graphic Designer &amp; Video Editor</span>
+        </div>
+      </a>
 
-/* Brand (logo + avatar) */
-.brand .logo{
-  color:var(--text);
-  text-decoration:none;
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
+      <nav class="main-nav">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-.avatar{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  object-fit:cover;
-  border:1px solid rgba(255,255,255,0.15);
-  box-shadow:0 4px 12px rgba(0,0,0,0.4);
-  flex:0 0 auto;
-}
+    </div>
+  </header>
 
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1.1;
-}
+  <!-- ===== MAIN ===== -->
+  <main>
 
-.brand .name{
-  display:block;
-  font-weight:700;
-  font-size:0.95rem;
-}
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Mohamed Moukaddem</h1>
+        <h2 class="title">Graphic Designer &amp; Video Editor</h2>
+        <p class="intro">
+          Graphic Designer &amp; Video Editor focused on modern visuals, branding,
+          and cinematic video content for social media and digital platforms.
+        </p>
 
-.brand .role{
-  display:block;
-  font-size:0.75rem;
-  color:var(--muted);
-  font-weight:500;
-}
+        <div class="hero-actions">
+          <a class="btn" href="#portfolio">View Portfolio</a>
+          <a class="btn btn-outline" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
 
-/* Navigation */
-.main-nav a{
-  color:var(--muted);
-  margin-left:18px;
-  text-decoration:none;
-  font-weight:600;
-}
-.main-nav a:hover{color:var(--text)}
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <h2>Portfolio</h2>
 
-/* Hero */
-.hero{
-  padding-top:80px;
-  padding-bottom:80px;
-  text-align:left;
-}
+        <div class="portfolio-grid">
+          <div class="work">
+            <img src="https://via.placeholder.com/800x500?text=Project+1">
+            <h3>Project 1</h3>
+          </div>
+          <div class="work">
+            <img src="https://via.placeholder.com/800x500?text=Project+2">
+            <h3>Project 2</h3>
+          </div>
+          <div class="work">
+            <img src="https://via.placeholder.com/800x500?text=Project+3">
+            <h3>Project 3</h3>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.hero h1{
-  margin:0;
-  font-size:clamp(1.9rem, 4vw, 2.6rem);
-  letter-spacing:-0.01em;
-}
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2>Services</h2>
+        <ul class="services">
+          <li>Graphic Design</li>
+          <li>Video Editing</li>
+          <li>Branding</li>
+          <li>Motion Graphics</li>
+        </ul>
+      </div>
+    </section>
 
-.title{
-  margin-top:6px;
-  color:var(--muted);
-  font-weight:500;
-}
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>
+          <a class="link" href="mailto:contact@email.com">contact@email.com</a>
+        </p>
+      </div>
+    </section>
 
-.intro{
-  margin-top:16px;
-  color:var(--muted);
-  max-width:70ch;
-  font-weight:500;
-}
+  </main>
 
-.hero-actions{
-  margin-top:20px;
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
+  <footer class="site-footer">
+    <p>© 2025 Mohamed Moukaddem</p>
+  </footer>
 
-.btn{
-  background:linear-gradient(90deg,var(--accent),#34d399);
-  color:#042027;
-  padding:10px 18px;
-  border-radius:9px;
-  text-decoration:none;
-  font-weight:700;
-  box-shadow:0 6px 20px rgba(45,212,191,0.15);
-}
-
-.btn-outline{
-  background:transparent;
-  border:1px solid rgba(255,255,255,0.08);
-  color:var(--text);
-}
-
-/* Sections */
-.section{padding-top:28px; padding-bottom:28px}
-.section h2{
-  margin:0 0 8px 0;
-  font-size:1.6rem;
-}
-.muted{color:var(--muted); font-weight:500}
-.small{font-size:0.85rem}
-
-/* Portfolio grid */
-.portfolio-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:18px;
-  margin-top:18px;
-}
-
-.work{
-  background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));
-  border-radius:var(--radius);
-  overflow:hidden;
-  transition:transform .25s ease, box-shadow .25s ease;
-  box-shadow:0 6px 18px rgba(2,6,23,0.6);
-}
-
-.work img{
-  display:block;
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  background:#0b0f12;
-}
-
-.work-body{padding:14px}
-.work h3{
-  margin:0 0 6px 0;
-  font-size:1.1rem;
-}
-.work p{
-  margin:0;
-  color:var(--muted);
-  font-weight:500;
-}
-.work:hover{
-  transform:translateY(-6px);
-  box-shadow:0 12px 30px rgba(2,6,23,0.8);
-}
-
-/* Services */
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:16px;
-  margin-top:16px;
-}
-
-.service{
-  background:var(--surface);
-  padding:18px;
-  border-radius:12px;
-  text-align:left;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.03);
-}
-
-.service-icon{
-  font-size:1.7rem;
-  margin-bottom:8px;
-}
-
-.service h3{margin:0 0 6px 0}
-.service p{margin:0; font-weight:500}
-
-/* Contact */
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-  margin-top:12px;
-}
-
-.contact-card{
-  background:var(--surface);
-  padding:16px;
-  border-radius:12px;
-}
-
-.link{
-  color:var(--accent);
-  text-decoration:none;
-  font-weight:600;
-}
-.link:hover{text-decoration:underline}
-
-/* Footer */
-.site-footer{
-  border-top:1px solid rgba(255,255,255,0.03);
-  padding:18px 0;
-  margin-top:36px;
-}
-
-.footer-inner{
-  display:flex;
-  justify-content:center;
-}
-
-/* Responsive tweaks */
-@media (max-width:640px){
-  .contact-grid{grid-template-columns:1fr}
-  .header-inner{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:8px;
-  }
-  .main-nav a{margin-left:8px}
-  .hero{
-    padding-top:48px;
-    padding-bottom:48px;
-  }
-  .avatar{
-    width:34px;
-    height:34px;
-  }
-}
+</body>
+</html>
