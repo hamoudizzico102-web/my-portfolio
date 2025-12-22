@@ -154,7 +154,7 @@
       </div>
     </section>
 
-    <!-- Editing (FOLDER COVER) -->
+    <!-- Editing (Folder Cover) -->
     <section id="editing" class="section">
       <div class="wrap">
         <div class="section-head">
@@ -169,8 +169,8 @@
                   type="button"
                   data-open-folder="sebastien"
                   aria-label="Open folder: Sébastien Koubar">
-            <!-- IMPORTANT: Add the correct extension if needed (jpg/png) -->
-            <img src="WhatsApp Image 2025-12-22 at 7.49.39 PM" alt="Sébastien Koubar cover">
+            <!-- IMPORTANT: add extension if needed: .png or .jpg -->
+            <img src="sebastian koubar cover" alt="Sébastien Koubar cover">
             <div class="card-foot">
               <div class="card-title">Sébastien Koubar</div>
               <div class="card-meta">Long-form YouTube Videos</div>
@@ -398,7 +398,6 @@
       <div style="padding:14px;">
         <div class="grid" style="grid-template-columns:1fr 1fr; gap:14px;">
 
-          <!-- Video 1 -->
           <article class="card video" style="cursor:default;">
             <div class="video-box">
               <iframe
@@ -417,7 +416,6 @@
             </div>
           </article>
 
-          <!-- Video 2 -->
           <article class="card video" style="cursor:default;">
             <div class="video-box">
               <iframe
@@ -480,14 +478,14 @@
       fb.classList.remove('is-open');
       fb.setAttribute('aria-hidden','true');
       document.body.classList.remove('modal-open');
-      // Stop videos when closing: reset iframes
+      // Stop videos when closing
       fb.querySelectorAll('iframe').forEach(f => {
         const src = f.getAttribute('src');
         f.setAttribute('src', src);
       });
     }
 
-    // Click: any element with data-preview (design & client previews)
+    // Click: previews (design & client)
     document.querySelectorAll('[data-preview]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -507,17 +505,17 @@
       });
     });
 
-    // Close design lightbox
+    // Close design
     lb.addEventListener('click', (e) => {
       if (e.target && e.target.getAttribute('data-close') === '1') closeLightbox();
     });
 
-    // Close folder lightbox
+    // Close folder
     fb.addEventListener('click', (e) => {
       if (e.target && e.target.getAttribute('data-folder-close') === '1') closeFolder();
     });
 
-    // ESC to close (prioritize folder)
+    // ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         if (fb.classList.contains('is-open')) closeFolder();
