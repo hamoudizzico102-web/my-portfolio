@@ -1,563 +1,14 @@
-تمام — رجّعتلك الستايل “القديم” مع روح فخمة سوداء ولمسات زُرق غامقة متدرّجة، وحافظت على خط Poppins بوزنين Medium وBold. حطّ هالملفّين مكان index.html وstyles.css عندك.
-
-
----
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohamed Moukaddem — Portfolio</title>
-
-  <!-- Poppins Medium + Bold -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-
-  <!-- Top Bar -->
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="#home" aria-label="Go to top">
-        <img class="brand-avatar" src="Untitled-1.png" alt="Mohamed Moukaddem">
-        <div class="brand-text">
-          <span class="brand-name">Mohamed Moukaddem</span>
-          <span class="brand-role">Creative Video Editor • Graphic Designer</span>
-        </div>
-      </a>
-
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#design">Design</a>
-        <a href="#editing">Editing</a>
-        <a href="#client">Client Work</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a class="cta" href="#contact">Hire Me</a>
-    </div>
-  </header>
-
-  <main id="home">
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero-inner">
-
-        <div class="hero-copy">
-          <div class="badge">AVAILABLE FOR FREELANCE</div>
-          <h1 class="hero-title">Premium edits &amp; refined design with a luxury dark aesthetic.</h1>
-          <p class="hero-sub">
-            Cinematic long-form, snappy social cuts, and modern brand visuals —
-            built for conversion and retained watch time.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#editing">Explore Editing</a>
-            <a class="btn btn-ghost" href="#design">Explore Design</a>
-          </div>
-
-          <div class="hero-points">
-            <div class="point">
-              <div class="point-k">Story</div>
-              <div class="point-v">Pacing &amp; retention</div>
-            </div>
-            <div class="point">
-              <div class="point-k">Look</div>
-              <div class="point-v">Grade &amp; consistency</div>
-            </div>
-            <div class="point">
-              <div class="point-k">Speed</div>
-              <div class="point-v">Fast delivery</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-panel" aria-hidden="true">
-          <div class="panel-card">
-            <div class="panel-top">
-              <span class="panel-dot"></span>
-              <span class="panel-dot"></span>
-              <span class="panel-dot"></span>
-              <span class="panel-title">Preview Mode</span>
-            </div>
-            <div class="panel-body">
-              <div class="panel-thumb">
-                <div class="panel-play"></div>
-                <div class="panel-text">
-                  <div class="panel-h">Click any artwork</div>
-                  <div class="panel-p">Opens fullscreen with blurred backdrop.</div>
-                </div>
-              </div>
-
-              <div class="pill-row">
-                <span class="pill">Long-form</span>
-                <span class="pill">Shorts/Reels</span>
-                <span class="pill">Branding</span>
-                <span class="pill">Posters</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Deep blue “streaks” glow -->
-      <div class="hero-streaks" aria-hidden="true"></div>
-    </section>
-
-    <!-- DESIGN -->
-    <section id="design" class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Design</h2>
-          <p>Click any poster to preview.</p>
-        </div>
-
-        <div class="rail">
-          <button class="tile tile-click"
-                  type="button"
-                  data-preview="5.png"
-                  data-title="Saudi National Day"
-                  aria-label="Open preview: Saudi National Day">
-            <img src="5.png" alt="Saudi National Day design">
-            <div class="tile-meta">
-              <div class="tile-title">Saudi National Day</div>
-              <div class="tile-sub">Poster / Visual</div>
-            </div>
-          </button>
-
-          <button class="tile tile-click"
-                  type="button"
-                  data-preview="1.png"
-                  data-title="Creative Visual Identity"
-                  aria-label="Open preview: Creative Visual Identity">
-            <img src="1.png" alt="Creative Visual Identity design">
-            <div class="tile-meta">
-              <div class="tile-title">Creative Visual Identity</div>
-              <div class="tile-sub">Brand / Identity</div>
-            </div>
-          </button>
-
-          <button class="tile tile-click"
-                  type="button"
-                  data-preview="me.png"
-                  data-title="Course Design"
-                  aria-label="Open preview: Course Design">
-            <img src="me.png" alt="Course Design">
-            <div class="tile-meta">
-              <div class="tile-title">Course Design</div>
-              <div class="tile-sub">Course / Visual System</div>
-            </div>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDITING (Folder) -->
-    <section id="editing" class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Editing</h2>
-          <p>Open the creator folder to view the videos.</p>
-        </div>
-
-        <div class="rail">
-          <button class="tile folder-tile"
-                  type="button"
-                  data-open-folder="sebastien"
-                  aria-label="Open folder: Sébastien Koubar">
-            <img
-              src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj"
-              alt="Sébastien Koubar profile cover">
-            <div class="tile-meta">
-              <div class="tile-title">Sébastien Koubar</div>
-              <div class="tile-sub">Long-form YouTube Videos</div>
-            </div>
-            <span class="folder-chip">Folder</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- CLIENT WORK -->
-    <section id="client" class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Client Work</h2>
-          <p>Cover + posts (click to preview).</p>
-        </div>
-
-        <!-- Client: Intellident -->
-        <div class="client">
-          <button class="client-cover tile-click"
-                  type="button"
-                  data-preview="logo (2).png"
-                  data-title="Intellident Dental Clinic — Cover"
-                  aria-label="Open preview: Intellident Dental Clinic cover">
-            <img src="logo (2).png" alt="Intellident Dental Clinic cover">
-            <div class="client-overlay"></div>
-            <div class="client-info">
-              <div class="client-pill">CLIENT</div>
-              <div class="client-name">Intellident Dental Clinic</div>
-              <div class="client-sub">Design • Social Media</div>
-            </div>
-          </button>
-
-          <div class="rail rail-small">
-            <button class="tile tile-click"
-                    type="button"
-                    data-preview="caro 3-4.png"
-                    data-title="Clinic Brand Launch"
-                    aria-label="Open preview: Clinic Brand Launch">
-              <img src="caro 3-4.png" alt="Clinic Brand Launch">
-              <div class="tile-meta">
-                <div class="tile-title">Clinic Brand Launch</div>
-                <div class="tile-sub">Post</div>
-              </div>
-            </button>
-
-            <button class="tile tile-click"
-                    type="button"
-                    data-preview="MOTHER.png"
-                    data-title="Dental Awareness Campaign"
-                    aria-label="Open preview: Dental Awareness Campaign">
-              <img src="MOTHER.png" alt="Dental Awareness Campaign">
-              <div class="tile-meta">
-                <div class="tile-title">Dental Awareness Campaign</div>
-                <div class="tile-sub">Post</div>
-              </div>
-            </button>
-
-            <button class="tile tile-click"
-                    type="button"
-                    data-preview="post.png"
-                    data-title="Social Media Promo Post"
-                    aria-label="Open preview: Social Media Promo Post">
-              <img src="post.png" alt="Social Media Promo Post">
-              <div class="tile-meta">
-                <div class="tile-title">Social Media Promo</div>
-                <div class="tile-sub">Post</div>
-              </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Client: Oqunet -->
-        <div class="client" style="margin-top:26px;">
-          <button class="client-cover tile-click"
-                  type="button"
-                  data-preview="logo-01.png"
-                  data-title="Oqunet Software — Cover"
-                  aria-label="Open preview: Oqunet Software cover">
-            <img src="logo-01.png" alt="Oqunet Software cover">
-            <div class="client-overlay"></div>
-            <div class="client-info">
-              <div class="client-pill">CLIENT</div>
-              <div class="client-name">Oqunet Software</div>
-              <div class="client-sub">Design • Campaign • Social</div>
-            </div>
-          </button>
-
-          <div class="rail rail-small">
-            <button class="tile tile-click"
-                    type="button"
-                    data-preview="labor day.png"
-                    data-title="Labor Day Campaign"
-                    aria-label="Open preview: Labor Day Campaign">
-              <img src="labor day.png" alt="Labor Day Campaign">
-              <div class="tile-meta">
-                <div class="tile-title">Labor Day Campaign</div>
-                <div class="tile-sub">Post</div>
-              </div>
-            </button>
-
-            <button class="tile tile-click"
-                    type="button"
-                    data-preview="COVERLIE 5.png"
-                    data-title="Product Highlights — Slide 01"
-                    aria-label="Open preview: Product Highlights — Slide 01">
-              <img src="COVERLIE 5.png" alt="Product Highlights — Slide 01">
-              <div class="tile-meta">
-                <div class="tile-title">Highlights — Slide 01</div>
-                <div class="tile-sub">Slide</div>
-              </div>
-            </button>
-
-            <button class="tile tile-click"
-                    type="button"
-                    data-preview="COVERLIE 3.png"
-                    data-title="Product Highlights — Slide 02"
-                    aria-label="Open preview: Product Highlights — Slide 02">
-              <img src="COVERLIE 3.png" alt="Product Highlights — Slide 02">
-              <div class="tile-meta">
-                <div class="tile-title">Highlights — Slide 02</div>
-                <div class="tile-sub">Slide</div>
-              </div>
-            </button>
-
-            <button class="tile tile-click"
-                    type="button"
-                    data-preview="COVERLIEE.png"
-                    data-title="Brand Story — Key Visual"
-                    aria-label="Open preview: Brand Story — Key Visual">
-              <img src="COVERLIEE.png" alt="Brand Story — Key Visual">
-              <div class="tile-meta">
-                <div class="tile-title">Brand Story</div>
-                <div class="tile-sub">Post</div>
-              </div>
-            </button>
-
-            <button class="tile tile-click"
-                    type="button"
-                    data-preview="oqunet single.png"
-                    data-title="Single Post — Promo"
-                    aria-label="Open preview: Single Post — Promo">
-              <img src="oqunet single.png" alt="Single Post — Promo">
-              <div class="tile-meta">
-                <div class="tile-title">Single Promo</div>
-                <div class="tile-sub">Post</div>
-              </div>
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Services</h2>
-          <p>What I can do for you.</p>
-        </div>
-
-        <div class="cards">
-          <div class="svc">
-            <div class="svc-h">Video Editing</div>
-            <div class="svc-p">Long-form pacing, storytelling, clean cuts, retention.</div>
-          </div>
-          <div class="svc">
-            <div class="svc-h">Color Grading</div>
-            <div class="svc-p">Cinematic look, consistency, mood and contrast.</div>
-          </div>
-          <div class="svc">
-            <div class="svc-h">Motion Graphics</div>
-            <div class="svc-p">Intros, titles, lower-thirds, transitions.</div>
-          </div>
-          <div class="svc">
-            <div class="svc-h">Graphic Design</div>
-            <div class="svc-p">Posters, branding, social packs, key visuals.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="wrap contact">
-        <div class="section-head">
-          <h2>Contact</h2>
-          <p>Let’s work together.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-card">
-            <div class="label">Email</div>
-            <a class="contact-link" href="mailto:hamoudizzico102@outlook.com">hamoudizzico102@outlook.com</a>
-          </div>
-
-          <div class="contact-card">
-            <div class="label">Phone</div>
-            <a class="contact-link" href="tel:+96170577697">+961 70577697</a>
-          </div>
-        </div>
-
-        <div class="contact-note">Tip: For client work, you can send an unlisted YouTube link and I’ll embed it here.</div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="wrap">© 2025 Mohamed Moukaddem</div>
-    </footer>
-
-  </main>
-
-  <!-- ===== IMAGE MODAL ===== -->
-  <div class="modal" id="imgModal" aria-hidden="true">
-    <div class="modal-backdrop" data-img-close="1"></div>
-
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Preview">
-      <button class="modal-close" type="button" aria-label="Close preview" data-img-close="1">×</button>
-
-      <div class="modal-media">
-        <img id="modalImg" src="" alt="Preview">
-      </div>
-
-      <div class="modal-foot">
-        <div class="modal-title" id="modalTitle"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== FOLDER MODAL (VIDEOS) ===== -->
-  <div class="modal" id="folderModal" aria-hidden="true">
-    <div class="modal-backdrop" data-folder-close="1"></div>
-
-    <div class="modal-panel modal-panel-wide" role="dialog" aria-modal="true" aria-label="Folder videos">
-      <button class="modal-close" type="button" aria-label="Close folder" data-folder-close="1">×</button>
-
-      <div class="modal-foot">
-        <div class="modal-title">Sébastien Koubar</div>
-      </div>
-
-      <div class="folder-body">
-        <div class="folder-grid">
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe
-                src="https://www.youtube.com/embed/AzAXmB-KY5M"
-                title="How Booking manipulates you"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-            <div class="video-meta">
-              <div class="video-title">How Booking manipulates you</div>
-              <div class="video-sub">Long-form YouTube Video</div>
-            </div>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe
-                src="https://www.youtube.com/embed/ChGxyGwRdFE"
-                title="Ryanair: The dark truth behind €9 flights"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-            <div class="video-meta">
-              <div class="video-title">Ryanair: The dark truth behind €9 flights</div>
-              <div class="video-sub">Long-form YouTube Video</div>
-            </div>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe
-                src="https://www.youtube.com/embed/OYtj5BNpjeY"
-                title="The most absurd financial crash in history"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-            <div class="video-meta">
-              <div class="video-title">The most absurd financial crash in history</div>
-              <div class="video-sub">Long-form YouTube Video</div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <script>
-    function lock(){ document.body.classList.add('lock'); }
-    function unlock(){ document.body.classList.remove('lock'); }
-
-    // Image modal
-    const imgModal = document.getElementById('imgModal');
-    const modalImg = document.getElementById('modalImg');
-    const modalTitle = document.getElementById('modalTitle');
-
-    function openImg(src, title){
-      modalImg.src = src;
-      modalImg.alt = title ? (title + " preview") : "Preview";
-      modalTitle.textContent = title || "";
-      imgModal.classList.add('open');
-      imgModal.setAttribute('aria-hidden','false');
-      lock();
-    }
-    function closeImg(){
-      imgModal.classList.remove('open');
-      imgModal.setAttribute('aria-hidden','true');
-      unlock();
-      setTimeout(()=>{ modalImg.src=""; modalTitle.textContent=""; },120);
-    }
-
-    // Folder modal
-    const folderModal = document.getElementById('folderModal');
-    function openFolder(){
-      folderModal.classList.add('open');
-      folderModal.setAttribute('aria-hidden','false');
-      lock();
-    }
-    function closeFolder(){
-      folderModal.classList.remove('open');
-      folderModal.setAttribute('aria-hidden','true');
-      unlock();
-      // stop playback
-      folderModal.querySelectorAll('iframe').forEach(f=>{ const s=f.src; f.src=s; });
-    }
-
-    // Hooks
-    document.querySelectorAll('[data-preview]').forEach(el=>{
-      el.addEventListener('click', (e)=>{
-        e.preventDefault();
-        openImg(el.getAttribute('data-preview'), el.getAttribute('data-title')||"");
-      });
-    });
-    document.querySelectorAll('[data-open-folder="sebastien"]').forEach(el=>{
-      el.addEventListener('click', (e)=>{
-        e.preventDefault();
-        openFolder();
-      });
-    });
-
-    // Close on backdrop
-    imgModal.addEventListener('click', (e)=>{ if(e.target.getAttribute('data-img-close')==='1') closeImg(); });
-    folderModal.addEventListener('click', (e)=>{ if(e.target.getAttribute('data-folder-close')==='1') closeFolder(); });
-
-    // ESC
-    document.addEventListener('keydown', (e)=>{
-      if(e.key==='Escape'){
-        if(folderModal.classList.contains('open')) closeFolder();
-        else if(imgModal.classList.contains('open')) closeImg();
-      }
-    });
-  </script>
-
-</body>
-</html>
-
 :root{
-  /* Luxury black + deep blues */
-  --bg:#050608;
-  --bg2:#080b10;
-  --panel:#0a1018;
-  --tile:#0b121c;
-
-  --text:#e9eef9;
-  --muted:rgba(233,238,249,0.72);
+  --bg:#07080b;
+  --bg2:#0b0f14;
+  --card:#0d121a;
+  --text:#eef2ff;
+  --muted:rgba(238,242,255,0.72);
   --line:rgba(255,255,255,0.08);
-
-  /* Royal blue accents */
-  --blue:#0e5bdc;      /* primary */
-  --blue2:#0aa0ff;     /* gradient end */
-  --blueDim:#0a2a52;   /* deep backdrop tint */
-
-  --radius:16px;
-  --shadow: 0 18px 60px rgba(0,0,0,0.6);
+  --accent:#7c3aed;
+  --accent2:#22c55e;
+  --radius:18px;
+  --shadow: 0 18px 60px rgba(0,0,0,0.55);
 }
 
 *{box-sizing:border-box}
@@ -566,30 +17,34 @@ html,body{height:100%}
 body{
   margin:0;
   font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background:radial-gradient(900px 520px at 20% 10%, rgba(124,58,237,0.25), transparent 60%),
+             radial-gradient(900px 520px at 70% 20%, rgba(34,197,94,0.18), transparent 60%),
+             linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
   color:var(--text);
-  background:
-    radial-gradient(1000px 540px at 18% 6%, rgba(10,42,82,0.55), transparent 58%),
-    radial-gradient(900px 520px at 78% 16%, rgba(10,42,82,0.40), transparent 60%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
 }
-body.lock{ overflow:hidden; }
 
+/* prevent background scroll when modal open */
+body.modal-open{
+  overflow:hidden;
+}
+
+/* Wrap */
 .wrap{
-  max-width:1240px;
+  max-width:1180px;
   margin:0 auto;
   padding:0 18px;
 }
 
-/* Topbar */
+/* Header */
 .topbar{
   position:sticky;
   top:0;
   z-index:50;
-  background:
-    linear-gradient(180deg, rgba(5,8,12,0.92), rgba(5,8,12,0.55));
-  backdrop-filter: blur(12px);
+  background:linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.20));
+  backdrop-filter: blur(10px);
   border-bottom:1px solid var(--line);
 }
+
 .topbar-inner{
   display:flex;
   align-items:center;
@@ -605,77 +60,80 @@ body.lock{ overflow:hidden; }
   text-decoration:none;
   color:var(--text);
 }
+
 .brand-avatar{
-  width:32px;
-  height:32px;
+  width:30px;
+  height:30px;
   border-radius:50%;
   object-fit:cover;
-  border:1px solid rgba(255,255,255,0.18);
+  border:1px solid rgba(255,255,255,0.16);
 }
-.brand-text{display:flex; flex-direction:column; line-height:1.05}
-.brand-name{font-size:0.98rem; font-weight:700}
-.brand-role{font-size:0.72rem; color:var(--muted); font-weight:500}
 
-.nav{display:flex; gap:18px}
+.brand-text{display:flex; flex-direction:column; line-height:1.05}
+.brand-name{font-size:0.98rem}
+.brand-role{font-size:0.72rem; color:var(--muted)}
+
+.nav{
+  display:flex;
+  gap:18px;
+}
+
 .nav a{
   text-decoration:none;
   color:var(--muted);
   font-size:0.9rem;
-  font-weight:500;
 }
 .nav a:hover{color:var(--text)}
 
 .cta{
   text-decoration:none;
-  color:#03101b;
-  background:linear-gradient(90deg, var(--blue), var(--blue2));
+  color:var(--text);
+  background:linear-gradient(90deg, rgba(124,58,237,0.95), rgba(34,197,94,0.85));
   border:1px solid rgba(255,255,255,0.10);
   padding:10px 14px;
   border-radius:12px;
   box-shadow: 0 14px 40px rgba(0,0,0,0.45);
-  font-weight:700;
 }
 
 /* Hero */
 .hero{
   position:relative;
-  padding:58px 0 22px;
+  padding:62px 0 26px;
   overflow:hidden;
 }
+
 .hero-inner{
   display:grid;
-  grid-template-columns:1.2fr 0.8fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap:18px;
   align-items:stretch;
 }
 
-.badge{
+.tag{
   display:inline-block;
   font-size:0.78rem;
-  color:rgba(233,238,249,0.88);
+  color:rgba(255,255,255,0.82);
   padding:7px 10px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,0.14);
   background:rgba(255,255,255,0.06);
-  font-weight:500;
 }
 
-.hero-title{
+.headline{
   margin:14px 0 0;
   font-size:clamp(2.0rem, 4.8vw, 3.25rem);
   line-height:1.06;
   letter-spacing:-0.02em;
-  font-weight:700;
-}
-.hero-sub{
-  margin:14px 0 0;
-  color:var(--muted);
-  max-width:70ch;
-  font-size:0.95rem;
-  font-weight:500;
 }
 
-.hero-actions{
+.sub{
+  margin:14px 0 0;
+  color:var(--muted);
+  max-width:66ch;
+  font-size:0.95rem;
+}
+
+.actions{
   margin-top:18px;
   display:flex;
   gap:10px;
@@ -693,33 +151,35 @@ body.lock{ overflow:hidden; }
   font-weight:700;
   transition:transform .18s ease, opacity .18s ease;
 }
+
 .btn:hover{transform:translateY(-1px)}
-.btn-primary{
-  color:#03101b;
-  background:linear-gradient(90deg, var(--blue), var(--blue2));
+.primary{
+  color:#0b0f14;
+  background:linear-gradient(90deg, rgba(34,197,94,0.95), rgba(124,58,237,0.92));
 }
-.btn-ghost{
+.ghost{
   color:var(--text);
   background:rgba(255,255,255,0.06);
   border:1px solid rgba(255,255,255,0.14);
 }
 
-.hero-points{
+.stats{
   margin-top:18px;
   display:flex;
   gap:10px;
   flex-wrap:wrap;
 }
-.point{
+
+.stat{
   padding:12px 12px;
   border-radius:14px;
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.10);
 }
-.point-k{font-size:0.9rem; font-weight:700}
-.point-v{margin-top:4px; font-size:0.74rem; color:var(--muted); font-weight:500}
+.stat-num{font-size:0.95rem}
+.stat-label{font-size:0.74rem; color:var(--muted); margin-top:4px}
 
-.hero-panel .panel-card{
+.hero-right .hero-card{
   border-radius:var(--radius);
   background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
   border:1px solid rgba(255,255,255,0.10);
@@ -727,29 +187,23 @@ body.lock{ overflow:hidden; }
   overflow:hidden;
 }
 
-.panel-top{
+.hero-card-top{
   display:flex;
   align-items:center;
   gap:8px;
   padding:12px 12px;
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
-.panel-dot{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.18);
-}
-.panel-title{
-  margin-left:6px;
-  color:rgba(233,238,249,0.82);
-  font-size:0.82rem;
-  font-weight:500;
-}
 
-.panel-body{padding:14px 12px}
+.dot{width:9px; height:9px; border-radius:50%}
+.red{background:#ef4444}
+.yellow{background:#f59e0b}
+.green{background:#22c55e}
+.hero-card-title{margin-left:6px; color:rgba(255,255,255,0.82); font-size:0.82rem}
 
-.panel-thumb{
+.hero-card-body{padding:14px 12px}
+
+.preview{
   display:flex;
   align-items:center;
   gap:12px;
@@ -759,189 +213,314 @@ body.lock{ overflow:hidden; }
   border:1px solid rgba(255,255,255,0.08);
 }
 
-.panel-play{
+.play{
   width:38px;
   height:38px;
   border-radius:12px;
-  background:linear-gradient(135deg, var(--blue), var(--blue2));
+  background:linear-gradient(135deg, rgba(124,58,237,0.95), rgba(34,197,94,0.88));
   position:relative;
 }
-.panel-play:after{
+.play:after{
   content:"";
   position:absolute;
   left:15px;
   top:12px;
   width:0;height:0;
-  border-left:12px solid rgba(6,19,26,0.92);
+  border-left:12px solid rgba(11,15,20,0.9);
   border-top:7px solid transparent;
   border-bottom:7px solid transparent;
 }
 
-.panel-h{font-size:0.92rem; font-weight:700}
-.panel-p{font-size:0.78rem; color:var(--muted); margin-top:3px; font-weight:500}
+.preview-title{font-size:0.92rem}
+.preview-sub{font-size:0.78rem; color:var(--muted); margin-top:3px}
 
-.pill-row{
+.chips{
   margin-top:12px;
   display:flex;
   gap:8px;
   flex-wrap:wrap;
 }
-.pill{
+.chip{
   font-size:0.76rem;
-  color:rgba(233,238,249,0.85);
+  color:rgba(255,255,255,0.80);
   padding:7px 10px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,0.12);
   background:rgba(255,255,255,0.05);
-  font-weight:500;
 }
 
-/* deep blue streaks */
-.hero-streaks{
+.hero-glow{
   position:absolute;
-  inset:auto -25% -180px -25%;
-  height:260px;
-  background:
-    radial-gradient(520px 220px at 20% 40%, rgba(14,91,220,0.28), transparent 60%),
-    radial-gradient(520px 220px at 70% 30%, rgba(10,160,255,0.18), transparent 60%);
+  inset:auto -20% -180px -20%;
+  height:240px;
+  background:radial-gradient(520px 220px at 30% 30%, rgba(124,58,237,0.22), transparent 60%),
+             radial-gradient(520px 220px at 70% 30%, rgba(34,197,94,0.18), transparent 60%);
 }
 
 /* Sections */
-.section{ padding:26px 0; }
+.section{
+  padding:26px 0;
+}
 
 .section-head{
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
   gap:14px;
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
-.section-head h2{margin:0; font-size:1.25rem; font-weight:700}
-.section-head p{margin:0; color:var(--muted); font-size:0.88rem; font-weight:500}
 
-/* Rails (rows of tiles) */
-.rail{
+.section-head h2{
+  margin:0;
+  font-size:1.25rem;
+}
+
+.section-head p{
+  margin:0;
+  color:var(--muted);
+  font-size:0.88rem;
+}
+
+/* Grid Cards */
+.grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
   gap:14px;
 }
-.rail-small{
-  grid-template-columns:repeat(5, minmax(0, 1fr));
-}
 
-.tile{
-  position:relative;
+/* clickable card -> use button reset */
+.card{
   border-radius:var(--radius);
   overflow:hidden;
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  background:rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.10);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.35);
   transition:transform .18s ease, box-shadow .18s ease;
   cursor:pointer;
+}
+
+.card-click{
   padding:0;
   text-align:left;
-  color:inherit;
-}
-.tile:hover{
-  transform:translateY(-4px);
-  box-shadow: 0 22px 70px rgba(0,0,0,0.6);
-}
-.tile:focus-visible{
-  outline:none;
-  box-shadow: 0 0 0 3px rgba(14,91,220,0.35), 0 22px 70px rgba(0,0,0,0.6);
-}
-.tile img{
+  display:block;
   width:100%;
-  height:290px;
+  color:inherit;
+  border:1px solid rgba(255,255,255,0.10);
+  background:rgba(255,255,255,0.03);
+  outline:none;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow: 0 22px 70px rgba(0,0,0,0.55);
+}
+
+.card:focus-visible{
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.35), 0 22px 70px rgba(0,0,0,0.55);
+}
+
+.card img{
+  width:100%;
+  height:280px;
   object-fit:cover;
   display:block;
 }
-.tile-meta{
-  padding:12px 12px 14px;
-  background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.5));
-}
-.tile-title{font-size:0.95rem; font-weight:700}
-.tile-sub{margin-top:4px; font-size:0.78rem; color:var(--muted); font-weight:500}
 
-.folder-tile .folder-chip{
+.card-foot{
+  padding:12px 12px 14px;
+  background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.38));
+}
+
+.card-title{font-size:0.95rem}
+.card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
+
+/* Folder card with external YouTube link */
+.folder-card{
+  position:relative;
+}
+
+/* Ensure the folder button fills the card */
+.folder-cover{
+  width:100%;
+  display:block;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:inherit;
+  text-align:left;
+  cursor:pointer;
+}
+
+/* YouTube link button */
+.folder-yt{
   position:absolute;
   top:12px;
   right:12px;
-  font-size:0.72rem;
-  padding:6px 10px;
+  z-index:5;
+  text-decoration:none;
+  font-size:0.78rem;
+  padding:8px 10px;
   border-radius:999px;
-  background:rgba(10,16,24,0.7);
-  border:1px solid rgba(255,255,255,0.14);
-  color:rgba(233,238,249,0.92);
-  font-weight:700;
+  border:1px solid rgba(255,255,255,0.16);
+  background:rgba(0,0,0,0.45);
+  color:rgba(255,255,255,0.92);
 }
 
-/* Client blocks */
-.client{ margin-top:16px; }
+.folder-yt:hover{
+  background:rgba(0,0,0,0.62);
+}
+
+/* Client Work blocks */
+.client-block{
+  padding:0;
+}
+
 .client-cover{
   width:100%;
+  display:block;
+  padding:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  text-align:left;
   border-radius:22px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.10);
-  box-shadow: 0 22px 80px rgba(0,0,0,0.55);
-  background:transparent;
-  cursor:pointer;
-  padding:0;
-  text-align:left;
-  color:inherit;
+  box-shadow: 0 22px 80px rgba(0,0,0,0.45);
   position:relative;
 }
-.client-cover img{
+
+.client-cover-img{
   width:100%;
-  height:240px;
+  height:220px;
   object-fit:cover;
   display:block;
 }
-.client-overlay{
+
+.client-cover-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.7));
+  background:linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.65));
 }
-.client-info{
+
+.client-cover-text{
   position:absolute;
   left:14px;
   bottom:14px;
   z-index:2;
 }
+
 .client-pill{
   display:inline-block;
   font-size:0.72rem;
   padding:6px 10px;
   border-radius:999px;
-  background:rgba(10,16,24,0.7);
+  background:rgba(0,0,0,0.45);
   border:1px solid rgba(255,255,255,0.14);
-  color:rgba(233,238,249,0.92);
-  font-weight:700;
+  color:rgba(255,255,255,0.9);
 }
-.client-name{margin-top:10px; font-size:1.15rem; font-weight:700}
-.client-sub{margin-top:4px; font-size:0.84rem; color:rgba(233,238,249,0.72); font-weight:500}
 
-/* Services */
-.cards{
+.client-name{margin-top:10px; font-size:1.15rem}
+.client-sub{margin-top:4px; font-size:0.84rem; color:rgba(255,255,255,0.72)}
+
+.posts-slider{
+  margin-top:12px;
   display:grid;
-  grid-template-columns:repeat(4, minmax(0, 1fr));
+  grid-template-columns:repeat(3, minmax(0,1fr));
   gap:12px;
 }
-.svc{
+
+.post-card{
+  padding:0;
+  border:1px solid rgba(255,255,255,0.10);
+  background:rgba(255,255,255,0.03);
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  text-align:left;
+  color:inherit;
+}
+
+.post-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+}
+
+.post-caption{
+  padding:10px 12px;
+  font-size:0.82rem;
+  color:rgba(255,255,255,0.85);
+  background:rgba(0,0,0,0.25);
+}
+
+/* Video card placeholder */
+.video{cursor:default}
+.video .video-box{
+  height:280px;
+  background:rgba(0,0,0,0.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.video-box iframe{
+  width:100%;
+  height:280px;
+  border:0;
+  display:block;
+  background:rgba(0,0,0,0.25);
+}
+.video-placeholder{
+  text-align:center;
   padding:14px;
   border-radius:16px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.03));
+  border:1px dashed rgba(255,255,255,0.22);
+  background:rgba(255,255,255,0.04);
+  color:rgba(255,255,255,0.86);
+}
+.big-play{
+  width:52px;
+  height:52px;
+  margin:0 auto 10px;
+  border-radius:16px;
+  background:linear-gradient(135deg, rgba(124,58,237,0.95), rgba(34,197,94,0.88));
+  position:relative;
+}
+.big-play:after{
+  content:"";
+  position:absolute;
+  left:20px;
+  top:17px;
+  width:0;height:0;
+  border-left:16px solid rgba(11,15,20,0.9);
+  border-top:9px solid transparent;
+  border-bottom:9px solid transparent;
+}
+.vp-title{font-size:0.9rem}
+.vp-sub{margin-top:4px; font-size:0.78rem; color:var(--muted)}
+
+/* Services */
+.services{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:12px;
+}
+.service{
+  padding:14px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.10);
 }
-.svc-h{font-size:0.95rem; font-weight:700}
-.svc-p{margin-top:6px; font-size:0.78rem; color:var(--muted); font-weight:500}
+.service-title{font-size:0.95rem}
+.service-desc{margin-top:6px; font-size:0.78rem; color:var(--muted)}
 
 /* Contact */
-.contact{
+.contact-inner{
   border-radius:22px;
   padding:18px;
   border:1px solid rgba(255,255,255,0.10);
-  background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.03));
+  background:rgba(255,255,255,0.04);
 }
 .contact-grid{
   display:grid;
@@ -952,91 +531,69 @@ body.lock{ overflow:hidden; }
 .contact-card{
   padding:14px;
   border-radius:16px;
-  background:rgba(10,16,24,0.55);
+  background:rgba(0,0,0,0.35);
   border:1px solid rgba(255,255,255,0.08);
 }
-.label{font-size:0.78rem; color:var(--muted); margin-bottom:6px; font-weight:500}
+.label{font-size:0.78rem; color:var(--muted); margin-bottom:6px}
 .contact-link{
   color:var(--text);
   text-decoration:none;
   font-size:0.95rem;
-  font-weight:700;
 }
-.contact-link:hover{opacity:0.88}
-.contact-note{
+.contact-link:hover{opacity:0.85}
+.note{
   margin-top:12px;
-  color:rgba(233,238,249,0.65);
+  color:rgba(255,255,255,0.65);
   font-size:0.82rem;
-  font-weight:500;
 }
 
 /* Footer */
 .footer{
   padding:18px 0 26px;
-  color:rgba(233,238,249,0.55);
+  color:rgba(255,255,255,0.55);
   font-size:0.85rem;
-  font-weight:500;
 }
 
-/* Folder body / videos */
-.folder-body{ padding:14px; }
+/* Folder lightbox body layout */
+.folder-body{
+  padding:14px;
+}
 .folder-grid{
-  display:grid;
   grid-template-columns:1fr 1fr;
   gap:14px;
 }
-.video-card{
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.10);
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-  box-shadow: 0 16px 48px rgba(0,0,0,0.45);
-}
-.video-frame iframe{
-  width:100%;
-  height:280px;
-  border:0;
-  display:block;
-  background:rgba(0,0,0,0.25);
-}
-.video-meta{
-  padding:12px 12px 14px;
-  background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.5));
-}
-.video-title{font-size:0.95rem; font-weight:700}
-.video-sub{margin-top:4px; font-size:0.78rem; color:var(--muted); font-weight:500}
 
-/* Modals (blur) */
-.modal{
+/* ===== Lightbox Preview (Blur Background) ===== */
+.lightbox{
   position:fixed;
   inset:0;
   display:none;
   z-index:999;
 }
-.modal.open{ display:block; }
 
-.modal-backdrop{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.62);
-  backdrop-filter: blur(12px);
+.lightbox.is-open{
+  display:block;
 }
 
-.modal-panel{
+.lightbox-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+}
+
+.lightbox-panel{
   position:relative;
   max-width:min(980px, 92vw);
   margin:72px auto 26px;
   border-radius:22px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.12);
-  background:rgba(6,12,18,0.78);
-  box-shadow: 0 30px 120px rgba(0,0,0,0.78);
-}
-.modal-panel-wide{
-  max-width:min(1160px, 94vw);
+  background:rgba(10,12,16,0.75);
+  box-shadow: 0 30px 120px rgba(0,0,0,0.75);
 }
 
-.modal-close{
+.lightbox-close{
   position:absolute;
   top:10px;
   right:12px;
@@ -1044,17 +601,24 @@ body.lock{ overflow:hidden; }
   height:38px;
   border-radius:12px;
   border:1px solid rgba(255,255,255,0.16);
-  background:rgba(0,0,0,0.55);
-  color:rgba(233,238,249,0.92);
+  background:rgba(0,0,0,0.45);
+  color:rgba(255,255,255,0.92);
   font-size:22px;
   cursor:pointer;
   line-height:1;
   z-index:5;
 }
-.modal-close:hover{ background:rgba(0,0,0,0.70); }
 
-.modal-media{ width:100%; background:rgba(0,0,0,0.35); }
-.modal-media img{
+.lightbox-close:hover{
+  background:rgba(0,0,0,0.62);
+}
+
+.lightbox-media{
+  width:100%;
+  background:rgba(0,0,0,0.4);
+}
+
+.lightbox-media img{
   width:100%;
   height:auto;
   display:block;
@@ -1062,32 +626,32 @@ body.lock{ overflow:hidden; }
   object-fit:contain;
 }
 
-.modal-foot{
+.lightbox-foot{
   padding:12px 14px 16px;
   border-top:1px solid rgba(255,255,255,0.08);
-  background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.40));
+  background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.35));
 }
-.modal-title{
+
+.lightbox-title{
   font-size:0.95rem;
-  color:rgba(233,238,249,0.92);
-  font-weight:700;
+  color:rgba(255,255,255,0.92);
 }
 
 /* Responsive */
 @media (max-width:980px){
   .hero-inner{grid-template-columns:1fr}
-  .hero-panel{display:none}
-  .rail{grid-template-columns:1fr 1fr}
-  .rail-small{grid-template-columns:1fr 1fr}
-  .cards{grid-template-columns:1fr 1fr}
+  .hero-right{display:none}
+  .grid{grid-template-columns:1fr 1fr}
+  .services{grid-template-columns:1fr 1fr}
+  .posts-slider{grid-template-columns:1fr 1fr}
   .folder-grid{grid-template-columns:1fr}
 }
 
 @media (max-width:640px){
   .nav{display:none}
-  .rail{grid-template-columns:1fr}
-  .rail-small{grid-template-columns:1fr}
-  .cards{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
-  .modal-panel{margin:62px auto 18px}
+  .posts-slider{grid-template-columns:1fr}
+  .lightbox-panel{margin:62px auto 18px}
 }
