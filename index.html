@@ -104,32 +104,53 @@
       <div class="hero-glow" aria-hidden="true"></div>
     </section>
 
-    <!-- Design (SLIDESHOW every 2s + subtle dark blue glow, NOT cards) -->
+    <!-- Design -->
     <section id="design" class="section">
       <div class="wrap">
         <div class="section-head">
           <h2>Design</h2>
-          <p>Auto slideshow (every 2s). Click to preview fullscreen.</p>
+          <p>Click a project to preview.</p>
         </div>
 
-        <!-- Slideshow -->
-        <button
-          class="design-slideshow"
-          id="designSlideshow"
-          type="button"
-          data-preview="5.png"
-          data-title="Saudi National Day"
-          aria-label="Open preview: Design slideshow">
-          <div class="design-stage" aria-hidden="true">
-            <img id="designSlideImg" src="5.png" alt="Saudi National Day design">
-          </div>
+        <div class="grid">
 
-          <div class="design-caption">
-            <div class="design-title" id="designSlideTitle">Saudi National Day</div>
-            <div class="design-meta" id="designSlideMeta">Poster / Visual</div>
-          </div>
-        </button>
+          <button class="card card-click"
+                  type="button"
+                  data-preview="5.png"
+                  data-title="Saudi National Day"
+                  aria-label="Open preview: Saudi National Day">
+            <img src="5.png" alt="Saudi National Day design">
+            <div class="card-foot">
+              <div class="card-title">Saudi National Day</div>
+              <div class="card-meta">Poster / Visual</div>
+            </div>
+          </button>
 
+          <button class="card card-click"
+                  type="button"
+                  data-preview="1.png"
+                  data-title="Creative Visual Identity"
+                  aria-label="Open preview: Creative Visual Identity">
+            <img src="1.png" alt="Creative Visual Identity design">
+            <div class="card-foot">
+              <div class="card-title">Creative Visual Identity</div>
+              <div class="card-meta">Brand / Identity</div>
+            </div>
+          </button>
+
+          <button class="card card-click"
+                  type="button"
+                  data-preview="me.png"
+                  data-title="Course Design"
+                  aria-label="Open preview: Course Design">
+            <img src="me.png" alt="Course Design">
+            <div class="card-foot">
+              <div class="card-title">Course Design</div>
+              <div class="card-meta">Course / Visual System</div>
+            </div>
+          </button>
+
+        </div>
       </div>
     </section>
 
@@ -383,13 +404,16 @@
   <div class="lightbox" id="folderbox" aria-hidden="true">
     <div class="lightbox-backdrop" data-folder-close="1"></div>
 
+    <!-- IMPORTANT: added class folder-panel to control scroll -->
     <div class="lightbox-panel folder-panel" role="dialog" aria-modal="true" aria-label="Folder videos">
       <button class="lightbox-close" type="button" aria-label="Close folder" data-folder-close="1">×</button>
 
+      <!-- Sticky header -->
       <div class="lightbox-foot folder-head">
         <div class="lightbox-title">Sébastien Koubar</div>
       </div>
 
+      <!-- Scrollable area -->
       <div class="folder-scroll">
         <div class="folder-body">
           <div class="grid folder-grid">
@@ -655,6 +679,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -707,7 +732,7 @@
       });
     }
 
-    // Click: previews (client + anything with data-preview)
+    // Click: previews (design & client)
     document.querySelectorAll('[data-preview]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -744,47 +769,6 @@
         else if (lb.classList.contains('is-open')) closeLightbox();
       }
     });
-
-    // ===== Design Slideshow (every 2 seconds) =====
-    const designItems = [
-      { src: "5.png", title: "Saudi National Day", meta: "Poster / Visual" },
-      { src: "1.png", title: "Creative Visual Identity", meta: "Brand / Identity" },
-      { src: "me.png", title: "Course Design", meta: "Course / Visual System" }
-    ];
-
-    const designBtn = document.getElementById('designSlideshow');
-    const designImg = document.getElementById('designSlideImg');
-    const designTitle = document.getElementById('designSlideTitle');
-    const designMeta = document.getElementById('designSlideMeta');
-
-    let designIndex = 0;
-    function setDesignSlide(i){
-      const item = designItems[i];
-      // fade swap
-      designImg.classList.remove('is-in');
-      setTimeout(() => {
-        designImg.src = item.src;
-        designImg.alt = item.title + " design";
-        designTitle.textContent = item.title;
-        designMeta.textContent = item.meta;
-
-        // update preview data on the button so click opens the current slide
-        designBtn.setAttribute('data-preview', item.src);
-        designBtn.setAttribute('data-title', item.title);
-
-        // fade in
-        requestAnimationFrame(() => designImg.classList.add('is-in'));
-      }, 140);
-    }
-
-    // initial
-    designImg.classList.add('is-in');
-
-    // rotate
-    setInterval(() => {
-      designIndex = (designIndex + 1) % designItems.length;
-      setDesignSlide(designIndex);
-    }, 2000);
   </script>
 
 </body>
