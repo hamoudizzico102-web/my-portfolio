@@ -197,126 +197,44 @@
       </div>
     </section>
 
-    <!-- Client Work -->
+    <!-- Client Work (NOW AS FOLDERS) -->
     <section id="client" class="section">
       <div class="wrap">
         <div class="section-head">
           <h2>Client Work</h2>
-          <p>Brand covers + social posts (click to preview).</p>
+          <p>Open a client folder to view projects (scrollable).</p>
         </div>
 
-        <!-- Client 1: Intellident Dental Clinic -->
-        <div class="client-block">
+        <div class="grid">
 
-          <button class="client-cover card-click"
-                  type="button"
-                  data-preview="logo (2).png"
-                  data-title="Intellident Dental Clinic — Brand Cover"
-                  aria-label="Open preview: Intellident Dental Clinic cover">
-            <img class="client-cover-img" src="logo (2).png" alt="Intellident Dental Clinic cover">
-            <div class="client-cover-overlay"></div>
-
-            <div class="client-cover-text">
-              <div class="client-pill">CLIENT</div>
-              <div class="client-name">Intellident Dental Clinic</div>
-              <div class="client-sub">Design • Social Media</div>
-            </div>
-          </button>
-
-          <div class="posts-slider" aria-label="Intellident posts slider">
-            <button class="post-card card-click"
+          <!-- Client Folder 1 -->
+          <div class="card folder-card client-folder">
+            <button class="folder-cover card-click"
                     type="button"
-                    data-preview="caro 3-4.png"
-                    data-title="Clinic Brand Launch"
-                    aria-label="Open preview: Clinic Brand Launch">
-              <img src="caro 3-4.png" alt="Clinic Brand Launch">
-              <div class="post-caption">Clinic Brand Launch</div>
-            </button>
-
-            <button class="post-card card-click"
-                    type="button"
-                    data-preview="MOTHER.png"
-                    data-title="Dental Awareness Campaign"
-                    aria-label="Open preview: Dental Awareness Campaign">
-              <img src="MOTHER.png" alt="Dental Awareness Campaign">
-              <div class="post-caption">Dental Awareness Campaign</div>
-            </button>
-
-            <button class="post-card card-click"
-                    type="button"
-                    data-preview="post.png"
-                    data-title="Social Media Promo Post"
-                    aria-label="Open preview: Social Media Promo Post">
-              <img src="post.png" alt="Social Media Promo Post">
-              <div class="post-caption">Social Media Promo Post</div>
+                    data-open-folder="client-intellident"
+                    aria-label="Open folder: Intellident Dental Clinic">
+              <img src="logo (2).png" alt="Intellident Dental Clinic Logo">
+              <div class="card-foot">
+                <div class="card-title">Intellident Dental Clinic</div>
+                <div class="card-meta">Design • Social Media</div>
+              </div>
             </button>
           </div>
-        </div>
 
-        <!-- Client 2: Oqunet Software -->
-        <div class="client-block" style="margin-top:26px;">
-
-          <button class="client-cover card-click"
-                  type="button"
-                  data-preview="logo-01.png"
-                  data-title="Oqunet Software — Brand Cover"
-                  aria-label="Open preview: Oqunet Software cover">
-            <img class="client-cover-img" src="logo-01.png" alt="Oqunet Software cover">
-            <div class="client-cover-overlay"></div>
-
-            <div class="client-cover-text">
-              <div class="client-pill">CLIENT</div>
-              <div class="client-name">Oqunet Software</div>
-              <div class="client-sub">Design • Campaign • Social Media</div>
-            </div>
-          </button>
-
-          <div class="posts-slider" aria-label="Oqunet posts slider">
-            <button class="post-card card-click"
+          <!-- Client Folder 2 -->
+          <div class="card folder-card client-folder">
+            <button class="folder-cover card-click"
                     type="button"
-                    data-preview="labor day.png"
-                    data-title="Labor Day Campaign"
-                    aria-label="Open preview: Labor Day Campaign">
-              <img src="labor day.png" alt="Labor Day Campaign">
-              <div class="post-caption">Labor Day Campaign</div>
-            </button>
-
-            <button class="post-card card-click"
-                    type="button"
-                    data-preview="COVERLIE 5.png"
-                    data-title="Product Highlights — Slide 01"
-                    aria-label="Open preview: Product Highlights — Slide 01">
-              <img src="COVERLIE 5.png" alt="Product Highlights — Slide 01">
-              <div class="post-caption">Product Highlights — Slide 01</div>
-            </button>
-
-            <button class="post-card card-click"
-                    type="button"
-                    data-preview="COVERLIE 3.png"
-                    data-title="Product Highlights — Slide 02"
-                    aria-label="Open preview: Product Highlights — Slide 02">
-              <img src="COVERLIE 3.png" alt="Product Highlights — Slide 02">
-              <div class="post-caption">Product Highlights — Slide 02</div>
-            </button>
-
-            <button class="post-card card-click"
-                    type="button"
-                    data-preview="COVERLIEE.png"
-                    data-title="Brand Story — Key Visual"
-                    aria-label="Open preview: Brand Story — Key Visual">
-              <img src="COVERLIEE.png" alt="Brand Story — Key Visual">
-              <div class="post-caption">Brand Story — Key Visual</div>
-            </button>
-
-            <button class="post-card card-click"
-                    type="button"
-                    data-preview="oqunet single.png"
-                    data-title="Single Post — Promo"
-                    aria-label="Open preview: Single Post — Promo">
-              <img src="oqunet single.png" alt="Single Post — Promo">
-              <div class="post-caption">Single Post — Promo</div>
+                    data-open-folder="client-oqunet"
+                    aria-label="Open folder: Oqunet Software">
+              <img src="logo-01.png" alt="Oqunet Software Logo">
+              <div class="card-foot">
+                <div class="card-title">Oqunet Software</div>
+                <div class="card-meta">Design • Campaign • Social Media</div>
+              </div>
             </button>
           </div>
+
         </div>
 
       </div>
@@ -383,7 +301,7 @@
 
   </main>
 
-  <!-- ===== Lightbox (Design/Client Preview) ===== -->
+  <!-- ===== Lightbox (Design Preview) ===== -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-backdrop" data-close="1"></div>
 
@@ -400,376 +318,413 @@
     </div>
   </div>
 
-  <!-- ===== Folder Lightbox (Videos) ===== -->
+  <!-- ===== Folder Lightbox (Videos + Client Folders) ===== -->
   <div class="lightbox" id="folderbox" aria-hidden="true">
     <div class="lightbox-backdrop" data-folder-close="1"></div>
 
-    <!-- IMPORTANT: added class folder-panel to control scroll -->
-    <div class="lightbox-panel folder-panel" role="dialog" aria-modal="true" aria-label="Folder videos">
+    <div class="lightbox-panel folder-panel" role="dialog" aria-modal="true" aria-label="Folder content">
       <button class="lightbox-close" type="button" aria-label="Close folder" data-folder-close="1">×</button>
 
       <!-- Sticky header -->
       <div class="lightbox-foot folder-head">
-        <div class="lightbox-title">Sébastien Koubar</div>
+        <div class="lightbox-title" id="folderTitle">Folder</div>
       </div>
 
       <!-- Scrollable area -->
       <div class="folder-scroll">
         <div class="folder-body">
-          <div class="grid folder-grid">
-
-            <!-- Existing 2 videos -->
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/AzAXmB-KY5M"
-                  title="How Booking manipulates you"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">How Booking manipulates you</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/ChGxyGwRdFE"
-                  title="Ryanair: The dark truth behind €9 flights"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">Ryanair: The dark truth behind €9 flights</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <!-- Previous added 7 videos -->
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307"
-                  title="Why is the new owner of Club Med worried?"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">Why is the new owner of Club Med worried?</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502"
-                  title="The most absurd financial crash in history"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">The most absurd financial crash in history</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/SNmD--JxL9k"
-                  title="The fall of Groupon: the site that almost killed advertising"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">The fall of Groupon: the site that almost killed advertising</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/kKaPwbr9HDY?start=240"
-                  title="The fall of Wish: the site that lost everything"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">The fall of Wish: the site that lost everything</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/6bEAqazXi6o?start=2"
-                  title="The Boat war: how China is encircling the West"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">The Boat war: how China is encircling the West</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/quGLWi_C2RE?start=300"
-                  title="Why everyone is (secretly) fighting for the sand"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">Why everyone is (secretly) fighting for the sand</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/KVbUAiagfFQ?start=64"
-                  title="Le (vrai) business de la F1"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">Le (vrai) business de la F1</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <!-- NEW added 8 videos -->
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/jAARKmDX8ks?start=97"
-                  title="The brutal fall of GoPro"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">The brutal fall of GoPro</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/41ZofgY-PyY?start=1"
-                  title="The stupid mistake that killed HTC"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">The stupid mistake that killed HTC</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/ous2-sCWMWU?start=186"
-                  title="The lie that cost Ubisoft a lot"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">The lie that cost Ubisoft a lot</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/DqyomfbWu4A?start=45"
-                  title="The $11 billion mistake that destroyed Toys 'R' Us"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">The $11 billion mistake that destroyed Toys 'R' Us</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/a9mvgDKxnTQ?start=39"
-                  title="Why Apple is about to betray 1.4 billion customers"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">Why Apple is about to betray 1.4 billion customers</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/1g8ozutYC1s?start=75"
-                  title="How did McKinsey buy France?"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">How did McKinsey buy France?</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/J2AIq5G4qzk?start=12"
-                  title="How Amazon prints money (ad infinitum)"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">How Amazon prints money (ad infinitum)</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-            <article class="card video" style="cursor:default;">
-              <div class="video-box">
-                <iframe width="100%" height="280"
-                  src="https://www.youtube.com/embed/NYKqIV2CT7w"
-                  title="The sudden fall of Spotify"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="card-foot">
-                <div class="card-title">The sudden fall of Spotify</div>
-                <div class="card-meta">Long-form YouTube Video</div>
-              </div>
-            </article>
-
-          </div>
+          <div class="grid folder-grid" id="folderContent"></div>
         </div>
       </div>
-
     </div>
   </div>
 
-  <script>
-    // prevent background scroll when modal open
-    function lock(){ document.body.classList.add('modal-open'); }
-    function unlock(){ document.body.classList.remove('modal-open'); }
+  <!-- ===== Templates (Folder Contents) ===== -->
 
-    // ===== Design/Client Lightbox =====
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
-    const lbTitle = document.getElementById('lightboxTitle');
+  <!-- Editing Folder Template -->
+  <template id="tpl-sebastien">
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/AzAXmB-KY5M"
+          title="How Booking manipulates you"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">How Booking manipulates you</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
 
-    function openLightbox(src, title){
-      lbImg.src = src;
-      lbImg.alt = title ? (title + " preview") : "Preview";
-      lbTitle.textContent = title || "";
-      lb.classList.add('is-open');
-      lb.setAttribute('aria-hidden', 'false');
-      lock();
-    }
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/ChGxyGwRdFE"
+          title="Ryanair: The dark truth behind €9 flights"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">Ryanair: The dark truth behind €9 flights</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
 
-    function closeLightbox(){
-      lb.classList.remove('is-open');
-      lb.setAttribute('aria-hidden', 'true');
-      unlock();
-      setTimeout(() => {
-        lbImg.src = "";
-        lbTitle.textContent = "";
-      }, 150);
-    }
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307"
+          title="Why is the new owner of Club Med worried?"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">Why is the new owner of Club Med worried?</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
 
-    // ===== Folder Lightbox =====
-    const fb = document.getElementById('folderbox');
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502"
+          title="The most absurd financial crash in history"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">The most absurd financial crash in history</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
 
-    function openFolder(){
-      fb.classList.add('is-open');
-      fb.setAttribute('aria-hidden','false');
-      lock();
-    }
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/SNmD--JxL9k"
+          title="The fall of Groupon: the site that almost killed advertising"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">The fall of Groupon: the site that almost killed advertising</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
 
-    function closeFolder(){
-      fb.classList.remove('is-open');
-      fb.setAttribute('aria-hidden','true');
-      unlock();
-      // stop videos on close (reset iframes)
-      fb.querySelectorAll('iframe').forEach(f => {
-        const src = f.getAttribute('src');
-        f.setAttribute('src', src);
-      });
-    }
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/kKaPwbr9HDY?start=240"
+          title="The fall of Wish: the site that lost everything"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">The fall of Wish: the site that lost everything</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
 
-    // Click: previews (design & client)
-    document.querySelectorAll('[data-preview]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const src = btn.getAttribute('data-preview');
-        const title = btn.getAttribute('data-title') || "";
-        openLightbox(src, title);
-      });
-    });
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/6bEAqazXi6o?start=2"
+          title="The Boat war: how China is encircling the West"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">The Boat war: how China is encircling the West</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
 
-    // Click: folder cover
-    document.querySelectorAll('[data-open-folder="sebastien"]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        openFolder();
-      });
-    });
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/quGLWi_C2RE?start=300"
+          title="Why everyone is (secretly) fighting for the sand"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">Why everyone is (secretly) fighting for the sand</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
 
-    // Close design lightbox
-    lb.addEventListener('click', (e) => {
-      if (e.target && e.target.getAttribute('data-close') === '1') closeLightbox();
-    });
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/KVbUAiagfFQ?start=64"
+          title="Le (vrai) business de la F1"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">Le (vrai) business de la F1</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
 
-    // Close folder lightbox
-    fb.addEventListener('click', (e) => {
-      if (e.target && e.target.getAttribute('data-folder-close') === '1') closeFolder();
-    });
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/jAARKmDX8ks?start=97"
+          title="The brutal fall of GoPro"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">The brutal fall of GoPro</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
 
-    // ESC to close
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        if (fb.classList.contains('is-open')) closeFolder();
-        else if (lb.classList.contains('is-open')) closeLightbox();
-      }
-    });
-  </script>
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/41ZofgY-PyY?start=1"
+          title="The stupid mistake that killed HTC"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">The stupid mistake that killed HTC</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
 
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/ous2-sCWMWU?start=186"
+          title="The lie that cost Ubisoft a lot"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">The lie that cost Ubisoft a lot</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
+
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/DqyomfbWu4A?start=45"
+          title="The $11 billion mistake that destroyed Toys 'R' Us"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">The $11 billion mistake that destroyed Toys 'R' Us</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
+
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/a9mvgDKxnTQ?start=39"
+          title="Why Apple is about to betray 1.4 billion customers"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">Why Apple is about to betray 1.4 billion customers</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
+
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/1g8ozutYC1s?start=75"
+          title="How did McKinsey buy France?"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">How did McKinsey buy France?</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
+
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/J2AIq5G4qzk?start=12"
+          title="How Amazon prints money (ad infinitum)"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">How Amazon prints money (ad infinitum)</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
+
+    <article class="card video" style="cursor:default;">
+      <div class="video-box">
+        <iframe width="100%" height="280"
+          src="https://www.youtube.com/embed/NYKqIV2CT7w"
+          title="The sudden fall of Spotify"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-foot">
+        <div class="card-title">The sudden fall of Spotify</div>
+        <div class="card-meta">Long-form YouTube Video</div>
+      </div>
+    </article>
+  </template>
+
+  <!-- Client Folder: Intellident -->
+  <template id="tpl-client-intellident">
+    <button class="card card-click"
+            type="button"
+            data-preview="logo (2).png"
+            data-title="Intellident Dental Clinic — Brand Cover"
+            aria-label="Open preview: Intellident cover">
+      <img src="logo (2).png" alt="Intellident Dental Clinic cover">
+      <div class="card-foot">
+        <div class="card-title">Brand Cover</div>
+        <div class="card-meta">Cover / Identity</div>
+      </div>
+    </button>
+
+    <button class="card card-click"
+            type="button"
+            data-preview="caro 3-4.png"
+            data-title="Clinic Brand Launch"
+            aria-label="Open preview: Clinic Brand Launch">
+      <img src="caro 3-4.png" alt="Clinic Brand Launch">
+      <div class="card-foot">
+        <div class="card-title">Clinic Brand Launch</div>
+        <div class="card-meta">Social Post</div>
+      </div>
+    </button>
+
+    <button class="card card-click"
+            type="button"
+            data-preview="MOTHER.png"
+            data-title="Dental Awareness Campaign"
+            aria-label="Open preview: Dental Awareness Campaign">
+      <img src="MOTHER.png" alt="Dental Awareness Campaign">
+      <div class="card-foot">
+        <div class="card-title">Dental Awareness</div>
+        <div class="card-meta">Campaign</div>
+      </div>
+    </button>
+
+    <button class="card card-click"
+            type="button"
+            data-preview="post.png"
+            data-title="Social Media Promo Post"
+            aria-label="Open preview: Social Media Promo Post">
+      <img src="post.png" alt="Social Media Promo Post">
+      <div class="card-foot">
+        <div class="card-title">Promo Post</div>
+        <div class="card-meta">Social Media</div>
+      </div>
+    </button>
+  </template>
+
+  <!-- Client Folder: Oqunet -->
+  <template id="tpl-client-oqunet">
+    <button class="card card-click"
+            type="button"
+            data-preview="logo-01.png"
+            data-title="Oqunet Software — Brand Cover"
+            aria-label="Open preview: Oqunet cover">
+      <img src="logo-01.png" alt="Oqunet Software cover">
+      <div class="card-foot">
+        <div class="card-title">Brand Cover</div>
+        <div class="card-meta">Cover / Identity</div>
+      </div>
+    </button>
+
+    <button class="card card-click"
+            type="button"
+            data-preview="labor day.png"
+            data-title="Labor Day Campaign"
+            aria-label="Open preview: Labor Day Campaign">
+      <img src="labor day.png" alt="Labor Day Campaign">
+      <div class="card-foot">
+        <div class="card-title">Labor Day</div>
+        <div class="card-meta">Campaign</div>
+      </div>
+    </button>
+
+    <button class="card card-click"
+            type="button"
+            data-preview="COVERLIE 5.png"
+            data-title="Product Highlights — Slide 01"
+            aria-label="Open preview: Product Highlights — Slide 01">
+      <img src="COVERLIE 5.png" alt="Product Highlights — Slide 01">
+      <div class="card-foot">
+        <div class="card-title">Highlights</div>
+        <div class="card-meta">Carousel</div>
+      </div>
+    </button>
+
+    <button class="card card-click"
+            type="button"
+            data-preview="COVERLIE 3.png"
+            data-title="Product Highlights — Slide 02"
+            aria-label="Open preview: Product Highlights — Slide 02">
+      <img src="COVERLIE 3.png" alt="Product Highlights — Slide 02">
+      <div class="card-foot">
+        <div class="card-title">Highlights</div>
+        <div class="card-meta">Carousel</div>
+      </div>
+    </button>
+
+    <button class="card card-click"
+            type="button"
+            data-preview="COVERLIEE.png"
+            data-title="Brand Story — Key Visual"
+            aria-label="Open preview: Brand Story — Key Visual">
+      <img src="COVERLIEE.png" alt="Brand Story — Key Visual">
+      <div class="card-foot">
+        <div class="card-title">Brand Story</div>
+        <div class="card-meta">Key Visual</div>
+      </div>
+    </button>
+
+    <button class="card card-click"
+            type="button"
+            data-preview="oqunet single.png"
+            data-title="Single Post — Promo"
+            aria-label="Open preview: Single Post — Promo">
+      <img src="oqunet single.png" alt="Single Post — Promo">
+      <div class="card-foot">
+        <div class="card-title">Single Post</div>
+        <div class="card-meta">Promo</div>
+      </div>
+    </button>
+  </template>
+
+  <script src="script.js"></script>
 </body>
 </html>
