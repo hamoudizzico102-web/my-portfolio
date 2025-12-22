@@ -164,18 +164,34 @@
 
         <div class="grid">
 
-          <!-- Folder / Cover -->
-          <button class="card card-click"
-                  type="button"
-                  data-open-folder="sebastien"
-                  aria-label="Open folder: Sébastien Koubar">
-            <!-- IMPORTANT: add extension if needed: .png or .jpg -->
-            <img src="sebastian koubar cover" alt="Sébastien Koubar cover">
-            <div class="card-foot">
-              <div class="card-title">Sébastien Koubar</div>
-              <div class="card-meta">Long-form YouTube Videos</div>
-            </div>
-          </button>
+          <!-- Folder / Cover (YouTube profile image as cover + YouTube link button) -->
+          <div class="card folder-card">
+
+            <button class="folder-cover card-click"
+                    type="button"
+                    data-open-folder="sebastien"
+                    aria-label="Open folder: Sébastien Koubar">
+
+              <img
+                src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj"
+                alt="Sébastien Koubar YouTube Profile">
+
+              <div class="card-foot">
+                <div class="card-title">Sébastien Koubar</div>
+                <div class="card-meta">Long-form YouTube Videos</div>
+              </div>
+
+            </button>
+
+            <a class="folder-yt"
+               href="https://www.youtube.com/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Open YouTube channel">
+              YouTube
+            </a>
+
+          </div>
 
         </div>
       </div>
@@ -367,7 +383,7 @@
 
   </main>
 
-  <!-- ===== Lightbox (Design Preview) ===== -->
+  <!-- ===== Lightbox (Design/Client Preview) ===== -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-backdrop" data-close="1"></div>
 
@@ -395,8 +411,8 @@
         <div class="lightbox-title">Sébastien Koubar</div>
       </div>
 
-      <div style="padding:14px;">
-        <div class="grid" style="grid-template-columns:1fr 1fr; gap:14px;">
+      <div class="folder-body">
+        <div class="grid folder-grid">
 
           <article class="card video" style="cursor:default;">
             <div class="video-box">
@@ -441,7 +457,11 @@
   </div>
 
   <script>
-    // ===== Design Lightbox =====
+    // prevent background scroll when modal open
+    function lock(){ document.body.classList.add('modal-open'); }
+    function unlock(){ document.body.classList.remove('modal-open'); }
+
+    // ===== Design/Client Lightbox =====
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightboxImg');
     const lbTitle = document.getElementById('lightboxTitle');
@@ -452,13 +472,13 @@
       lbTitle.textContent = title || "";
       lb.classList.add('is-open');
       lb.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('modal-open');
+      lock();
     }
 
     function closeLightbox(){
       lb.classList.remove('is-open');
       lb.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('modal-open');
+      unlock();
       setTimeout(() => {
         lbImg.src = "";
         lbTitle.textContent = "";
@@ -471,14 +491,14 @@
     function openFolder(){
       fb.classList.add('is-open');
       fb.setAttribute('aria-hidden','false');
-      document.body.classList.add('modal-open');
+      lock();
     }
 
     function closeFolder(){
       fb.classList.remove('is-open');
       fb.setAttribute('aria-hidden','true');
-      document.body.classList.remove('modal-open');
-      // Stop videos when closing
+      unlock();
+      // stop videos on close (reset iframes)
       fb.querySelectorAll('iframe').forEach(f => {
         const src = f.getAttribute('src');
         f.setAttribute('src', src);
@@ -505,17 +525,17 @@
       });
     });
 
-    // Close design
+    // Close design lightbox
     lb.addEventListener('click', (e) => {
       if (e.target && e.target.getAttribute('data-close') === '1') closeLightbox();
     });
 
-    // Close folder
+    // Close folder lightbox
     fb.addEventListener('click', (e) => {
       if (e.target && e.target.getAttribute('data-folder-close') === '1') closeFolder();
     });
 
-    // ESC
+    // ESC to close
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         if (fb.classList.contains('is-open')) closeFolder();
