@@ -10,9 +10,10 @@
   --radius:18px;
   --shadow: 0 18px 60px rgba(0,0,0,0.55);
 
-  /* NEW: subtle dark-blue glow for Design slideshow */
-  --designGlow: rgba(41, 98, 255, 0.18);
-  --designGlow2: rgba(41, 98, 255, 0.10);
+  /* NEW: blue highlight for Design click */
+  --blue:#3b82f6;
+  --blueGlow: rgba(59,130,246,0.45);
+  --blueGlow2: rgba(59,130,246,0.22);
 }
 
 *{box-sizing:border-box}
@@ -28,7 +29,9 @@ body{
 }
 
 /* prevent background scroll when modal open */
-body.modal-open{ overflow:hidden; }
+body.modal-open{
+  overflow:hidden;
+}
 
 /* Wrap */
 .wrap{
@@ -75,7 +78,11 @@ body.modal-open{ overflow:hidden; }
 .brand-name{font-size:0.98rem}
 .brand-role{font-size:0.72rem; color:var(--muted)}
 
-.nav{display:flex; gap:18px}
+.nav{
+  display:flex;
+  gap:18px;
+}
+
 .nav a{
   text-decoration:none;
   color:var(--muted);
@@ -149,6 +156,7 @@ body.modal-open{ overflow:hidden; }
   font-weight:700;
   transition:transform .18s ease, opacity .18s ease;
 }
+
 .btn:hover{transform:translateY(-1px)}
 .primary{
   color:#0b0f14;
@@ -255,7 +263,9 @@ body.modal-open{ overflow:hidden; }
 }
 
 /* Sections */
-.section{ padding:26px 0; }
+.section{
+  padding:26px 0;
+}
 
 .section-head{
   display:flex;
@@ -276,7 +286,7 @@ body.modal-open{ overflow:hidden; }
   font-size:0.88rem;
 }
 
-/* Grid Cards (kept for other sections) */
+/* Grid Cards */
 .grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
@@ -305,89 +315,49 @@ body.modal-open{ overflow:hidden; }
   outline:none;
 }
 
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow: 0 22px 70px rgba(0,0,0,0.55);
+/* ============================
+   NEW: Design 3D slide transition + blue glow on click
+   Applies ONLY to buttons inside #design
+   ============================ */
+#design .card{
+  transform-style:preserve-3d;
+  perspective:1000px;
 }
 
-.card:focus-visible{
-  box-shadow: 0 0 0 3px rgba(124,58,237,0.35), 0 22px 70px rgba(0,0,0,0.55);
-}
-
-.card img{
-  width:100%;
-  height:280px;
-  object-fit:cover;
-  display:block;
-}
-
-.card-foot{
-  padding:12px 12px 14px;
-  background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.38));
-}
-
-.card-title{font-size:0.95rem}
-.card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
-
-/* =========================
-   NEW: Design Slideshow
-   - NOT a card grid
-   - Subtle dark blue glow behind
-   - Auto changes every 2s (JS)
-   ========================= */
-
-.design-slideshow{
-  width:100%;
-  display:block;
-  padding:0;
-  border:0;
-  background:transparent;
-  color:inherit;
-  text-align:left;
-  cursor:pointer;
-  border-radius:22px;
+#design .card-click{
   position:relative;
-  outline:none;
+  will-change: transform, box-shadow, border-color, filter;
+  transition:
+    transform .42s cubic-bezier(.2,.85,.2,1),
+    box-shadow .42s cubic-bezier(.2,.85,.2,1),
+    border-color .25s ease,
+    filter .25s ease;
 }
 
-/* glow layer */
-.design-slideshow::before{
+/* subtle glossy overlay (premium) */
+#design .card-click::before{
   content:"";
   position:absolute;
-  inset:-18px;
-  border-radius:28px;
-  background:
-    radial-gradient(520px 240px at 20% 20%, var(--designGlow), transparent 60%),
-    radial-gradient(520px 240px at 80% 25%, var(--designGlow2), transparent 62%),
-    radial-gradient(640px 320px at 50% 80%, rgba(12, 26, 58, 0.25), transparent 65%);
-  filter: blur(10px);
-  opacity:0.85;
+  inset:0;
   pointer-events:none;
-  z-index:0;
-}
-
-/* main stage */
-.design-stage{
-  position:relative;
-  z-index:1;
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.12);
-  background:rgba(255,255,255,0.03);
-  box-shadow: 0 28px 110px rgba(0,0,0,0.70);
-}
-
-/* image */
-.design-stage img{
-  width:100%;
-  height:420px;
-  object-fit:cover;
-  display:block;
-
-  /* fade control */
+  background:
+    radial-gradient(600px 240px at 20% 10%, rgba(59,130,246,0.10), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), transparent 45%);
   opacity:0;
-  transform: scale(1.01);
-  transition: opacity .45s ease, transform .55s ease;
+  transition:opacity .25s ease;
 }
-.design-stage img.is-in{
-  op
+
+/* Hover = 3D slide feel */
+#design .card:hover .card-click,
+#design .card-click:hover{
+  transform:
+    translateY(-6px)
+    translateX(4px)
+    rotateX(7deg)
+    rotateY(-10deg)
+    translateZ(0);
+  box-shadow: 0 26px 85px rgba(0,0,0,0.62);
+}
+
+#design .card:hover .card-click::before,
+#design .card-c
