@@ -1,6 +1,5 @@
 :root{
   --bg:#0b0f12;
-  --surface:#0f1720;
   --text:#e6eef6;
   --muted:#9aa6b2;
   --accent:#2dd4bf;
@@ -20,7 +19,7 @@ body{
 .container{
   max-width:var(--max-width);
   margin:auto;
-  padding:40px 20px;
+  padding:32px 20px;
 }
 
 /* ===== HEADER ===== */
@@ -33,19 +32,25 @@ body{
 
 .header-inner{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 
+/* Logo + avatar */
 .logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
   text-decoration:none;
   color:var(--text);
 }
 
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1.1;
+.avatar{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,0.2);
 }
 
 .name{
@@ -53,31 +58,23 @@ body{
   font-weight:700;
 }
 
-.role{
-  font-size:0.75rem;
-  color:var(--muted);
-}
-
 /* NAV */
 .main-nav a{
   margin-left:16px;
   text-decoration:none;
   color:var(--muted);
+  font-size:0.9rem;
 }
 .main-nav a:hover{color:var(--text)}
 
 /* ===== HERO ===== */
 .hero h1{
   margin:0;
-  font-size:2.4rem;
-}
-.title{
-  color:var(--muted);
-  margin-top:4px;
+  font-size:2.2rem;
 }
 .intro{
   max-width:600px;
-  margin-top:16px;
+  margin-top:14px;
   color:var(--muted);
 }
 
