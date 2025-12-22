@@ -10,33 +10,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Main CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <!-- ===== Header ===== -->
+  <!-- ===== HEADER ===== -->
   <header class="site-header">
     <div class="container header-inner">
 
-      <!-- Brand with small circular avatar -->
-      <div class="brand">
-        <a href="#home" class="logo" aria-label="Go to top">
-          <img
-            class="avatar"
-            src="IMG_20251201_031908_081.jpeg.jpg"
-            alt="Mohamed Moukaddem"
-          >
-          <div class="brand-text">
-            <span class="name">Mohamed Moukaddem</span>
-            <span class="role">Graphic Designer &amp; Video Editor</span>
-          </div>
-        </a>
-      </div>
+      <a href="#home" class="logo">
+        <img
+          class="avatar"
+          src="IMG_20251201_031908_081.jpeg.jpg"
+          alt="Mohamed Moukaddem"
+        >
+        <div class="brand-text">
+          <span class="name">Mohamed Moukaddem</span>
+          <span class="role">Graphic Designer &amp; Video Editor</span>
+        </div>
+      </a>
 
-      <!-- Navigation -->
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="main-nav">
         <a href="#portfolio">Portfolio</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
@@ -45,10 +40,10 @@
     </div>
   </header>
 
-  <!-- ===== Main ===== -->
+  <!-- ===== MAIN ===== -->
   <main>
 
-    <!-- Hero / Intro -->
+    <!-- HERO -->
     <section id="home" class="hero">
       <div class="container">
         <h1>Mohamed Moukaddem</h1>
@@ -65,128 +60,56 @@
       </div>
     </section>
 
-    <!-- ===== Portfolio ===== -->
+    <!-- PORTFOLIO -->
     <section id="portfolio" class="section">
       <div class="container">
         <h2>Portfolio</h2>
-        <p class="muted">
-          A few recent projects — placeholders for now. Replace images and text with your own work.
-        </p>
 
-        <div class="grid portfolio-grid">
-
-          <article class="work">
-            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+1" alt="Project 1">
-            <div class="work-body">
-              <h3>Project 1</h3>
-              <p class="muted">Branding and poster design.</p>
-            </div>
-          </article>
-
-          <article class="work">
-            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+2" alt="Project 2">
-            <div class="work-body">
-              <h3>Project 2</h3>
-              <p class="muted">Promotional video edit.</p>
-            </div>
-          </article>
-
-          <article class="work">
-            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+3" alt="Project 3">
-            <div class="work-body">
-              <h3>Project 3</h3>
-              <p class="muted">Social media visuals.</p>
-            </div>
-          </article>
-
-          <article class="work">
-            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+4" alt="Project 4">
-            <div class="work-body">
-              <h3>Project 4</h3>
-              <p class="muted">Motion graphics short clip.</p>
-            </div>
-          </article>
-
+        <div class="portfolio-grid">
+          <div class="work">
+            <img src="https://via.placeholder.com/800x500?text=Project+1">
+            <h3>Project 1</h3>
+          </div>
+          <div class="work">
+            <img src="https://via.placeholder.com/800x500?text=Project+2">
+            <h3>Project 2</h3>
+          </div>
+          <div class="work">
+            <img src="https://via.placeholder.com/800x500?text=Project+3">
+            <h3>Project 3</h3>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Services ===== -->
+    <!-- SERVICES -->
     <section id="services" class="section">
       <div class="container">
         <h2>Services</h2>
-        <p class="muted">What I can do for you.</p>
-
-        <div class="services">
-
-          <div class="service">
-            <div class="service-icon">🎨</div>
-            <h3>Graphic Design</h3>
-            <p class="muted">Logos, posters, social assets, and print design.</p>
-          </div>
-
-          <div class="service">
-            <div class="service-icon">🎬</div>
-            <h3>Video Editing</h3>
-            <p class="muted">Cutting, color grading, sound, and final delivery.</p>
-          </div>
-
-          <div class="service">
-            <div class="service-icon">🏷️</div>
-            <h3>Branding</h3>
-            <p class="muted">Identity systems and visual strategy.</p>
-          </div>
-
-          <div class="service">
-            <div class="service-icon">✨</div>
-            <h3>Motion Graphics</h3>
-            <p class="muted">Animated intros and transitions.</p>
-          </div>
-
-        </div>
+        <ul class="services">
+          <li>Graphic Design</li>
+          <li>Video Editing</li>
+          <li>Branding</li>
+          <li>Motion Graphics</li>
+        </ul>
       </div>
     </section>
 
-    <!-- ===== Contact ===== -->
+    <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="container">
         <h2>Contact</h2>
-        <p class="muted">Email me to discuss a project or collaboration.</p>
-
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3>Email</h3>
-            <p>
-              <a class="link" href="mailto:contact@email.com">contact@email.com</a>
-            </p>
-          </div>
-
-          <div class="contact-card">
-            <h3>Social</h3>
-            <p>
-              <a class="link" href="#">Instagram</a> •
-              <a class="link" href="#">Behance</a> •
-              <a class="link" href="#">YouTube</a>
-            </p>
-          </div>
-        </div>
+        <p>
+          <a class="link" href="mailto:contact@email.com">contact@email.com</a>
+        </p>
       </div>
     </section>
 
   </main>
 
-  <!-- ===== Footer ===== -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="muted small">
-        © <span id="year"></span> Mohamed Moukaddem — Hosted on GitHub Pages
-      </p>
-    </div>
+    <p>© 2025 Mohamed Moukaddem</p>
   </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 
 </body>
 </html>
