@@ -17,16 +17,15 @@ html,body{height:100%}
 body{
   margin:0;
   font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  background:radial-gradient(900px 520px at 20% 10%, rgba(124,58,237,0.25), transparent 60%),
-             radial-gradient(900px 520px at 70% 20%, rgba(34,197,94,0.18), transparent 60%),
-             linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  background:
+    radial-gradient(900px 520px at 20% 10%, rgba(124,58,237,0.25), transparent 60%),
+    radial-gradient(900px 520px at 70% 20%, rgba(34,197,94,0.18), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
   color:var(--text);
 }
 
 /* prevent background scroll when modal open */
-body.modal-open{
-  overflow:hidden;
-}
+body.modal-open{ overflow:hidden; }
 
 /* Wrap */
 .wrap{
@@ -153,10 +152,12 @@ body.modal-open{
 }
 
 .btn:hover{transform:translateY(-1px)}
+
 .primary{
   color:#0b0f14;
   background:linear-gradient(90deg, rgba(34,197,94,0.95), rgba(124,58,237,0.92));
 }
+
 .ghost{
   color:var(--text);
   background:rgba(255,255,255,0.06);
@@ -176,6 +177,7 @@ body.modal-open{
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.10);
 }
+
 .stat-num{font-size:0.95rem}
 .stat-label{font-size:0.74rem; color:var(--muted); margin-top:4px}
 
@@ -220,6 +222,7 @@ body.modal-open{
   background:linear-gradient(135deg, rgba(124,58,237,0.95), rgba(34,197,94,0.88));
   position:relative;
 }
+
 .play:after{
   content:"";
   position:absolute;
@@ -240,6 +243,7 @@ body.modal-open{
   gap:8px;
   flex-wrap:wrap;
 }
+
 .chip{
   font-size:0.76rem;
   color:rgba(255,255,255,0.80);
@@ -253,14 +257,13 @@ body.modal-open{
   position:absolute;
   inset:auto -20% -180px -20%;
   height:240px;
-  background:radial-gradient(520px 220px at 30% 30%, rgba(124,58,237,0.22), transparent 60%),
-             radial-gradient(520px 220px at 70% 30%, rgba(34,197,94,0.18), transparent 60%);
+  background:
+    radial-gradient(520px 220px at 30% 30%, rgba(124,58,237,0.22), transparent 60%),
+    radial-gradient(520px 220px at 70% 30%, rgba(34,197,94,0.18), transparent 60%);
 }
 
 /* Sections */
-.section{
-  padding:26px 0;
-}
+.section{ padding:26px 0; }
 
 .section-head{
   display:flex;
@@ -343,6 +346,7 @@ body.modal-open{
   align-items:center;
   justify-content:center;
 }
+
 .video-placeholder{
   text-align:center;
   padding:14px;
@@ -351,6 +355,7 @@ body.modal-open{
   background:rgba(255,255,255,0.04);
   color:rgba(255,255,255,0.86);
 }
+
 .big-play{
   width:52px;
   height:52px;
@@ -359,6 +364,7 @@ body.modal-open{
   background:linear-gradient(135deg, rgba(124,58,237,0.95), rgba(34,197,94,0.88));
   position:relative;
 }
+
 .big-play:after{
   content:"";
   position:absolute;
@@ -369,6 +375,7 @@ body.modal-open{
   border-top:9px solid transparent;
   border-bottom:9px solid transparent;
 }
+
 .vp-title{font-size:0.9rem}
 .vp-sub{margin-top:4px; font-size:0.78rem; color:var(--muted)}
 
@@ -378,12 +385,14 @@ body.modal-open{
   grid-template-columns:repeat(4, minmax(0,1fr));
   gap:12px;
 }
+
 .service{
   padding:14px;
   border-radius:16px;
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.10);
 }
+
 .service-title{font-size:0.95rem}
 .service-desc{margin-top:6px; font-size:0.78rem; color:var(--muted)}
 
@@ -394,25 +403,31 @@ body.modal-open{
   border:1px solid rgba(255,255,255,0.10);
   background:rgba(255,255,255,0.04);
 }
+
 .contact-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
   margin-top:12px;
 }
+
 .contact-card{
   padding:14px;
   border-radius:16px;
   background:rgba(0,0,0,0.35);
   border:1px solid rgba(255,255,255,0.08);
 }
+
 .label{font-size:0.78rem; color:var(--muted); margin-bottom:6px}
+
 .contact-link{
   color:var(--text);
   text-decoration:none;
   font-size:0.95rem;
 }
+
 .contact-link:hover{opacity:0.85}
+
 .note{
   margin-top:12px;
   color:rgba(255,255,255,0.65);
@@ -426,7 +441,11 @@ body.modal-open{
   font-size:0.85rem;
 }
 
-/* ===== NEW: Client Work styles ===== */
+/* ===== CLIENT WORK (multiple clients) ===== */
+.client-block{
+  margin-top:14px;
+}
+
 .client-cover{
   width:100%;
   border-radius:22px;
@@ -479,6 +498,7 @@ body.modal-open{
 .client-name{font-size:1.25rem}
 .client-sub{font-size:0.82rem; color:rgba(255,255,255,0.74)}
 
+/* Posts slider */
 .posts-slider{
   margin-top:14px;
   display:flex;
@@ -528,6 +548,14 @@ body.modal-open{
   background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.35));
 }
 
+/* Optional: small divider between clients */
+.client-divider{
+  margin:18px 0 6px;
+  height:1px;
+  background:rgba(255,255,255,0.08);
+  border:none;
+}
+
 /* ===== Lightbox Preview (Blur Background) ===== */
 .lightbox{
   position:fixed;
@@ -536,9 +564,7 @@ body.modal-open{
   z-index:999;
 }
 
-.lightbox.is-open{
-  display:block;
-}
+.lightbox.is-open{ display:block; }
 
 .lightbox-backdrop{
   position:absolute;
@@ -573,9 +599,7 @@ body.modal-open{
   line-height:1;
 }
 
-.lightbox-close:hover{
-  background:rgba(0,0,0,0.62);
-}
+.lightbox-close:hover{ background:rgba(0,0,0,0.62); }
 
 .lightbox-media{
   width:100%;
