@@ -36,7 +36,7 @@ body{
   justify-content:space-between;
 }
 
-/* Logo + avatar */
+/* Logo + small avatar */
 .logo{
   display:flex;
   align-items:center;
@@ -46,13 +46,14 @@ body{
 }
 
 .avatar{
-  width:28px;
-  height:28px;
+  width:26px;
+  height:26px;
   border-radius:50%;
   object-fit:cover;
   border:1px solid rgba(255,255,255,0.2);
 }
 
+/* Name */
 .name{
   font-size:0.95rem;
   font-weight:700;
