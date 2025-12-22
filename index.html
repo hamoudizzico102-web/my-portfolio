@@ -1,16 +1,166 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Mohamed Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohamed Moukaddem — Graphic Designer & Video Editor</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-  
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Link to the single CSS file -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Mohamed Moukaddem</h1>
-  <p>Graphic Designer & Video Editor</p>
+  <!-- Top navigation / title -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="#home" class="logo" aria-label="Go to top">
+          <span class="name">Mohamed Moukaddem</span>
+          <span class="role">Graphic Designer &amp; Video Editor</span>
+        </a>
+      </div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / intro -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Mohamed Moukaddem</h1>
+        <h2 class="title">Graphic Designer &amp; Video Editor</h2>
+        <p class="intro">
+          Graphic Designer &amp; Video Editor focused on modern visuals, branding, and cinematic video content
+          for social media and digital platforms.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#portfolio">View Portfolio</a>
+          <a class="btn btn-outline" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <h2>Portfolio</h2>
+        <p class="muted">A few recent projects — placeholders for now. Replace images and text with your own work.</p>
+
+        <div class="grid portfolio-grid">
+          <article class="work">
+            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+1" alt="Project 1 placeholder">
+            <div class="work-body">
+              <h3>Project 1</h3>
+              <p class="muted">Branding and poster design.</p>
+            </div>
+          </article>
+
+          <article class="work">
+            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+2" alt="Project 2 placeholder">
+            <div class="work-body">
+              <h3>Project 2</h3>
+              <p class="muted">Promotional video edit.</p>
+            </div>
+          </article>
+
+          <article class="work">
+            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+3" alt="Project 3 placeholder">
+            <div class="work-body">
+              <h3>Project 3</h3>
+              <p class="muted">Social media visuals.</p>
+            </div>
+          </article>
+
+          <article class="work">
+            <img src="https://via.placeholder.com/800x500/1f2933/9ca3af?text=Project+4" alt="Project 4 placeholder">
+            <div class="work-body">
+              <h3>Project 4</h3>
+              <p class="muted">Motion graphics short clip.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2>Services</h2>
+        <p class="muted">What I can do for you.</p>
+
+        <div class="services">
+          <div class="service">
+            <div class="service-icon">🎨</div>
+            <h3>Graphic Design</h3>
+            <p class="muted">Logos, posters, social assets, and print design.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">🎬</div>
+            <h3>Video Editing</h3>
+            <p class="muted">Cutting, color grading, sound, and final delivery for social platforms.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">🏷️</div>
+            <h3>Branding</h3>
+            <p class="muted">Identity systems, style guides, and visual strategy.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">✨</div>
+            <h3>Motion Graphics</h3>
+            <p class="muted">Animated intros, transitions, and short motion pieces.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="muted">Email me to discuss a project or collaboration.</p>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Email</h3>
+            <p>
+              <a class="link" href="mailto:contact@email.com">contact@email.com</a>
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <h3>Social / Profiles</h3>
+            <p class="muted">Replace these placeholder links with your own profiles.</p>
+            <p>
+              <a class="link" href="#">Instagram</a> •
+              <a class="link" href="#">Behance</a> •
+              <a class="link" href="#">YouTube</a>
+            </p>
+          </div>
+        </div>
+
+        <p class="muted small">Tip: If you later want a contact form (instead of an email link), you can use a free form service like Formspree or Netlify Forms.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted small">© <span id="year"></span> Mohamed Moukaddem — Graphic Designer &amp; Video Editor · Hosted on GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sets the year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
