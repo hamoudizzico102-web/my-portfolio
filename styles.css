@@ -1,3 +1,4 @@
+/* styles.css */
 :root{
   --bg:#07080b;
   --bg2:#0b0f14;
@@ -14,6 +15,11 @@
   --blue:#3b82f6;
   --blueGlow:rgba(59,130,246,0.45);
   --blueGlowSoft:rgba(59,130,246,0.18);
+
+  /* Red glow for CV */
+  --red:#ef4444;
+  --redGlow:rgba(239,68,68,0.55);
+  --redGlowSoft:rgba(239,68,68,0.18);
 }
 
 *{box-sizing:border-box}
@@ -82,6 +88,7 @@ body.modal-open{
 .nav{
   display:flex;
   gap:18px;
+  align-items:center;
 }
 
 .nav a{
@@ -91,6 +98,32 @@ body.modal-open{
 }
 .nav a:hover{color:var(--text)}
 
+/* ===== NAV CV (in navbar like others) ===== */
+.nav-cv{
+  position:relative;
+  padding:6px 10px;
+  border-radius:10px;
+  transition:color .2s ease, background .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.nav-cv:hover{
+  color:var(--text);
+  background:rgba(59,130,246,0.12);
+  box-shadow:
+    0 0 0 3px rgba(59,130,246,0.10),
+    0 0 26px rgba(59,130,246,0.18);
+}
+
+/* CV stays glowing red when open */
+.nav-cv.is-open{
+  color:rgba(255,255,255,0.95);
+  background:rgba(239,68,68,0.10);
+  box-shadow:
+    0 0 0 3px rgba(239,68,68,0.22),
+    0 0 38px rgba(239,68,68,0.35);
+  border-color: rgba(239,68,68,0.45);
+}
+
+/* CTA */
 .cta{
   text-decoration:none;
   color:var(--text);
@@ -318,26 +351,16 @@ body.modal-open{
   outline:none;
 }
 
-/* ============================
-   NEW: Blue hover on ALL cards
-   ============================ */
+/* Blue hover on ALL cards */
 .card:hover,
 .post-card:hover,
-.folder-cover:hover,
-.client-cover:hover{
+.folder-cover:hover{
   border-color: rgba(59,130,246,0.35);
   box-shadow:
     0 26px 85px rgba(0,0,0,0.62),
     0 0 0 3px rgba(59,130,246,0.10),
     0 0 46px rgba(59,130,246,0.22);
   transform:translateY(-4px);
-}
-
-/* More “premium” hover for the clickable surface too */
-.card:hover .card-click,
-.post-card:hover,
-.folder-cover:hover{
-  filter:saturate(1.06);
 }
 
 .card:focus-visible,
@@ -366,14 +389,10 @@ body.modal-open{
 .card-title{font-size:0.95rem}
 .card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
 
-/* =========================================================
-   DESIGN ONLY: 3D Slide transition (safe) + Blue click glow
-   ========================================================= */
-
+/* Design-only slide effect */
 #design .card{
   transition: transform .22s ease, box-shadow .22s ease, border-color .2s ease;
 }
-
 #design .card:hover{
   transform: translateY(-6px);
   box-shadow:
@@ -381,7 +400,6 @@ body.modal-open{
     0 0 0 3px rgba(59,130,246,0.12),
     0 0 52px rgba(59,130,246,0.24);
 }
-
 #design .card-click{
   position:relative;
   transform: translate3d(0,0,0);
@@ -392,7 +410,6 @@ body.modal-open{
     border-color .2s ease,
     filter .2s ease;
 }
-
 #design .card-click::before{
   content:"";
   position:absolute;
@@ -404,15 +421,12 @@ body.modal-open{
     radial-gradient(520px 220px at 18% 10%, rgba(59,130,246,0.10), transparent 60%),
     linear-gradient(180deg, rgba(255,255,255,0.06), transparent 48%);
 }
-
 #design .card:hover .card-click{
   transform: translate3d(10px,-6px,0);
 }
-
 #design .card-click:active{
   transform: translate3d(14px,-3px,0) scale(0.995);
 }
-
 #design .card:hover .card-click::before,
 #design .card-click:active::before,
 #design .card-click:focus::before,
@@ -420,22 +434,8 @@ body.modal-open{
   opacity:1;
 }
 
-#design .card-click:focus,
-#design .card-click:focus-visible{
-  border-color: rgba(59,130,246,0.72);
-  box-shadow:
-    0 0 0 3px rgba(59,130,246,0.22),
-    0 18px 65px rgba(0,0,0,0.60),
-    0 0 44px rgba(59,130,246,0.32);
-  filter: saturate(1.06);
-}
-
 /* Folder card with external YouTube link */
-.folder-card{
-  position:relative;
-}
-
-/* Ensure the folder button fills the card */
+.folder-card{ position:relative; }
 .folder-cover{
   width:100%;
   display:block;
@@ -461,97 +461,10 @@ body.modal-open{
   background:rgba(0,0,0,0.45);
   color:rgba(255,255,255,0.92);
 }
-
 .folder-yt:hover{
   background:rgba(0,0,0,0.62);
   border-color: rgba(59,130,246,0.35);
   box-shadow: 0 0 0 3px rgba(59,130,246,0.10), 0 0 24px rgba(59,130,246,0.20);
-}
-
-/* Client Work blocks (kept) */
-.client-block{
-  padding:0;
-}
-
-.client-cover{
-  width:100%;
-  display:block;
-  padding:0;
-  border:0;
-  background:transparent;
-  cursor:pointer;
-  text-align:left;
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.10);
-  box-shadow: 0 22px 80px rgba(0,0,0,0.45);
-  position:relative;
-}
-
-.client-cover-img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  display:block;
-}
-
-.client-cover-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.65));
-}
-
-.client-cover-text{
-  position:absolute;
-  left:14px;
-  bottom:14px;
-  z-index:2;
-}
-
-.client-pill{
-  display:inline-block;
-  font-size:0.72rem;
-  padding:6px 10px;
-  border-radius:999px;
-  background:rgba(0,0,0,0.45);
-  border:1px solid rgba(255,255,255,0.14);
-  color:rgba(255,255,255,0.9);
-}
-
-.client-name{margin-top:10px; font-size:1.15rem}
-.client-sub{margin-top:4px; font-size:0.84rem; color:rgba(255,255,255,0.72)}
-
-.posts-slider{
-  margin-top:12px;
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:12px;
-}
-
-.post-card{
-  padding:0;
-  border:1px solid rgba(255,255,255,0.10);
-  background:rgba(255,255,255,0.03);
-  border-radius:18px;
-  overflow:hidden;
-  cursor:pointer;
-  text-align:left;
-  color:inherit;
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .18s ease;
-}
-
-.post-card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  display:block;
-}
-
-.post-caption{
-  padding:10px 12px;
-  font-size:0.82rem;
-  color:rgba(255,255,255,0.85);
-  background:rgba(0,0,0,0.25);
 }
 
 /* Video card placeholder */
@@ -625,15 +538,6 @@ body.modal-open{
   font-size:0.85rem;
 }
 
-/* Folder lightbox body layout */
-.folder-body{
-  padding:14px;
-}
-.folder-grid{
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
 /* ===== Lightbox Preview (Blur Background) ===== */
 .lightbox{
   position:fixed;
@@ -641,9 +545,7 @@ body.modal-open{
   display:none;
   z-index:999;
 }
-.lightbox.is-open{
-  display:block;
-}
+.lightbox.is-open{ display:block; }
 .lightbox-backdrop{
   position:absolute;
   inset:0;
@@ -701,16 +603,12 @@ body.modal-open{
   color:rgba(255,255,255,0.92);
 }
 
-/* ============================
-   Folder Scroll
-   ============================ */
-
+/* Folder scroll */
 .folder-panel{
   display:flex;
   flex-direction:column;
   max-height:86vh;
 }
-
 .folder-head{
   position:sticky;
   top:0;
@@ -719,25 +617,71 @@ body.modal-open{
   background:linear-gradient(180deg, rgba(10,12,16,0.92), rgba(10,12,16,0.65));
   border-top:0;
 }
-
 .folder-scroll{
   overflow:auto;
   -webkit-overflow-scrolling:touch;
   max-height:calc(86vh - 58px);
 }
+.folder-body{ padding:14px; }
+.folder-grid{ grid-template-columns:1fr 1fr; gap:14px; }
 
-.folder-scroll::-webkit-scrollbar{width:10px}
-.folder-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,0.05)}
-.folder-scroll::-webkit-scrollbar-thumb{
-  background:rgba(255,255,255,0.18);
-  border-radius:999px;
-  border:2px solid rgba(0,0,0,0.3);
+/* ===== CV Modal ===== */
+.cv-panel{
+  display:flex;
+  flex-direction:column;
+  max-height:90vh;
+  border-color: rgba(239,68,68,0.22);
+  box-shadow:
+    0 30px 120px rgba(0,0,0,0.75),
+    0 0 0 3px rgba(239,68,68,0.12),
+    0 0 58px rgba(239,68,68,0.18);
 }
-.folder-scroll::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.26)}
 
-/* ============================
-   NEW: Hover Pop-up Tooltip
-   ============================ */
+.cv-head{
+  position:sticky;
+  top:0;
+  z-index:3;
+  backdrop-filter: blur(10px);
+  background:linear-gradient(180deg, rgba(10,12,16,0.92), rgba(10,12,16,0.65));
+  border-top:0;
+}
+
+/* Red glow that stays on */
+.cv-glow{
+  position:absolute;
+  inset:-2px;
+  pointer-events:none;
+  box-shadow:
+    0 0 0 3px rgba(239,68,68,0.20),
+    0 0 46px rgba(239,68,68,0.35),
+    0 0 90px rgba(239,68,68,0.15);
+  border-radius:22px;
+  animation: cvGlowPulse 2.2s ease-in-out infinite;
+  opacity:0.9;
+}
+
+@keyframes cvGlowPulse{
+  0%,100%{ filter:saturate(1); opacity:0.85; }
+  50%{ filter:saturate(1.15); opacity:1; }
+}
+
+.cv-scroll{
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  max-height:calc(90vh - 58px);
+}
+.cv-body{
+  padding:12px;
+}
+.cv-frame{
+  width:100%;
+  height:78vh;
+  border:0;
+  border-radius:16px;
+  background:rgba(0,0,0,0.35);
+}
+
+/* Tooltip */
 .tooltip{
   position:fixed;
   z-index:2000;
@@ -769,71 +713,16 @@ body.modal-open{
   font-size:0.78rem;
 }
 
-/* ======================================
-   NEW: CV Lightbox (blur + red glow fixed)
-   ====================================== */
-
-.cv-backdrop{
-  background:rgba(0,0,0,0.60);
-  backdrop-filter: blur(12px);
-}
-
-/* red glow stays ON while open */
-.lightbox.is-open .cv-panel{
-  border-color: rgba(239,68,68,0.55);
-  box-shadow:
-    0 30px 140px rgba(0,0,0,0.80),
-    0 0 0 3px rgba(239,68,68,0.18),
-    0 0 80px rgba(239,68,68,0.45);
-}
-
-/* extra ambient glow */
-.cv-panel::before{
-  content:"";
-  position:absolute;
-  inset:-18px;
-  border-radius:28px;
-  pointer-events:none;
-  background: radial-gradient(520px 260px at 50% 20%, rgba(239,68,68,0.25), transparent 65%);
-  opacity:1;
-}
-
-.cv-head{
-  position:sticky;
-  top:0;
-  z-index:3;
-  backdrop-filter: blur(10px);
-  background:linear-gradient(180deg, rgba(10,12,16,0.92), rgba(10,12,16,0.65));
-  border-top:0;
-}
-
-.cv-body{
-  background:rgba(0,0,0,0.40);
-}
-
-.cv-frame{
-  width:100%;
-  height:78vh;
-  border:0;
-  display:block;
-  background:rgba(0,0,0,0.25);
-}
-
-.cv-close:hover{
-  border-color: rgba(239,68,68,0.40);
-  box-shadow: 0 0 0 3px rgba(239,68,68,0.14), 0 0 28px rgba(239,68,68,0.18);
-}
-
 /* Responsive */
 @media (max-width:980px){
   .hero-inner{grid-template-columns:1fr}
   .hero-right{display:none}
   .grid{grid-template-columns:1fr 1fr}
   .services{grid-template-columns:1fr 1fr}
-  .posts-slider{grid-template-columns:1fr 1fr}
   .folder-grid{grid-template-columns:1fr}
   .folder-panel{max-height:88vh}
   .folder-scroll{max-height:calc(88vh - 58px)}
+  .cv-frame{height:76vh}
 }
 
 @media (max-width:640px){
@@ -841,8 +730,8 @@ body.modal-open{
   .grid{grid-template-columns:1fr}
   .services{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
-  .posts-slider{grid-template-columns:1fr}
   .lightbox-panel{margin:62px auto 18px}
   .folder-panel{max-height:90vh}
   .folder-scroll{max-height:calc(90vh - 58px)}
+  .cv-frame{height:74vh}
 }
