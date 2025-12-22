@@ -414,12 +414,14 @@
       <div class="folder-body">
         <div class="grid folder-grid">
 
-          <!-- Video 1 -->
           <article class="card video" style="cursor:default;">
             <div class="video-box">
               <iframe
+                width="100%"
+                height="280"
                 src="https://www.youtube.com/embed/AzAXmB-KY5M"
                 title="How Booking manipulates you"
+                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
               </iframe>
@@ -430,12 +432,14 @@
             </div>
           </article>
 
-          <!-- Video 2 -->
           <article class="card video" style="cursor:default;">
             <div class="video-box">
               <iframe
+                width="100%"
+                height="280"
                 src="https://www.youtube.com/embed/ChGxyGwRdFE"
                 title="Ryanair: The dark truth behind €9 flights"
+                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
               </iframe>
@@ -446,12 +450,15 @@
             </div>
           </article>
 
-          <!-- Video 3 (NEW) -->
+          <!-- NEW VIDEO -->
           <article class="card video" style="cursor:default;">
             <div class="video-box">
               <iframe
+                width="100%"
+                height="280"
                 src="https://www.youtube.com/embed/OYtj5BNpjeY"
                 title="The most absurd financial crash in history"
+                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
               </iframe>
@@ -509,7 +516,6 @@
       fb.classList.remove('is-open');
       fb.setAttribute('aria-hidden','true');
       unlock();
-      // stop videos on close (reset iframes)
       fb.querySelectorAll('iframe').forEach(f => {
         const src = f.getAttribute('src');
         f.setAttribute('src', src);
@@ -556,3 +562,4 @@
   </script>
 
 </body>
+</html>
