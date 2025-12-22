@@ -150,6 +150,21 @@
             </div>
           </button>
 
+          <!-- =========================
+               NEW: CV Card (like images)
+               ========================= -->
+          <button class="card card-click cv-card"
+                  type="button"
+                  data-open-cv="1"
+                  data-title="Curriculum Vitae"
+                  aria-label="Open CV">
+            <img src="cv-cover.png" alt="Curriculum Vitae">
+            <div class="card-foot">
+              <div class="card-title">Curriculum Vitae</div>
+              <div class="card-meta">PDF • Resume</div>
+            </div>
+          </button>
+
         </div>
       </div>
     </section>
@@ -335,6 +350,28 @@
         <div class="folder-body">
           <div class="grid folder-grid" id="folderContent"></div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       NEW: CV Lightbox (PDF)
+       ========================= -->
+  <div class="lightbox" id="cvbox" aria-hidden="true">
+    <div class="lightbox-backdrop cv-backdrop" data-cv-close="1"></div>
+
+    <div class="lightbox-panel cv-panel" role="dialog" aria-modal="true" aria-label="CV PDF">
+      <button class="lightbox-close cv-close" type="button" aria-label="Close CV" data-cv-close="1">×</button>
+
+      <div class="lightbox-foot cv-head">
+        <div class="lightbox-title">Curriculum Vitae</div>
+      </div>
+
+      <div class="cv-body">
+        <iframe class="cv-frame"
+                src="Mohamad%20Mokaddem%20CV%202025%20(1).pdf"
+                title="Mohamad Mokaddem CV 2025"
+                loading="lazy"></iframe>
       </div>
     </div>
   </div>
