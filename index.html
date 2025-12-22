@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohamed Moukaddem — Prime-Style Portfolio</title>
+  <title>Mohamed Moukaddem — Creative Video Editor</title>
 
-  <!-- Poppins Bold -->
+  <!-- Poppins: Medium (500) + Bold (700) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <!-- Top Bar -->
+  <!-- Header -->
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#home" aria-label="Go to top">
@@ -40,61 +40,61 @@
 
   <main id="home">
 
-    <!-- HERO (Prime-like) -->
+    <!-- Hero -->
     <section class="hero">
       <div class="wrap hero-inner">
-
-        <div class="hero-copy">
-          <div class="badge">AVAILABLE FOR FREELANCE</div>
-          <h1 class="hero-title">Premium edits &amp; clean design — built for brands.</h1>
-          <p class="hero-sub">
-            I deliver cinematic long-form edits, social cuts, and modern brand visuals.
-            A Prime Video–style portfolio: clean, fast, and built around previews.
+        <div class="hero-left">
+          <div class="tag">AVAILABLE FOR FREELANCE</div>
+          <h1 class="headline">Cinematic edits &amp; modern visuals that feel premium.</h1>
+          <p class="sub">
+            I craft high-impact video edits, brand visuals, and motion-ready content
+            designed for social platforms and digital campaigns.
           </p>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#editing">Explore Editing</a>
-            <a class="btn btn-ghost" href="#design">Explore Design</a>
+          <div class="actions">
+            <a class="btn primary" href="#editing">View Editing</a>
+            <a class="btn ghost" href="#design">View Design</a>
           </div>
 
-          <div class="hero-points">
-            <div class="point">
-              <div class="point-k">Story</div>
-              <div class="point-v">Pacing &amp; retention</div>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-num">Fast</div>
+              <div class="stat-label">Delivery</div>
             </div>
-            <div class="point">
-              <div class="point-k">Look</div>
-              <div class="point-v">Grade &amp; consistency</div>
+            <div class="stat">
+              <div class="stat-num">Clean</div>
+              <div class="stat-label">Cuts + Timing</div>
             </div>
-            <div class="point">
-              <div class="point-k">Speed</div>
-              <div class="point-v">Fast delivery</div>
+            <div class="stat">
+              <div class="stat-num">Luxury</div>
+              <div class="stat-label">Dark Aesthetic</div>
             </div>
           </div>
         </div>
 
-        <div class="hero-panel" aria-hidden="true">
-          <div class="panel-card">
-            <div class="panel-top">
-              <span class="panel-dot"></span>
-              <span class="panel-dot"></span>
-              <span class="panel-dot"></span>
-              <span class="panel-title">Preview Mode</span>
+        <div class="hero-right" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-top">
+              <div class="dot red"></div>
+              <div class="dot yellow"></div>
+              <div class="dot green"></div>
+              <div class="hero-card-title">Preview Mode</div>
             </div>
-            <div class="panel-body">
-              <div class="panel-thumb">
-                <div class="panel-play"></div>
-                <div class="panel-text">
-                  <div class="panel-h">Click any design</div>
-                  <div class="panel-p">Fullscreen preview with blur.</div>
+
+            <div class="hero-card-body">
+              <div class="preview">
+                <div class="play"></div>
+                <div class="preview-text">
+                  <div class="preview-title">Click any design</div>
+                  <div class="preview-sub">Fullscreen preview with blur.</div>
                 </div>
               </div>
 
-              <div class="pill-row">
-                <span class="pill">Long-form</span>
-                <span class="pill">Shorts/Reels</span>
-                <span class="pill">Branding</span>
-                <span class="pill">Posters</span>
+              <div class="chips">
+                <span class="chip">Color Grading</span>
+                <span class="chip">Sound Design</span>
+                <span class="chip">Motion</span>
+                <span class="chip">Branding</span>
               </div>
             </div>
           </div>
@@ -102,84 +102,92 @@
 
       </div>
 
+      <!-- Blue luxury smoke glow -->
       <div class="hero-glow" aria-hidden="true"></div>
     </section>
 
-    <!-- DESIGN -->
+    <!-- Design -->
     <section id="design" class="section">
       <div class="wrap">
         <div class="section-head">
           <h2>Design</h2>
-          <p>Click any poster to preview.</p>
+          <p>Click a project to preview.</p>
         </div>
 
-        <div class="rail">
-          <button class="tile tile-click"
+        <div class="grid">
+
+          <button class="card card-click"
                   type="button"
                   data-preview="5.png"
                   data-title="Saudi National Day"
                   aria-label="Open preview: Saudi National Day">
             <img src="5.png" alt="Saudi National Day design">
-            <div class="tile-meta">
-              <div class="tile-title">Saudi National Day</div>
-              <div class="tile-sub">Poster / Visual</div>
+            <div class="card-foot">
+              <div class="card-title">Saudi National Day</div>
+              <div class="card-meta">Poster / Visual</div>
             </div>
           </button>
 
-          <button class="tile tile-click"
+          <button class="card card-click"
                   type="button"
                   data-preview="1.png"
                   data-title="Creative Visual Identity"
                   aria-label="Open preview: Creative Visual Identity">
             <img src="1.png" alt="Creative Visual Identity design">
-            <div class="tile-meta">
-              <div class="tile-title">Creative Visual Identity</div>
-              <div class="tile-sub">Brand / Identity</div>
+            <div class="card-foot">
+              <div class="card-title">Creative Visual Identity</div>
+              <div class="card-meta">Brand / Identity</div>
             </div>
           </button>
 
-          <button class="tile tile-click"
+          <button class="card card-click"
                   type="button"
                   data-preview="me.png"
                   data-title="Course Design"
                   aria-label="Open preview: Course Design">
             <img src="me.png" alt="Course Design">
-            <div class="tile-meta">
-              <div class="tile-title">Course Design</div>
-              <div class="tile-sub">Course / Visual System</div>
+            <div class="card-foot">
+              <div class="card-title">Course Design</div>
+              <div class="card-meta">Course / Visual System</div>
             </div>
           </button>
+
         </div>
       </div>
     </section>
 
-    <!-- EDITING (Folder with blur modal) -->
+    <!-- Editing (Folder Cover) -->
     <section id="editing" class="section">
       <div class="wrap">
         <div class="section-head">
           <h2>Editing</h2>
-          <p>Open the creator folder to view the videos.</p>
+          <p>Open a folder to view the videos.</p>
         </div>
 
-        <div class="rail">
-          <button class="tile folder-tile"
+        <div class="grid">
+
+          <button class="card card-click folder-cover"
                   type="button"
                   data-open-folder="sebastien"
                   aria-label="Open folder: Sébastien Koubar">
-            <img
+
+            <img class="folder-img"
               src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj"
-              alt="Sébastien Koubar profile cover">
-            <div class="tile-meta">
-              <div class="tile-title">Sébastien Koubar</div>
-              <div class="tile-sub">Long-form YouTube Videos</div>
+              alt="Sébastien Koubar cover">
+
+            <div class="card-foot">
+              <div class="card-title">Sébastien Koubar</div>
+              <div class="card-meta">Long-form YouTube Videos</div>
             </div>
-            <span class="folder-chip">Folder</span>
+
+            <span class="folder-chip">FOLDER</span>
           </button>
+
         </div>
       </div>
     </section>
 
-    <!-- CLIENT WORK -->
+    <!-- Client Work -->
     <section id="client" class="section">
       <div class="wrap">
         <div class="section-head">
@@ -187,136 +195,116 @@
           <p>Cover + posts (click to preview).</p>
         </div>
 
-        <!-- Client: Intellident -->
-        <div class="client">
-          <button class="client-cover tile-click"
+        <!-- Client 1 -->
+        <div class="client-block">
+
+          <button class="client-cover card-click"
                   type="button"
                   data-preview="logo (2).png"
-                  data-title="Intellident Dental Clinic — Cover"
+                  data-title="Intellident Dental Clinic — Brand Cover"
                   aria-label="Open preview: Intellident Dental Clinic cover">
-            <img src="logo (2).png" alt="Intellident Dental Clinic cover">
-            <div class="client-overlay"></div>
-            <div class="client-info">
+            <img class="client-cover-img" src="logo (2).png" alt="Intellident Dental Clinic cover">
+            <div class="client-cover-overlay"></div>
+
+            <div class="client-cover-text">
               <div class="client-pill">CLIENT</div>
               <div class="client-name">Intellident Dental Clinic</div>
               <div class="client-sub">Design • Social Media</div>
             </div>
           </button>
 
-          <div class="rail rail-small">
-            <button class="tile tile-click"
+          <div class="posts-slider">
+            <button class="post-card card-click"
                     type="button"
                     data-preview="caro 3-4.png"
                     data-title="Clinic Brand Launch"
                     aria-label="Open preview: Clinic Brand Launch">
               <img src="caro 3-4.png" alt="Clinic Brand Launch">
-              <div class="tile-meta">
-                <div class="tile-title">Clinic Brand Launch</div>
-                <div class="tile-sub">Post</div>
-              </div>
+              <div class="post-caption">Clinic Brand Launch</div>
             </button>
 
-            <button class="tile tile-click"
+            <button class="post-card card-click"
                     type="button"
                     data-preview="MOTHER.png"
                     data-title="Dental Awareness Campaign"
                     aria-label="Open preview: Dental Awareness Campaign">
               <img src="MOTHER.png" alt="Dental Awareness Campaign">
-              <div class="tile-meta">
-                <div class="tile-title">Dental Awareness Campaign</div>
-                <div class="tile-sub">Post</div>
-              </div>
+              <div class="post-caption">Dental Awareness Campaign</div>
             </button>
 
-            <button class="tile tile-click"
+            <button class="post-card card-click"
                     type="button"
                     data-preview="post.png"
                     data-title="Social Media Promo Post"
                     aria-label="Open preview: Social Media Promo Post">
               <img src="post.png" alt="Social Media Promo Post">
-              <div class="tile-meta">
-                <div class="tile-title">Social Media Promo</div>
-                <div class="tile-sub">Post</div>
-              </div>
+              <div class="post-caption">Social Media Promo</div>
             </button>
           </div>
         </div>
 
-        <!-- Client: Oqunet -->
-        <div class="client" style="margin-top:26px;">
-          <button class="client-cover tile-click"
+        <!-- Client 2 -->
+        <div class="client-block" style="margin-top:26px;">
+
+          <button class="client-cover card-click"
                   type="button"
                   data-preview="logo-01.png"
-                  data-title="Oqunet Software — Cover"
+                  data-title="Oqunet Software — Brand Cover"
                   aria-label="Open preview: Oqunet Software cover">
-            <img src="logo-01.png" alt="Oqunet Software cover">
-            <div class="client-overlay"></div>
-            <div class="client-info">
+            <img class="client-cover-img" src="logo-01.png" alt="Oqunet Software cover">
+            <div class="client-cover-overlay"></div>
+
+            <div class="client-cover-text">
               <div class="client-pill">CLIENT</div>
               <div class="client-name">Oqunet Software</div>
-              <div class="client-sub">Design • Campaign • Social</div>
+              <div class="client-sub">Design • Campaign • Social Media</div>
             </div>
           </button>
 
-          <div class="rail rail-small">
-            <button class="tile tile-click"
+          <div class="posts-slider">
+            <button class="post-card card-click"
                     type="button"
                     data-preview="labor day.png"
                     data-title="Labor Day Campaign"
                     aria-label="Open preview: Labor Day Campaign">
               <img src="labor day.png" alt="Labor Day Campaign">
-              <div class="tile-meta">
-                <div class="tile-title">Labor Day Campaign</div>
-                <div class="tile-sub">Post</div>
-              </div>
+              <div class="post-caption">Labor Day Campaign</div>
             </button>
 
-            <button class="tile tile-click"
+            <button class="post-card card-click"
                     type="button"
                     data-preview="COVERLIE 5.png"
-                    data-title="Product Highlights — Slide 01"
-                    aria-label="Open preview: Product Highlights — Slide 01">
-              <img src="COVERLIE 5.png" alt="Product Highlights — Slide 01">
-              <div class="tile-meta">
-                <div class="tile-title">Highlights — Slide 01</div>
-                <div class="tile-sub">Slide</div>
-              </div>
+                    data-title="Highlights — Slide 01"
+                    aria-label="Open preview: Highlights — Slide 01">
+              <img src="COVERLIE 5.png" alt="Highlights — Slide 01">
+              <div class="post-caption">Highlights — Slide 01</div>
             </button>
 
-            <button class="tile tile-click"
+            <button class="post-card card-click"
                     type="button"
                     data-preview="COVERLIE 3.png"
-                    data-title="Product Highlights — Slide 02"
-                    aria-label="Open preview: Product Highlights — Slide 02">
-              <img src="COVERLIE 3.png" alt="Product Highlights — Slide 02">
-              <div class="tile-meta">
-                <div class="tile-title">Highlights — Slide 02</div>
-                <div class="tile-sub">Slide</div>
-              </div>
+                    data-title="Highlights — Slide 02"
+                    aria-label="Open preview: Highlights — Slide 02">
+              <img src="COVERLIE 3.png" alt="Highlights — Slide 02">
+              <div class="post-caption">Highlights — Slide 02</div>
             </button>
 
-            <button class="tile tile-click"
+            <button class="post-card card-click"
                     type="button"
                     data-preview="COVERLIEE.png"
                     data-title="Brand Story — Key Visual"
                     aria-label="Open preview: Brand Story — Key Visual">
               <img src="COVERLIEE.png" alt="Brand Story — Key Visual">
-              <div class="tile-meta">
-                <div class="tile-title">Brand Story</div>
-                <div class="tile-sub">Post</div>
-              </div>
+              <div class="post-caption">Brand Story</div>
             </button>
 
-            <button class="tile tile-click"
+            <button class="post-card card-click"
                     type="button"
                     data-preview="oqunet single.png"
                     data-title="Single Post — Promo"
                     aria-label="Open preview: Single Post — Promo">
               <img src="oqunet single.png" alt="Single Post — Promo">
-              <div class="tile-meta">
-                <div class="tile-title">Single Promo</div>
-                <div class="tile-sub">Post</div>
-              </div>
+              <div class="post-caption">Single Promo</div>
             </button>
           </div>
         </div>
@@ -324,7 +312,7 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- Services -->
     <section id="services" class="section">
       <div class="wrap">
         <div class="section-head">
@@ -332,30 +320,30 @@
           <p>What I can do for you.</p>
         </div>
 
-        <div class="cards">
-          <div class="svc">
-            <div class="svc-h">Video Editing</div>
-            <div class="svc-p">Long-form pacing, storytelling, clean cuts, retention.</div>
+        <div class="services">
+          <div class="service">
+            <div class="service-title">Video Editing</div>
+            <div class="service-desc">Pacing, cuts, sound, export for social platforms.</div>
           </div>
-          <div class="svc">
-            <div class="svc-h">Color Grading</div>
-            <div class="svc-p">Cinematic look, consistency, mood and contrast.</div>
+          <div class="service">
+            <div class="service-title">Color Grading</div>
+            <div class="service-desc">Cinematic look, tone, contrast, and consistency.</div>
           </div>
-          <div class="svc">
-            <div class="svc-h">Motion Graphics</div>
-            <div class="svc-p">Intros, titles, lower-thirds, transitions.</div>
+          <div class="service">
+            <div class="service-title">Motion Graphics</div>
+            <div class="service-desc">Intros, lower thirds, transitions, titles.</div>
           </div>
-          <div class="svc">
-            <div class="svc-h">Graphic Design</div>
-            <div class="svc-p">Posters, branding, social packs, key visuals.</div>
+          <div class="service">
+            <div class="service-title">Graphic Design</div>
+            <div class="service-desc">Posters, identities, social media packs.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="wrap contact">
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+      <div class="wrap contact-inner">
         <div class="section-head">
           <h2>Contact</h2>
           <p>Let’s work together.</p>
@@ -373,7 +361,9 @@
           </div>
         </div>
 
-        <div class="contact-note">Tip: For client work, you can send an unlisted YouTube link and I’ll embed it here.</div>
+        <div class="note">
+          For editing work, send me your YouTube link (Unlisted) and I’ll embed it into the Editing section.
+        </div>
       </div>
     </section>
 
@@ -383,32 +373,33 @@
 
   </main>
 
-  <!-- ===== LIGHTBOX (Image preview) ===== -->
-  <div class="modal" id="imgModal" aria-hidden="true">
-    <div class="modal-backdrop" data-img-close="1"></div>
+  <!-- ===== Lightbox (Images Preview) ===== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-close="1"></div>
 
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Preview">
-      <button class="modal-close" type="button" aria-label="Close preview" data-img-close="1">×</button>
+    <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Preview">
+      <button class="lightbox-close" type="button" aria-label="Close preview" data-close="1">×</button>
 
-      <div class="modal-media">
-        <img id="modalImg" src="" alt="Preview">
+      <div class="lightbox-media">
+        <img id="lightboxImg" src="" alt="Preview">
       </div>
 
-      <div class="modal-foot">
-        <div class="modal-title" id="modalTitle"></div>
+      <div class="lightbox-foot">
+        <div class="lightbox-title" id="lightboxTitle"></div>
       </div>
     </div>
   </div>
 
-  <!-- ===== FOLDER MODAL (Videos) ===== -->
-  <div class="modal" id="folderModal" aria-hidden="true">
-    <div class="modal-backdrop" data-folder-close="1"></div>
+  <!-- ===== Folder Lightbox (Videos) ===== -->
+  <div class="lightbox" id="folderbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-folder-close="1"></div>
 
-    <div class="modal-panel modal-panel-wide" role="dialog" aria-modal="true" aria-label="Folder videos">
-      <button class="modal-close" type="button" aria-label="Close folder" data-folder-close="1">×</button>
+    <div class="lightbox-panel lightbox-panel-wide" role="dialog" aria-modal="true" aria-label="Folder videos">
+      <button class="lightbox-close" type="button" aria-label="Close folder" data-folder-close="1">×</button>
 
-      <div class="modal-foot">
-        <div class="modal-title">Sébastien Koubar</div>
+      <div class="lightbox-foot">
+        <div class="lightbox-title">Sébastien Koubar</div>
+        <div class="lightbox-sub">Long-form YouTube Videos</div>
       </div>
 
       <div class="folder-body">
@@ -466,87 +457,90 @@
   </div>
 
   <script>
-    function lock(){ document.body.classList.add('lock'); }
-    function unlock(){ document.body.classList.remove('lock'); }
+    function lock(){ document.body.classList.add('modal-open'); }
+    function unlock(){ document.body.classList.remove('modal-open'); }
 
-    // ===== Image Modal =====
-    const imgModal = document.getElementById('imgModal');
-    const modalImg = document.getElementById('modalImg');
-    const modalTitle = document.getElementById('modalTitle');
+    // ===== Images Lightbox =====
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbTitle = document.getElementById('lightboxTitle');
 
-    function openImg(src, title){
-      modalImg.src = src;
-      modalImg.alt = title ? (title + " preview") : "Preview";
-      modalTitle.textContent = title || "";
-      imgModal.classList.add('open');
-      imgModal.setAttribute('aria-hidden','false');
+    function openLightbox(src, title){
+      lbImg.src = src;
+      lbImg.alt = title ? (title + " preview") : "Preview";
+      lbTitle.textContent = title || "";
+      lb.classList.add('is-open');
+      lb.setAttribute('aria-hidden', 'false');
       lock();
     }
 
-    function closeImg(){
-      imgModal.classList.remove('open');
-      imgModal.setAttribute('aria-hidden','true');
+    function closeLightbox(){
+      lb.classList.remove('is-open');
+      lb.setAttribute('aria-hidden', 'true');
       unlock();
       setTimeout(() => {
-        modalImg.src = "";
-        modalTitle.textContent = "";
-      }, 120);
+        lbImg.src = "";
+        lbTitle.textContent = "";
+      }, 150);
     }
 
-    // ===== Folder Modal =====
-    const folderModal = document.getElementById('folderModal');
+    // ===== Folder Lightbox =====
+    const fb = document.getElementById('folderbox');
 
     function openFolder(){
-      folderModal.classList.add('open');
-      folderModal.setAttribute('aria-hidden','false');
+      fb.classList.add('is-open');
+      fb.setAttribute('aria-hidden','false');
       lock();
     }
 
     function closeFolder(){
-      folderModal.classList.remove('open');
-      folderModal.setAttribute('aria-hidden','true');
+      fb.classList.remove('is-open');
+      fb.setAttribute('aria-hidden','true');
       unlock();
-
-      // stop videos
-      folderModal.querySelectorAll('iframe').forEach(f => {
+      // stop videos by resetting iframe src
+      fb.querySelectorAll('iframe').forEach(f => {
         const src = f.getAttribute('src');
         f.setAttribute('src', src);
       });
     }
 
-    // open image previews
+    // Open image previews
     document.querySelectorAll('[data-preview]').forEach(el => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         const src = el.getAttribute('data-preview');
         const title = el.getAttribute('data-title') || "";
-        openImg(src, title);
+        openLightbox(src, title);
       });
     });
 
-    // open folder
+    // Open folder
     document.querySelectorAll('[data-open-folder="sebastien"]').forEach(el => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         openFolder();
       });
     });
 
-    // close image modal
-    imgModal.addEventListener('click', (e) => {
-      if (e.target && e.target.getAttribute('data-img-close') === '1') closeImg();
+    // Close images lightbox
+    lb.addEventListener('click', (e) => {
+      if (e.target && e.target.getAttribute('data-close') === '1') closeLightbox();
     });
 
-    // close folder modal
-    folderModal.addEventListener('click', (e) => {
+    // Close folder lightbox
+    fb.addEventListener('click', (e) => {
       if (e.target && e.target.getAttribute('data-folder-close') === '1') closeFolder();
     });
 
-    // ESC closes
+    // ESC to close
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        if (folderModal.classList.contains('open')) closeFolder();
-        else if (imgModal.classList.contains('open')) closeImg();
+        if (fb.classList.contains('is-open')) closeFolder();
+        else if (lb.classList.contains('is-open')) closeLightbox();
       }
     });
-  </
+  </script>
+
+</body>
