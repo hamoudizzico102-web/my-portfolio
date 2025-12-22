@@ -213,14 +213,14 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Client Work</h2>
-          <p>Selected client projects (click to preview).</p>
+          <p>Brand covers + social posts (click to preview).</p>
         </div>
 
         <!-- ===== Client 1: Intellident Dental Clinic ===== -->
         <div class="client-block">
-          <div class="client-header">
-            <h3 class="client-h">Intellident Dental Clinic</h3>
-            <div class="client-subline">Design • Social Media</div>
+          <div class="client-head">
+            <div class="client-title">Intellident Dental Clinic</div>
+            <div class="client-subtitle">Design • Social Media</div>
           </div>
 
           <button class="client-cover card-click"
@@ -234,7 +234,7 @@
             <div class="client-cover-text">
               <div class="client-pill">CLIENT</div>
               <div class="client-name">Intellident Dental Clinic</div>
-              <div class="client-sub">Brand Cover</div>
+              <div class="client-sub">Design • Social Media</div>
             </div>
           </button>
 
@@ -268,14 +268,14 @@
           </div>
         </div>
 
-        <!-- ===== Client 2: Oqunet Software (NEW) ===== -->
+        <!-- ===== Client 2: Oqunet Software ===== -->
         <div class="client-block">
-          <div class="client-header">
-            <h3 class="client-h">Oqunet Software</h3>
-            <div class="client-subline">Branding • Social Media • Campaign Visuals</div>
+          <div class="client-head">
+            <div class="client-title">Oqunet Software</div>
+            <div class="client-subtitle">Branding • Campaigns • Social Design</div>
           </div>
 
-          <!-- Cover: logo-01.png -->
+          <!-- Cover (logo as cover) -->
           <button class="client-cover card-click"
                   type="button"
                   data-preview="logo-01.png"
@@ -287,13 +287,12 @@
             <div class="client-cover-text">
               <div class="client-pill">CLIENT</div>
               <div class="client-name">Oqunet Software</div>
-              <div class="client-sub">Brand Cover</div>
+              <div class="client-sub">Design • Campaign • Social Media</div>
             </div>
           </button>
 
-          <!-- Posts slider (your files) -->
+          <!-- Slides -->
           <div class="posts-slider" aria-label="Oqunet posts slider">
-
             <button class="post-card card-click"
                     type="button"
                     data-preview="labor day.png"
@@ -306,44 +305,39 @@
             <button class="post-card card-click"
                     type="button"
                     data-preview="COVERLIE 5.png"
-                    data-title="Campaign Cover V5"
-                    aria-label="Open preview: Campaign Cover V5">
-              <img src="COVERLIE 5.png" alt="Campaign Cover V5">
-              <div class="post-caption">Campaign Cover V5</div>
+                    data-title="Product Highlights — Slide 01"
+                    aria-label="Open preview: Product Highlights — Slide 01">
+              <img src="COVERLIE 5.png" alt="Product Highlights — Slide 01">
+              <div class="post-caption">Product Highlights — Slide 01</div>
             </button>
 
             <button class="post-card card-click"
                     type="button"
                     data-preview="COVERLIE 3.png"
-                    data-title="Campaign Cover V3"
-                    aria-label="Open preview: Campaign Cover V3">
-              <img src="COVERLIE 3.png" alt="Campaign Cover V3">
-              <div class="post-caption">Campaign Cover V3</div>
+                    data-title="Product Highlights — Slide 02"
+                    aria-label="Open preview: Product Highlights — Slide 02">
+              <img src="COVERLIE 3.png" alt="Product Highlights — Slide 02">
+              <div class="post-caption">Product Highlights — Slide 02</div>
             </button>
 
             <button class="post-card card-click"
                     type="button"
                     data-preview="COVERLIEE.png"
-                    data-title="Campaign Cover — Alternate"
-                    aria-label="Open preview: Campaign Cover Alternate">
-              <img src="COVERLIEE.png" alt="Campaign Cover Alternate">
-              <div class="post-caption">Campaign Cover — Alternate</div>
+                    data-title="Brand Story — Key Visual"
+                    aria-label="Open preview: Brand Story — Key Visual">
+              <img src="COVERLIEE.png" alt="Brand Story — Key Visual">
+              <div class="post-caption">Brand Story — Key Visual</div>
             </button>
 
             <button class="post-card card-click"
                     type="button"
                     data-preview="oqunet single.png"
-                    data-title="Single Post Design"
-                    aria-label="Open preview: Single Post Design">
-              <img src="oqunet single.png" alt="Single Post Design">
-              <div class="post-caption">Single Post Design</div>
+                    data-title="Single Post — Promo"
+                    aria-label="Open preview: Single Post — Promo">
+              <img src="oqunet single.png" alt="Single Post — Promo">
+              <div class="post-caption">Single Post — Promo</div>
             </button>
-
           </div>
-        </div>
-
-        <div class="note" style="margin-top:12px;">
-          Tip: add new client blocks by duplicating one "client-block" and changing only file names + titles.
         </div>
 
       </div>
@@ -451,6 +445,7 @@
       }, 150);
     }
 
+    // Click anything that has data-preview (Design + Client + Slides)
     document.querySelectorAll('[data-preview]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -461,12 +456,14 @@
       });
     });
 
+    // Close buttons / backdrop
     lb.addEventListener('click', (e) => {
       if (e.target && e.target.getAttribute('data-close') === '1') {
         closeLightbox();
       }
     });
 
+    // ESC to close
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && lb.classList.contains('is-open')) {
         closeLightbox();
