@@ -10,10 +10,10 @@
   --radius:18px;
   --shadow: 0 18px 60px rgba(0,0,0,0.55);
 
-  /* NEW: blue highlight for Design click */
+  /* Blue glow for Design click */
   --blue:#3b82f6;
-  --blueGlow: rgba(59,130,246,0.45);
-  --blueGlow2: rgba(59,130,246,0.22);
+  --blueGlow:rgba(59,130,246,0.45);
+  --blueGlowSoft:rgba(59,130,246,0.18);
 }
 
 *{box-sizing:border-box}
@@ -22,9 +22,10 @@ html,body{height:100%}
 body{
   margin:0;
   font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  background:radial-gradient(900px 520px at 20% 10%, rgba(124,58,237,0.25), transparent 60%),
-             radial-gradient(900px 520px at 70% 20%, rgba(34,197,94,0.18), transparent 60%),
-             linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  background:
+    radial-gradient(900px 520px at 20% 10%, rgba(124,58,237,0.25), transparent 60%),
+    radial-gradient(900px 520px at 70% 20%, rgba(34,197,94,0.18), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
   color:var(--text);
 }
 
@@ -258,8 +259,9 @@ body.modal-open{
   position:absolute;
   inset:auto -20% -180px -20%;
   height:240px;
-  background:radial-gradient(520px 220px at 30% 30%, rgba(124,58,237,0.22), transparent 60%),
-             radial-gradient(520px 220px at 70% 30%, rgba(34,197,94,0.18), transparent 60%);
+  background:
+    radial-gradient(520px 220px at 30% 30%, rgba(124,58,237,0.22), transparent 60%),
+    radial-gradient(520px 220px at 70% 30%, rgba(34,197,94,0.18), transparent 60%);
 }
 
 /* Sections */
@@ -293,7 +295,7 @@ body.modal-open{
   gap:14px;
 }
 
-/* clickable card -> use button reset */
+/* Base Card */
 .card{
   border-radius:var(--radius);
   overflow:hidden;
@@ -304,6 +306,7 @@ body.modal-open{
   cursor:pointer;
 }
 
+/* clickable card -> button reset */
 .card-click{
   padding:0;
   text-align:left;
@@ -315,49 +318,417 @@ body.modal-open{
   outline:none;
 }
 
-/* ============================
-   NEW: Design 3D slide transition + blue glow on click
-   Applies ONLY to buttons inside #design
-   ============================ */
-#design .card{
-  transform-style:preserve-3d;
-  perspective:1000px;
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow: 0 22px 70px rgba(0,0,0,0.55);
 }
 
+.card:focus-visible{
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.35), 0 22px 70px rgba(0,0,0,0.55);
+}
+
+.card img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  display:block;
+}
+
+.card-foot{
+  padding:12px 12px 14px;
+  background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.38));
+}
+
+.card-title{font-size:0.95rem}
+.card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
+
+/* =========================================================
+   DESIGN ONLY: 3D Slide transition (safe) + Blue click glow
+   ========================================================= */
+
+/* We keep outer card hover simple to avoid “slicing” images */
+#design .card{
+  transition: transform .22s ease, box-shadow .22s ease, border-color .2s ease;
+}
+
+#design .card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 26px 85px rgba(0,0,0,0.62);
+}
+
+/* The “slide” effect lives on the button layer */
 #design .card-click{
   position:relative;
+  transform: translate3d(0,0,0);
   will-change: transform, box-shadow, border-color, filter;
   transition:
-    transform .42s cubic-bezier(.2,.85,.2,1),
-    box-shadow .42s cubic-bezier(.2,.85,.2,1),
-    border-color .25s ease,
-    filter .25s ease;
+    transform .38s cubic-bezier(.2,.85,.2,1),
+    box-shadow .38s cubic-bezier(.2,.85,.2,1),
+    border-color .2s ease,
+    filter .2s ease;
 }
 
-/* subtle glossy overlay (premium) */
+/* Premium sheen */
 #design .card-click::before{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
-  background:
-    radial-gradient(600px 240px at 20% 10%, rgba(59,130,246,0.10), transparent 55%),
-    linear-gradient(180deg, rgba(255,255,255,0.06), transparent 45%);
   opacity:0;
-  transition:opacity .25s ease;
+  transition: opacity .22s ease;
+  background:
+    radial-gradient(520px 220px at 18% 10%, rgba(59,130,246,0.10), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), transparent 48%);
 }
 
-/* Hover = 3D slide feel */
-#design .card:hover .card-click,
-#design .card-click:hover{
-  transform:
-    translateY(-6px)
-    translateX(4px)
-    rotateX(7deg)
-    rotateY(-10deg)
-    translateZ(0);
-  box-shadow: 0 26px 85px rgba(0,0,0,0.62);
+/* Hover: slide forward (no rotate) */
+#design .card:hover .card-click{
+  transform: translate3d(10px,-6px,0);
 }
 
+/* Press: deeper slide */
+#design .card-click:active{
+  transform: translate3d(14px,-3px,0) scale(0.995);
+}
+
+/* Show sheen on hover/active/focus */
 #design .card:hover .card-click::before,
-#design .card-c
+#design .card-click:active::before,
+#design .card-click:focus::before,
+#design .card-click:focus-visible::before{
+  opacity:1;
+}
+
+/* Click highlight (blue) */
+#design .card-click:focus,
+#design .card-click:focus-visible{
+  border-color: rgba(59,130,246,0.72);
+  box-shadow:
+    0 0 0 3px rgba(59,130,246,0.22),
+    0 18px 65px rgba(0,0,0,0.60),
+    0 0 44px rgba(59,130,246,0.32);
+  filter: saturate(1.06);
+}
+
+/* Folder card with external YouTube link */
+.folder-card{
+  position:relative;
+}
+
+/* Ensure the folder button fills the card */
+.folder-cover{
+  width:100%;
+  display:block;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:inherit;
+  text-align:left;
+  cursor:pointer;
+}
+
+/* YouTube link button */
+.folder-yt{
+  position:absolute;
+  top:12px;
+  right:12px;
+  z-index:5;
+  text-decoration:none;
+  font-size:0.78rem;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.16);
+  background:rgba(0,0,0,0.45);
+  color:rgba(255,255,255,0.92);
+}
+
+.folder-yt:hover{
+  background:rgba(0,0,0,0.62);
+}
+
+/* Client Work blocks */
+.client-block{
+  padding:0;
+}
+
+.client-cover{
+  width:100%;
+  display:block;
+  padding:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  text-align:left;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 22px 80px rgba(0,0,0,0.45);
+  position:relative;
+}
+
+.client-cover-img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+
+.client-cover-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.65));
+}
+
+.client-cover-text{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  z-index:2;
+}
+
+.client-pill{
+  display:inline-block;
+  font-size:0.72rem;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(0,0,0,0.45);
+  border:1px solid rgba(255,255,255,0.14);
+  color:rgba(255,255,255,0.9);
+}
+
+.client-name{margin-top:10px; font-size:1.15rem}
+.client-sub{margin-top:4px; font-size:0.84rem; color:rgba(255,255,255,0.72)}
+
+.posts-slider{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:12px;
+}
+
+.post-card{
+  padding:0;
+  border:1px solid rgba(255,255,255,0.10);
+  background:rgba(255,255,255,0.03);
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  text-align:left;
+  color:inherit;
+}
+
+.post-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+}
+
+.post-caption{
+  padding:10px 12px;
+  font-size:0.82rem;
+  color:rgba(255,255,255,0.85);
+  background:rgba(0,0,0,0.25);
+}
+
+/* Video card placeholder */
+.video{cursor:default}
+.video .video-box{
+  height:280px;
+  background:rgba(0,0,0,0.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.video-box iframe{
+  width:100%;
+  height:280px;
+  border:0;
+  display:block;
+  background:rgba(0,0,0,0.25);
+}
+
+/* Services */
+.services{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:12px;
+}
+.service{
+  padding:14px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.10);
+}
+.service-title{font-size:0.95rem}
+.service-desc{margin-top:6px; font-size:0.78rem; color:var(--muted)}
+
+/* Contact */
+.contact-inner{
+  border-radius:22px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,0.10);
+  background:rgba(255,255,255,0.04);
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:12px;
+}
+.contact-card{
+  padding:14px;
+  border-radius:16px;
+  background:rgba(0,0,0,0.35);
+  border:1px solid rgba(255,255,255,0.08);
+}
+.label{font-size:0.78rem; color:var(--muted); margin-bottom:6px}
+.contact-link{
+  color:var(--text);
+  text-decoration:none;
+  font-size:0.95rem;
+}
+.contact-link:hover{opacity:0.85}
+.note{
+  margin-top:12px;
+  color:rgba(255,255,255,0.65);
+  font-size:0.82rem;
+}
+
+/* Footer */
+.footer{
+  padding:18px 0 26px;
+  color:rgba(255,255,255,0.55);
+  font-size:0.85rem;
+}
+
+/* Folder lightbox body layout */
+.folder-body{
+  padding:14px;
+}
+.folder-grid{
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+/* ===== Lightbox Preview (Blur Background) ===== */
+.lightbox{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:999;
+}
+.lightbox.is-open{
+  display:block;
+}
+.lightbox-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+}
+.lightbox-panel{
+  position:relative;
+  max-width:min(980px, 92vw);
+  margin:72px auto 26px;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(10,12,16,0.75);
+  box-shadow: 0 30px 120px rgba(0,0,0,0.75);
+}
+.lightbox-close{
+  position:absolute;
+  top:10px;
+  right:12px;
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.16);
+  background:rgba(0,0,0,0.45);
+  color:rgba(255,255,255,0.92);
+  font-size:22px;
+  cursor:pointer;
+  line-height:1;
+  z-index:5;
+}
+.lightbox-close:hover{
+  background:rgba(0,0,0,0.62);
+}
+.lightbox-media{
+  width:100%;
+  background:rgba(0,0,0,0.4);
+}
+.lightbox-media img{
+  width:100%;
+  height:auto;
+  display:block;
+  max-height:78vh;
+  object-fit:contain;
+}
+.lightbox-foot{
+  padding:12px 14px 16px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.35));
+}
+.lightbox-title{
+  font-size:0.95rem;
+  color:rgba(255,255,255,0.92);
+}
+
+/* ============================
+   Folder Scroll
+   ============================ */
+
+.folder-panel{
+  display:flex;
+  flex-direction:column;
+  max-height:86vh;
+}
+
+.folder-head{
+  position:sticky;
+  top:0;
+  z-index:3;
+  backdrop-filter: blur(10px);
+  background:linear-gradient(180deg, rgba(10,12,16,0.92), rgba(10,12,16,0.65));
+  border-top:0;
+}
+
+.folder-scroll{
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  max-height:calc(86vh - 58px);
+}
+
+.folder-scroll::-webkit-scrollbar{width:10px}
+.folder-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,0.05)}
+.folder-scroll::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,0.18);
+  border-radius:999px;
+  border:2px solid rgba(0,0,0,0.3);
+}
+.folder-scroll::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.26)}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .grid{grid-template-columns:1fr 1fr}
+  .services{grid-template-columns:1fr 1fr}
+  .posts-slider{grid-template-columns:1fr 1fr}
+  .folder-grid{grid-template-columns:1fr}
+  .folder-panel{max-height:88vh}
+  .folder-scroll{max-height:calc(88vh - 58px)}
+}
+
+@media (max-width:640px){
+  .nav{display:none}
+  .grid{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .posts-slider{grid-template-columns:1fr}
+  .lightbox-panel{margin:62px auto 18px}
+  .folder-panel{max-height:90vh}
+  .folder-scroll{max-height:calc(90vh - 58px)}
+}
