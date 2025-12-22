@@ -1,115 +1,143 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohamed Moukaddem — Graphic Designer & Video Editor</title>
+:root{
+  --bg:#0b0f12;
+  --surface:#0f1720;
+  --text:#e6eef6;
+  --muted:#9aa6b2;
+  --accent:#2dd4bf;
+  --max-width:1100px;
+}
 
-  <!-- Google Font: Poppins Bold -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+*{box-sizing:border-box}
 
-  <link rel="stylesheet" href="styles.css">
-</head>
+body{
+  margin:0;
+  font-family:"Poppins", Arial, sans-serif;
+  background:#0b0f12;
+  color:var(--text);
+}
 
-<body>
+/* ===== LAYOUT ===== */
+.container{
+  max-width:var(--max-width);
+  margin:auto;
+  padding:40px 20px;
+}
 
-  <!-- ===== HEADER ===== -->
-  <header class="site-header">
-    <div class="container header-inner">
+/* ===== HEADER ===== */
+.site-header{
+  position:sticky;
+  top:0;
+  background:#0b0f12;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
 
-      <a href="#home" class="logo">
-        <img
-          class="avatar"
-          src="IMG_20251201_031908_081.jpeg.jpg"
-          alt="Mohamed Moukaddem"
-        >
-        <div class="brand-text">
-          <span class="name">Mohamed Moukaddem</span>
-          <span class="role">Graphic Designer &amp; Video Editor</span>
-        </div>
-      </a>
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-      <nav class="main-nav">
-        <a href="#portfolio">Portfolio</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-      </nav>
+.logo{
+  text-decoration:none;
+  color:var(--text);
+}
 
-    </div>
-  </header>
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
 
-  <!-- ===== MAIN ===== -->
-  <main>
+.name{
+  font-size:0.95rem;
+  font-weight:700;
+}
 
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="container">
-        <h1>Mohamed Moukaddem</h1>
-        <h2 class="title">Graphic Designer &amp; Video Editor</h2>
-        <p class="intro">
-          Graphic Designer &amp; Video Editor focused on modern visuals, branding,
-          and cinematic video content for social media and digital platforms.
-        </p>
+.role{
+  font-size:0.75rem;
+  color:var(--muted);
+}
 
-        <div class="hero-actions">
-          <a class="btn" href="#portfolio">View Portfolio</a>
-          <a class="btn btn-outline" href="#contact">Contact</a>
-        </div>
-      </div>
-    </section>
+/* NAV */
+.main-nav a{
+  margin-left:16px;
+  text-decoration:none;
+  color:var(--muted);
+}
+.main-nav a:hover{color:var(--text)}
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="section">
-      <div class="container">
-        <h2>Portfolio</h2>
+/* ===== HERO ===== */
+.hero h1{
+  margin:0;
+  font-size:2.4rem;
+}
+.title{
+  color:var(--muted);
+  margin-top:4px;
+}
+.intro{
+  max-width:600px;
+  margin-top:16px;
+  color:var(--muted);
+}
 
-        <div class="portfolio-grid">
-          <div class="work">
-            <img src="https://via.placeholder.com/800x500?text=Project+1">
-            <h3>Project 1</h3>
-          </div>
-          <div class="work">
-            <img src="https://via.placeholder.com/800x500?text=Project+2">
-            <h3>Project 2</h3>
-          </div>
-          <div class="work">
-            <img src="https://via.placeholder.com/800x500?text=Project+3">
-            <h3>Project 3</h3>
-          </div>
-        </div>
-      </div>
-    </section>
+.hero-actions{
+  margin-top:20px;
+}
 
-    <!-- SERVICES -->
-    <section id="services" class="section">
-      <div class="container">
-        <h2>Services</h2>
-        <ul class="services">
-          <li>Graphic Design</li>
-          <li>Video Editing</li>
-          <li>Branding</li>
-          <li>Motion Graphics</li>
-        </ul>
-      </div>
-    </section>
+.btn{
+  background:var(--accent);
+  color:#042027;
+  padding:10px 16px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:700;
+  margin-right:10px;
+}
+.btn-outline{
+  background:none;
+  border:1px solid var(--accent);
+  color:var(--accent);
+}
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-        <p>
-          <a class="link" href="mailto:contact@email.com">contact@email.com</a>
-        </p>
-      </div>
-    </section>
+/* ===== PORTFOLIO ===== */
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+.work img{
+  width:100%;
+  border-radius:10px;
+}
 
-  </main>
+/* ===== SERVICES ===== */
+.services{
+  list-style:none;
+  padding:0;
+}
+.services li{
+  padding:6px 0;
+}
 
-  <footer class="site-footer">
-    <p>© 2025 Mohamed Moukaddem</p>
-  </footer>
+/* ===== CONTACT ===== */
+.link{
+  color:var(--accent);
+  text-decoration:none;
+}
 
-</body>
-</html>
+/* ===== FOOTER ===== */
+.site-footer{
+  text-align:center;
+  padding:20px;
+  color:var(--muted);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:640px){
+  .header-inner{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+}
