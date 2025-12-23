@@ -1,6 +1,5 @@
 // script.js
 
-// prevent background scroll when modal open
 function lock(){ document.body.classList.add('modal-open'); }
 function unlock(){ document.body.classList.remove('modal-open'); }
 
@@ -41,7 +40,8 @@ function setFolder(key){
     "sebastien": "Sébastien Koubar",
     "hisham-ghanem-library": "hisham.ghanem.library",
     "client-intellident": "Intellident Dental Clinic",
-    "client-oqunet": "Oqunet Software"
+    "client-oqunet": "Oqunet Software",
+    "client-marketing-maven": "The Marketing maven"
   };
 
   folderTitle.textContent = titles[key] || "Folder";
@@ -105,7 +105,6 @@ function openFolder(key){
   fb.setAttribute('aria-hidden','false');
   lock();
 
-  // Process Instagram embeds only when that folder opens
   if(key === "hisham-ghanem-library"){
     setTimeout(() => { processInstagramEmbeds(); }, 40);
   }
