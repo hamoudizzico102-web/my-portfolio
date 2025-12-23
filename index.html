@@ -1,741 +1,237 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohamed Moukaddem — Creative Video Editor</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* =========================================
-       CSS: THE BLOODY RED THEME (UPDATED)
-       ========================================= */
-    :root {
-      --bg: #050000;         /* أسود قاتم جداً */
-      --bg2: #0f0202;        /* أسود محمر خفيف */
-      --card: #1a0505;       /* لون الكروت */
-      --text: #eef2ff;
-      --muted: rgba(238, 242, 255, 0.6);
-      --line: rgba(220, 38, 38, 0.15); /* خطوط حمراء خفيفة */
-
-      /* الألوان الأساسية: أحمر وبرتقالي ناري */
-      --accent: #ef4444;    /* Red 500 */
-      --accent2: #dc2626;   /* Red 600 */
-      
-      --radius: 18px;
-      --shadow: 0 18px 60px rgba(0, 0, 0, 0.7);
-
-      /* Red Glow Variables (بدل الأزرق) */
-      --glow-color: #ef4444; 
-      --glow-soft: rgba(239, 68, 68, 0.15);
-      --glow-strong: rgba(239, 68, 68, 0.45);
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-
-    body {
-      margin: 0;
-      font-family: "Poppins", system-ui, -apple-system, sans-serif;
-      /* خلفية دموية متدرجة */
-      background:
-        radial-gradient(900px 520px at 20% 10%, rgba(220, 38, 38, 0.15), transparent 60%),
-        radial-gradient(900px 520px at 80% 30%, rgba(185, 28, 28, 0.1), transparent 60%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    /* Red Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: #450a0a; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-
-    body.modal-open { overflow: hidden; }
-
-    /* Layout */
-    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 18px; }
-
-    /* Header */
-    .topbar {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(5, 0, 0, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 0; }
-
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
-    .brand-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 0 15px var(--glow-soft); }
-    .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
-    .brand-name { font-size: 1rem; font-weight: 700; letter-spacing: -0.5px; }
-    .brand-role { font-size: 0.75rem; color: var(--muted); }
-
-    .nav { display: flex; gap: 20px; align-items: center; }
-    .nav a { text-decoration: none; color: var(--muted); font-size: 0.9rem; transition: 0.3s; }
-    .nav a:hover { color: var(--accent); text-shadow: 0 0 10px var(--glow-soft); }
-
-    /* CV Button */
-    .nav-cv {
-      position: relative; padding: 6px 12px; border-radius: 10px; border: 1px solid transparent;
-      transition: all 0.2s ease;
-    }
-    .nav-cv:hover, .nav-cv.is-open {
-      color: white;
-      background: rgba(239, 68, 68, 0.1);
-      border-color: rgba(239, 68, 68, 0.4);
-      box-shadow: 0 0 15px var(--glow-soft);
-    }
-
-    /* CTA Button (Hire Me) */
-    .cta {
-      position: relative; overflow: hidden; text-decoration: none; color: white;
-      background: linear-gradient(135deg, var(--accent2), #7f1d1d);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 20px; border-radius: 12px; font-weight: 600;
-      box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
-      transition: transform 0.2s;
-    }
-    .cta:hover { transform: translateY(-2px); box-shadow: 0 0 25px var(--glow-strong); }
-    
-    /* Sweep Effect */
-    .cta::after {
-      content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: 0.5s;
-    }
-    .cta:hover::after { left: 100%; }
-
-    /* Hero Section */
-    .hero { position: relative; padding: 80px 0 40px; }
-    .hero-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
-
-    .tag {
-      display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent);
-      padding: 6px 12px; border-radius: 50px;
-      border: 1px solid rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05);
-      margin-bottom: 20px; letter-spacing: 1px;
-    }
-
-    .headline {
-      margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; font-weight: 700;
-      background: linear-gradient(to right, #fff, #fca5a5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-
-    .sub { margin: 20px 0 30px; color: var(--muted); font-size: 1.05rem; line-height: 1.6; max-width: 600px; }
-
-    .actions { display: flex; gap: 15px; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
-      padding: 12px 24px; border-radius: 12px; font-weight: 600; transition: 0.3s;
-    }
-    .btn.primary { background: white; color: black; }
-    .btn.primary:hover { background: #e5e5e5; transform: translateY(-2px); box-shadow: 0 0 20px rgba(255,255,255,0.3); }
-    .btn.ghost { border: 1px solid rgba(255,255,255,0.2); color: white; }
-    .btn.ghost:hover { border-color: white; background: rgba(255,255,255,0.05); }
-
-    .stats { margin-top: 40px; display: flex; gap: 30px; border-top: 1px solid var(--line); padding-top: 20px; }
-    .stat-num { font-size: 1.2rem; font-weight: 700; color: white; }
-    .stat-label { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
-
-    /* Hero Right (Showreel Card) */
-    .hero-right .hero-card {
-      background: rgba(20, 5, 5, 0.6); border: 1px solid var(--line);
-      border-radius: var(--radius); overflow: hidden; backdrop-filter: blur(10px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    }
-    .hero-card-top { display: flex; gap: 8px; padding: 15px; border-bottom: 1px solid var(--line); }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot.red { background: #ef4444; } .dot.yellow { background: #f59e0b; } .dot.green { background: #22c55e; }
-    .hero-card-body { padding: 20px; }
-    
-    .preview {
-      display: flex; gap: 15px; align-items: center; padding: 15px;
-      background: rgba(0,0,0,0.4); border-radius: 12px; border: 1px solid var(--line);
-    }
-    .play {
-      width: 40px; height: 40px; border-radius: 10px; background: var(--accent);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 15px var(--glow-strong);
-    }
-    .play::after { content: ""; border-left: 10px solid black; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
-    .preview-title { font-weight: 700; font-size: 0.9rem; }
-    .preview-sub { font-size: 0.75rem; color: var(--muted); }
-
-    .chips { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
-    .chip { font-size: 0.7rem; padding: 4px 10px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #ccc; }
-
-    /* Sections */
-    .section { padding: 60px 0; }
-    .section-head { margin-bottom: 30px; display: flex; justify-content: space-between; align-items: end; }
-    .section-head h2 { font-size: 2rem; margin: 0; background: linear-gradient(to right, white, #999); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .section-head p { color: var(--muted); margin: 0; }
-
-    /* Grids & Cards */
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-    
-    .card {
-      background: var(--card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius);
-      overflow: hidden; transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); cursor: pointer; position: relative;
-    }
-
-    /* RED HOVER EFFECT */
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: var(--accent);
-      box-shadow: 0 10px 40px -10px rgba(239, 68, 68, 0.3); /* توهج أحمر */
-    }
-
-    .card img { width: 100%; height: 240px; object-fit: cover; display: block; }
-    
-    .card-foot { padding: 15px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); }
-    .card-title { font-weight: 600; font-size: 1.05rem; color: white; }
-    .card-meta { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-    
-    /* Clickable Buttons reset */
-    .card-click { width: 100%; padding: 0; border: none; text-align: left; background: none; color: inherit; cursor: pointer; }
-
-    /* Folder Style */
-    .folder-cover { display: block; position: relative; width: 100%; border: none; padding: 0; background: none; text-align: left; cursor: pointer; }
-    .folder-yt {
-      position: absolute; top: 10px; right: 10px; background: #cc0000; color: white; padding: 4px 10px;
-      font-size: 0.7rem; border-radius: 4px; text-decoration: none; font-weight: 700; z-index: 2;
-    }
-    
-    /* Services */
-    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
-    .service { padding: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; transition: 0.3s; }
-    .service:hover { border-color: var(--accent); background: rgba(239,68,68,0.05); }
-    .service-title { font-weight: 700; color: white; margin-bottom: 8px; font-size: 1.1rem; }
-    .service-desc { font-size: 0.85rem; color: var(--muted); }
-
-    /* Contact */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .contact-card { padding: 25px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
-    .contact-link { font-size: 1.2rem; color: white; text-decoration: none; font-weight: 700; display: block; margin-top: 5px; }
-    .contact-link:hover { color: var(--accent); }
-    
-    .footer { text-align: center; padding: 40px 0; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--line); margin-top: 40px; }
-
-    /* ===== LIGHTBOX & MODALS ===== */
-    .lightbox { position: fixed; inset: 0; z-index: 1000; display: none; justify-content: center; align-items: center; }
-    .lightbox.is-open { display: flex; }
-    
-    .lightbox-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(15px); }
-    
-    .lightbox-panel {
-      position: relative; z-index: 1001; width: 90%; max-width: 1000px; max-height: 90vh;
-      background: #0a0202; border: 1px solid var(--accent); border-radius: 20px;
-      display: flex; flex-direction: column; box-shadow: 0 0 50px rgba(239, 68, 68, 0.2);
-    }
-    
-    .lightbox-close {
-      position: absolute; top: 15px; right: 15px; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; z-index: 10;
-      transition: color 0.2s;
-    }
-    .lightbox-close:hover { color: var(--accent); }
-
-    .lightbox-media { flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; background: black; border-radius: 20px 20px 0 0; }
-    .lightbox-media img { max-width: 100%; max-height: 80vh; object-fit: contain; }
-    
-    .lightbox-foot { padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); background: #110505; border-radius: 0 0 20px 20px; }
-    
-    /* Folder Modal Specifics */
-    .folder-panel .folder-scroll { overflow-y: auto; padding: 20px; }
-    .folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-    .folder-head { padding: 15px 20px; border-bottom: 1px solid var(--line); font-size: 1.2rem; font-weight: 700; color: var(--accent); }
-
-    /* Video Embeds in Folder */
-    .video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: black; }
-    .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .ig-box { padding-bottom: 120%; } /* Taller for reels */
-
-    /* Tooltip */
-    .tooltip {
-      position: fixed; pointer-events: none; z-index: 2000; padding: 8px 12px; background: rgba(0,0,0,0.9);
-      border: 1px solid var(--accent); border-radius: 8px; color: white; font-size: 0.8rem; display: none;
-      box-shadow: 0 0 15px var(--glow-strong);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; text-align: center; }
-      .hero-right { display: none; }
-      .grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .headline { font-size: 2.5rem; }
-      .sub { margin: 20px auto; }
-      .actions { justify-content: center; }
-      .stats { justify-content: center; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Moukaddem | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="#home">
-        <img class="brand-avatar" src="230.png" alt="MM">
-        <div class="brand-text">
-          <span class="brand-name">Mohamed Moukaddem</span>
-          <span class="brand-role">Creative Video Editor</span>
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="brand">
+                <img src="230.png" alt="Profile" class="profile-pic">
+                <span>Moukaddem.</span>
+            </a>
+            <nav class="nav">
+                <a href="#editing">Editing</a>
+                <a href="#client">Client Work</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+                <a href="#contact" class="hire-me-btn">Hire Me</a>
+            </nav>
         </div>
-      </a>
+    </header>
 
-      <nav class="nav">
-        <a href="#design">Design</a>
-        <a href="#editing">Editing</a>
-        <a href="#client">Client Work</a>
-        <a href="#contact">Contact</a>
-        
-        <a href="#" class="nav-cv" data-open-cv="1" aria-label="Open CV">CV</a>
-      </nav>
-
-      <a class="cta" href="#contact">Hire Me</a>
-    </div>
-  </header>
-
-  <main id="home">
     <section class="hero">
-      <div class="wrap hero-inner">
-        <div class="hero-left">
-          <div class="tag">● AVAILABLE FOR FREELANCE</div>
-          <h1 class="headline">Cinematic edits & modern visuals.</h1>
-          <p class="sub">
-            I craft high-impact video edits, brand visuals, and motion-ready content designed for social platforms.
-          </p>
-
-          <div class="actions">
-            <a class="btn primary" href="#editing">View Editing</a>
-            <a class="btn ghost" href="#design">View Design</a>
-          </div>
-
-          <div class="stats">
-            <div class="stat">
-              <div class="stat-num">Fast</div>
-              <div class="stat-label">Delivery</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num">Clean</div>
-              <div class="stat-label">Cuts + Timing</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num">Sharp</div>
-              <div class="stat-label">Visual Style</div>
-            </div>
-          </div>
+        <div class="container">
+            <h1 class="hero-title">Visual Excellence <br> <span class="text-gradient">Redefined.</span></h1>
+            <p class="hero-sub">Premium Video Editing & Creative Direction.</p>
         </div>
-
-        <div class="hero-right" aria-hidden="true">
-          <div class="hero-card">
-            <div class="hero-card-top">
-              <div class="dot red"></div>
-              <div class="dot yellow"></div>
-              <div class="dot green"></div>
-              <div class="hero-card-title">Showreel Preview</div>
-            </div>
-            <div class="hero-card-body">
-              <div class="preview">
-                <div class="play"></div>
-                <div class="preview-text">
-                  <div class="preview-title">Watch Reel</div>
-                  <div class="preview-sub">Cinematic & Dynamic Cuts</div>
-                </div>
-              </div>
-              <div class="chips">
-                <span class="chip">Color Grading</span>
-                <span class="chip">Sound Design</span>
-                <span class="chip">Motion</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="design" class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Design</h2>
-          <p>Click a project to preview.</p>
-        </div>
-
-        <div class="grid">
-          <button class="card card-click" type="button" data-preview="5.png" data-title="Saudi National Day">
-            <img src="5.png" alt="Saudi National Day design">
-            <div class="card-foot">
-              <div class="card-title">Saudi National Day</div>
-              <div class="card-meta">Poster / Visual</div>
-            </div>
-          </button>
-
-          <button class="card card-click" type="button" data-preview="1.png" data-title="Creative Visual Identity">
-            <img src="1.png" alt="Creative Visual Identity">
-            <div class="card-foot">
-              <div class="card-title">Creative Visual Identity</div>
-              <div class="card-meta">Brand / Identity</div>
-            </div>
-          </button>
-
-          <button class="card card-click" type="button" data-preview="me.png" data-title="Course Design">
-            <img src="me.png" alt="Course Design">
-            <div class="card-foot">
-              <div class="card-title">Course Design</div>
-              <div class="card-meta">Visual System</div>
-            </div>
-          </button>
-        </div>
-      </div>
+        <div class="hero-glow"></div>
     </section>
 
     <section id="editing" class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Editing</h2>
-          <p>Open a folder to view videos.</p>
+        <div class="container">
+            <h2 class="section-title">Editing Folders</h2>
+            <div class="grid-3d">
+                
+                <div class="card-folder" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
+                    <div class="card-image">
+                        <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sébastien Koubar">
+                    </div>
+                    <div class="card-info">
+                        <h3>Sébastien Koubar</h3>
+                        <p>YouTube Long-form</p>
+                    </div>
+                </div>
+
+                <div class="card-folder" onclick="openModal('tpl-hisham', 'hisham.ghanem.library')">
+                    <div class="card-image">
+                        <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham">
+                    </div>
+                    <div class="card-info">
+                        <h3>hisham.ghanem.library</h3>
+                        <p>Instagram Reels</p>
+                    </div>
+                </div>
+
+                <div class="card-folder" onclick="openModal('tpl-oqunet-edit', 'Oqunet Software (Editing)')">
+                    <div class="card-image">
+                        <img src="logo-01.png" alt="Oqunet">
+                    </div>
+                    <div class="card-info">
+                        <h3>oqunet software</h3>
+                        <p>Instagram Embeds</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
-
-        <div class="grid">
-          <div class="card folder-card">
-            <button class="folder-cover" type="button" data-open-folder="sebastien">
-              <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sebastien">
-              <div class="card-foot">
-                <div class="card-title">Sébastien Koubar</div>
-                <div class="card-meta">Long-form Videos</div>
-              </div>
-            </button>
-            <a class="folder-yt" href="https://www.youtube.com/" target="_blank">YouTube</a>
-          </div>
-
-          <div class="card folder-card">
-            <button class="folder-cover" type="button" data-open-folder="hisham-ghanem-library">
-              <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham">
-              <div class="card-foot">
-                <div class="card-title">hisham.ghanem.library</div>
-                <div class="card-meta">Instagram Reels</div>
-              </div>
-            </button>
-          </div>
-
-          <div class="card folder-card">
-            <button class="folder-cover" type="button" data-open-folder="oqunet-editing">
-              <img src="logo-01.png" alt="Oqunet">
-              <div class="card-foot">
-                <div class="card-title">Oqunet Software</div>
-                <div class="card-meta">Tech Promo</div>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section id="client" class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Client Work</h2>
-        </div>
-        <div class="grid">
-          <div class="card folder-card">
-            <button class="folder-cover" type="button" data-open-folder="client-intellident">
-              <img src="logo (2).png" alt="Intellident">
-              <div class="card-foot">
-                <div class="card-title">Intellident Clinic</div>
-                <div class="card-meta">Design & Social</div>
-              </div>
-            </button>
-          </div>
+        <div class="container">
+            <h2 class="section-title">Client Work</h2>
+            <div class="grid-3d">
+                
+                <div class="card-folder" onclick="openModal('tpl-intellident', 'Intellident Dental Clinic')">
+                    <div class="card-image">
+                        <img src="logo (2).png" alt="Intellident">
+                    </div>
+                    <div class="card-info">
+                        <h3>Intellident Dental Clinic</h3>
+                        <p>Branding & Visuals</p>
+                    </div>
+                </div>
 
-          <div class="card folder-card">
-            <button class="folder-cover" type="button" data-open-folder="client-oqunet">
-              <img src="logo-01.png" alt="Oqunet">
-              <div class="card-foot">
-                <div class="card-title">Oqunet Software</div>
-                <div class="card-meta">Campaigns</div>
-              </div>
-            </button>
-          </div>
+                <div class="card-folder" onclick="openModal('tpl-oqunet-client', 'Oqunet Software')">
+                    <div class="card-image">
+                        <img src="logo-01.png" alt="Oqunet">
+                    </div>
+                    <div class="card-info">
+                        <h3>Oqunet Software</h3>
+                        <p>Campaign Designs</p>
+                    </div>
+                </div>
 
-          <div class="card folder-card">
-            <button class="folder-cover" type="button" data-open-folder="client-marketing-maven">
-              <img src="market maven logo.png" alt="Maven">
-              <div class="card-foot">
-                <div class="card-title">The Marketing Maven</div>
-                <div class="card-meta">Artboards</div>
-              </div>
-            </button>
-          </div>
+                <div class="card-folder" onclick="openModal('tpl-maven', 'The Marketing maven')">
+                    <div class="card-image">
+                        <img src="market maven logo.png" alt="Maven">
+                    </div>
+                    <div class="card-info">
+                        <h3>The Marketing maven</h3>
+                        <p>Artboards Portfolio</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
     </section>
 
     <section id="services" class="section">
-      <div class="wrap">
-        <div class="section-head"><h2>Services</h2></div>
-        <div class="services">
-          <div class="service">
-            <div class="service-title">Video Editing</div>
-            <div class="service-desc">Pacing, cuts, and retention-focused editing.</div>
-          </div>
-          <div class="service">
-            <div class="service-title">Color Grading</div>
-            <div class="service-desc">Cinematic look and consistent tones.</div>
-          </div>
-          <div class="service">
-            <div class="service-title">Motion Graphics</div>
-            <div class="service-desc">Intros, lower thirds, and titles.</div>
-          </div>
-          <div class="service">
-            <div class="service-title">Graphic Design</div>
-            <div class="service-desc">Posters, thumbnails, and identities.</div>
-          </div>
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Video Editing</h3>
+                    <p>High-retention cuts & storytelling.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Motion Graphics</h3>
+                    <p>Dynamic visuals to boost engagement.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Graphic Design</h3>
+                    <p>Premium branding & social media kits.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section id="contact" class="section">
-      <div class="wrap">
-        <div class="section-head"><h2>Contact</h2></div>
-        <div class="contact-grid">
-          <div class="contact-card">
-            <div class="label">Email</div>
-            <a class="contact-link" href="mailto:hamoudizzico102@outlook.com">hamoudizzico102@outlook.com</a>
-          </div>
-          <div class="contact-card">
-            <div class="label">Phone</div>
-            <a class="contact-link" href="tel:+96170577697">+961 70 577 697</a>
-          </div>
+    <section id="contact" class="section footer-section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-box">
+                <p>Ready to elevate your content?</p>
+                <a href="mailto:contact@mohamedmoukaddem.com" class="email-link">Get in Touch</a>
+            </div>
         </div>
-        <div class="note" style="margin-top: 20px; color: var(--muted);">For editing work, send me your Unlisted YouTube link.</div>
-      </div>
     </section>
 
-    <footer class="footer">
-      <div class="wrap">© 2025 Mohamed Moukaddem. All rights reserved.</div>
-    </footer>
-
-  </main>
-
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-backdrop" data-close="1"></div>
-    <div class="lightbox-panel">
-      <button class="lightbox-close" data-close="1">×</button>
-      <div class="lightbox-media"><img id="lightboxImg" src=""></div>
-      <div class="lightbox-foot"><div class="lightbox-title" id="lightboxTitle"></div></div>
-    </div>
-  </div>
-
-  <div class="lightbox" id="folderbox" aria-hidden="true">
-    <div class="lightbox-backdrop" data-folder-close="1"></div>
-    <div class="lightbox-panel folder-panel">
-      <div class="folder-head">
-        <span id="folderTitle">Folder</span>
-        <button class="lightbox-close" data-folder-close="1" style="position:static; float:right;">×</button>
-      </div>
-      <div class="folder-scroll">
-        <div class="folder-body">
-          <div class="grid folder-grid" id="folderContent"></div>
+    <template id="tpl-sebastien">
+        <div class="modal-grid video-grid">
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/SNmD--JxL9k" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/kKaPwbr9HDY?start=240" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/6bEAqazXi6o?start=2" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/quGLWi_C2RE?start=300" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/KVbUAiagfFQ?start=64" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/jAARKmDX8ks?start=97" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/41ZofgY-PyY?start=1" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/ous2-sCWMWU?start=186" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/DqyomfbWu4A?start=45" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/a9mvgDKxnTQ?start=39" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/1g8ozutYC1s?start=75" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/J2AIq5G4qzk?start=12" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/NYKqIV2CT7w" allowfullscreen></iframe></div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="lightbox" id="cvbox" aria-hidden="true">
-    <div class="lightbox-backdrop" data-cv-close="1"></div>
-    <div class="lightbox-panel cv-panel">
-      <div class="folder-head">
-        <span>Mohamed Moukaddem — CV</span>
-        <button class="lightbox-close" data-cv-close="1" style="position:static; float:right;">×</button>
-      </div>
-      <div class="folder-scroll">
-         <iframe class="video-box" style="height:80vh;" src="Mohamad Mokaddem CV 2025 (1).pdf"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <template id="tpl-sebastien">
-    <article class="card video" style="cursor:default;">
-      <div class="video-box"><iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" allowfullscreen></iframe></div>
-      <div class="card-foot"><div class="card-title">How Booking manipulates you</div></div>
-    </article>
-    <article class="card video" style="cursor:default;">
-      <div class="video-box"><iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" allowfullscreen></iframe></div>
-      <div class="card-foot"><div class="card-title">Ryanair: The dark truth</div></div>
-    </article>
     </template>
 
-  <template id="tpl-hisham-ghanem-library">
-    <article class="card video ig"><div class="video-box ig-box"><iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed/"></iframe></div></article>
-    <article class="card video ig"><div class="video-box ig-box"><iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed/"></iframe></div></article>
-  </template>
+    <template id="tpl-hisham">
+        <div class="modal-grid insta-grid">
+            <div class="insta-box"><h3>1</h3><iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>2</h3><iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>3</h3><iframe src="https://www.instagram.com/p/C_nDS4kIjDq/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>4</h3><iframe src="https://www.instagram.com/p/C_nFgW9ILdX/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>5</h3><iframe src="https://www.instagram.com/p/C_oOlmToOkm/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>6</h3><iframe src="https://www.instagram.com/p/C_5-k1kIqEo/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>7</h3><iframe src="https://www.instagram.com/p/DAMLpBwS20w/embed" frameborder="0"></iframe></div>
+        </div>
+    </template>
 
-  <template id="tpl-oqunet-editing">
-    <article class="card video ig"><div class="video-box ig-box"><iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed/"></iframe></div></article>
-  </template>
+    <template id="tpl-oqunet-edit">
+        <div class="modal-grid insta-grid">
+            <div class="insta-box"><h3>نجاح أي تطبيق مش صدفة</h3><iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>Innovating industries</h3><iframe src="https://www.instagram.com/p/DGTe92gi_EW/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>حوّل فكرتك إلى تطبيق</h3><iframe src="https://www.instagram.com/p/DGle_mUC-Ap/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>Insurance broker switch to Coverly</h3><iframe src="https://www.instagram.com/p/DG6CrGoCI4m/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>Why Insurance Companies Going Digital?</h3><iframe src="https://www.instagram.com/p/DHWZ1h0Csk4/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>هل أنت شركة أو وسيط تأمين؟؟</h3><iframe src="https://www.instagram.com/p/DHoM5zEqvxB/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>بتسأل حالك إذا Coverly صعب الاستعمال؟</h3><iframe src="https://www.instagram.com/p/DICErEJCate/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>Ready to build your Custom App?</h3><iframe src="https://www.instagram.com/p/DI9R_zGioCs/embed" frameborder="0"></iframe></div>
+        </div>
+    </template>
 
-  <template id="tpl-client-intellident">
-    <div class="card"><img src="logo (2).png"><div class="card-foot"><div class="card-title">Brand Cover</div></div></div>
-    <div class="card"><img src="caro 3-4.png"><div class="card-foot"><div class="card-title">Brand Launch</div></div></div>
-    <div class="card"><img src="MOTHER.png"><div class="card-foot"><div class="card-title">Awareness</div></div></div>
-  </template>
+    <template id="tpl-intellident">
+        <div class="modal-grid image-grid">
+            <img src="caro 3-4.png" alt="Caro">
+            <img src="MOTHER.png" alt="Mother">
+            <img src="post.png" alt="Post">
+        </div>
+    </template>
 
-  <template id="tpl-client-oqunet">
-    <div class="card"><img src="logo-01.png"><div class="card-foot"><div class="card-title">Brand Cover</div></div></div>
-    <div class="card"><img src="labor day.png"><div class="card-foot"><div class="card-title">Labor Day</div></div></div>
-  </template>
+    <template id="tpl-oqunet-client">
+        <div class="modal-grid image-grid">
+            <img src="labor day.png" alt="Labor Day">
+            <img src="COVERLIE 5.png" alt="Coverlie 5">
+            <img src="COVERLIE 3.png" alt="Coverlie 3">
+            <img src="COVERLIEE.png" alt="Coverliee">
+            <img src="oqunet single.png" alt="Single">
+        </div>
+    </template>
 
-  <template id="tpl-client-marketing-maven">
-     <div class="card"><img src="Artboard 1.png"><div class="card-foot"><div class="card-title">Artboard 1</div></div></div>
-     <div class="card"><img src="Artboard 2.png"><div class="card-foot"><div class="card-title">Artboard 2</div></div></div>
-  </template>
+    <template id="tpl-maven">
+        <div class="modal-grid image-grid">
+            <img src="Artboard 1.png" alt="Art 1">
+            <img src="Artboard 2.png" alt="Art 2">
+            <img src="Artboard 3.png" alt="Art 3">
+            <img src="Artboard 4.png" alt="Art 4">
+            <img src="Artboard 5.png" alt="Art 5">
+            <img src="Artboard 6.png" alt="Art 6">
+            <img src="Artboard 7.png" alt="Art 7">
+        </div>
+    </template>
 
-  <script>
-    // prevent background scroll when modal open
-    function lock(){ document.body.classList.add('modal-open'); }
-    function unlock(){ document.body.classList.remove('modal-open'); }
+    <div id="modal" class="modal">
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modal-title">Folder Name</h3>
+                <button class="close-btn" onclick="closeModal()">×</button>
+            </div>
+            <div id="modal-content" class="modal-body">
+                </div>
+        </div>
+    </div>
 
-    // ===== Design/Preview Lightbox =====
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
-    const lbTitle = document.getElementById('lightboxTitle');
-
-    function openLightbox(src, title){
-      lbImg.src = src;
-      lbTitle.textContent = title || "";
-      lb.classList.add('is-open');
-      lb.setAttribute('aria-hidden', 'false');
-      lock();
-    }
-
-    function closeLightbox(){
-      lb.classList.remove('is-open');
-      lb.setAttribute('aria-hidden', 'true');
-      unlock();
-      setTimeout(() => { lbImg.src = ""; lbTitle.textContent = ""; }, 150);
-    }
-
-    // ===== Folder Lightbox =====
-    const fb = document.getElementById('folderbox');
-    const folderTitle = document.getElementById('folderTitle');
-    const folderContent = document.getElementById('folderContent');
-
-    function setFolder(key){
-      const tpl = document.getElementById(`tpl-${key}`);
-      if(!tpl) return;
-      
-      const titles = {
-        "sebastien": "Sébastien Koubar",
-        "hisham-ghanem-library": "hisham.ghanem.library",
-        "oqunet-editing": "Oqunet Software",
-        "client-intellident": "Intellident Dental Clinic",
-        "client-oqunet": "Oqunet Software",
-        "client-marketing-maven": "The Marketing Maven"
-      };
-
-      folderTitle.textContent = titles[key] || "Folder";
-      folderContent.innerHTML = "";
-      folderContent.appendChild(tpl.content.cloneNode(true));
-    }
-
-    function openFolder(key){
-      setFolder(key);
-      fb.classList.add('is-open');
-      fb.setAttribute('aria-hidden','false');
-      lock();
-    }
-
-    function closeFolder(){
-      fb.classList.remove('is-open');
-      fb.setAttribute('aria-hidden','true');
-      unlock();
-      // stop videos
-      fb.querySelectorAll('iframe').forEach(f => {
-        const src = f.getAttribute('src');
-        f.setAttribute('src', src);
-      });
-      setTimeout(() => { folderContent.innerHTML = ""; }, 150);
-    }
-
-    // ===== CV Lightbox =====
-    const cvBox = document.getElementById('cvbox');
-    const navCv = document.querySelector('.nav-cv');
-
-    function openCV(){
-      cvBox.classList.add('is-open');
-      cvBox.setAttribute('aria-hidden','false');
-      lock();
-      if(navCv) navCv.classList.add('is-open'); 
-    }
-
-    function closeCV(){
-      cvBox.classList.remove('is-open');
-      cvBox.setAttribute('aria-hidden','true');
-      unlock();
-      if(navCv) navCv.classList.remove('is-open');
-    }
-
-    // ===== Global Event Listener =====
-    document.addEventListener('click', (e) => {
-      // CV
-      if(e.target.closest('[data-open-cv="1"]')){
-        e.preventDefault(); openCV(); return;
-      }
-      // Preview Image
-      const previewBtn = e.target.closest('[data-preview]');
-      if(previewBtn){
-        e.preventDefault();
-        openLightbox(previewBtn.getAttribute('data-preview'), previewBtn.getAttribute('data-title'));
-        return;
-      }
-      // Open Folder
-      const folderBtn = e.target.closest('[data-open-folder]');
-      if(folderBtn){
-        e.preventDefault();
-        openFolder(folderBtn.getAttribute('data-open-folder'));
-        return;
-      }
-      // Closers
-      if (e.target.closest('[data-close="1"]')) { closeLightbox(); }
-      if (e.target.closest('[data-folder-close="1"]')) { closeFolder(); }
-      if (e.target.closest('[data-cv-close="1"]')) { closeCV(); }
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeCV(); closeFolder(); closeLightbox();
-      }
-    });
-
-    // Tooltip Logic
-    const tooltip = document.createElement('div');
-    tooltip.className = 'tooltip';
-    document.body.appendChild(tooltip);
-
-    document.addEventListener('mouseover', (e) => {
-        const target = e.target.closest('[data-title], [aria-label], .card');
-        if(!target) { tooltip.style.display = 'none'; return; }
-        
-        let text = target.getAttribute('data-title') || target.getAttribute('aria-label');
-        if(!text && target.classList.contains('card')) text = "Click to View";
-        
-        if(text) {
-            tooltip.textContent = text;
-            tooltip.style.display = 'block';
-        }
-    });
-
-    document.addEventListener('mousemove', (e) => {
-        tooltip.style.left = (e.clientX + 15) + 'px';
-        tooltip.style.top = (e.clientY + 15) + 'px';
-    });
-  </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
