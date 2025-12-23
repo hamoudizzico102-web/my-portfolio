@@ -1,14 +1,14 @@
 :root {
-    --bg: #050000;
-    --card-bg: rgba(20, 0, 0, 0.6); /* زجاجي غامق */
-    --primary: #ff0000; 
-    --primary-dim: #990000;
+    --bg: #020a14; /* خلفية زرقاء ليلية داكنة */
+    --card-bg: rgba(10, 25, 45, 0.7); /* زجاجي أزرق غامق */
+    --primary: #0066cc; /* أزرق فاقع للبروز */
+    --primary-dim: #003366; /* أزرق داكن للظلال */
     --text: #ffffff;
-    --text-muted: #a0a0a0;
+    --text-muted: #a0b0c0;
     
-    /* Glow أنيق مش مؤذي للعين */
-    --glow-blood: 0 0 25px rgba(255, 0, 0, 0.15);
-    --glow-card-hover: 0 10px 40px rgba(220, 0, 0, 0.2);
+    /* Glow أزرق احترافي */
+    --glow-accent: 0 0 25px rgba(0, 102, 204, 0.3);
+    --glow-card-hover: 0 10px 40px rgba(0, 80, 180, 0.25);
     
     --font: 'Poppins', sans-serif;
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -21,25 +21,27 @@ body {
     color: var(--text);
     font-family: var(--font);
     overflow-x: hidden;
-    /* خلفية عميقة */
+    /* خلفية عميقة زرقاء */
     background-image: 
-        radial-gradient(circle at 15% 50%, rgba(100, 0, 0, 0.08), transparent 40%),
-        radial-gradient(circle at 85% 10%, rgba(150, 0, 0, 0.05), transparent 40%);
+        radial-gradient(circle at 20% 50%, rgba(0, 50, 150, 0.08), transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 100, 200, 0.05), transparent 50%);
 }
 
-/* --- CUSTOM CURSOR (مهم جداً للـ UX) --- */
+/* --- CUSTOM CURSOR (الجديد السلس) --- */
 .cursor-dot, .cursor-outline {
     position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
     border-radius: 50%; z-index: 9999; pointer-events: none;
+    will-change: transform;
 }
 .cursor-dot { width: 8px; height: 8px; background: var(--primary); }
+/* الدائرة الخارجية */
 .cursor-outline { 
-    width: 40px; height: 40px; border: 1px solid rgba(255, 0, 0, 0.5);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    width: 40px; height: 40px; border: 1px solid rgba(0, 102, 204, 0.5);
+    transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
 }
 /* تفاعل الماوس مع الروابط */
 body.hovering .cursor-outline {
-    width: 60px; height: 60px; background: rgba(255, 0, 0, 0.1); border-color: var(--primary);
+    width: 60px; height: 60px; background: rgba(0, 102, 204, 0.1); border-color: var(--primary);
 }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -47,20 +49,20 @@ body.hovering .cursor-outline {
 /* --- HEADER --- */
 .header {
     position: fixed; top: 0; width: 100%; padding: 20px 0; z-index: 1000;
-    background: rgba(5, 0, 0, 0.8); backdrop-filter: blur(12px);
+    background: rgba(2, 10, 20, 0.8); backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: 0.3s;
 }
-.header.scrolled { padding: 12px 0; background: rgba(0, 0, 0, 0.95); }
+.header.scrolled { padding: 12px 0; background: rgba(2, 10, 20, 0.95); }
 
 .header-content { display: flex; justify-content: space-between; align-items: center; }
 
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; }
 .profile-pic { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary); transition: 0.3s; }
-.brand:hover .profile-pic { box-shadow: 0 0 15px var(--primary); }
+.brand:hover .profile-pic { box-shadow: 0 0 20px var(--primary); }
 
 .nav { display: flex; align-items: center; gap: 30px; }
-.nav a { position: relative; text-decoration: none; color: #ccc; font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
+.nav a { position: relative; text-decoration: none; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
 .nav a:hover { color: white; }
 .nav a::after {
     content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
@@ -70,18 +72,18 @@ body.hovering .cursor-outline {
 
 /* زر CV */
 .nav-btn-3d {
-    background: transparent; border: 1px solid rgba(255, 0, 0, 0.3); color: white;
+    background: transparent; border: 1px solid rgba(0, 102, 204, 0.3); color: white;
     padding: 8px 18px; border-radius: 50px; font-weight: 600; font-size: 0.9rem;
     display: flex; align-items: center; gap: 8px; transition: var(--transition);
 }
-.nav-btn-3d:hover { background: var(--primary); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); border-color: var(--primary); }
+.nav-btn-3d:hover { background: var(--primary); box-shadow: 0 0 20px rgba(0, 102, 204, 0.4); border-color: var(--primary); }
 
 .cta-3d {
     background: var(--primary); color: white; padding: 10px 28px; border-radius: 50px;
     text-decoration: none; font-weight: 700; font-size: 0.95rem; 
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3); transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3); transition: var(--transition);
 }
-.cta-3d:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255, 0, 0, 0.5); }
+.cta-3d:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 102, 204, 0.5); }
 
 /* --- HERO SECTION --- */
 .hero { 
@@ -90,7 +92,7 @@ body.hovering .cursor-outline {
 }
 .tag-pill {
     display: inline-block; padding: 8px 16px; border-radius: 30px;
-    background: rgba(255, 0, 0, 0.08); border: 1px solid rgba(255, 0, 0, 0.3);
+    background: rgba(0, 102, 204, 0.08); border: 1px solid rgba(0, 102, 204, 0.3);
     color: var(--primary); font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
     margin-bottom: 24px;
 }
@@ -98,12 +100,12 @@ body.hovering .cursor-outline {
     font-size: clamp(3.5rem, 6vw, 5.5rem); line-height: 1.1; font-weight: 900; 
     margin-bottom: 24px; letter-spacing: -1px;
 }
-.blood-text { 
+/* تم تغيير الاسم ليناسب الأزرق */
+.accent-text { 
     color: transparent; -webkit-text-stroke: 1px var(--primary); 
     position: relative; display: inline-block;
 }
-/* تعبئة النص باللون الأحمر عند التحويم */
-.header-content:hover ~ .hero .blood-text, .blood-text { 
+.header-content:hover ~ .hero .accent-text, .accent-text { 
     background: linear-gradient(180deg, #fff, var(--primary)); 
     -webkit-background-clip: text; -webkit-text-stroke: 0;
 }
@@ -116,11 +118,12 @@ body.hovering .cursor-outline {
     display: flex; align-items: center; gap: 10px; transition: var(--transition);
     text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; border: none; cursor: none;
 }
-.red-glow { background: var(--primary); color: white; box-shadow: 0 10px 30px rgba(255, 0, 0, 0.25); }
-.red-glow:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(255, 0, 0, 0.5); }
+/* تم تغيير الاسم ليناسب الأزرق */
+.accent-glow { background: var(--primary); color: white; box-shadow: 0 10px 30px rgba(0, 102, 204, 0.25); }
+.accent-glow:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0, 102, 204, 0.5); }
 
 .outline-glow { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white; }
-.outline-glow:hover { border-color: var(--primary); background: rgba(255,0,0,0.05); }
+.outline-glow:hover { border-color: var(--primary); background: rgba(0, 102, 204, 0.05); box-shadow: var(--glow-accent); }
 
 /* --- SECTIONS (SCROLL REVEAL) --- */
 .section { padding: 100px 0; opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
@@ -143,10 +146,9 @@ body.hovering .cursor-outline {
     border-radius: 24px; overflow: hidden; position: relative;
     transition: var(--transition);
 }
-/* Glassmorphism Effect */
 .card-3d:hover, .card-folder:hover {
     transform: translateY(-10px);
-    border-color: rgba(255, 0, 0, 0.4);
+    border-color: rgba(0, 102, 204, 0.4);
     box-shadow: var(--glow-card-hover);
 }
 
@@ -156,14 +158,21 @@ body.hovering .cursor-outline {
 }
 .card-3d:hover img, .card-folder:hover img { transform: scale(1.08); }
 
+.overlay-icon {
+    position: absolute; inset: 0; background: rgba(0, 20, 60, 0.5); 
+    display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; 
+    font-size: 2.5rem; color: var(--primary);
+}
+.card-3d:hover .overlay-icon { opacity: 1; }
+
 .card-info, .folder-bottom { padding: 24px; }
 .card-info h3, .folder-bottom h3 { font-size: 1.25rem; margin-bottom: 8px; color: white; }
 .card-info p, .folder-bottom p { color: var(--primary); font-size: 0.9rem; font-weight: 500; }
 
 .badge {
-    position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+    position: absolute; top: 15px; right: 15px; background: rgba(0, 20, 60, 0.7); backdrop-filter: blur(4px);
     color: white; padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 600;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(0, 102, 204, 0.3);
 }
 
 /* --- SERVICES --- */
@@ -173,15 +182,15 @@ body.hovering .cursor-outline {
     border: 1px solid rgba(255, 255, 255, 0.03); text-align: center; transition: var(--transition);
 }
 .service-box:hover {
-    background: rgba(20, 0, 0, 0.4); border-color: var(--primary);
-    transform: translateY(-5px);
+    background: rgba(0, 20, 60, 0.4); border-color: var(--primary);
+    transform: translateY(-5px); box-shadow: var(--glow-accent);
 }
 .service-box i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; display: block; }
 .service-box h3 { font-size: 1.2rem; margin-bottom: 10px; }
 .service-box p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
 
 /* --- CONTACT --- */
-.contact-section { background: linear-gradient(to top, #0f0000, var(--bg)); border-top: 1px solid rgba(255,0,0,0.1); }
+.contact-section { background: linear-gradient(to top, #01050a, var(--bg)); border-top: 1px solid rgba(0, 102, 204, 0.1); }
 .contact-wrapper { text-align: center; max-width: 700px; margin: 0 auto; }
 .contact-wrapper p { font-size: 2rem; font-weight: 700; margin-bottom: 40px; }
 
@@ -193,19 +202,20 @@ body.hovering .cursor-outline {
 }
 .contact-btn:hover {
     background: var(--primary); border-color: var(--primary);
-    box-shadow: 0 0 30px rgba(255,0,0,0.4);
+    box-shadow: 0 0 40px rgba(0, 102, 204, 0.4);
 }
 
-.footer { margin-top: 50px; color: #555; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; }
+.footer { margin-top: 50px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; }
 
-/* --- MODALS (Enhanced) --- */
+/* --- MODALS (Standard) --- */
 .modal { position: fixed; inset: 0; z-index: 2000; display: none; align-items: center; justify-content: center; }
 .modal.active { display: flex; }
 .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.9); backdrop-filter: blur(15px); animation: fadeIn 0.4s; }
 .modal-window { 
     position: relative; width: 90%; max-width: 1000px; max-height: 90vh; 
-    background: #0a0a0a; border: 1px solid rgba(255,0,0,0.3); border-radius: 24px; 
+    background: #020a14; border: 1px solid rgba(0, 102, 204, 0.3); border-radius: 24px; 
     display: flex; flex-direction: column; animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: var(--glow-card-hover);
 }
 
 .modal-header { 
@@ -215,11 +225,45 @@ body.hovering .cursor-outline {
 .modal-header h3 { color: var(--primary); font-size: 1.2rem; letter-spacing: 1px; text-transform: uppercase; }
 .close-icon { background: none; border: none; color: white; font-size: 2rem; transition: 0.2s; }
 .close-icon:hover { color: var(--primary); transform: rotate(90deg); }
-
 .modal-body { padding: 30px; overflow-y: auto; }
-/* Custom Scrollbar for Modal */
 .modal-body::-webkit-scrollbar { width: 6px; }
-.modal-body::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+.modal-body::-webkit-scrollbar-thumb { background: var(--primary-dim); border-radius: 10px; }
+
+/* === FIX: LIGHTBOX (PREVIEW IMAGE) === */
+/* هذا هو التعديل الأهم لإصلاح مشكلة الصور الكبيرة والشاشة السوداء */
+.lightbox-content {
+    position: relative;
+    max-width: 90vw; /* العرض الأقصى 90% من الشاشة */
+    max-height: 85vh; /* الارتفاع الأقصى 85% من الشاشة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2001;
+    animation: slideUp 0.4s ease;
+}
+
+.lightbox-content img {
+    width: auto; /* العرض تلقائي بناء على الارتفاع */
+    height: auto; /* الارتفاع تلقائي بناء على العرض */
+    max-width: 100%; /* لا تتجاوز عرض الحاوية */
+    max-height: 85vh; /* لا تتجاوز ارتفاع الحاوية */
+    object-fit: contain; /* الحفاظ على تناسب الصورة */
+    border-radius: 12px;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 50px rgba(0, 102, 204, 0.3); /* توهج أزرق */
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: -10px;
+    font-size: 2.5rem;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+}
 
 /* --- ANIMATIONS --- */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -230,4 +274,5 @@ body.hovering .cursor-outline {
     .hero-title { font-size: 3rem; }
     .nav { display: none; }
     .cursor-dot, .cursor-outline { display: none; } /* إخفاء الكرسر عالموبايل */
+    .lightbox-content img { max-height: 70vh; }
 }
