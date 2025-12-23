@@ -2,431 +2,375 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Mohamed Moukaddem — Creative Video Editor & Graphic Designer based in Tripoli, Lebanon. Specializing in cinematic edits and premium visuals.">
-  <title>Mohamed Moukaddem — Visual Artist</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Mohamed Moukaddem — Creative Video Editor">
+  <title>Mohamed Moukaddem</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    /* --- CSS RESET & VARIABLES --- */
+    :root {
+      --bg: #050505;
+      --surface: #121212;
+      --text: #ffffff;
+      --text-gray: #a1a1aa;
+      --accent: #2563eb; /* أزرق احترافي */
+      --border: #27272a;
+      --container: 1100px;
+    }
 
-  <link rel="stylesheet" href="styles.css">
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; transition: 0.2s; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* --- LAYOUT UTILS --- */
+    .wrap {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section { padding: 80px 0; }
+    
+    .section-head { margin-bottom: 40px; }
+    .section-head h2 { font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+    .section-head p { color: var(--text-gray); }
+
+    /* --- HEADER --- */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(5, 5, 5, 0.9);
+      backdrop-filter: blur(10px); /* تأثير خفيف جداً */
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 15px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand { font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+    .brand img { width: 35px; height: 35px; border-radius: 50%; }
+
+    .nav-links { display: flex; gap: 25px; }
+    .nav-links a { font-size: 0.9rem; color: var(--text-gray); }
+    .nav-links a:hover { color: var(--text); }
+
+    .cta-btn {
+      background: var(--text);
+      color: var(--bg);
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .cta-btn:hover { opacity: 0.9; }
+
+    /* --- HERO --- */
+    .hero {
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 60px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .hero-buttons { display: flex; justify-content: center; gap: 15px; }
+    
+    .btn {
+      padding: 12px 30px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-block;
+    }
+    
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: #1d4ed8; }
+    
+    .btn-outline { border: 1px solid var(--border); color: var(--text); }
+    .btn-outline:hover { border-color: var(--text); }
+
+    /* --- GRID SYSTEM (LIGHTWEIGHT) --- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    /* --- CARDS --- */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 0; /* مهم للـ button reset */
+      width: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--text-gray);
+    }
+
+    .card-img-wrap {
+      height: 200px;
+      background: #222;
+      overflow: hidden;
+    }
+    
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+    
+    .card:hover .card-img-wrap img { transform: scale(1.05); }
+
+    .card-body { padding: 20px; }
+    .card-title { font-weight: 600; margin-bottom: 5px; color: var(--text); font-size: 1.1rem;}
+    .card-meta { font-size: 0.85rem; color: var(--text-gray); }
+
+    /* --- FOLDER STYLE --- */
+    .folder-cover {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      background: none;
+      border: none;
+      width: 100%;
+      color: inherit;
+    }
+    
+    .folder-thumb {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    /* --- CONTACT --- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .contact-box {
+      background: var(--surface);
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .contact-box h3 { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 5px; }
+    .contact-box a { font-size: 1.2rem; font-weight: 600; }
+
+    /* --- FOOTER --- */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-gray);
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.5rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; } /* يمكن إضافة موبايل منيو لاحقاً */
+    }
+    
+    /* Lightbox Styles (Simple) */
+    .lightbox {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.95); z-index: 1000;
+        display: none; justify-content: center; align-items: center;
+    }
+    .lightbox[aria-hidden="false"] { display: flex; }
+    .lightbox-content { max-width: 90%; max-height: 90%; position: relative; }
+    .close-lb {
+        position: absolute; top: 20px; right: 30px;
+        color: white; font-size: 2rem; cursor: pointer; background: none; border: none;
+    }
+  </style>
 </head>
 
 <body>
 
-  <div class="cursor-follower"></div>
-
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="#home">
-        <img class="brand-avatar" src="230.png" alt="Mohamed Moukaddem"> <div class="brand-text">
-          <span class="brand-name">Moukaddem.</span>
-          <span class="brand-role">Visual Artist</span>
-        </div>
+  <header>
+    <div class="wrap nav-inner">
+      <a href="#" class="brand">
+        <img src="230.png" alt="MM"> 
+        <span>Moukaddem.</span>
       </a>
-
-      <nav class="nav">
-        <a href="#design" class="nav-link">Design</a>
-        <a href="#editing" class="nav-link">Editing</a>
-        <a href="#client" class="nav-link">Clients</a>
-        <a href="#services" class="nav-link">Services</a>
+      <nav class="nav-links">
+        <a href="#design">Design</a>
+        <a href="#editing">Editing</a>
+        <a href="#client">Clients</a>
       </nav>
-
-      <div class="header-actions">
-        <a href="#" class="btn-cv" data-open-cv="1" aria-label="Open CV">
-          CV <i class="ri-file-text-line"></i>
-        </a>
-        <a class="btn primary glow-effect" href="#contact">Hire Me</a>
-      </div>
-      
-      <button class="menu-toggle" aria-label="Toggle Menu">
-        <i class="ri-menu-4-line"></i>
-      </button>
+      <a href="#contact" class="cta-btn">Hire Me</a>
     </div>
   </header>
 
-  <main id="home">
-
+  <main>
     <section class="hero">
-      <div class="hero-bg-glow"></div> <div class="wrap hero-inner">
-        <div class="hero-left">
-          <div class="status-pill reveal">
-            <span class="dot-live"></span> Available for Freelance
-          </div>
-          
-          <h1 class="headline reveal">
-            Crafting <span class="gradient-text">Cinematic</span> <br>
-            Digital Experiences.
-          </h1>
-          
-          <p class="sub reveal">
-            High-impact video editing & modern graphic design tailored for brands that want to stand out. Based in Lebanon, working globally.
-          </p>
-
-          <div class="actions reveal">
-            <a class="btn primary" href="#editing">View Showreel <i class="ri-play-circle-line"></i></a>
-            <a class="btn ghost" href="#design">Explore Portfolio</a>
-          </div>
-
-          <div class="stats reveal">
-            <div class="stat-item">
-              <h3>+50</h3>
-              <p>Projects Done</p>
-            </div>
-            <div class="stat-item">
-              <h3>2K</h3>
-              <p>Quality Standard</p>
-            </div>
-            <div class="stat-item">
-              <h3>100%</h3>
-              <p>Client Satisfaction</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-right reveal" data-speed="0.8">
-          <div class="hero-card glass-panel">
-            <div class="hero-card-header">
-              <div class="dots">
-                <span></span><span></span><span></span>
-              </div>
-              <span class="rec-badge">REC ●</span>
-            </div>
-            <div class="hero-video-wrapper">
-              <video autoplay muted loop playsinline poster="path/to/poster.jpg">
-                 <source src="path/to/showreel-preview.mp4" type="video/mp4">
-              </video>
-              <div class="play-overlay"><i class="ri-play-fill"></i></div>
-            </div>
-            <div class="hero-card-footer">
-              <span>Premiere Pro</span>
-              <span>After Effects</span>
-              <span>DaVinci</span>
-            </div>
-          </div>
+      <div class="wrap hero-content">
+        <h1>Creative Video Editor <br> & Graphic Designer</h1>
+        <p>I create premium visuals and cinematic edits designed for social impact.</p>
+        <div class="hero-buttons">
+          <a href="#editing" class="btn btn-primary">View Editing</a>
+          <a href="#design" class="btn btn-outline">View Designs</a>
         </div>
       </div>
     </section>
 
     <section id="design" class="section">
       <div class="wrap">
-        <div class="section-head reveal">
-          <h2 class="section-title">Selected <span class="text-accent">Designs</span></h2>
-          <p>Visual identities, posters, and creative artboards.</p>
-        </div>
-
-        <div class="grid gallery-grid">
-          <button class="card glass-card reveal" data-preview="5.png" data-title="Saudi National Day">
-            <div class="card-image">
-              <img src="5.png" alt="Saudi National Day design" loading="lazy">
-              <div class="hover-overlay"><i class="ri-fullscreen-line"></i></div>
-            </div>
-            <div class="card-info">
-              <h3>Saudi National Day</h3>
-              <span>Poster / Visual Art</span>
-            </div>
-          </button>
-
-          <button class="card glass-card reveal" data-preview="1.png" data-title="Visual Identity">
-            <div class="card-image">
-              <img src="1.png" alt="Visual Identity" loading="lazy">
-              <div class="hover-overlay"><i class="ri-fullscreen-line"></i></div>
-            </div>
-            <div class="card-info">
-              <h3>Creative Identity</h3>
-              <span>Branding</span>
-            </div>
-          </button>
-
-          <button class="card glass-card reveal" data-preview="me.png" data-title="Course Design">
-            <div class="card-image">
-              <img src="me.png" alt="Course Design" loading="lazy">
-              <div class="hover-overlay"><i class="ri-fullscreen-line"></i></div>
-            </div>
-            <div class="card-info">
-              <h3>Course Design</h3>
-              <span>Educational Visuals</span>
-            </div>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section id="editing" class="section dark-alt">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <h2 class="section-title">Video <span class="text-accent">Editing</span></h2>
-          <p>Long-form storytelling & snappy social content.</p>
-        </div>
-
-        <div class="grid folder-grid">
-          
-          <div class="folder-wrap reveal">
-            <button class="folder-card" data-open-folder="sebastien">
-              <div class="folder-icon"><i class="ri-folder-video-fill"></i></div>
-              <div class="folder-content">
-                <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sebastien" class="folder-avatar">
-                <div>
-                  <h3>Sébastien Koubar</h3>
-                  <span>YouTube Long-form</span>
-                </div>
-              </div>
-              <div class="folder-arrow"><i class="ri-arrow-right-line"></i></div>
-            </button>
-            <a href="https://www.youtube.com/" target="_blank" class="folder-link">Visit Channel</a>
-          </div>
-
-          <div class="folder-wrap reveal">
-            <button class="folder-card" data-open-folder="hisham-ghanem-library">
-              <div class="folder-icon"><i class="ri-instagram-fill"></i></div>
-              <div class="folder-content">
-                <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham" class="folder-avatar">
-                <div>
-                  <h3>Hisham Ghanem</h3>
-                  <span>Instagram Reels</span>
-                </div>
-              </div>
-              <div class="folder-arrow"><i class="ri-arrow-right-line"></i></div>
-            </button>
-            <a href="https://www.instagram.com/hisham.ghanem.library/" target="_blank" class="folder-link">Visit Profile</a>
-          </div>
-
-          <div class="folder-wrap reveal">
-            <button class="folder-card" data-open-folder="oqunet-editing">
-              <div class="folder-icon"><i class="ri-code-box-fill"></i></div>
-              <div class="folder-content">
-                <img src="logo-01.png" alt="Oqunet" class="folder-avatar">
-                <div>
-                  <h3>Oqunet Software</h3>
-                  <span>Tech Reels & Promo</span>
-                </div>
-              </div>
-              <div class="folder-arrow"><i class="ri-arrow-right-line"></i></div>
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="client" class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <h2 class="section-title">Client <span class="text-accent">Work</span></h2>
-          <p>Brands I've collaborated with.</p>
+        <div class="section-head">
+          <h2>Design Portfolio</h2>
+          <p>Click any project to preview.</p>
         </div>
         
-        <div class="clients-ticker reveal">
-          <div class="grid folder-grid">
-             <button class="folder-card client-variant" data-open-folder="client-intellident">
-                <img src="logo (2).png" alt="Intellident" class="client-logo">
-                <div class="client-info">
-                   <h3>Intellident Clinic</h3>
-                   <span>Branding & Social</span>
-                </div>
-             </button>
-
-             <button class="folder-card client-variant" data-open-folder="client-oqunet">
-                <img src="logo-01.png" alt="Oqunet" class="client-logo">
-                <div class="client-info">
-                   <h3>Oqunet Software</h3>
-                   <span>Campaigns</span>
-                </div>
-             </button>
-             
-             <button class="folder-card client-variant" data-open-folder="client-marketing-maven">
-                <img src="market maven logo.png" alt="Marketing Maven" class="client-logo">
-                <div class="client-info">
-                   <h3>Marketing Maven</h3>
-                   <span>Artboards</span>
-                </div>
-             </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="section dark-alt">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <h2 class="section-title">My <span class="text-accent">Services</span></h2>
-        </div>
-
-        <div class="services-grid">
-          <div class="service-card reveal">
-            <i class="ri-movie-2-line service-icon"></i>
-            <h3>Video Editing</h3>
-            <p>Professional pacing, sharp cuts, and sound design that keeps retention high.</p>
-          </div>
-          <div class="service-card reveal">
-            <i class="ri-palette-line service-icon"></i>
-            <h3>Color Grading</h3>
-            <p>Giving your footage a cinematic, consistent, and moody look.</p>
-          </div>
-          <div class="service-card reveal">
-            <i class="ri-macbook-line service-icon"></i>
-            <h3>Motion Graphics</h3>
-            <p>Dynamic intros, lower thirds, and titles to elevate production value.</p>
-          </div>
-          <div class="service-card reveal">
-            <i class="ri-pen-nib-line service-icon"></i>
-            <h3>Graphic Design</h3>
-            <p>High-end social media packs, thumbnails, and brand identities.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact-section">
-      <div class="wrap contact-wrapper">
-        <div class="contact-content reveal">
-          <h2>Let's Create Something <br><span class="text-accent">Extraordinary.</span></h2>
-          <p>Ready to level up your content? Drop me a message.</p>
-          
-          <div class="contact-details">
-            <a href="mailto:hamoudizzico102@outlook.com" class="contact-item">
-              <i class="ri-mail-send-line"></i>
-              <span>hamoudizzico102@outlook.com</span>
-            </a>
-            <a href="tel:+96170577697" class="contact-item">
-              <i class="ri-whatsapp-line"></i>
-              <span>+961 70 577 697</span>
-            </a>
-            <div class="contact-item location">
-              <i class="ri-map-pin-line"></i>
-              <span>Tripoli, Lebanon</span>
+        <div class="grid">
+          <button class="card" onclick="openLightbox('5.png')">
+            <div class="card-img-wrap"><img src="5.png" loading="lazy" alt="Project"></div>
+            <div class="card-body">
+              <div class="card-title">Saudi National Day</div>
+              <div class="card-meta">Poster Design</div>
             </div>
-          </div>
+          </button>
+
+          <button class="card" onclick="openLightbox('1.png')">
+            <div class="card-img-wrap"><img src="1.png" loading="lazy" alt="Project"></div>
+            <div class="card-body">
+              <div class="card-title">Brand Identity</div>
+              <div class="card-meta">Logo & Visuals</div>
+            </div>
+          </button>
+           
+           <button class="card" onclick="openLightbox('me.png')">
+            <div class="card-img-wrap"><img src="me.png" loading="lazy" alt="Project"></div>
+            <div class="card-body">
+              <div class="card-title">Course Visuals</div>
+              <div class="card-meta">Educational</div>
+            </div>
+          </button>
         </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="wrap footer-inner">
-        <div class="copy">© 2025 Mohamed Moukaddem. All rights reserved.</div>
-        <div class="socials">
-          <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-          <a href="#" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+    <section id="editing" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Video Editing</h2>
+          <p>YouTube Long-form & Short-form Content.</p>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <button class="folder-cover" style="cursor: pointer;">
+                    <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" class="folder-thumb" alt="Sebastien">
+                    <div style="text-align: left;">
+                        <div class="card-title">Sébastien Koubar</div>
+                        <div class="card-meta">YouTube • 10+ Videos</div>
+                    </div>
+                </button>
+            </div>
+
+             <div class="card">
+                <button class="folder-cover" style="cursor: pointer;">
+                    <img src="logo-01.png" class="folder-thumb" alt="Oqunet">
+                    <div style="text-align: left;">
+                        <div class="card-title">Oqunet Software</div>
+                        <div class="card-meta">Reels & Promo</div>
+                    </div>
+                </button>
+            </div>
         </div>
       </div>
-    </footer>
+    </section>
 
+    <section id="contact" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Contact Me</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-box">
+            <h3>Email</h3>
+            <a href="mailto:hamoudizzico102@outlook.com">hamoudizzico102@outlook.com</a>
+          </div>
+          <div class="contact-box">
+            <h3>Phone</h3>
+            <a href="tel:+96170577697">+961 70 577 697</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-backdrop" data-close="1"></div>
-    <div class="lightbox-panel glass-panel">
-      <button class="close-btn" data-close="1"><i class="ri-close-line"></i></button>
-      <img id="lightboxImg" src="" alt="Preview">
-      <div class="lightbox-caption" id="lightboxTitle"></div>
+  <footer>
+    <div class="wrap">
+      © 2025 Mohamed Moukaddem. From Tripoli with ❤️.
     </div>
+  </footer>
+
+  <div id="lb" class="lightbox" aria-hidden="true" onclick="this.setAttribute('aria-hidden', 'true')">
+      <button class="close-lb">&times;</button>
+      <img id="lb-img" src="" class="lightbox-content" alt="Preview">
   </div>
 
-  <div class="lightbox" id="folderbox" aria-hidden="true">
-    <div class="lightbox-backdrop" data-folder-close="1"></div>
-    <div class="lightbox-panel folder-panel glass-panel">
-      <div class="folder-header">
-         <h3 id="folderTitle">Folder Name</h3>
-         <button class="close-btn" data-folder-close="1"><i class="ri-close-line"></i></button>
-      </div>
-      <div class="folder-scroll">
-        <div class="folder-content-grid" id="folderContent"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="lightbox" id="cvbox" aria-hidden="true">
-    <div class="lightbox-backdrop" data-cv-close="1"></div>
-    <div class="lightbox-panel cv-panel glass-panel">
-      <div class="folder-header">
-         <h3>Curriculum Vitae</h3>
-         <button class="close-btn" data-cv-close="1"><i class="ri-close-line"></i></button>
-      </div>
-      <iframe class="cv-frame" src="Mohamad Mokaddem CV 2025 (1).pdf" title="CV"></iframe>
-    </div>
-  </div>
-
-  <template id="tpl-sebastien">
-    <article class="card video-card">
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" title="How Booking manipulates you" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="card-info">
-        <h3>How Booking manipulates you</h3>
-      </div>
-    </article>
-    </template>
-
-  <template id="tpl-hisham-ghanem-library">
-     </template>
-
-  <template id="tpl-oqunet-editing">
-     </template>
-
-  <template id="tpl-client-intellident">
-      </template>
-
-  <template id="tpl-client-oqunet">
-      </template>
-
-  <template id="tpl-client-marketing-maven">
-      </template>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-
-  <script src="script.js"></script>
-  
   <script>
-    // Initialize Lenis (Smooth Scroll)
-    const lenis = new Lenis();
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    // GSAP Animations
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Hero Animation
-    gsap.from(".hero-left > *", {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out"
-    });
-
-    gsap.from(".hero-right", {
-      x: 50,
-      opacity: 0,
-      duration: 1.2,
-      delay: 0.5,
-      ease: "power3.out"
-    });
-
-    // Reveal Elements on Scroll
-    gsap.utils.toArray('.reveal').forEach(element => {
-      gsap.from(element, {
-        scrollTrigger: {
-          trigger: element,
-          start: "top 85%",
-          toggleActions: "play none none reverse"
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      });
-    });
+      function openLightbox(src) {
+          document.getElementById('lb-img').src = src;
+          document.getElementById('lb').setAttribute('aria-hidden', 'false');
+      }
+      
+      // Add your original Logic for folders here if needed
+      // This simple version focuses on speed and layout first
   </script>
 
 </body>
