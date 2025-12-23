@@ -39,6 +39,7 @@ function setFolder(key){
   const titles = {
     "sebastien": "Sébastien Koubar",
     "hisham-ghanem-library": "hisham.ghanem.library",
+    "oqunet-software": "oqunet software",
     "client-intellident": "Intellident Dental Clinic",
     "client-oqunet": "Oqunet Software",
     "client-marketing-maven": "The Marketing maven"
@@ -105,7 +106,7 @@ function openFolder(key){
   fb.setAttribute('aria-hidden','false');
   lock();
 
-  if(key === "hisham-ghanem-library"){
+  if(key === "hisham-ghanem-library" || key === "oqunet-software"){
     setTimeout(() => { processInstagramEmbeds(); }, 40);
   }
 }
