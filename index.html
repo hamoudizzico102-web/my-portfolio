@@ -2,249 +2,210 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <title>Mohamed Moukaddem — Creative Video Editor</title>
-  <meta name="description" content="Portfolio of Mohamed Moukaddem, a Creative Video Editor and Graphic Designer based in Tripoli, Lebanon. Specializing in cinematic edits, visual identity, and motion graphics.">
-  <meta name="author" content="Mohamed Moukaddem">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mohamed Moukaddem — Creative Video Editor & Graphic Designer based in Tripoli, Lebanon. Specializing in cinematic edits and premium visuals.">
+  <title>Mohamed Moukaddem — Visual Artist</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://www.youtube.com">
-  <link rel="preconnect" href="https://i.ytimg.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+  <div class="cursor-follower"></div>
+
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#home">
-        <img class="brand-avatar" src="230.png" alt="Mohamed Moukaddem" width="40" height="40">
-        <div class="brand-text">
-          <span class="brand-name">Mohamed Moukaddem</span>
-          <span class="brand-role">Creative Video Editor • Graphic Designer</span>
+        <img class="brand-avatar" src="230.png" alt="Mohamed Moukaddem"> <div class="brand-text">
+          <span class="brand-name">Moukaddem.</span>
+          <span class="brand-role">Visual Artist</span>
         </div>
       </a>
 
       <nav class="nav">
-        <a href="#design">Design</a>
-        <a href="#editing">Editing</a>
-        <a href="#client">Client Work</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-
-        <a href="#"
-           class="nav-cv"
-           data-open-cv="1"
-           aria-label="Open CV">
-          CV
-        </a>
+        <a href="#design" class="nav-link">Design</a>
+        <a href="#editing" class="nav-link">Editing</a>
+        <a href="#client" class="nav-link">Clients</a>
+        <a href="#services" class="nav-link">Services</a>
       </nav>
 
-      <a class="cta" href="#contact">Hire Me</a>
+      <div class="header-actions">
+        <a href="#" class="btn-cv" data-open-cv="1" aria-label="Open CV">
+          CV <i class="ri-file-text-line"></i>
+        </a>
+        <a class="btn primary glow-effect" href="#contact">Hire Me</a>
+      </div>
+      
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <i class="ri-menu-4-line"></i>
+      </button>
     </div>
   </header>
 
   <main id="home">
 
     <section class="hero">
-      <div class="wrap hero-inner">
+      <div class="hero-bg-glow"></div> <div class="wrap hero-inner">
         <div class="hero-left">
-          <div class="tag">AVAILABLE FOR FREELANCE</div>
-          <h1 class="headline">Cinematic edits & modern visuals that feel premium.</h1>
-          <p class="sub">
-            I craft high-impact video edits, brand visuals, and motion-ready content
-            designed for social platforms and digital campaigns.
+          <div class="status-pill reveal">
+            <span class="dot-live"></span> Available for Freelance
+          </div>
+          
+          <h1 class="headline reveal">
+            Crafting <span class="gradient-text">Cinematic</span> <br>
+            Digital Experiences.
+          </h1>
+          
+          <p class="sub reveal">
+            High-impact video editing & modern graphic design tailored for brands that want to stand out. Based in Lebanon, working globally.
           </p>
 
-          <div class="actions">
-            <a class="btn primary" href="#editing">View Editing</a>
-            <a class="btn ghost" href="#design">View Design</a>
+          <div class="actions reveal">
+            <a class="btn primary" href="#editing">View Showreel <i class="ri-play-circle-line"></i></a>
+            <a class="btn ghost" href="#design">Explore Portfolio</a>
           </div>
 
-          <div class="stats">
-            <div class="stat">
-              <div class="stat-num">Fast</div>
-              <div class="stat-label">Delivery</div>
+          <div class="stats reveal">
+            <div class="stat-item">
+              <h3>+50</h3>
+              <p>Projects Done</p>
             </div>
-            <div class="stat">
-              <div class="stat-num">Clean</div>
-              <div class="stat-label">Cuts + Timing</div>
+            <div class="stat-item">
+              <h3>2K</h3>
+              <p>Quality Standard</p>
             </div>
-            <div class="stat">
-              <div class="stat-num">Sharp</div>
-              <div class="stat-label">Visual Style</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-right" aria-hidden="true">
-          <div class="hero-card">
-            <div class="hero-card-top">
-              <div class="dot red"></div>
-              <div class="dot yellow"></div>
-              <div class="dot green"></div>
-              <div class="hero-card-title">Showreel Preview</div>
-            </div>
-
-            <div class="hero-card-body">
-              <div class="preview">
-                <div class="play"></div>
-                <div class="preview-text">
-                  <div class="preview-title">Click any design</div>
-                  <div class="preview-sub">Design opens fullscreen preview with blur.</div>
-                </div>
-              </div>
-
-              <div class="chips">
-                <span class="chip">Color Grading</span>
-                <span class="chip">Sound Design</span>
-                <span class="chip">Motion</span>
-                <span class="chip">Branding</span>
-              </div>
+            <div class="stat-item">
+              <h3>100%</h3>
+              <p>Client Satisfaction</p>
             </div>
           </div>
         </div>
 
+        <div class="hero-right reveal" data-speed="0.8">
+          <div class="hero-card glass-panel">
+            <div class="hero-card-header">
+              <div class="dots">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="rec-badge">REC ●</span>
+            </div>
+            <div class="hero-video-wrapper">
+              <video autoplay muted loop playsinline poster="path/to/poster.jpg">
+                 <source src="path/to/showreel-preview.mp4" type="video/mp4">
+              </video>
+              <div class="play-overlay"><i class="ri-play-fill"></i></div>
+            </div>
+            <div class="hero-card-footer">
+              <span>Premiere Pro</span>
+              <span>After Effects</span>
+              <span>DaVinci</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="hero-glow" aria-hidden="true"></div>
     </section>
 
     <section id="design" class="section">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Design</h2>
-          <p>Click a project to preview.</p>
+        <div class="section-head reveal">
+          <h2 class="section-title">Selected <span class="text-accent">Designs</span></h2>
+          <p>Visual identities, posters, and creative artboards.</p>
         </div>
 
-        <div class="grid">
-
-          <button class="card card-click"
-                  type="button"
-                  data-preview="5.png"
-                  data-title="Saudi National Day"
-                  aria-label="Open preview: Saudi National Day">
-            <img src="5.png" alt="Saudi National Day design" loading="lazy">
-            <div class="card-foot">
-              <div class="card-title">Saudi National Day</div>
-              <div class="card-meta">Poster / Visual</div>
+        <div class="grid gallery-grid">
+          <button class="card glass-card reveal" data-preview="5.png" data-title="Saudi National Day">
+            <div class="card-image">
+              <img src="5.png" alt="Saudi National Day design" loading="lazy">
+              <div class="hover-overlay"><i class="ri-fullscreen-line"></i></div>
+            </div>
+            <div class="card-info">
+              <h3>Saudi National Day</h3>
+              <span>Poster / Visual Art</span>
             </div>
           </button>
 
-          <button class="card card-click"
-                  type="button"
-                  data-preview="1.png"
-                  data-title="Creative Visual Identity"
-                  aria-label="Open preview: Creative Visual Identity">
-            <img src="1.png" alt="Creative Visual Identity design" loading="lazy">
-            <div class="card-foot">
-              <div class="card-title">Creative Visual Identity</div>
-              <div class="card-meta">Brand / Identity</div>
+          <button class="card glass-card reveal" data-preview="1.png" data-title="Visual Identity">
+            <div class="card-image">
+              <img src="1.png" alt="Visual Identity" loading="lazy">
+              <div class="hover-overlay"><i class="ri-fullscreen-line"></i></div>
+            </div>
+            <div class="card-info">
+              <h3>Creative Identity</h3>
+              <span>Branding</span>
             </div>
           </button>
 
-          <button class="card card-click"
-                  type="button"
-                  data-preview="me.png"
-                  data-title="Course Design"
-                  aria-label="Open preview: Course Design">
-            <img src="me.png" alt="Course Design" loading="lazy">
-            <div class="card-foot">
-              <div class="card-title">Course Design</div>
-              <div class="card-meta">Course / Visual System</div>
+          <button class="card glass-card reveal" data-preview="me.png" data-title="Course Design">
+            <div class="card-image">
+              <img src="me.png" alt="Course Design" loading="lazy">
+              <div class="hover-overlay"><i class="ri-fullscreen-line"></i></div>
+            </div>
+            <div class="card-info">
+              <h3>Course Design</h3>
+              <span>Educational Visuals</span>
             </div>
           </button>
-
         </div>
       </div>
     </section>
 
-    <section id="editing" class="section">
+    <section id="editing" class="section dark-alt">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Editing</h2>
-          <p>Open a folder to view the long-form videos.</p>
+        <div class="section-head reveal">
+          <h2 class="section-title">Video <span class="text-accent">Editing</span></h2>
+          <p>Long-form storytelling & snappy social content.</p>
         </div>
 
-        <div class="grid">
-
-          <div class="card folder-card">
-            <button class="folder-cover card-click"
-                    type="button"
-                    data-open-folder="sebastien"
-                    aria-label="Open folder: Sébastien Koubar">
-
-              <img
-                src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj"
-                alt="Sébastien Koubar YouTube Profile" loading="lazy">
-
-              <div class="card-foot">
-                <div class="card-title">Sébastien Koubar</div>
-                <div class="card-meta">Long-form YouTube Videos</div>
+        <div class="grid folder-grid">
+          
+          <div class="folder-wrap reveal">
+            <button class="folder-card" data-open-folder="sebastien">
+              <div class="folder-icon"><i class="ri-folder-video-fill"></i></div>
+              <div class="folder-content">
+                <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sebastien" class="folder-avatar">
+                <div>
+                  <h3>Sébastien Koubar</h3>
+                  <span>YouTube Long-form</span>
+                </div>
               </div>
+              <div class="folder-arrow"><i class="ri-arrow-right-line"></i></div>
             </button>
-
-            <a class="folder-yt"
-               href="https://www.youtube.com/"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Open YouTube channel">
-              YouTube
-            </a>
+            <a href="https://www.youtube.com/" target="_blank" class="folder-link">Visit Channel</a>
           </div>
 
-          <div class="card folder-card">
-            <button class="folder-cover card-click"
-                    type="button"
-                    data-open-folder="hisham-ghanem-library"
-                    aria-label="Open folder: hisham.ghanem.library">
-
-              <img
-                src="405229718_183715348153605_6175495872810790746_n.jpg"
-                alt="hisham.ghanem.library Profile" loading="lazy">
-
-              <div class="card-foot">
-                <div class="card-title">hisham.ghanem.library</div>
-                <div class="card-meta">Instagram Reels / Posts</div>
+          <div class="folder-wrap reveal">
+            <button class="folder-card" data-open-folder="hisham-ghanem-library">
+              <div class="folder-icon"><i class="ri-instagram-fill"></i></div>
+              <div class="folder-content">
+                <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham" class="folder-avatar">
+                <div>
+                  <h3>Hisham Ghanem</h3>
+                  <span>Instagram Reels</span>
+                </div>
               </div>
+              <div class="folder-arrow"><i class="ri-arrow-right-line"></i></div>
             </button>
-
-            <a class="folder-yt"
-               href="https://www.instagram.com/hisham.ghanem.library/"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Open Instagram profile">
-              Instagram
-            </a>
+            <a href="https://www.instagram.com/hisham.ghanem.library/" target="_blank" class="folder-link">Visit Profile</a>
           </div>
 
-          <div class="card folder-card">
-            <button class="folder-cover card-click"
-                    type="button"
-                    data-open-folder="oqunet-editing"
-                    aria-label="Open folder: Oqunet Software">
-
-              <img
-                src="logo-01.png"
-                alt="Oqunet Software Logo" loading="lazy">
-
-              <div class="card-foot">
-                <div class="card-title">Oqunet Software</div>
-                <div class="card-meta">Instagram Reels / Posts</div>
+          <div class="folder-wrap reveal">
+            <button class="folder-card" data-open-folder="oqunet-editing">
+              <div class="folder-icon"><i class="ri-code-box-fill"></i></div>
+              <div class="folder-content">
+                <img src="logo-01.png" alt="Oqunet" class="folder-avatar">
+                <div>
+                  <h3>Oqunet Software</h3>
+                  <span>Tech Reels & Promo</span>
+                </div>
               </div>
+              <div class="folder-arrow"><i class="ri-arrow-right-line"></i></div>
             </button>
-
-            <a class="folder-yt"
-               href="https://www.instagram.com/"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Open Instagram">
-              Instagram
-            </a>
           </div>
 
         </div>
@@ -253,301 +214,220 @@
 
     <section id="client" class="section">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Client Work</h2>
-          <p>Open a client folder to view projects (scrollable).</p>
+        <div class="section-head reveal">
+          <h2 class="section-title">Client <span class="text-accent">Work</span></h2>
+          <p>Brands I've collaborated with.</p>
         </div>
+        
+        <div class="clients-ticker reveal">
+          <div class="grid folder-grid">
+             <button class="folder-card client-variant" data-open-folder="client-intellident">
+                <img src="logo (2).png" alt="Intellident" class="client-logo">
+                <div class="client-info">
+                   <h3>Intellident Clinic</h3>
+                   <span>Branding & Social</span>
+                </div>
+             </button>
 
-        <div class="grid">
-
-          <div class="card folder-card client-folder">
-            <button class="folder-cover card-click"
-                    type="button"
-                    data-open-folder="client-intellident"
-                    aria-label="Open folder: Intellident Dental Clinic">
-              <img src="logo (2).png" alt="Intellident Dental Clinic Logo" loading="lazy">
-              <div class="card-foot">
-                <div class="card-title">Intellident Dental Clinic</div>
-                <div class="card-meta">Design • Social Media</div>
-              </div>
-            </button>
+             <button class="folder-card client-variant" data-open-folder="client-oqunet">
+                <img src="logo-01.png" alt="Oqunet" class="client-logo">
+                <div class="client-info">
+                   <h3>Oqunet Software</h3>
+                   <span>Campaigns</span>
+                </div>
+             </button>
+             
+             <button class="folder-card client-variant" data-open-folder="client-marketing-maven">
+                <img src="market maven logo.png" alt="Marketing Maven" class="client-logo">
+                <div class="client-info">
+                   <h3>Marketing Maven</h3>
+                   <span>Artboards</span>
+                </div>
+             </button>
           </div>
-
-          <div class="card folder-card client-folder">
-            <button class="folder-cover card-click"
-                    type="button"
-                    data-open-folder="client-oqunet"
-                    aria-label="Open folder: Oqunet Software">
-              <img src="logo-01.png" alt="Oqunet Software Logo" loading="lazy">
-              <div class="card-foot">
-                <div class="card-title">Oqunet Software</div>
-                <div class="card-meta">Design • Campaign • Social Media</div>
-              </div>
-            </button>
-          </div>
-
-          <div class="card folder-card client-folder">
-            <button class="folder-cover card-click"
-                    type="button"
-                    data-open-folder="client-marketing-maven"
-                    aria-label="Open folder: The Marketing Maven">
-              <img src="market maven logo.png" alt="The Marketing Maven Logo" loading="lazy">
-              <div class="card-foot">
-                <div class="card-title">The Marketing Maven</div>
-                <div class="card-meta">Design • Artboards</div>
-              </div>
-            </button>
-          </div>
-
         </div>
-
       </div>
     </section>
 
-    <section id="services" class="section">
+    <section id="services" class="section dark-alt">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Services</h2>
-          <p>What I can do for you.</p>
+        <div class="section-head reveal">
+          <h2 class="section-title">My <span class="text-accent">Services</span></h2>
         </div>
 
-        <div class="services">
-          <div class="service">
-            <div class="service-title">Video Editing</div>
-            <div class="service-desc">Pacing, cuts, sound, export for social platforms.</div>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <i class="ri-movie-2-line service-icon"></i>
+            <h3>Video Editing</h3>
+            <p>Professional pacing, sharp cuts, and sound design that keeps retention high.</p>
           </div>
-          <div class="service">
-            <div class="service-title">Color Grading</div>
-            <div class="service-desc">Cinematic look, tone, contrast, and consistency.</div>
+          <div class="service-card reveal">
+            <i class="ri-palette-line service-icon"></i>
+            <h3>Color Grading</h3>
+            <p>Giving your footage a cinematic, consistent, and moody look.</p>
           </div>
-          <div class="service">
-            <div class="service-title">Motion Graphics</div>
-            <div class="service-desc">Intros, lower thirds, transitions, titles.</div>
+          <div class="service-card reveal">
+            <i class="ri-macbook-line service-icon"></i>
+            <h3>Motion Graphics</h3>
+            <p>Dynamic intros, lower thirds, and titles to elevate production value.</p>
           </div>
-          <div class="service">
-            <div class="service-title">Graphic Design</div>
-            <div class="service-desc">Posters, identities, social media packs.</div>
+          <div class="service-card reveal">
+            <i class="ri-pen-nib-line service-icon"></i>
+            <h3>Graphic Design</h3>
+            <p>High-end social media packs, thumbnails, and brand identities.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section contact">
-      <div class="wrap contact-inner">
-        <div class="section-head">
-          <h2>Contact</h2>
-          <p>Let’s work together.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-card">
-            <div class="label">Email</div>
-            <a class="contact-link" href="mailto:hamoudizzico102@outlook.com">hamoudizzico102@outlook.com</a>
+    <section id="contact" class="section contact-section">
+      <div class="wrap contact-wrapper">
+        <div class="contact-content reveal">
+          <h2>Let's Create Something <br><span class="text-accent">Extraordinary.</span></h2>
+          <p>Ready to level up your content? Drop me a message.</p>
+          
+          <div class="contact-details">
+            <a href="mailto:hamoudizzico102@outlook.com" class="contact-item">
+              <i class="ri-mail-send-line"></i>
+              <span>hamoudizzico102@outlook.com</span>
+            </a>
+            <a href="tel:+96170577697" class="contact-item">
+              <i class="ri-whatsapp-line"></i>
+              <span>+961 70 577 697</span>
+            </a>
+            <div class="contact-item location">
+              <i class="ri-map-pin-line"></i>
+              <span>Tripoli, Lebanon</span>
+            </div>
           </div>
-
-          <div class="contact-card">
-            <div class="label">Phone</div>
-            <a class="contact-link" href="tel:+96170577697">+961 70577697</a>
-          </div>
-        </div>
-
-        <div class="note">
-          For editing work, send me your YouTube link (Unlisted) and I’ll embed it into the Editing section.
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <div class="wrap">© 2025 Mohamed Moukaddem</div>
+      <div class="wrap footer-inner">
+        <div class="copy">© 2025 Mohamed Moukaddem. All rights reserved.</div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+          <a href="#" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+        </div>
+      </div>
     </footer>
 
   </main>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-backdrop" data-close="1"></div>
-
-    <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Preview">
-      <button class="lightbox-close" type="button" aria-label="Close preview" data-close="1">×</button>
-
-      <div class="lightbox-media">
-        <img id="lightboxImg" src="" alt="Preview">
-      </div>
-
-      <div class="lightbox-foot">
-        <div class="lightbox-title" id="lightboxTitle"></div>
-      </div>
+    <div class="lightbox-panel glass-panel">
+      <button class="close-btn" data-close="1"><i class="ri-close-line"></i></button>
+      <img id="lightboxImg" src="" alt="Preview">
+      <div class="lightbox-caption" id="lightboxTitle"></div>
     </div>
   </div>
 
   <div class="lightbox" id="folderbox" aria-hidden="true">
     <div class="lightbox-backdrop" data-folder-close="1"></div>
-
-    <div class="lightbox-panel folder-panel" role="dialog" aria-modal="true" aria-label="Folder content">
-      <button class="lightbox-close" type="button" aria-label="Close folder" data-folder-close="1">×</button>
-
-      <div class="lightbox-foot folder-head">
-        <div class="lightbox-title" id="folderTitle">Folder</div>
+    <div class="lightbox-panel folder-panel glass-panel">
+      <div class="folder-header">
+         <h3 id="folderTitle">Folder Name</h3>
+         <button class="close-btn" data-folder-close="1"><i class="ri-close-line"></i></button>
       </div>
-
       <div class="folder-scroll">
-        <div class="folder-body">
-          <div class="grid folder-grid" id="folderContent"></div>
-        </div>
+        <div class="folder-content-grid" id="folderContent"></div>
       </div>
     </div>
   </div>
 
   <div class="lightbox" id="cvbox" aria-hidden="true">
     <div class="lightbox-backdrop" data-cv-close="1"></div>
-
-    <div class="lightbox-panel cv-panel" role="dialog" aria-modal="true" aria-label="CV Preview">
-      <button class="lightbox-close" type="button" aria-label="Close CV" data-cv-close="1">×</button>
-
-      <div class="lightbox-foot cv-head">
-        <div class="lightbox-title">Mohamed Moukaddem — CV</div>
-        <div class="cv-glow" aria-hidden="true"></div>
+    <div class="lightbox-panel cv-panel glass-panel">
+      <div class="folder-header">
+         <h3>Curriculum Vitae</h3>
+         <button class="close-btn" data-cv-close="1"><i class="ri-close-line"></i></button>
       </div>
-
-      <div class="cv-scroll">
-        <div class="cv-body">
-          <iframe class="cv-frame"
-                  src="Mohamad Mokaddem CV 2025 (1).pdf"
-                  title="Mohamed Moukaddem CV PDF"
-                  loading="lazy"></iframe>
-        </div>
-      </div>
+      <iframe class="cv-frame" src="Mohamad Mokaddem CV 2025 (1).pdf" title="CV"></iframe>
     </div>
   </div>
 
   <template id="tpl-sebastien">
-    <article class="card video" style="cursor:default;">
-      <div class="video-box">
-        <iframe width="100%" height="280"
-          src="https://www.youtube.com/embed/AzAXmB-KY5M"
-          title="How Booking manipulates you"
-          frameborder="0"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+    <article class="card video-card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" title="How Booking manipulates you" frameborder="0" allowfullscreen></iframe>
       </div>
-      <div class="card-foot">
-        <div class="card-title">How Booking manipulates you</div>
-        <div class="card-meta">Long-form YouTube Video</div>
+      <div class="card-info">
+        <h3>How Booking manipulates you</h3>
       </div>
     </article>
+    </template>
 
-    <article class="card video" style="cursor:default;">
-      <div class="video-box">
-        <iframe width="100%" height="280"
-          src="https://www.youtube.com/embed/ChGxyGwRdFE"
-          title="Ryanair: The dark truth behind €9 flights"
-          frameborder="0"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="card-foot">
-        <div class="card-title">Ryanair: The dark truth behind €9 flights</div>
-        <div class="card-meta">Long-form YouTube Video</div>
-      </div>
-    </article>
+  <template id="tpl-hisham-ghanem-library">
+     </template>
 
-    <article class="card video" style="cursor:default;">
-      <div class="video-box">
-        <iframe width="100%" height="280"
-          src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307"
-          title="Why is the new owner of Club Med worried?"
-          frameborder="0"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="card-foot">
-        <div class="card-title">Why is the new owner of Club Med worried?</div>
-        <div class="card-meta">Long-form YouTube Video</div>
-      </div>
-    </article>
+  <template id="tpl-oqunet-editing">
+     </template>
 
-    <article class="card video" style="cursor:default;">
-      <div class="video-box">
-        <iframe width="100%" height="280"
-          src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502"
-          title="The most absurd financial crash in history"
-          frameborder="0"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="card-foot">
-        <div class="card-title">The most absurd financial crash in history</div>
-        <div class="card-meta">Long-form YouTube Video</div>
-      </div>
-    </article>
+  <template id="tpl-client-intellident">
+      </template>
 
-    <article class="card video" style="cursor:default;">
-      <div class="video-box">
-        <iframe width="100%" height="280"
-          src="https://www.youtube.com/embed/SNmD--JxL9k"
-          title="The fall of Groupon: the site that almost killed advertising"
-          frameborder="0"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="card-foot">
-        <div class="card-title">The fall of Groupon: the site that almost killed advertising</div>
-        <div class="card-meta">Long-form YouTube Video</div>
-      </div>
-    </article>
+  <template id="tpl-client-oqunet">
+      </template>
 
-    <article class="card video" style="cursor:default;">
-      <div class="video-box">
-        <iframe width="100%" height="280"
-          src="https://www.youtube.com/embed/kKaPwbr9HDY?start=240"
-          title="The fall of Wish: the site that lost everything"
-          frameborder="0"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="card-foot">
-        <div class="card-title">The fall of Wish: the site that lost everything</div>
-        <div class="card-meta">Long-form YouTube Video</div>
-      </div>
-    </article>
+  <template id="tpl-client-marketing-maven">
+      </template>
 
-    <article class="card video" style="cursor:default;">
-      <div class="video-box">
-        <iframe width="100%" height="280"
-          src="https://www.youtube.com/embed/6bEAqazXi6o?start=2"
-          title="The Boat war: how China is encircling the West"
-          frameborder="0"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="card-foot">
-        <div class="card-title">The Boat war: how China is encircling the West</div>
-        <div class="card-meta">Long-form YouTube Video</div>
-      </div>
-    </article>
 
-    <article class="card video" style="cursor:default;">
-      <div class="video-box">
-        <iframe width="100%" height="280"
-          src="https://www.youtube.com/embed/quGLWi_C2RE?start=300"
-          title="Why everyone is (secretly) fighting for the sand"
-          frameborder="0"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="card-foot">
-        <div class="card-title">Why everyone is (secretly) fighting for the sand</div>
-        <div class="card-meta">Long-form YouTube Video</div>
-      </div>
-    </article>
-  </template>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
 
-  </body>
+  <script src="script.js"></script>
+  
+  <script>
+    // Initialize Lenis (Smooth Scroll)
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // GSAP Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Animation
+    gsap.from(".hero-left > *", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out"
+    });
+
+    gsap.from(".hero-right", {
+      x: 50,
+      opacity: 0,
+      duration: 1.2,
+      delay: 0.5,
+      ease: "power3.out"
+    });
+
+    // Reveal Elements on Scroll
+    gsap.utils.toArray('.reveal').forEach(element => {
+      gsap.from(element, {
+        scrollTrigger: {
+          trigger: element,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+    });
+  </script>
+
+</body>
 </html>
