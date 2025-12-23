@@ -81,7 +81,10 @@ body.modal-open{
 }
 
 .brand-text{display:flex; flex-direction:column; line-height:1.05}
-.brand-name{font-size:0.98rem}
+.brand-name{
+  font-size:0.98rem;
+  font-weight:700;
+}
 .brand-role{font-size:0.72rem; color:var(--muted)}
 
 .nav{
@@ -97,7 +100,7 @@ body.modal-open{
 }
 .nav a:hover{color:var(--text)}
 
-/* ===== NAV CV (in navbar like others) ===== */
+/* ===== NAV CV ===== */
 .nav-cv{
   position:relative;
   padding:6px 10px;
@@ -131,6 +134,45 @@ body.modal-open{
   padding:10px 14px;
   border-radius:12px;
   box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+  position:relative;
+  overflow:hidden; /* ✅ required for sweep */
+}
+
+/* ✅ Blue Light Sweep on Hire Me */
+.cta-sweep::after{
+  content:"";
+  position:absolute;
+  top:-40%;
+  left:-60%;
+  width:55%;
+  height:180%;
+  transform:skewX(-18deg);
+  background:linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(59,130,246,0.00) 35%,
+    rgba(59,130,246,0.55) 50%,
+    rgba(59,130,246,0.00) 65%,
+    transparent 100%
+  );
+  filter: blur(0.2px);
+  opacity:0.95;
+  animation: blueSweep 2.8s ease-in-out infinite;
+  pointer-events:none;
+}
+
+@keyframes blueSweep{
+  0%   { left:-70%; opacity:0.0; }
+  10%  { opacity:0.95; }
+  55%  { left:115%; opacity:0.95; }
+  100% { left:115%; opacity:0.0; }
+}
+
+.cta-sweep:hover{
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.45),
+    0 0 0 3px rgba(59,130,246,0.12),
+    0 0 34px rgba(59,130,246,0.22);
 }
 
 /* Hero */
@@ -162,6 +204,7 @@ body.modal-open{
   font-size:clamp(2.0rem, 4.8vw, 3.25rem);
   line-height:1.06;
   letter-spacing:-0.02em;
+  font-weight:700;
 }
 
 .sub{
@@ -309,9 +352,13 @@ body.modal-open{
   margin-bottom:14px;
 }
 
+/* ✅ All section titles (Poppins Bold) */
 .section-head h2{
   margin:0;
   font-size:1.25rem;
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-weight:700;
+  letter-spacing:0.2px;
 }
 
 .section-head p{
@@ -385,8 +432,18 @@ body.modal-open{
   background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.38));
 }
 
-.card-title{font-size:0.95rem}
-card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
+/* ✅ Titles inside cards also stay bold (Poppins Bold) */
+.card-title{
+  font-size:0.95rem;
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-weight:700;
+}
+
+.card-meta{
+  margin-top:4px;
+  font-size:0.78rem;
+  color:var(--muted);
+}
 
 /* Design-only slide effect */
 #design .card{
@@ -483,7 +540,7 @@ card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
   background:rgba(0,0,0,0.25);
 }
 
-/* Instagram embeds (minimal + safe) */
+/* Instagram embeds */
 .ig-card{ cursor:default; }
 .ig-box{
   padding:12px;
@@ -508,7 +565,12 @@ card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.10);
 }
-.service-title{font-size:0.95rem}
+/* ✅ Service titles bold */
+.service-title{
+  font-size:0.95rem;
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-weight:700;
+}
 .service-desc{margin-top:6px; font-size:0.78rem; color:var(--muted)}
 
 /* Contact */
@@ -610,9 +672,12 @@ card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
   border-top:1px solid rgba(255,255,255,0.08);
   background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.35));
 }
+/* ✅ Lightbox title bold */
 .lightbox-title{
   font-size:0.95rem;
   color:rgba(255,255,255,0.92);
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-weight:700;
 }
 
 /* Folder scroll */
@@ -718,6 +783,8 @@ card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
   display:block;
   font-size:0.86rem;
   color:rgba(255,255,255,0.95);
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-weight:700;
 }
 .tooltip .tt-sub{
   margin-top:3px;
