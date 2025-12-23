@@ -1,87 +1,82 @@
 :root {
-    --bg: #050505;
-    --accent: #0066cc; /* Royal Blue */
-    --card-bg: #141414;
-    --text: #ffffff;
-    --font: 'Roboto', sans-serif;
+    --bg: #000000;
+    --accent: #0055ff;
+    --glass: rgba(255, 255, 255, 0.05);
+    --font: 'Inter', sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
-body { background: var(--bg); color: var(--text); font-family: var(--font); overflow-x: hidden; }
+body { background: var(--bg); color: #fff; font-family: var(--font); overflow-x: hidden; }
 
-/* THE CURSOR - Fast & Reactive */
-.cursor { position: fixed; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 10000; box-shadow: 0 0 15px var(--accent); mix-blend-mode: difference; transition: transform 0.1s ease; }
+/* CURSOR PHYSICS */
+.cursor-dot { position: fixed; width: 6px; height: 6px; background: #fff; border-radius: 50%; pointer-events: none; z-index: 10000; }
+.cursor-follower { position: fixed; width: 35px; height: 35px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.1s; }
 
-/* HEADER */
-.header { position: fixed; top: 0; width: 100%; padding: 20px 4%; z-index: 1000; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent); transition: 0.4s; }
-.header.scrolled { background: #000; padding: 12px 4%; }
-.header-content { display: flex; justify-content: space-between; align-items: center; }
-.left-nav { display: flex; align-items: center; gap: 45px; }
-.logo { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--accent); }
-.main-nav { display: flex; gap: 20px; }
-.main-nav a { text-decoration: none; color: #e5e5e5; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
-.main-nav a:hover { color: var(--accent); }
-.cv-btn { background: transparent; color: white; border: 1px solid white; padding: 6px 15px; border-radius: 4px; font-weight: 700; transition: 0.3s; }
-.cv-btn:hover { background: white; color: black; }
-.contact-pill { background: var(--accent); color: white; padding: 8px 20px; border-radius: 4px; text-decoration: none; font-weight: 900; }
+/* NAVBAR */
+.navbar { position: fixed; width: 100%; padding: 20px 4%; z-index: 1000; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.nav-left { display: flex; align-items: center; gap: 15px; }
+.nav-logo { width: 35px; height: 35px; border-radius: 50%; border: 1px solid var(--accent); }
+.nav-name { font-weight: 900; letter-spacing: 2px; font-size: 0.9rem; }
+.nav-links { display: flex; gap: 30px; align-items: center; }
+.nav-links a { text-decoration: none; color: #aaa; font-size: 0.8rem; font-weight: 700; transition: 0.3s; }
+.nav-links a:hover { color: #fff; }
+.btn-cv { background: #fff; color: #000; border: none; padding: 6px 15px; font-weight: 900; border-radius: 4px; }
 
-/* HERO */
-.hero-banner { height: 85vh; position: relative; display: flex; align-items: center; padding: 0 4%; background: url('me.png') center/cover no-repeat; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(77deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%); }
-.hero-info { position: relative; z-index: 2; max-width: 700px; }
-.hero-title { font-size: 5rem; font-weight: 900; margin-bottom: 20px; letter-spacing: -2px; color: var(--accent); }
-.hero-desc { font-size: 1.3rem; margin-bottom: 30px; line-height: 1.4; color: #fff; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+/* HERO SECTION (Netflix Style) */
+.hero { height: 90vh; position: relative; display: flex; align-items: center; padding: 0 4%; background: radial-gradient(circle at 80% 20%, #001a4d 0%, transparent 40%); }
+.hero-content { z-index: 10; max-width: 800px; }
+.badge-new { color: var(--accent); font-weight: 900; font-size: 0.7rem; margin-bottom: 20px; letter-spacing: 3px; }
+.hero-title { font-size: clamp(3rem, 10vw, 6rem); line-height: 0.9; font-weight: 900; margin-bottom: 25px; }
+.blue-gradient { background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-sub { font-size: 1.2rem; color: #888; margin-bottom: 40px; max-width: 500px; }
 .hero-actions { display: flex; gap: 15px; }
-.play-btn { background: white; color: black; border: none; padding: 12px 35px; border-radius: 4px; font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; transition: 0.2s; }
-.info-btn { background: rgba(109, 109, 110, 0.7); color: white; border: none; padding: 12px 35px; border-radius: 4px; font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
-.play-btn:hover { background: rgba(255,255,255,0.7); transform: scale(1.05); }
+.btn-play { background: #fff; color: #000; border: none; padding: 12px 35px; border-radius: 4px; font-weight: 900; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
+.btn-info { background: rgba(100, 100, 100, 0.5); color: #fff; border: none; padding: 12px 35px; border-radius: 4px; font-weight: 900; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
 
-/* CONTENT ROWS */
-.content-rows { padding: 40px 0; margin-top: -100px; position: relative; z-index: 10; }
-.row { padding: 25px 4%; }
-.row-title { font-size: 1.6rem; margin-bottom: 15px; font-weight: 700; color: #fff; }
-.row-container { display: flex; gap: 12px; overflow-x: auto; padding: 20px 0; scrollbar-width: none; }
-.row-container::-webkit-scrollbar { display: none; }
+/* NETFLIX ROWS */
+.netflix-layout { margin-top: -100px; padding-bottom: 100px; position: relative; z-index: 20; }
+.row { padding: 30px 4%; }
+.row-header { font-size: 1.5rem; margin-bottom: 15px; font-weight: 700; }
+.row-inner { display: flex; gap: 10px; overflow-x: scroll; padding: 20px 0; scrollbar-width: none; }
+.row-inner::-webkit-scrollbar { display: none; }
 
-.n-card { min-width: 300px; height: 170px; background: var(--card-bg); border-radius: 4px; overflow: hidden; position: relative; transition: 0.4s ease; border: 1px solid #333; }
-.n-card img { width: 100%; height: 100%; object-fit: cover; }
-.n-card-info { position: absolute; bottom: 0; width: 100%; padding: 15px; background: linear-gradient(to top, black, transparent); opacity: 0; transition: 0.3s; }
-.n-card:hover { transform: scale(1.3); z-index: 100; box-shadow: 0 0 30px rgba(0,0,0,0.9), 0 0 10px var(--accent); border-color: var(--accent); }
-.n-card:hover .n-card-info { opacity: 1; }
+.nft-card { min-width: 320px; height: 180px; background: #111; border-radius: 4px; overflow: hidden; position: relative; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(255,255,255,0.05); }
+.nft-card img { width: 100%; height: 100%; object-fit: cover; }
+.nft-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; opacity: 0; transition: 0.3s; }
+.nft-card:hover { transform: scale(1.4); z-index: 100; box-shadow: 0 15px 40px rgba(0,0,0,0.8); }
+.nft-card:hover .nft-overlay { opacity: 1; }
 
 /* MODALS */
-.modal { position: fixed; inset: 0; z-index: 2000; display: none; align-items: center; justify-content: center; }
-.modal.active { display: flex; }
-.m-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(10px); }
-.m-window { position: relative; width: 90%; max-width: 1100px; height: 85vh; background: #141414; border-radius: 8px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #333; }
-.m-header { padding: 25px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
-.m-header h3 { color: var(--accent); font-weight: 900; font-size: 1.5rem; }
-.m-close { background: none; border: none; color: white; font-size: 2.5rem; }
-.m-body { padding: 30px; overflow-y: auto; flex: 1; }
+.modal-blur { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); z-index: 2000; display: none; align-items: center; justify-content: center; }
+.modal-blur.active { display: flex; }
+.modal-container { background: #111; width: 90%; max-width: 1200px; height: 85vh; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; display: flex; flex-direction: column; }
+.modal-nav { padding: 25px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; }
+.modal-body { flex: 1; padding: 30px; overflow-y: auto; }
+.close-btn { font-size: 2rem; color: #fff; transition: 0.3s; }
+.close-btn:hover { color: var(--accent); transform: rotate(90deg); }
 
-/* MODAL GRID */
-.n-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-.n-item iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 4px; }
-.n-item.insta iframe { aspect-ratio: 9/16; min-height: 550px; }
+/* GRID VIEW */
+.grid-view { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.grid-box iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 8px; }
+.grid-box.insta iframe { aspect-ratio: 9/16; min-height: 550px; }
+.grid-box.img img { width: 100%; border-radius: 8px; }
 
-/* LIGHTBOX - FIXED SIZE */
-.lightbox { position: fixed; inset: 0; z-index: 3000; display: none; align-items: center; justify-content: center; }
+/* LIGHTBOX */
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 3000; display: none; align-items: center; justify-content: center; }
 .lightbox.active { display: flex; }
-#lb-img { max-width: 85vw; max-height: 80vh; object-fit: contain; border-radius: 8px; border: 2px solid var(--accent); box-shadow: 0 0 50px rgba(0,102,204,0.4); }
+#lb-img { max-width: 80vw; max-height: 80vh; border: 2px solid var(--accent); box-shadow: 0 0 50px var(--accent); border-radius: 8px; }
 
 /* FOOTER */
-.footer { padding: 80px 4%; text-align: center; border-top: 1px solid #222; }
-.footer h3 { margin-bottom: 20px; font-size: 1.8rem; }
-.footer-links { display: flex; justify-content: center; gap: 40px; }
-.footer-links a { color: var(--accent); text-decoration: none; font-weight: 900; font-size: 1.4rem; transition: 0.3s; }
-.footer-links a:hover { color: white; text-shadow: 0 0 15px var(--accent); }
+.footer { padding: 100px 4%; border-top: 1px solid #222; background: #000; }
+.footer-wrap { text-align: center; }
+.footer-wrap h2 { font-weight: 900; letter-spacing: 10px; color: #333; margin-bottom: 30px; }
+.socials { display: flex; justify-content: center; gap: 40px; }
+.socials a { color: var(--accent); font-weight: 900; text-decoration: none; font-size: 1.2rem; }
 
-.cv-w { max-width: 1200px; height: 95vh; }
-.cv-w iframe { width: 100%; height: 100%; border: none; }
-
+/* Mobile */
 @media (max-width: 768px) {
-    .n-card { min-width: 200px; }
+    .nav-links { display: none; }
     .hero-title { font-size: 3rem; }
-    .main-nav { display: none; }
-    .cursor { display: none; }
+    .nft-card { min-width: 200px; height: 120px; }
 }
