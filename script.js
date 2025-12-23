@@ -1,4 +1,4 @@
-// Cursor Follow
+// Cursor Logic
 const dot = document.querySelector('.cursor-dot');
 const outline = document.querySelector('.cursor-outline');
 let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
@@ -17,13 +17,7 @@ function animateCursor() {
 }
 animateCursor();
 
-// Interactive Elements Hover
-document.querySelectorAll('a, button, .glass-card, .img-btn').forEach(el => {
-    el.addEventListener('mouseenter', () => outline.style.transform = 'translate(-50%, -50%) scale(1.5)');
-    el.addEventListener('mouseleave', () => outline.style.transform = 'translate(-50%, -50%) scale(1)');
-});
-
-// Modal & Lightbox Logic
+// Modal Logic
 function openModal(tplId, title) {
     const tpl = document.getElementById(tplId);
     const content = document.getElementById('modal-content');
@@ -31,17 +25,25 @@ function openModal(tplId, title) {
     content.appendChild(tpl.content.cloneNode(true));
     document.getElementById('modal-title').textContent = title;
     document.getElementById('modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
 
-function closeModal() { document.getElementById('modal').classList.remove('active'); }
+function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+    document.body.style.overflow = '';
+}
 
 function openImage(src) {
     const lb = document.getElementById('lightbox');
     document.getElementById('lightbox-img').src = src;
     lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
 
-function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); }
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+}
 
 function openCV() { document.getElementById('cv-modal').classList.add('active'); }
 function closeCV() { document.getElementById('cv-modal').classList.remove('active'); }
