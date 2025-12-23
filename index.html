@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Moukaddem | Portfolio</title>
+    <title>Mohamed Moukaddem | Visual Artist</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,56 +20,112 @@
                 <img src="230.png" alt="Profile" class="profile-pic">
                 <span>Moukaddem.</span>
             </a>
+            
             <nav class="nav">
+                <a href="#design">Design</a>
                 <a href="#editing">Editing</a>
                 <a href="#client">Client Work</a>
-                <a href="#services">Services</a>
                 <a href="#contact">Contact</a>
+                
+                <button class="nav-btn cv-btn" onclick="openCV()">
+                    CV <i class="ri-file-pdf-line"></i>
+                </button>
+
                 <a href="#contact" class="hire-me-btn">Hire Me</a>
             </nav>
+            
+            <div class="mobile-menu-icon"><i class="ri-menu-4-line"></i></div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
+            <div class="tag">● AVAILABLE FOR FREELANCE</div>
             <h1 class="hero-title">Visual Excellence <br> <span class="text-gradient">Redefined.</span></h1>
-            <p class="hero-sub">Premium Video Editing & Creative Direction.</p>
+            <p class="hero-sub">Premium Video Editing, Graphic Design & Creative Direction.</p>
+            
+            <div class="hero-actions">
+                <a href="#editing" class="btn btn-primary">View Showreel</a>
+                <button onclick="openCV()" class="btn btn-outline">View CV</button>
+            </div>
         </div>
         <div class="hero-glow"></div>
     </section>
 
+    <section id="design" class="section">
+        <div class="container">
+            <h2 class="section-title">Selected Design</h2>
+            <div class="grid-3d">
+                
+                <div class="card-folder" onclick="openImage('5.png', 'Saudi National Day')">
+                    <div class="card-image">
+                        <img src="5.png" alt="Saudi National Day">
+                    </div>
+                    <div class="card-info">
+                        <h3>Saudi National Day</h3>
+                        <p>Poster / Visual</p>
+                    </div>
+                </div>
+
+                <div class="card-folder" onclick="openImage('1.png', 'Creative Visual Identity')">
+                    <div class="card-image">
+                        <img src="1.png" alt="Visual Identity">
+                    </div>
+                    <div class="card-info">
+                        <h3>Visual Identity</h3>
+                        <p>Brand / Identity</p>
+                    </div>
+                </div>
+
+                <div class="card-folder" onclick="openImage('me.png', 'Course Design')">
+                    <div class="card-image">
+                        <img src="me.png" alt="Course Design">
+                    </div>
+                    <div class="card-info">
+                        <h3>Course Design</h3>
+                        <p>Visual System</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section id="editing" class="section">
         <div class="container">
-            <h2 class="section-title">Editing Folders</h2>
+            <h2 class="section-title">Editing</h2>
             <div class="grid-3d">
                 
                 <div class="card-folder" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
                     <div class="card-image">
-                        <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sébastien Koubar">
+                        <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sébastien">
+                        <div class="folder-badge"><i class="ri-youtube-fill"></i> YouTube</div>
                     </div>
                     <div class="card-info">
                         <h3>Sébastien Koubar</h3>
-                        <p>YouTube Long-form</p>
+                        <p>Long-form Videos</p>
                     </div>
                 </div>
 
                 <div class="card-folder" onclick="openModal('tpl-hisham', 'hisham.ghanem.library')">
                     <div class="card-image">
                         <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham">
+                        <div class="folder-badge"><i class="ri-instagram-fill"></i> Reels</div>
                     </div>
                     <div class="card-info">
                         <h3>hisham.ghanem.library</h3>
-                        <p>Instagram Reels</p>
+                        <p>Instagram Content</p>
                     </div>
                 </div>
 
                 <div class="card-folder" onclick="openModal('tpl-oqunet-edit', 'Oqunet Software (Editing)')">
                     <div class="card-image">
                         <img src="logo-01.png" alt="Oqunet">
+                        <div class="folder-badge"><i class="ri-video-fill"></i> Promo</div>
                     </div>
                     <div class="card-info">
-                        <h3>oqunet software</h3>
-                        <p>Instagram Embeds</p>
+                        <h3>Oqunet Software</h3>
+                        <p>Tech Promos</p>
                     </div>
                 </div>
 
@@ -84,8 +143,8 @@
                         <img src="logo (2).png" alt="Intellident">
                     </div>
                     <div class="card-info">
-                        <h3>Intellident Dental Clinic</h3>
-                        <p>Branding & Visuals</p>
+                        <h3>Intellident Clinic</h3>
+                        <p>Branding & Social</p>
                     </div>
                 </div>
 
@@ -95,17 +154,17 @@
                     </div>
                     <div class="card-info">
                         <h3>Oqunet Software</h3>
-                        <p>Campaign Designs</p>
+                        <p>Campaigns</p>
                     </div>
                 </div>
 
-                <div class="card-folder" onclick="openModal('tpl-maven', 'The Marketing maven')">
+                <div class="card-folder" onclick="openModal('tpl-maven', 'The Marketing Maven')">
                     <div class="card-image">
                         <img src="market maven logo.png" alt="Maven">
                     </div>
                     <div class="card-info">
-                        <h3>The Marketing maven</h3>
-                        <p>Artboards Portfolio</p>
+                        <h3>The Marketing Maven</h3>
+                        <p>Artboards</p>
                     </div>
                 </div>
 
@@ -118,16 +177,24 @@
             <h2 class="section-title">Services</h2>
             <div class="services-grid">
                 <div class="service-card">
+                    <i class="ri-movie-2-line service-icon"></i>
                     <h3>Video Editing</h3>
                     <p>High-retention cuts & storytelling.</p>
                 </div>
                 <div class="service-card">
-                    <h3>Motion Graphics</h3>
-                    <p>Dynamic visuals to boost engagement.</p>
+                    <i class="ri-palette-line service-icon"></i>
+                    <h3>Color Grading</h3>
+                    <p>Cinematic look & mood.</p>
                 </div>
                 <div class="service-card">
+                    <i class="ri-brush-line service-icon"></i>
                     <h3>Graphic Design</h3>
-                    <p>Premium branding & social media kits.</p>
+                    <p>Premium branding & social kits.</p>
+                </div>
+                <div class="service-card">
+                    <i class="ri-motion-line service-icon"></i>
+                    <h3>Motion Graphics</h3>
+                    <p>Dynamic visuals & intros.</p>
                 </div>
             </div>
         </div>
@@ -137,11 +204,61 @@
         <div class="container">
             <h2 class="section-title">Contact</h2>
             <div class="contact-box">
-                <p>Ready to elevate your content?</p>
-                <a href="mailto:contact@mohamedmoukaddem.com" class="email-link">Get in Touch</a>
+                <p>Ready to create something extraordinary?</p>
+                
+                <div class="contact-details">
+                    <a href="mailto:hamoudizzico102@outlook.com" class="contact-item">
+                        <i class="ri-mail-send-fill"></i>
+                        <span>hamoudizzico102@outlook.com</span>
+                    </a>
+                    
+                    <a href="tel:+96170577697" class="contact-item">
+                        <i class="ri-whatsapp-fill"></i>
+                        <span>+961 70 577 697</span>
+                    </a>
+                </div>
+
+                <div class="note">Tripoli, Lebanon</div>
+            </div>
+            <div class="footer-copy">
+                &copy; 2025 Mohamed Moukaddem. All rights reserved.
             </div>
         </div>
     </section>
+
+
+    <div id="modal" class="modal">
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modal-title">Folder Name</h3>
+                <button class="close-btn" onclick="closeModal()">×</button>
+            </div>
+            <div id="modal-content" class="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="modal">
+        <div class="modal-backdrop" onclick="closeLightbox()"></div>
+        <div class="lightbox-container">
+            <button class="close-btn lightbox-close" onclick="closeLightbox()">×</button>
+            <img id="lightbox-img" src="" alt="">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <div id="cv-modal" class="modal">
+        <div class="modal-backdrop" onclick="closeCV()"></div>
+        <div class="modal-container cv-container">
+            <div class="modal-header">
+                <h3>Curriculum Vitae</h3>
+                <button class="close-btn" onclick="closeCV()">×</button>
+            </div>
+            <div class="modal-body cv-body">
+                <iframe src="Mohamad Mokaddem CV 2025 (1).pdf" class="cv-frame"></iframe>
+            </div>
+        </div>
+    </div>
 
     <template id="tpl-sebastien">
         <div class="modal-grid video-grid">
@@ -167,13 +284,13 @@
 
     <template id="tpl-hisham">
         <div class="modal-grid insta-grid">
-            <div class="insta-box"><h3>1</h3><iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed" frameborder="0"></iframe></div>
-            <div class="insta-box"><h3>2</h3><iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed" frameborder="0"></iframe></div>
-            <div class="insta-box"><h3>3</h3><iframe src="https://www.instagram.com/p/C_nDS4kIjDq/embed" frameborder="0"></iframe></div>
-            <div class="insta-box"><h3>4</h3><iframe src="https://www.instagram.com/p/C_nFgW9ILdX/embed" frameborder="0"></iframe></div>
-            <div class="insta-box"><h3>5</h3><iframe src="https://www.instagram.com/p/C_oOlmToOkm/embed" frameborder="0"></iframe></div>
-            <div class="insta-box"><h3>6</h3><iframe src="https://www.instagram.com/p/C_5-k1kIqEo/embed" frameborder="0"></iframe></div>
-            <div class="insta-box"><h3>7</h3><iframe src="https://www.instagram.com/p/DAMLpBwS20w/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><iframe src="https://www.instagram.com/p/C_nDS4kIjDq/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><iframe src="https://www.instagram.com/p/C_nFgW9ILdX/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><iframe src="https://www.instagram.com/p/C_oOlmToOkm/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><iframe src="https://www.instagram.com/p/C_5-k1kIqEo/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><iframe src="https://www.instagram.com/p/DAMLpBwS20w/embed" frameborder="0"></iframe></div>
         </div>
     </template>
 
@@ -182,16 +299,17 @@
             <div class="insta-box"><h3>نجاح أي تطبيق مش صدفة</h3><iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed" frameborder="0"></iframe></div>
             <div class="insta-box"><h3>Innovating industries</h3><iframe src="https://www.instagram.com/p/DGTe92gi_EW/embed" frameborder="0"></iframe></div>
             <div class="insta-box"><h3>حوّل فكرتك إلى تطبيق</h3><iframe src="https://www.instagram.com/p/DGle_mUC-Ap/embed" frameborder="0"></iframe></div>
-            <div class="insta-box"><h3>Insurance broker switch to Coverly</h3><iframe src="https://www.instagram.com/p/DG6CrGoCI4m/embed" frameborder="0"></iframe></div>
-            <div class="insta-box"><h3>Why Insurance Companies Going Digital?</h3><iframe src="https://www.instagram.com/p/DHWZ1h0Csk4/embed" frameborder="0"></iframe></div>
-            <div class="insta-box"><h3>هل أنت شركة أو وسيط تأمين؟؟</h3><iframe src="https://www.instagram.com/p/DHoM5zEqvxB/embed" frameborder="0"></iframe></div>
-            <div class="insta-box"><h3>بتسأل حالك إذا Coverly صعب الاستعمال؟</h3><iframe src="https://www.instagram.com/p/DICErEJCate/embed" frameborder="0"></iframe></div>
-            <div class="insta-box"><h3>Ready to build your Custom App?</h3><iframe src="https://www.instagram.com/p/DI9R_zGioCs/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>Insurance broker?</h3><iframe src="https://www.instagram.com/p/DG6CrGoCI4m/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>Insurance Companies Digital</h3><iframe src="https://www.instagram.com/p/DHWZ1h0Csk4/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>هل أنت شركة أو وسيط تأمين؟</h3><iframe src="https://www.instagram.com/p/DHoM5zEqvxB/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>Coverly صعب الاستعمال؟</h3><iframe src="https://www.instagram.com/p/DICErEJCate/embed" frameborder="0"></iframe></div>
+            <div class="insta-box"><h3>Build Custom App?</h3><iframe src="https://www.instagram.com/p/DI9R_zGioCs/embed" frameborder="0"></iframe></div>
         </div>
     </template>
 
     <template id="tpl-intellident">
         <div class="modal-grid image-grid">
+            <img src="logo (2).png" alt="Logo">
             <img src="caro 3-4.png" alt="Caro">
             <img src="MOTHER.png" alt="Mother">
             <img src="post.png" alt="Post">
@@ -200,6 +318,7 @@
 
     <template id="tpl-oqunet-client">
         <div class="modal-grid image-grid">
+            <img src="logo-01.png" alt="Logo">
             <img src="labor day.png" alt="Labor Day">
             <img src="COVERLIE 5.png" alt="Coverlie 5">
             <img src="COVERLIE 3.png" alt="Coverlie 3">
@@ -210,27 +329,15 @@
 
     <template id="tpl-maven">
         <div class="modal-grid image-grid">
-            <img src="Artboard 1.png" alt="Art 1">
-            <img src="Artboard 2.png" alt="Art 2">
-            <img src="Artboard 3.png" alt="Art 3">
-            <img src="Artboard 4.png" alt="Art 4">
-            <img src="Artboard 5.png" alt="Art 5">
-            <img src="Artboard 6.png" alt="Art 6">
-            <img src="Artboard 7.png" alt="Art 7">
+            <img src="Artboard 1.png" alt="1">
+            <img src="Artboard 2.png" alt="2">
+            <img src="Artboard 3.png" alt="3">
+            <img src="Artboard 4.png" alt="4">
+            <img src="Artboard 5.png" alt="5">
+            <img src="Artboard 6.png" alt="6">
+            <img src="Artboard 7.png" alt="7">
         </div>
     </template>
-
-    <div id="modal" class="modal">
-        <div class="modal-backdrop" onclick="closeModal()"></div>
-        <div class="modal-container">
-            <div class="modal-header">
-                <h3 id="modal-title">Folder Name</h3>
-                <button class="close-btn" onclick="closeModal()">×</button>
-            </div>
-            <div id="modal-content" class="modal-body">
-                </div>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
