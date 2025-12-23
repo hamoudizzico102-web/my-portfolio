@@ -387,7 +387,7 @@ body.modal-open{
 }
 
 .card-title{font-size:0.95rem}
-.card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
+card-meta{margin-top:4px; font-size:0.78rem; color:var(--muted)}
 
 /* Design-only slide effect */
 #design .card{
