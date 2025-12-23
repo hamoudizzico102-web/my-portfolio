@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamad Moukaddem | Visual Portfolio</title>
+    <title>Mohamad Moukaddem | Visual Artist</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <div class="cursor"></div>
 
     <header class="header">
         <div class="header-content">
@@ -25,7 +24,7 @@
             </div>
             <div class="right-nav">
                 <button class="cv-btn" onclick="openCV()">RESUME</button>
-                <a href="#contact" class="contact-pill">Hire Me</a>
+                <a href="https://wa.me/96170577697" target="_blank" class="contact-pill">HIRE ME</a>
             </div>
         </div>
     </header>
@@ -33,108 +32,112 @@
     <section class="hero-banner">
         <div class="hero-overlay"></div>
         <div class="hero-info">
-            <h1 class="hero-title">M. MOUKADDEM</h1>
-            <p class="hero-desc">Specialized in cinematic storytelling and premium brand visuals. Crafting high-retention content for global creators.</p>
+            <h1 class="hero-title">MOUKADDEM.</h1>
+            <p class="hero-desc">Graphic Designer & Video Editor. Crafting high-end visual experiences for top-tier creators and brands.</p>
             <div class="hero-actions">
-                <button class="play-btn" onclick="document.getElementById('editing').scrollIntoView()"><i class="ri-play-fill"></i> View Work</button>
-                <button class="info-btn" onclick="openCV()"><i class="ri-information-line"></i> More Info</button>
+                <button class="play-btn" onclick="document.getElementById('editing').scrollIntoView()"><i class="ri-play-fill"></i> VIEW WORK</button>
+                <button class="info-btn" onclick="openCV()"><i class="ri-information-line"></i> ABOUT ME</button>
             </div>
         </div>
     </section>
 
     <main class="content-rows">
         <div id="editing" class="row">
-            <h2 class="row-title">Editing Collections</h2>
+            <h2 class="row-title">Editing Masterpieces</h2>
             <div class="row-container">
-                <div class="netflix-card" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
-                    <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="">
-                    <div class="card-meta"><h4>Sébastien Koubar</h4></div>
-                </div>
-                <div class="netflix-card" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
-                    <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="">
-                    <div class="card-meta"><h4>Hisham Ghanem</h4></div>
-                </div>
-                <div class="netflix-card" onclick="openModal('tpl-oqunet-edit', 'Oqunet Software')">
-                    <img src="logo-01.png" alt="">
-                    <div class="card-meta"><h4>Oqunet Editing</h4></div>
-                </div>
+                <div class="n-card" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')"><img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj"><div class="n-card-info"><h4>Sébastien Koubar</h4><p>17 Videos</p></div></div>
+                <div class="n-card" onclick="openModal('tpl-hisham', 'Hisham Ghanem')"><img src="405229718_183715348153605_6175495872810790746_n.jpg"><div class="n-card-info"><h4>Hisham Ghanem</h4><p>Instagram Reels</p></div></div>
+                <div class="n-card" onclick="openModal('tpl-oqunet-edit', 'Oqunet Software')"><img src="logo-01.png"><div class="n-card-info"><h4>Oqunet Promo</h4><p>Tech Content</p></div></div>
             </div>
         </div>
 
         <div id="design" class="row">
-            <h2 class="row-title">Premium Designs</h2>
+            <h2 class="row-title">Selected Design Works</h2>
             <div class="row-container">
-                <div class="netflix-card" onclick="openImage('5.png')">
-                    <img src="5.png" alt="">
-                    <div class="card-meta"><h4>Saudi National Day</h4></div>
-                </div>
-                <div class="netflix-card" onclick="openImage('1.png')">
-                    <img src="1.png" alt="">
-                    <div class="card-meta"><h4>Visual Identity</h4></div>
-                </div>
-                <div class="netflix-card" onclick="openImage('me.png')">
-                    <img src="me.png" alt="">
-                    <div class="card-meta"><h4>Personal Branding</h4></div>
-                </div>
+                <div class="n-card" onclick="openImage('5.png')"><img src="5.png"><div class="n-card-info"><h4>Saudi National Day</h4></div></div>
+                <div class="n-card" onclick="openImage('1.png')"><img src="1.png"><div class="n-card-info"><h4>Visual Identity</h4></div></div>
+                <div class="n-card" onclick="openImage('me.png')"><img src="me.png"><div class="n-card-info"><h4>Personal Brand</h4></div></div>
             </div>
         </div>
 
         <div id="client" class="row">
             <h2 class="row-title">Client Collaborations</h2>
             <div class="row-container">
-                <div class="netflix-card" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
-                    <img src="514064519_17860801818435683_5097951599889091948_n.jpg" alt="">
-                    <div class="card-meta"><h4>TradeSmart Crypto</h4></div>
-                </div>
-                <div class="netflix-card" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
-                    <img src="logo (2).png" alt="">
-                    <div class="card-meta"><h4>Intellident Dental</h4></div>
-                </div>
-                <div class="netflix-card" onclick="openModal('tpl-maven', 'The Marketing Maven')">
-                    <img src="market maven logo.png" alt="">
-                    <div class="card-meta"><h4>Marketing Maven</h4></div>
-                </div>
+                <div class="n-card" onclick="openModal('tpl-tradesmart', 'TradeSmart')"><img src="514064519_17860801818435683_5097951599889091948_n.jpg"><div class="n-card-info"><h4>TradeSmart</h4><p>15 Posts</p></div></div>
+                <div class="n-card" onclick="openModal('tpl-intellident', 'Intellident Clinic')"><img src="logo (2).png"><div class="n-card-info"><h4>Intellident Clinic</h4><p>Social Content</p></div></div>
+                <div class="n-card" onclick="openModal('tpl-maven', 'The Marketing Maven')"><img src="market maven logo.png"><div class="n-card-info"><h4>Marketing Maven</h4></div></div>
             </div>
         </div>
     </main>
 
     <footer id="contact" class="footer">
-        <h3>Contact Us:</h3>
+        <h3>Contact Mohamad Moukaddem</h3>
         <div class="footer-links">
-            <a href="mailto:hamoudizzico102@outlook.com">Email</a>
+            <a href="mailto:hamoudizzico102@outlook.com">Email Me</a>
             <a href="https://wa.me/96170577697" target="_blank">WhatsApp</a>
         </div>
-        <p class="copyright">© 2025 Mohamad Moukaddem. Tripoli, Lebanon.</p>
     </footer>
 
-    <div id="modal" class="modal"><div class="m-backdrop" onclick="closeModal()"></div><div class="m-window"><div class="m-header"><h3 id="modal-title"></h3><button onclick="closeModal()">×</button></div><div id="modal-content" class="m-body"></div></div></div>
-    <div id="lightbox" class="modal" onclick="closeLightbox()"><div class="m-backdrop"></div><img id="lightbox-img" src=""></div>
+    <div id="modal" class="modal"><div class="m-backdrop" onclick="closeModal()"></div><div class="m-window"><div class="m-header"><h3 id="modal-title"></h3><button class="m-close" onclick="closeModal()">×</button></div><div id="modal-content" class="m-body"></div></div></div>
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()"><div class="m-backdrop"></div><img id="lb-img" src=""></div>
     <div id="cv-modal" class="modal"><div class="m-backdrop" onclick="closeCV()"></div><div class="m-window cv-w"><iframe src="Mohamad Mokaddem CV 2025 (1).pdf"></iframe></div></div>
 
     <template id="tpl-sebastien">
-        <div class="netflix-grid">
-            <div class="grid-item"><iframe src="https://www.youtube.com/embed/AzAXmB-KY5M"></iframe></div>
-            <div class="grid-item"><iframe src="https://www.youtube.com/embed/ChGxyGwRdFE"></iframe></div>
-            <div class="grid-item"><iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307"></iframe></div>
-            <div class="grid-item"><iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502"></iframe></div>
-            <div class="grid-item"><iframe src="https://www.youtube.com/embed/SNmD--JxL9k"></iframe></div>
+        <div class="n-grid">
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/AzAXmB-KY5M"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/ChGxyGwRdFE"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/SNmD--JxL9k"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/kKaPwbr9HDY?start=240"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/6bEAqazXi6o?start=2"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/quGLWi_C2RE?start=300"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/KVbUAiagfFQ?start=64"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/jAARKmDX8ks?start=97"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/41ZofgY-PyY?start=1"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/ous2-sCWMWU?start=186"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/DqyomfbWu4A?start=45"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/a9mvgDKxnTQ?start=39"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/1g8ozutYC1s?start=75"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/J2AIq5G4qzk?start=12"></iframe></div>
+            <div class="n-item"><iframe src="https://www.youtube.com/embed/NYKqIV2CT7w"></iframe></div>
         </div>
     </template>
 
     <template id="tpl-tradesmart">
-        <div class="netflix-grid">
-            <div class="grid-item insta"><iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed"></iframe></div>
-            <div class="grid-item insta"><iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed"></iframe></div>
-            <div class="grid-item insta"><iframe src="https://www.instagram.com/p/DIB2ZyjIC2Q/embed"></iframe></div>
-            <div class="grid-item insta"><iframe src="https://www.instagram.com/p/DIJfDAtoeQ5/embed"></iframe></div>
+        <div class="n-grid">
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DIB2ZyjIC2Q/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DIJfDAtoeQ5/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DIJuMPaILTR/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DIO0tHQoGbO/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DIO01hTIHes/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DIRakq8oFtI/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DIReQ2-M59X/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DIgaq5IMfDc/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DIjXmIbIRF9/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DIlfnnxslQf/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DI6JJYqspJA/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DJCYpU4sgng/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DJEuB9tMfDN/embed"></iframe></div>
         </div>
     </template>
 
     <template id="tpl-intellident">
-        <div class="netflix-grid">
-            <div class="grid-item img" onclick="openImage('logo (2).png')"><img src="logo (2).png"></div>
-            <div class="grid-item insta"><iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed"></iframe></div>
-            <div class="grid-item insta"><iframe src="https://www.instagram.com/p/DHvvma5tA_A/embed"></iframe></div>
+        <div class="n-grid">
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DHBxGX8t-pa/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DHG8d64tvJW/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DHJeaH3tFoO/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DHOihUVtI5Z/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DHbXC8tNPBq/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DHoPqwtt-gC/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DHtbQX2tn9z/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DHvvma5tA_A/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DHyb_4CtX-o/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DH6JLv4NXQs/embed"></iframe></div>
+            <div class="n-item insta"><iframe src="https://www.instagram.com/p/DIBpi3-t4jb/embed"></iframe></div>
         </div>
     </template>
 
