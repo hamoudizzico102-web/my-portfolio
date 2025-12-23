@@ -54,6 +54,7 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; background
 .grid-item img { width: 100%; height: 200px; object-fit: cover; }
 .grid-item iframe { width: 100%; aspect-ratio: 16/9; border: none; }
 .grid-item.insta iframe { aspect-ratio: 9/16; min-height: 480px; }
+.item-label { padding: 10px; font-size: 0.8rem; color: #ccc; text-align: center; border-bottom: 1px solid #222; }
 
 .lightbox-overlay { position: fixed; inset: 0; z-index: 2100; background: rgba(0,0,0,0.98); display: none; align-items: center; justify-content: center; }
 .lightbox-overlay.active { display: flex; }
@@ -64,7 +65,7 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; background
 .service-item { padding: 30px; background: rgba(255,255,255,0.02); border-radius: 15px; text-align: center; }
 .contact-section { text-align: center; border-top: 1px solid #222; }
 .contact-buttons { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
-.c-btn { padding: 12px 30px; border-radius: 50px; background: #111; color: white; border: 1px solid #333; }
+.c-btn { padding: 12px 30px; border-radius: 50px; background: #111; color: white; border: 1px solid #333; text-decoration: none; }
 .c-btn:hover { background: var(--primary); }
 
 @media(max-width: 768px) { .nav { display: none; } .hero-title { font-size: 2.5rem; } }
