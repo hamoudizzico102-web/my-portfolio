@@ -1,4 +1,4 @@
-// --- CUSTOM CURSOR ---
+// --- CUSTOM CURSOR (نظام الحركة السلس الجديد) ---
 const cursorDot = document.createElement('div');
 const cursorOutline = document.createElement('div');
 cursorDot.className = 'cursor-dot';
@@ -6,22 +6,43 @@ cursorOutline.className = 'cursor-outline';
 document.body.appendChild(cursorDot);
 document.body.appendChild(cursorOutline);
 
+// متغيرات لحساب الموقع الحالي والمستهدف
+let mouseX = 0;
+let mouseY = 0;
+let outlineX = 0;
+let outlineY = 0;
+
+// تحديث موقع الماوس عند الحركة
 window.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
-
-    // Dot follows immediately
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    // Outline follows with slight delay (smooth effect)
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // النقطة الداخلية تتحرك فوراً
+    cursorDot.style.left = `${mouseX}px`;
+    cursorDot.style.top = `${mouseY}px`;
 });
 
-// Hover effect for links
+// حلقة تكرار لتحريك الدائرة الخارجية بنعومة (Physics/Lerp effect)
+function animateCursor() {
+    // حساب المسافة بين الموقع الحالي والمستهدف
+    let distX = mouseX - outlineX;
+    let distY = mouseY - outlineY;
+    
+    // التحرك بنسبة بسيطة من المسافة في كل فريم (0.15 = سرعة النعومة)
+    outlineX += distX * 0.15;
+    outlineY += distY * 0.15;
+    
+    cursorOutline.style.left = `${outlineX}px`;
+    cursorOutline.style.top = `${outlineY}px`;
+    
+    // استمرار الحلقة
+    requestAnimationFrame(animateCursor);
+}
+// تشغيل الحلقة
+animateCursor();
+
+
+// تأثير التكبير عند المرور على الروابط والأزرار
 const interactiveElements = document.querySelectorAll('a, button, .card-3d, .card-folder');
 interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
@@ -29,9 +50,9 @@ interactiveElements.forEach(el => {
 });
 
 
-// --- SCROLL REVEAL (Animation) ---
+// --- SCROLL REVEAL (ظهور الأقسام عند السكرول) ---
 const observerOptions = {
-    threshold: 0.15
+    threshold: 0.15 // تظهر عندما يظهر 15% من القسم
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -47,7 +68,7 @@ document.querySelectorAll('.section').forEach(section => {
 });
 
 
-// --- HEADER SCROLL EFFECT ---
+// --- HEADER SCROLL EFFECT (تغيير الهيدر عند السكرول) ---
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     if (window.scrollY > 50) {
@@ -58,7 +79,7 @@ window.addEventListener('scroll', () => {
 });
 
 
-// --- MODAL SYSTEM ---
+// --- MODAL SYSTEM (للفولدرات) ---
 const modal = document.getElementById('modal');
 const modalTitle = document.getElementById('modal-title');
 const modalContent = document.getElementById('modal-content');
@@ -79,14 +100,13 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// --- LIGHTBOX SYSTEM ---
+// --- LIGHTBOX SYSTEM (للصور - تم الإصلاح) ---
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
-const lightboxCaption = document.getElementById('lightbox-caption');
 
 function openImage(src, title) {
     lightboxImg.src = src;
-    lightboxCaption.textContent = title;
+    // lightboxCaption.textContent = title; // (اختياري: إذا بدك عنوان تحت الصورة)
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -94,6 +114,10 @@ function openImage(src, title) {
 function closeLightbox() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
+    // تأخير بسيط لمسح الصورة بعد إغلاق الأنيميشن
+    setTimeout(() => {
+        lightboxImg.src = '';
+    }, 300);
 }
 
 // --- CV MODAL ---
@@ -107,7 +131,7 @@ function closeCV() {
     document.body.style.overflow = '';
 }
 
-// Global Close
+// إغلاق أي نافذة عند ضغط ESC
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeModal(); closeLightbox(); closeCV();
