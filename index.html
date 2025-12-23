@@ -1,137 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamad Moukaddem | Visual Artist</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <header class="header">
-        <div class="container header-content">
-            <a href="#" class="brand">
-                <img src="230.png" alt="Profile" class="profile-pic">
-                <span>Mohamad Moukaddem</span>
-            </a>
-            
-            <nav class="nav">
-                <a href="#design">Design</a>
-                <a href="#editing">Editing</a>
-                <a href="#client">Client Work</a>
-                <a href="#contact">Contact</a>
-                
-                <button class="nav-btn-3d" onclick="openCV()">
-                    CV <i class="ri-file-text-line"></i>
-                </button>
-            </nav>
-            
-            <a href="#contact" class="cta-3d">Hire Me</a>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <div class="tag-pill">● AVAILABLE FOR FREELANCE</div>
-            <h1 class="hero-title">VISUAL <span class="accent-text">IMPACT.</span></h1>
-            <p class="hero-sub">Cinematic Video Editing & High-End Graphic Design.</p>
-            
-            <div class="hero-actions">
-                <a href="#editing" class="btn-mega-3d accent-glow">
-                    <span><i class="ri-play-fill"></i> View Showreel</span>
-                </a>
-                <button onclick="openCV()" class="btn-mega-3d outline-glow">
-                    <span><i class="ri-file-user-line"></i> View CV</span>
-                </button>
-            </div>
-        </div>
-        <div class="hero-glow"></div>
-    </section>
-
-    <section id="design" class="section">
-        <div class="container">
-            <h2 class="section-title">Selected Design</h2>
-            <div class="grid-3d">
-                
-                <div class="card-3d" onclick="openImage('5.png', 'Saudi National Day')">
-                    <div class="card-img-box">
-                        <img src="5.png" alt="Saudi National Day">
-                        <div class="overlay-icon"><i class="ri-fullscreen-line"></i></div>
-                    </div>
-                    <div class="card-info">
-                        <h3>Saudi National Day</h3>
-                        <p>Poster / Visual</p>
-                    </div>
-                </div>
-
-                <div class="card-3d" onclick="openImage('1.png', 'Creative Visual Identity')">
-                    <div class="card-img-box">
-                        <img src="1.png" alt="Visual Identity">
-                        <div class="overlay-icon"><i class="ri-fullscreen-line"></i></div>
-                    </div>
-                    <div class="card-info">
-                        <h3>Visual Identity</h3>
-                        <p>Brand / Identity</p>
-                    </div>
-                </div>
-
-                <div class="card-3d" onclick="openImage('me.png', 'Course Design')">
-                    <div class="card-img-box">
-                        <img src="me.png" alt="Course Design">
-                        <div class="overlay-icon"><i class="ri-fullscreen-line"></i></div>
-                    </div>
-                    <div class="card-info">
-                        <h3>Course Design</h3>
-                        <p>Visual System</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="editing" class="section">
+<section id="editing" class="section">
         <div class="container">
             <h2 class="section-title">Editing Folders</h2>
             <div class="grid-3d">
                 
-                <div class="card-folder" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
-                    <div class="folder-top">
+                <div class="card-box" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
+                    <div class="card-visual">
+                        <div class="collection-badge"><i class="ri-youtube-fill"></i> Collection</div>
                         <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sebastien">
-                        <span class="badge"><i class="ri-youtube-fill"></i> YouTube</span>
                     </div>
-                    <div class="folder-bottom">
+                    <div class="card-content">
                         <h3>Sébastien Koubar</h3>
                         <p>Long-form Videos</p>
+                        <div class="open-icon"><i class="ri-arrow-right-up-line"></i></div>
                     </div>
                 </div>
 
-                <div class="card-folder" onclick="openModal('tpl-hisham', 'hisham.ghanem.library')">
-                    <div class="folder-top">
+                <div class="card-box" onclick="openModal('tpl-hisham', 'hisham.ghanem.library')">
+                    <div class="card-visual">
+                        <div class="collection-badge"><i class="ri-instagram-fill"></i> Collection</div>
                         <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham">
-                        <span class="badge"><i class="ri-instagram-line"></i> Reels</span>
                     </div>
-                    <div class="folder-bottom">
+                    <div class="card-content">
                         <h3>hisham.ghanem.library</h3>
-                        <p>Instagram Content</p>
+                        <p>Instagram Reels</p>
+                        <div class="open-icon"><i class="ri-arrow-right-up-line"></i></div>
                     </div>
                 </div>
 
-                <div class="card-folder" onclick="openModal('tpl-oqunet-edit', 'Oqunet Software (Editing)')">
-                    <div class="folder-top">
+                <div class="card-box" onclick="openModal('tpl-oqunet-edit', 'Oqunet Software')">
+                    <div class="card-visual">
+                        <div class="collection-badge"><i class="ri-movie-line"></i> Collection</div>
                         <img src="logo-01.png" alt="Oqunet">
-                        <span class="badge"><i class="ri-movie-line"></i> Promo</span>
                     </div>
-                    <div class="folder-bottom">
+                    <div class="card-content">
                         <h3>Oqunet Software</h3>
                         <p>Tech Promos</p>
+                        <div class="open-icon"><i class="ri-arrow-right-up-line"></i></div>
                     </div>
                 </div>
 
@@ -144,33 +48,39 @@
             <h2 class="section-title">Client Work</h2>
             <div class="grid-3d">
                 
-                <div class="card-folder" onclick="openModal('tpl-intellident', 'Intellident Dental Clinic')">
-                    <div class="folder-top">
+                <div class="card-box" onclick="openModal('tpl-intellident', 'Intellident Dental Clinic')">
+                    <div class="card-visual">
+                        <div class="collection-badge"><i class="ri-folder-image-line"></i> Branding</div>
                         <img src="logo (2).png" alt="Intellident">
                     </div>
-                    <div class="folder-bottom">
+                    <div class="card-content">
                         <h3>Intellident Clinic</h3>
                         <p>Branding & Social</p>
+                        <div class="open-icon"><i class="ri-arrow-right-up-line"></i></div>
                     </div>
                 </div>
 
-                <div class="card-folder" onclick="openModal('tpl-oqunet-client', 'Oqunet Software')">
-                    <div class="folder-top">
+                <div class="card-box" onclick="openModal('tpl-oqunet-client', 'Oqunet Software')">
+                    <div class="card-visual">
+                        <div class="collection-badge"><i class="ri-folder-image-line"></i> Campaigns</div>
                         <img src="logo-01.png" alt="Oqunet">
                     </div>
-                    <div class="folder-bottom">
+                    <div class="card-content">
                         <h3>Oqunet Software</h3>
-                        <p>Campaigns</p>
+                        <p>Campaign Designs</p>
+                        <div class="open-icon"><i class="ri-arrow-right-up-line"></i></div>
                     </div>
                 </div>
 
-                <div class="card-folder" onclick="openModal('tpl-maven', 'The Marketing Maven')">
-                    <div class="folder-top">
+                <div class="card-box" onclick="openModal('tpl-maven', 'The Marketing Maven')">
+                    <div class="card-visual">
+                        <div class="collection-badge"><i class="ri-artboard-line"></i> Portfolio</div>
                         <img src="market maven logo.png" alt="Maven">
                     </div>
-                    <div class="folder-bottom">
+                    <div class="card-content">
                         <h3>The Marketing Maven</h3>
                         <p>Artboards</p>
+                        <div class="open-icon"><i class="ri-arrow-right-up-line"></i></div>
                     </div>
                 </div>
 
@@ -178,169 +88,81 @@
         </div>
     </section>
 
-    <section id="services" class="section">
-        <div class="container">
-            <h2 class="section-title">Services</h2>
-            <div class="services-grid">
-                <div class="service-box">
-                    <i class="ri-film-line"></i>
-                    <h3>Video Editing</h3>
-                    <p>High-retention cuts & storytelling.</p>
-                </div>
-                <div class="service-box">
-                    <i class="ri-palette-line"></i>
-                    <h3>Color Grading</h3>
-                    <p>Cinematic look & mood.</p>
-                </div>
-                <div class="service-box">
-                    <i class="ri-artboard-line"></i>
-                    <h3>Graphic Design</h3>
-                    <p>Premium branding & social kits.</p>
-                </div>
-                <div class="service-box">
-                    <i class="ri-speed-line"></i>
-                    <h3>Motion Graphics</h3>
-                    <p>Dynamic visuals & intros.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section contact-section">
-        <div class="container">
-            <h2 class="section-title">Contact Us:</h2>
-            <div class="contact-wrapper">
-                <p>Ready to create something legendary?</p>
-                
-                <div class="contact-links">
-                    <a href="mailto:hamoudizzico102@outlook.com" class="contact-btn">
-                        <i class="ri-mail-send-fill"></i> hamoudizzico102@outlook.com
-                    </a>
-                    
-                    <a href="https://wa.me/96170577697" target="_blank" class="contact-btn">
-                        <i class="ri-whatsapp-fill"></i> +961 70 577 697
-                    </a>
-                </div>
-
-                <div class="location-text">Based in Tripoli, Lebanon</div>
-            </div>
-            <footer class="footer">
-                © 2025 Mohamad Moukaddem. All rights reserved.
-            </footer>
-        </div>
-    </section>
-
-    <div id="modal" class="modal">
-        <div class="modal-backdrop" onclick="closeModal()"></div>
-        <div class="modal-window">
-            <div class="modal-header">
-                <h3 id="modal-title">Folder Name</h3>
-                <button class="close-icon" onclick="closeModal()">×</button>
-            </div>
-            <div id="modal-content" class="modal-body"></div>
-        </div>
-    </div>
-
-    <div id="lightbox" class="modal lightbox-mode">
-        <div class="modal-backdrop" onclick="closeLightbox()"></div>
-        <div class="lightbox-content">
-            <button class="close-icon lightbox-close" onclick="closeLightbox()">×</button>
-            <img id="lightbox-img" src="" alt="">
-        </div>
-    </div>
-
-    <div id="cv-modal" class="modal">
-        <div class="modal-backdrop" onclick="closeCV()"></div>
-        <div class="modal-window cv-window">
-            <div class="modal-header">
-                <h3>Curriculum Vitae</h3>
-                <button class="close-icon" onclick="closeCV()">×</button>
-            </div>
-            <div class="modal-body cv-body">
-                <iframe src="Mohamad Mokaddem CV 2025 (1).pdf" class="cv-iframe"></iframe>
-            </div>
-        </div>
-    </div>
-
     <template id="tpl-sebastien">
-        <div class="modal-grid video-grid">
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/SNmD--JxL9k" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/kKaPwbr9HDY?start=240" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/6bEAqazXi6o?start=2" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/quGLWi_C2RE?start=300" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/KVbUAiagfFQ?start=64" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/jAARKmDX8ks?start=97" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/41ZofgY-PyY?start=1" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/ous2-sCWMWU?start=186" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/DqyomfbWu4A?start=45" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/a9mvgDKxnTQ?start=39" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/1g8ozutYC1s?start=75" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/J2AIq5G4qzk?start=12" allowfullscreen></iframe></div>
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/NYKqIV2CT7w" allowfullscreen></iframe></div>
+        <div class="grid-gallery">
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/SNmD--JxL9k" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/kKaPwbr9HDY?start=240" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/6bEAqazXi6o?start=2" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/quGLWi_C2RE?start=300" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/KVbUAiagfFQ?start=64" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/jAARKmDX8ks?start=97" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/41ZofgY-PyY?start=1" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/ous2-sCWMWU?start=186" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/DqyomfbWu4A?start=45" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/a9mvgDKxnTQ?start=39" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/1g8ozutYC1s?start=75" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/J2AIq5G4qzk?start=12" allowfullscreen></iframe></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/NYKqIV2CT7w" allowfullscreen></iframe></div>
         </div>
     </template>
 
     <template id="tpl-hisham">
-        <div class="modal-grid insta-grid">
-            <div class="insta-wrap"><iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><iframe src="https://www.instagram.com/p/C_nDS4kIjDq/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><iframe src="https://www.instagram.com/p/C_nFgW9ILdX/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><iframe src="https://www.instagram.com/p/C_oOlmToOkm/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><iframe src="https://www.instagram.com/p/C_5-k1kIqEo/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><iframe src="https://www.instagram.com/p/DAMLpBwS20w/embed" frameborder="0"></iframe></div>
+        <div class="grid-gallery">
+            <div class="gallery-item insta-item"><iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><iframe src="https://www.instagram.com/p/C_nDS4kIjDq/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><iframe src="https://www.instagram.com/p/C_nFgW9ILdX/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><iframe src="https://www.instagram.com/p/C_oOlmToOkm/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><iframe src="https://www.instagram.com/p/C_5-k1kIqEo/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><iframe src="https://www.instagram.com/p/DAMLpBwS20w/embed" frameborder="0"></iframe></div>
         </div>
     </template>
 
     <template id="tpl-oqunet-edit">
-        <div class="modal-grid insta-grid">
-            <div class="insta-wrap"><h3>نجاح أي تطبيق مش صدفة</h3><iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><h3>Innovating industries</h3><iframe src="https://www.instagram.com/p/DGTe92gi_EW/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><h3>حوّل فكرتك إلى تطبيق</h3><iframe src="https://www.instagram.com/p/DGle_mUC-Ap/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><h3>Insurance broker?</h3><iframe src="https://www.instagram.com/p/DG6CrGoCI4m/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><h3>Insurance Companies Digital</h3><iframe src="https://www.instagram.com/p/DHWZ1h0Csk4/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><h3>هل أنت شركة أو وسيط تأمين؟</h3><iframe src="https://www.instagram.com/p/DHoM5zEqvxB/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><h3>Coverly صعب الاستعمال؟</h3><iframe src="https://www.instagram.com/p/DICErEJCate/embed" frameborder="0"></iframe></div>
-            <div class="insta-wrap"><h3>Build Custom App?</h3><iframe src="https://www.instagram.com/p/DI9R_zGioCs/embed" frameborder="0"></iframe></div>
+        <div class="grid-gallery">
+            <div class="gallery-item insta-item"><div class="item-caption">App Success</div><iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><div class="item-caption">Innovation</div><iframe src="https://www.instagram.com/p/DGTe92gi_EW/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><div class="item-caption">Ideas to App</div><iframe src="https://www.instagram.com/p/DGle_mUC-Ap/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><div class="item-caption">Insurance Broker</div><iframe src="https://www.instagram.com/p/DG6CrGoCI4m/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><div class="item-caption">Digital Insurance</div><iframe src="https://www.instagram.com/p/DHWZ1h0Csk4/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><div class="item-caption">Broker Company</div><iframe src="https://www.instagram.com/p/DHoM5zEqvxB/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><div class="item-caption">Coverly Usage</div><iframe src="https://www.instagram.com/p/DICErEJCate/embed" frameborder="0"></iframe></div>
+            <div class="gallery-item insta-item"><div class="item-caption">Build App</div><iframe src="https://www.instagram.com/p/DI9R_zGioCs/embed" frameborder="0"></iframe></div>
         </div>
     </template>
 
     <template id="tpl-intellident">
-        <div class="modal-grid img-grid">
-            <img src="logo (2).png" alt="Logo">
-            <img src="caro 3-4.png" alt="Caro">
-            <img src="MOTHER.png" alt="Mother">
-            <img src="post.png" alt="Post">
+        <div class="grid-gallery">
+            <div class="gallery-item" onclick="openImage('logo (2).png', 'Brand Logo')"><img src="logo (2).png"></div>
+            <div class="gallery-item" onclick="openImage('caro 3-4.png', 'Carousel Design')"><img src="caro 3-4.png"></div>
+            <div class="gallery-item" onclick="openImage('MOTHER.png', 'Mother Day')"><img src="MOTHER.png"></div>
+            <div class="gallery-item" onclick="openImage('post.png', 'Social Post')"><img src="post.png"></div>
         </div>
     </template>
 
     <template id="tpl-oqunet-client">
-        <div class="modal-grid img-grid">
-            <img src="logo-01.png" alt="Logo">
-            <img src="labor day.png" alt="Labor Day">
-            <img src="COVERLIE 5.png" alt="Coverlie 5">
-            <img src="COVERLIE 3.png" alt="Coverlie 3">
-            <img src="COVERLIEE.png" alt="Coverliee">
-            <img src="oqunet single.png" alt="Single">
+        <div class="grid-gallery">
+            <div class="gallery-item" onclick="openImage('logo-01.png', 'Logo')"><img src="logo-01.png"></div>
+            <div class="gallery-item" onclick="openImage('labor day.png', 'Labor Day')"><img src="labor day.png"></div>
+            <div class="gallery-item" onclick="openImage('COVERLIE 5.png', 'Cover Design 1')"><img src="COVERLIE 5.png"></div>
+            <div class="gallery-item" onclick="openImage('COVERLIE 3.png', 'Cover Design 2')"><img src="COVERLIE 3.png"></div>
+            <div class="gallery-item" onclick="openImage('COVERLIEE.png', 'Cover Design 3')"><img src="COVERLIEE.png"></div>
+            <div class="gallery-item" onclick="openImage('oqunet single.png', 'Single Post')"><img src="oqunet single.png"></div>
         </div>
     </template>
 
     <template id="tpl-maven">
-        <div class="modal-grid img-grid">
-            <img src="Artboard 1.png" alt="1">
-            <img src="Artboard 2.png" alt="2">
-            <img src="Artboard 3.png" alt="3">
-            <img src="Artboard 4.png" alt="4">
-            <img src="Artboard 5.png" alt="5">
-            <img src="Artboard 6.png" alt="6">
-            <img src="Artboard 7.png" alt="7">
+        <div class="grid-gallery">
+            <div class="gallery-item" onclick="openImage('Artboard 1.png', 'Artboard 1')"><img src="Artboard 1.png"></div>
+            <div class="gallery-item" onclick="openImage('Artboard 2.png', 'Artboard 2')"><img src="Artboard 2.png"></div>
+            <div class="gallery-item" onclick="openImage('Artboard 3.png', 'Artboard 3')"><img src="Artboard 3.png"></div>
+            <div class="gallery-item" onclick="openImage('Artboard 4.png', 'Artboard 4')"><img src="Artboard 4.png"></div>
+            <div class="gallery-item" onclick="openImage('Artboard 5.png', 'Artboard 5')"><img src="Artboard 5.png"></div>
+            <div class="gallery-item" onclick="openImage('Artboard 6.png', 'Artboard 6')"><img src="Artboard 6.png"></div>
+            <div class="gallery-item" onclick="openImage('Artboard 7.png', 'Artboard 7')"><img src="Artboard 7.png"></div>
         </div>
     </template>
-
-    <script src="script.js"></script>
-</body>
-</html>
