@@ -1,143 +1,164 @@
 // script.js
 
-// prevent background scroll when modal open
-function lock(){ document.body.classList.add('modal-open'); }
-function unlock(){ document.body.classList.remove('modal-open'); }
+// =========================================
+// 1. Core Utilities (Lock/Unlock Scroll)
+// =========================================
+const body = document.body;
 
-// ===== Design/Preview Lightbox =====
+function lockScroll() {
+  // Prevent shifting if scrollbar disappears
+  const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+  body.style.paddingRight = `${scrollBarWidth}px`;
+  body.classList.add('modal-open');
+}
+
+function unlockScroll() {
+  body.classList.remove('modal-open');
+  body.style.paddingRight = '';
+}
+
+// =========================================
+// 2. Lightbox (Images)
+// =========================================
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lightboxImg');
 const lbTitle = document.getElementById('lightboxTitle');
 
-function openLightbox(src, title){
-  lbImg.src = src;
-  lbImg.alt = title ? (title + " preview") : "Preview";
-  lbTitle.textContent = title || "";
-  lb.classList.add('is-open');
-  lb.setAttribute('aria-hidden', 'false');
-  lock();
+function openLightbox(src, title) {
+  requestAnimationFrame(() => {
+    lbImg.src = src;
+    lbImg.alt = title || "Preview";
+    lbTitle.textContent = title || "";
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+    lockScroll();
+  });
 }
 
-function closeLightbox(){
+function closeLightbox() {
   lb.classList.remove('is-open');
   lb.setAttribute('aria-hidden', 'true');
-  unlock();
+  unlockScroll();
+  // Clear after animation ends to avoid flickering
   setTimeout(() => {
     lbImg.src = "";
     lbTitle.textContent = "";
-  }, 150);
+  }, 300);
 }
 
-// ===== Folder Lightbox (Editing + Client Work) =====
+// =========================================
+// 3. Folder Lightbox (Dynamic Content)
+// =========================================
 const fb = document.getElementById('folderbox');
 const folderTitle = document.getElementById('folderTitle');
 const folderContent = document.getElementById('folderContent');
 
-function setFolder(key){
+function openFolder(key, triggerBtn) {
   const tpl = document.getElementById(`tpl-${key}`);
-  if(!tpl) return;
+  if (!tpl) return; // If no template found, do nothing
 
-  const titles = {
-    "sebastien": "Sébastien Koubar",
-    "hisham-ghanem-library": "hisham.ghanem.library",
-    "oqunet-editing": "Oqunet Software",
-    "client-intellident": "Intellident Dental Clinic",
-    "client-oqunet": "Oqunet Software",
-    "client-marketing-maven": "The Marketing maven"
-  };
+  // ✨ Magic: Get title directly from the HTML card, no hardcoding needed!
+  let titleText = "Folder";
+  if (triggerBtn) {
+    const titleEl = triggerBtn.querySelector('.card-title');
+    if (titleEl) titleText = titleEl.textContent;
+  }
 
-  folderTitle.textContent = titles[key] || "Folder";
-  folderContent.innerHTML = "";
-  folderContent.appendChild(tpl.content.cloneNode(true));
-}
+  folderTitle.textContent = titleText;
+  folderContent.innerHTML = ""; // Clear previous
+  folderContent.appendChild(tpl.content.cloneNode(true)); // Inject new
 
-function openFolder(key){
-  setFolder(key);
   fb.classList.add('is-open');
-  fb.setAttribute('aria-hidden','false');
-  lock();
+  fb.setAttribute('aria-hidden', 'false');
+  lockScroll();
 }
 
-function closeFolder(){
+function closeFolder() {
   fb.classList.remove('is-open');
-  fb.setAttribute('aria-hidden','true');
-  unlock();
+  fb.setAttribute('aria-hidden', 'true');
+  unlockScroll();
 
-  // stop videos on close (reset iframes)
-  fb.querySelectorAll('iframe').forEach(f => {
-    const src = f.getAttribute('src');
-    f.setAttribute('src', src);
+  // Stop videos immediately (reset src)
+  const iframes = fb.querySelectorAll('iframe');
+  iframes.forEach(iframe => {
+    const src = iframe.getAttribute('src');
+    iframe.setAttribute('src', src);
   });
 
-  setTimeout(() => { folderContent.innerHTML = ""; }, 150);
+  setTimeout(() => {
+    folderContent.innerHTML = "";
+  }, 300);
 }
 
-// ===== CV Lightbox =====
+// =========================================
+// 4. CV Modal
+// =========================================
 const cvBox = document.getElementById('cvbox');
 const navCv = document.querySelector('.nav-cv');
 
-function openCV(){
+function openCV() {
   cvBox.classList.add('is-open');
-  cvBox.setAttribute('aria-hidden','false');
-  lock();
-  if(navCv) navCv.classList.add('is-open'); // keep red glow on the navbar item
+  cvBox.setAttribute('aria-hidden', 'false');
+  lockScroll();
+  if (navCv) navCv.classList.add('is-open'); // Keep navbar glowing
 }
 
-function closeCV(){
+function closeCV() {
   cvBox.classList.remove('is-open');
-  cvBox.setAttribute('aria-hidden','true');
-  unlock();
-  if(navCv) navCv.classList.remove('is-open');
+  cvBox.setAttribute('aria-hidden', 'true');
+  unlockScroll();
+  if (navCv) navCv.classList.remove('is-open');
 }
 
-// ===== Event Delegation (dynamic folder items work) =====
+// =========================================
+// 5. Global Event Listener (The Brain)
+// =========================================
 document.addEventListener('click', (e) => {
+  const target = e.target;
 
-  // open CV
-  const cvBtn = e.target.closest('[data-open-cv="1"]');
-  if(cvBtn){
-    e.preventDefault();
-    e.stopPropagation();
-    openCV();
-    return;
+  // A. Open Logic
+  const cvBtn = target.closest('[data-open-cv="1"]');
+  if (cvBtn) {
+    e.preventDefault(); openCV(); return;
   }
 
-  const previewBtn = e.target.closest('[data-preview]');
-  if(previewBtn){
+  const previewBtn = target.closest('[data-preview]');
+  if (previewBtn) {
     e.preventDefault();
-    e.stopPropagation();
     const src = previewBtn.getAttribute('data-preview');
-    const title = previewBtn.getAttribute('data-title') || "";
+    const title = previewBtn.getAttribute('data-title');
     openLightbox(src, title);
     return;
   }
 
-  const folderBtn = e.target.closest('[data-open-folder]');
-  if(folderBtn){
+  const folderBtn = target.closest('[data-open-folder]');
+  if (folderBtn) {
     e.preventDefault();
-    e.stopPropagation();
     const key = folderBtn.getAttribute('data-open-folder');
-    openFolder(key);
+    openFolder(key, folderBtn); // Pass button to grab title
     return;
   }
 
-  if (e.target && e.target.getAttribute('data-close') === '1') {
-    closeLightbox();
-    return;
+  // B. Close Logic (Any button with data-close/folder-close/cv-close)
+  if (target.closest('[data-close="1"]')) {
+    closeLightbox(); return;
+  }
+  if (target.closest('[data-folder-close="1"]')) {
+    closeFolder(); return;
+  }
+  if (target.closest('[data-cv-close="1"]')) {
+    closeCV(); return;
   }
 
-  if (e.target && e.target.getAttribute('data-folder-close') === '1') {
-    closeFolder();
-    return;
-  }
-
-  if (e.target && e.target.getAttribute('data-cv-close') === '1') {
-    closeCV();
-    return;
+  // C. Close on Backdrop Click (Optional UX improvement)
+  if (target.classList.contains('lightbox-backdrop')) {
+    if (lb.classList.contains('is-open')) closeLightbox();
+    if (fb.classList.contains('is-open')) closeFolder();
+    if (cvBox.classList.contains('is-open')) closeCV();
   }
 });
 
-// ESC to close
+// ESC Key to Close
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     if (cvBox.classList.contains('is-open')) closeCV();
@@ -146,133 +167,81 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// =========================================
+// 6. Custom Tooltip (Performance Optimized)
+// =========================================
 
-// =====================================================
-// Hover Pop-up (Tooltip) for ALL clickable elements
-// =====================================================
+// Only run tooltip logic on non-touch devices
+const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
-// Create tooltip element once
-const tooltip = document.createElement('div');
-tooltip.className = 'tooltip';
-tooltip.setAttribute('aria-hidden', 'true');
-document.body.appendChild(tooltip);
+if (!isTouch) {
+  const tooltip = document.createElement('div');
+  tooltip.className = 'tooltip';
+  document.body.appendChild(tooltip);
 
-let ttActiveEl = null;
+  let activeEl = null;
 
-// Helper: get tooltip text (title first, then aria-label, then img alt)
-function getTooltipText(el){
-  if(!el) return null;
+  const showTooltip = (el) => {
+    let title = el.getAttribute('data-title') || el.getAttribute('aria-label');
+    let sub = "";
 
-  // CV nav tooltip
-  if(el.matches && el.matches('[data-open-cv="1"]')){
-    return { title: 'Open CV', sub: 'PDF Preview (blur + red glow)' };
-  }
-
-  // Prefer data-title if exists
-  const dt = el.getAttribute && el.getAttribute('data-title');
-  if(dt && dt.trim()) return { title: dt.trim(), sub: '' };
-
-  // If card: use card titles inside foot if possible
-  const t1 = el.querySelector?.('.card-title')?.textContent?.trim();
-  const t2 = el.querySelector?.('.card-meta')?.textContent?.trim();
-  if(t1) return { title: t1, sub: t2 || '' };
-
-  // aria-label fallback
-  const ar = el.getAttribute && el.getAttribute('aria-label');
-  if(ar && ar.trim()) return { title: ar.trim(), sub: '' };
-
-  // image alt fallback
-  const imgAlt = el.querySelector?.('img')?.getAttribute('alt');
-  if(imgAlt && imgAlt.trim()) return { title: imgAlt.trim(), sub: '' };
-
-  return null;
-}
-
-function showTooltip(el){
-  const data = getTooltipText(el);
-  if(!data) return;
-
-  tooltip.innerHTML = `
-    <strong>${escapeHtml(data.title)}</strong>
-    ${data.sub ? `<div class="tt-sub">${escapeHtml(data.sub)}</div>` : ``}
-  `;
-  tooltip.style.display = 'block';
-  tooltip.setAttribute('aria-hidden', 'false');
-  ttActiveEl = el;
-}
-
-function hideTooltip(){
-  tooltip.style.display = 'none';
-  tooltip.setAttribute('aria-hidden', 'true');
-  ttActiveEl = null;
-}
-
-function moveTooltip(x, y){
-  const offsetX = 14;
-  const offsetY = 18;
-
-  const pad = 10;
-  const rect = tooltip.getBoundingClientRect();
-  let left = x + offsetX;
-  let top  = y + offsetY;
-
-  const maxLeft = window.innerWidth - rect.width - pad;
-  const maxTop  = window.innerHeight - rect.height - pad;
-
-  if(left > maxLeft) left = Math.max(pad, x - rect.width - offsetX);
-  if(top > maxTop) top = Math.max(pad, y - rect.height - offsetY);
-
-  tooltip.style.left = left + 'px';
-  tooltip.style.top = top + 'px';
-}
-
-function escapeHtml(str){
-  return String(str)
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;');
-}
-
-// Disable tooltip on touch devices
-const isTouch =
-  ('ontouchstart' in window) ||
-  (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
-
-if(!isTouch){
-  document.addEventListener('mouseover', (e) => {
-    const el =
-      e.target.closest('[data-open-cv="1"]') ||
-      e.target.closest('[data-preview]') ||
-      e.target.closest('[data-open-folder]') ||
-      e.target.closest('.folder-cover') ||
-      e.target.closest('.card');
-
-    if(!el) return;
-    if(ttActiveEl === el) return;
-
-    showTooltip(el);
-  });
-
-  document.addEventListener('mousemove', (e) => {
-    if(tooltip.style.display === 'block'){
-      moveTooltip(e.clientX, e.clientY);
+    // Special case for CV
+    if (el.getAttribute('data-open-cv') === "1") {
+      title = "View CV";
+      sub = "PDF Preview";
     }
+    // Fallback: Try to find text inside the card
+    else if (!title) {
+      const tEl = el.querySelector('.card-title');
+      const sEl = el.querySelector('.card-meta');
+      if (tEl) title = tEl.textContent.trim();
+      if (sEl) sub = sEl.textContent.trim();
+    }
+    
+    // Image fallback
+    if (!title) {
+      const img = el.querySelector('img');
+      if (img) title = img.alt;
+    }
+
+    if (!title) return; // Nothing to show
+
+    tooltip.innerHTML = `<strong>${title}</strong>${sub ? `<div class="tt-sub">${sub}</div>` : ''}`;
+    tooltip.style.display = 'block';
+    activeEl = el;
+  };
+
+  const hideTooltip = () => {
+    tooltip.style.display = 'none';
+    activeEl = null;
+  };
+
+  const moveTooltip = (e) => {
+    const gap = 15;
+    let x = e.clientX + gap;
+    let y = e.clientY + gap;
+
+    // Boundary check (keep inside screen)
+    const rect = tooltip.getBoundingClientRect();
+    if (x + rect.width > window.innerWidth) x = e.clientX - rect.width - gap;
+    if (y + rect.height > window.innerHeight) y = e.clientY - rect.height - gap;
+
+    tooltip.style.left = `${x}px`;
+    tooltip.style.top = `${y}px`;
+  };
+
+  // Event Delegation for Tooltips (Better Performance)
+  document.addEventListener('mouseover', (e) => {
+    const target = e.target.closest('[data-preview], [data-open-folder], [data-open-cv], .card-click');
+    if (target) showTooltip(target);
   });
 
   document.addEventListener('mouseout', (e) => {
-    if(!ttActiveEl) return;
-    const related = e.relatedTarget;
-    if(related && ttActiveEl.contains(related)) return;
-
-    const leaving = e.target;
-    if(leaving === ttActiveEl || ttActiveEl.contains(leaving)){
-      hideTooltip();
-    }
+    const target = e.target.closest('[data-preview], [data-open-folder], [data-open-cv], .card-click');
+    if (target) hideTooltip();
   });
 
-  window.addEventListener('scroll', hideTooltip, { passive:true });
-  fb?.addEventListener('scroll', hideTooltip, { passive:true });
-  cvBox?.addEventListener('scroll', hideTooltip, { passive:true });
+  document.addEventListener('mousemove', (e) => {
+    if (activeEl) moveTooltip(e);
+  });
 }
