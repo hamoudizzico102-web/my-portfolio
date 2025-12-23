@@ -3,237 +3,212 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Mohamed Moukaddem — Creative Video Editor">
-  <title>Mohamed Moukaddem</title>
+  <title>Mohamed Moukaddem — Visual Artist</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
   <style>
-    /* --- CSS RESET & VARIABLES --- */
+    /* =========================================
+       1. CORE VISUALS (The "Kharafi" Part)
+       ========================================= */
     :root {
-      --bg: #050505;
-      --surface: #121212;
-      --text: #ffffff;
-      --text-gray: #a1a1aa;
-      --accent: #2563eb; /* أزرق احترافي */
-      --border: #27272a;
-      --container: 1100px;
+      --bg-deep: #030305;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-hover: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.1);
+      --glow-primary: #3b82f6; /* Electric Blue */
+      --glow-secondary: #8b5cf6; /* Electric Purple */
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+    * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
     html { scroll-behavior: smooth; }
-
+    
     body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
       overflow-x: hidden;
+      /* خلفية ناعمة ثابتة */
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%);
     }
 
-    a { text-decoration: none; color: inherit; transition: 0.2s; }
-    ul { list-style: none; }
-    img { max-width: 100%; display: block; }
+    /* Scrollbar Design */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--glow-primary); }
 
-    /* --- LAYOUT UTILS --- */
-    .wrap {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; }
 
-    .section { padding: 80px 0; }
-    
-    .section-head { margin-bottom: 40px; }
-    .section-head h2 { font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
-    .section-head p { color: var(--text-gray); }
-
-    /* --- HEADER --- */
+    /* =========================================
+       2. HEADER (Glass & Blur)
+       ========================================= */
     header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(5, 5, 5, 0.9);
-      backdrop-filter: blur(10px); /* تأثير خفيف جداً */
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      background: rgba(3, 3, 5, 0.7);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      z-index: 100;
-      padding: 15px 0;
+      padding: 16px 0;
     }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; }
+    .brand-avatar { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--glow-primary); box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
+    .brand-text span { display: block; }
+    .brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; letter-spacing: -0.5px; }
+    .brand-role { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand { font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
-    .brand img { width: 35px; height: 35px; border-radius: 50%; }
-
-    .nav-links { display: flex; gap: 25px; }
-    .nav-links a { font-size: 0.9rem; color: var(--text-gray); }
-    .nav-links a:hover { color: var(--text); }
-
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.95rem; transition: 0.3s; position: relative; }
+    .nav-links a:hover { color: white; text-shadow: 0 0 8px rgba(255,255,255,0.5); }
+    
     .cta-btn {
-      background: var(--text);
-      color: var(--bg);
-      padding: 8px 20px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 0.9rem;
+      background: linear-gradient(135deg, var(--glow-primary), var(--glow-secondary));
+      padding: 10px 24px; border-radius: 50px; color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); transition: transform 0.2s, box-shadow 0.2s;
     }
-    .cta-btn:hover { opacity: 0.9; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4); }
 
-    /* --- HERO --- */
-    .hero {
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding-top: 60px;
-    }
-
-    .hero-content h1 {
-      font-size: 3.5rem;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      letter-spacing: -1px;
-    }
-
-    .hero-content p {
-      font-size: 1.1rem;
-      color: var(--text-gray);
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
-
-    .hero-buttons { display: flex; justify-content: center; gap: 15px; }
+    /* =========================================
+       3. HERO (The Impact)
+       ========================================= */
+    .hero { min-height: 90vh; display: flex; align-items: center; padding-top: 80px; position: relative; }
     
-    .btn {
-      padding: 12px 30px;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-block;
+    /* Glow text effect */
+    .glow-text {
+      font-family: 'Space Grotesk', sans-serif; font-size: 4rem; line-height: 1.1; margin-bottom: 24px;
+      background: linear-gradient(to right, #fff, #a5b4fc);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.2));
     }
     
-    .btn-primary { background: var(--accent); color: white; }
-    .btn-primary:hover { background: #1d4ed8; }
-    
-    .btn-outline { border: 1px solid var(--border); color: var(--text); }
-    .btn-outline:hover { border-color: var(--text); }
+    .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; line-height: 1.7; }
 
-    /* --- GRID SYSTEM (LIGHTWEIGHT) --- */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 25px;
-    }
+    /* =========================================
+       4. CARDS (The Magic Interaction)
+       ========================================= */
+    .section { padding: 100px 0; }
+    .section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 10px; color: white; }
+    .section-head { margin-bottom: 50px; }
 
-    /* --- CARDS --- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+
     .card {
-      background: var(--surface);
+      background: var(--glass);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 20px;
       overflow: hidden;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* حركة مرنة */
       cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease;
       text-align: left;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      padding: 0; /* مهم للـ button reset */
+      padding: 0;
       width: 100%;
+      display: block;
     }
 
+    /* Hover Effect: Glow Border + Lift */
     .card:hover {
-      transform: translateY(-5px);
-      border-color: var(--text-gray);
+      transform: translateY(-8px);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5), 0 0 20px rgba(59, 130, 246, 0.1); /* Glow خفيف */
     }
 
-    .card-img-wrap {
-      height: 200px;
-      background: #222;
-      overflow: hidden;
-    }
+    .card img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s; display: block; }
+    .card:hover img { transform: scale(1.05); }
+
+    .card-body { padding: 24px; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8)); position: relative; }
+    .card-title { font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 6px; }
+    .card-meta { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; }
     
-    .card-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: 0.3s;
-    }
-    
-    .card:hover .card-img-wrap img { transform: scale(1.05); }
-
-    .card-body { padding: 20px; }
-    .card-title { font-weight: 600; margin-bottom: 5px; color: var(--text); font-size: 1.1rem;}
-    .card-meta { font-size: 0.85rem; color: var(--text-gray); }
-
-    /* --- FOLDER STYLE --- */
-    .folder-cover {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding: 20px;
-      background: none;
-      border: none;
-      width: 100%;
-      color: inherit;
-    }
-    
-    .folder-thumb {
-      width: 50px;
-      height: 50px;
-      border-radius: 8px;
-      object-fit: cover;
+    /* Folder Specifics */
+    .folder-cover { background: none; border: none; width: 100%; padding: 0; text-align: left; }
+    .folder-icon-overlay {
+        position: absolute; top: 15px; right: 15px; 
+        background: rgba(0,0,0,0.6); padding: 5px 10px; border-radius: 8px; 
+        color: white; font-size: 0.8rem; backdrop-filter: blur(4px);
     }
 
-    /* --- CONTACT --- */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .contact-box {
-      background: var(--surface);
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-    }
-    .contact-box h3 { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 5px; }
-    .contact-box a { font-size: 1.2rem; font-weight: 600; }
-
-    /* --- FOOTER --- */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-      text-align: center;
-      color: var(--text-gray);
-      margin-top: 50px;
-      font-size: 0.9rem;
-    }
-
-    /* --- RESPONSIVE --- */
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: 2.5rem; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; } /* يمكن إضافة موبايل منيو لاحقاً */
-    }
-    
-    /* Lightbox Styles (Simple) */
+    /* =========================================
+       5. MODAL / LIGHTBOX (The "Click" Fix)
+       ========================================= */
     .lightbox {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0,0,0,0.95); z-index: 1000;
-        display: none; justify-content: center; align-items: center;
+      position: fixed; inset: 0; z-index: 2000;
+      display: flex; justify-content: center; align-items: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
     }
-    .lightbox[aria-hidden="false"] { display: flex; }
-    .lightbox-content { max-width: 90%; max-height: 90%; position: relative; }
-    .close-lb {
-        position: absolute; top: 20px; right: 30px;
-        color: white; font-size: 2rem; cursor: pointer; background: none; border: none;
+    
+    .lightbox[aria-hidden="false"] { opacity: 1; pointer-events: auto; }
+
+    .lightbox-backdrop {
+      position: absolute; inset: 0; background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox-panel {
+      position: relative; z-index: 2001;
+      background: #0f0f11;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      width: 90%; max-width: 1000px; max-height: 90vh;
+      display: flex; flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      transform: scale(0.95); transition: transform 0.3s ease;
+    }
+    
+    .lightbox[aria-hidden="false"] .lightbox-panel { transform: scale(1); }
+
+    .lightbox-head {
+      padding: 20px; border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    
+    .lightbox-title { font-weight: 700; font-size: 1.2rem; font-family: 'Space Grotesk', sans-serif; }
+    .lightbox-close { 
+        background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 5px; 
+        transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: var(--glow-primary); }
+
+    /* Scrollable Area */
+    .folder-scroll { overflow-y: auto; padding: 24px; }
+    
+    /* Grid inside Modal */
+    .modal-grid { 
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; 
+    }
+
+    /* Video Embeds */
+    .video-box {
+        position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border);
+        background: #000;
+    }
+    .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    
+    /* Instagram specific */
+    .ig-box { padding-bottom: 120%; } /* Taller for reels */
+
+    /* Contact Section */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .contact-card {
+        padding: 40px; background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+        border: 1px solid var(--border); border-radius: 20px;
+    }
+    .contact-card:hover { border-color: var(--glow-primary); }
+    .contact-val { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; display: block; margin-top: 10px; }
+
+    @media (max-width: 768px) {
+        .glow-text { font-size: 2.8rem; }
+        .contact-grid { grid-template-columns: 1fr; }
+        .nav-links { display: none; }
     }
   </style>
 </head>
@@ -243,8 +218,11 @@
   <header>
     <div class="wrap nav-inner">
       <a href="#" class="brand">
-        <img src="230.png" alt="MM"> 
-        <span>Moukaddem.</span>
+        <img src="230.png" class="brand-avatar" alt="MM">
+        <div class="brand-text">
+            <span class="brand-name">Moukaddem.</span>
+            <span class="brand-role">Visual Artist</span>
+        </div>
       </a>
       <nav class="nav-links">
         <a href="#design">Design</a>
@@ -257,12 +235,12 @@
 
   <main>
     <section class="hero">
-      <div class="wrap hero-content">
-        <h1>Creative Video Editor <br> & Graphic Designer</h1>
-        <p>I create premium visuals and cinematic edits designed for social impact.</p>
-        <div class="hero-buttons">
-          <a href="#editing" class="btn btn-primary">View Editing</a>
-          <a href="#design" class="btn btn-outline">View Designs</a>
+      <div class="wrap">
+        <div class="tag" style="color: var(--glow-primary); margin-bottom: 20px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">● Available for Freelance</div>
+        <h1 class="glow-text">Cinematic Visuals <br> That Demand Attention.</h1>
+        <p>I craft high-impact video edits and premium graphic designs tailored for brands that refuse to blend in.</p>
+        <div style="display: flex; gap: 15px;">
+             <a href="#editing" class="cta-btn" style="padding: 15px 40px; font-size: 1rem;">See My Work</a>
         </div>
       </div>
     </section>
@@ -270,107 +248,265 @@
     <section id="design" class="section">
       <div class="wrap">
         <div class="section-head">
-          <h2>Design Portfolio</h2>
-          <p>Click any project to preview.</p>
+            <h2>Selected Designs</h2>
+            <p style="color: var(--text-muted);">High-resolution artboards & identities.</p>
         </div>
         
         <div class="grid">
-          <button class="card" onclick="openLightbox('5.png')">
-            <div class="card-img-wrap"><img src="5.png" loading="lazy" alt="Project"></div>
+          <button class="card card-click" type="button" data-preview="5.png" data-title="Saudi National Day">
+            <div style="position: relative;">
+                <img src="5.png" alt="Saudi National Day">
+                <div class="folder-icon-overlay"><i class="ri-fullscreen-line"></i> View</div>
+            </div>
             <div class="card-body">
               <div class="card-title">Saudi National Day</div>
-              <div class="card-meta">Poster Design</div>
+              <div class="card-meta"><i class="ri-brush-line"></i> Poster Design</div>
             </div>
           </button>
 
-          <button class="card" onclick="openLightbox('1.png')">
-            <div class="card-img-wrap"><img src="1.png" loading="lazy" alt="Project"></div>
+          <button class="card card-click" type="button" data-preview="1.png" data-title="Brand Identity">
+            <div style="position: relative;">
+                <img src="1.png" alt="Brand Identity">
+                <div class="folder-icon-overlay"><i class="ri-fullscreen-line"></i> View</div>
+            </div>
             <div class="card-body">
-              <div class="card-title">Brand Identity</div>
-              <div class="card-meta">Logo & Visuals</div>
+              <div class="card-title">Visual Identity</div>
+              <div class="card-meta"><i class="ri-vip-diamond-line"></i> Branding</div>
             </div>
           </button>
-           
-           <button class="card" onclick="openLightbox('me.png')">
-            <div class="card-img-wrap"><img src="me.png" loading="lazy" alt="Project"></div>
+
+          <button class="card card-click" type="button" data-preview="me.png" data-title="Course Design">
+            <div style="position: relative;">
+                <img src="me.png" alt="Course Design">
+                <div class="folder-icon-overlay"><i class="ri-fullscreen-line"></i> View</div>
+            </div>
             <div class="card-body">
-              <div class="card-title">Course Visuals</div>
-              <div class="card-meta">Educational</div>
+              <div class="card-title">Course Design</div>
+              <div class="card-meta"><i class="ri-book-open-line"></i> Education</div>
             </div>
           </button>
         </div>
       </div>
     </section>
 
-    <section id="editing" class="section">
+    <section id="editing" class="section" style="background: linear-gradient(to bottom, var(--bg-deep), #08080a);">
       <div class="wrap">
         <div class="section-head">
-          <h2>Video Editing</h2>
-          <p>YouTube Long-form & Short-form Content.</p>
+            <h2>Video Editing</h2>
+            <p style="color: var(--text-muted);">Click a folder to reveal projects.</p>
         </div>
         
         <div class="grid">
-            <div class="card">
-                <button class="folder-cover" style="cursor: pointer;">
-                    <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" class="folder-thumb" alt="Sebastien">
-                    <div style="text-align: left;">
-                        <div class="card-title">Sébastien Koubar</div>
-                        <div class="card-meta">YouTube • 10+ Videos</div>
+            <button class="card card-click" type="button" data-open-folder="sebastien">
+                <div style="position: relative;">
+                    <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sebastien">
+                    <div class="folder-icon-overlay"><i class="ri-folder-open-fill"></i> 10+ Videos</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Sébastien Koubar</div>
+                    <div class="card-meta"><i class="ri-youtube-fill"></i> Long-form Editing</div>
+                </div>
+            </button>
+
+            <button class="card card-click" type="button" data-open-folder="hisham-ghanem-library">
+                <div style="position: relative;">
+                    <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham">
+                    <div class="folder-icon-overlay"><i class="ri-folder-open-fill"></i> Reels</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Hisham Ghanem</div>
+                    <div class="card-meta"><i class="ri-instagram-line"></i> Instagram Reels</div>
+                </div>
+            </button>
+
+            <button class="card card-click" type="button" data-open-folder="oqunet-editing">
+                <div style="position: relative;">
+                    <img src="logo-01.png" alt="Oqunet">
+                    <div class="folder-icon-overlay"><i class="ri-folder-open-fill"></i> Promo</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Oqunet Software</div>
+                    <div class="card-meta"><i class="ri-code-box-line"></i> Tech Promo</div>
+                </div>
+            </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="client" class="section">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Client Work</h2>
+            </div>
+            <div class="grid">
+                 <button class="card card-click" type="button" data-open-folder="client-intellident">
+                    <div style="position: relative;">
+                        <img src="logo (2).png" alt="Intellident">
+                        <div class="folder-icon-overlay"><i class="ri-briefcase-4-fill"></i> Projects</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Intellident Clinic</div>
+                        <div class="card-meta">Social Media & Branding</div>
                     </div>
                 </button>
-            </div>
-
-             <div class="card">
-                <button class="folder-cover" style="cursor: pointer;">
-                    <img src="logo-01.png" class="folder-thumb" alt="Oqunet">
-                    <div style="text-align: left;">
-                        <div class="card-title">Oqunet Software</div>
-                        <div class="card-meta">Reels & Promo</div>
+                
+                 <button class="card card-click" type="button" data-open-folder="client-marketing-maven">
+                    <div style="position: relative;">
+                        <img src="market maven logo.png" alt="Maven">
+                        <div class="folder-icon-overlay"><i class="ri-briefcase-4-fill"></i> Projects</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Marketing Maven</div>
+                        <div class="card-meta">Artboards & Ads</div>
                     </div>
                 </button>
             </div>
         </div>
-      </div>
     </section>
 
     <section id="contact" class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Contact Me</h2>
+        <div class="wrap">
+            <div class="section-head"><h2>Let's Work Together</h2></div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div style="color: var(--text-muted);">Email Me</div>
+                    <a href="mailto:hamoudizzico102@outlook.com" class="contact-val">hamoudizzico102@outlook.com</a>
+                </div>
+                <div class="contact-card">
+                    <div style="color: var(--text-muted);">Call Me</div>
+                    <a href="tel:+96170577697" class="contact-val">+961 70 577 697</a>
+                </div>
+            </div>
         </div>
-        <div class="contact-grid">
-          <div class="contact-box">
-            <h3>Email</h3>
-            <a href="mailto:hamoudizzico102@outlook.com">hamoudizzico102@outlook.com</a>
-          </div>
-          <div class="contact-box">
-            <h3>Phone</h3>
-            <a href="tel:+96170577697">+961 70 577 697</a>
-          </div>
-        </div>
-      </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      © 2025 Mohamed Moukaddem. From Tripoli with ❤️.
-    </div>
-  </footer>
-
-  <div id="lb" class="lightbox" aria-hidden="true" onclick="this.setAttribute('aria-hidden', 'true')">
-      <button class="close-lb">&times;</button>
-      <img id="lb-img" src="" class="lightbox-content" alt="Preview">
+  <div class="lightbox" id="main-lightbox" aria-hidden="true">
+      <div class="lightbox-backdrop" data-close="true"></div>
+      
+      <div class="lightbox-panel">
+          <div class="lightbox-head">
+              <div class="lightbox-title" id="lb-title">Gallery</div>
+              <button class="lightbox-close" data-close="true"><i class="ri-close-line"></i></button>
+          </div>
+          
+          <div class="folder-scroll">
+              <div id="lb-content" style="width: 100%;"></div>
+          </div>
+      </div>
   </div>
 
+
+  <template id="tpl-sebastien">
+      <div class="modal-grid">
+        <article class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" frameborder="0" allowfullscreen></iframe></div>
+            <div class="card-body" style="padding:15px;"><div class="card-title" style="font-size:1rem;">How Booking manipulates you</div></div>
+        </article>
+        <article class="card">
+            <div class="video-box"><iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" frameborder="0" allowfullscreen></iframe></div>
+            <div class="card-body" style="padding:15px;"><div class="card-title" style="font-size:1rem;">Ryanair Dark Truth</div></div>
+        </article>
+        </div>
+  </template>
+
+  <template id="tpl-hisham-ghanem-library">
+      <div class="modal-grid">
+         <article class="card">
+            <div class="video-box ig-box"><iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed/" frameborder="0"></iframe></div>
+         </article>
+         <article class="card">
+            <div class="video-box ig-box"><iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed/" frameborder="0"></iframe></div>
+         </article>
+      </div>
+  </template>
+
+  <template id="tpl-oqunet-editing">
+      <div class="modal-grid">
+         <article class="card">
+            <div class="video-box ig-box"><iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed/" frameborder="0"></iframe></div>
+         </article>
+      </div>
+  </template>
+
+  <template id="tpl-client-intellident">
+      <div class="modal-grid">
+          <img src="logo (2).png" style="border-radius:12px; width:100%;">
+          <img src="caro 3-4.png" style="border-radius:12px; width:100%;">
+          <img src="MOTHER.png" style="border-radius:12px; width:100%;">
+      </div>
+  </template>
+
+  <template id="tpl-client-marketing-maven">
+      <div class="modal-grid">
+          <img src="Artboard 1.png" style="border-radius:12px; width:100%;">
+          <img src="Artboard 2.png" style="border-radius:12px; width:100%;">
+          <img src="Artboard 3.png" style="border-radius:12px; width:100%;">
+      </div>
+  </template>
+
+
   <script>
-      function openLightbox(src) {
-          document.getElementById('lb-img').src = src;
-          document.getElementById('lb').setAttribute('aria-hidden', 'false');
-      }
-      
-      // Add your original Logic for folders here if needed
-      // This simple version focuses on speed and layout first
+    document.addEventListener('DOMContentLoaded', () => {
+        const lightbox = document.getElementById('main-lightbox');
+        const lbContent = document.getElementById('lb-content');
+        const lbTitle = document.getElementById('lb-title');
+        
+        // Function to open Lightbox
+        function openModal(title, content) {
+            lbTitle.textContent = title;
+            lbContent.innerHTML = ''; // Clear previous
+            lbContent.appendChild(content);
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // Stop background scroll
+        }
+
+        // Function to close Lightbox
+        function closeModal() {
+            lightbox.setAttribute('aria-hidden', 'true');
+            lbContent.innerHTML = ''; // Stop videos from playing
+            document.body.style.overflow = '';
+        }
+
+        // Global Click Listener (Event Delegation)
+        document.body.addEventListener('click', (e) => {
+            const target = e.target.closest('.card-click, [data-close="true"]');
+            if (!target) return;
+
+            // 1. Close Button
+            if (target.dataset.close === "true") {
+                closeModal();
+                return;
+            }
+
+            // 2. Open Folder
+            if (target.dataset.openFolder) {
+                const folderId = target.dataset.openFolder;
+                const template = document.getElementById(`tpl-${folderId}`);
+                if (template) {
+                    const clone = template.content.cloneNode(true);
+                    // Find card title for modal header
+                    const title = target.querySelector('.card-title')?.textContent || 'Folder';
+                    openModal(title, clone);
+                }
+            }
+
+            // 3. Open Single Image Preview
+            if (target.dataset.preview) {
+                const img = document.createElement('img');
+                img.src = target.dataset.preview;
+                img.style.width = '100%';
+                img.style.borderRadius = '12px';
+                img.style.boxShadow = '0 0 30px rgba(0,0,0,0.5)';
+                openModal(target.dataset.title || 'Preview', img);
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    });
   </script>
 
 </body>
