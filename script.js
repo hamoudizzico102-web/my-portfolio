@@ -49,20 +49,23 @@ function setFolder(key){
   folderContent.appendChild(tpl.content.cloneNode(true));
 }
 
-// ===== Instagram embed loader (safe: loads once) =====
+// ===== Instagram embed loader (loads once) =====
 let igEmbedLoading = false;
 let igEmbedReady = false;
 
 function loadInstagramEmbedScript(){
   if(igEmbedReady) return Promise.resolve(true);
-  if(igEmbedLoading) return new Promise((resolve) => {
-    const t = setInterval(() => {
-      if(igEmbedReady){
-        clearInterval(t);
-        resolve(true);
-      }
-    }, 60);
-  });
+
+  if(igEmbedLoading){
+    return new Promise((resolve) => {
+      const t = setInterval(() => {
+        if(igEmbedReady){
+          clearInterval(t);
+          resolve(true);
+        }
+      }, 60);
+    });
+  }
 
   igEmbedLoading = true;
 
@@ -85,28 +88,25 @@ function loadInstagramEmbedScript(){
 }
 
 async function processInstagramEmbeds(){
-  // If Instagram global exists -> process immediately
   if(window.instgrm && window.instgrm.Embeds && typeof window.instgrm.Embeds.process === "function"){
     window.instgrm.Embeds.process();
     return;
   }
 
-  // else load script then process
   const ok = await loadInstagramEmbedScript();
   if(ok && window.instgrm && window.instgrm.Embeds && typeof window.instgrm.Embeds.process === "function"){
     window.instgrm.Embeds.process();
   }
 }
 
-async function openFolder(key){
+function openFolder(key){
   setFolder(key);
   fb.classList.add('is-open');
   fb.setAttribute('aria-hidden','false');
   lock();
 
-  // ✅ Run Instagram processing only for this folder
+  // Process Instagram embeds only when that folder opens
   if(key === "hisham-ghanem-library"){
-    // small tick so DOM is ready inside modal
     setTimeout(() => { processInstagramEmbeds(); }, 40);
   }
 }
@@ -133,7 +133,7 @@ function openCV(){
   cvBox.classList.add('is-open');
   cvBox.setAttribute('aria-hidden','false');
   lock();
-  if(navCv) navCv.classList.add('is-open'); // keep red glow on the navbar item
+  if(navCv) navCv.classList.add('is-open');
 }
 
 function closeCV(){
@@ -143,7 +143,7 @@ function closeCV(){
   if(navCv) navCv.classList.remove('is-open');
 }
 
-// ===== Event Delegation (dynamic folder items work) =====
+// ===== Event Delegation =====
 document.addEventListener('click', (e) => {
 
   // open CV
@@ -204,7 +204,6 @@ document.addEventListener('keydown', (e) => {
 // Hover Pop-up (Tooltip) for ALL clickable elements
 // =====================================================
 
-// Create tooltip element once
 const tooltip = document.createElement('div');
 tooltip.className = 'tooltip';
 tooltip.setAttribute('aria-hidden', 'true');
@@ -212,29 +211,23 @@ document.body.appendChild(tooltip);
 
 let ttActiveEl = null;
 
-// Helper: get tooltip text (title first, then aria-label, then img alt)
 function getTooltipText(el){
   if(!el) return null;
 
-  // CV nav tooltip
   if(el.matches && el.matches('[data-open-cv="1"]')){
     return { title: 'Open CV', sub: 'PDF Preview (blur + red glow)' };
   }
 
-  // Prefer data-title if exists
   const dt = el.getAttribute && el.getAttribute('data-title');
   if(dt && dt.trim()) return { title: dt.trim(), sub: '' };
 
-  // If card: use card titles inside foot if possible
   const t1 = el.querySelector?.('.card-title')?.textContent?.trim();
   const t2 = el.querySelector?.('.card-meta')?.textContent?.trim();
   if(t1) return { title: t1, sub: t2 || '' };
 
-  // aria-label fallback
   const ar = el.getAttribute && el.getAttribute('aria-label');
   if(ar && ar.trim()) return { title: ar.trim(), sub: '' };
 
-  // image alt fallback
   const imgAlt = el.querySelector?.('img')?.getAttribute('alt');
   if(imgAlt && imgAlt.trim()) return { title: imgAlt.trim(), sub: '' };
 
@@ -288,7 +281,6 @@ function escapeHtml(str){
     .replaceAll("'", '&#039;');
 }
 
-// Disable tooltip on touch devices
 const isTouch =
   ('ontouchstart' in window) ||
   (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
