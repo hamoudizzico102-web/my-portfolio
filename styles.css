@@ -6,8 +6,11 @@
   --text:#eef2ff;
   --muted:rgba(238,242,255,0.72);
   --line:rgba(255,255,255,0.08);
-  --accent:#7c3aed;
-  --accent2:#22c55e;
+
+  /* ✅ THEME UPDATED: Purple/Green -> Red/Gold */
+  --accent:#ef4444;   /* Red */
+  --accent2:#f59e0b;  /* Gold/Amber (pairs well with red) */
+
   --radius:18px;
   --shadow: 0 18px 60px rgba(0,0,0,0.55);
 
@@ -29,8 +32,8 @@ body{
   margin:0;
   font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
   background:
-    radial-gradient(900px 520px at 20% 10%, rgba(124,58,237,0.25), transparent 60%),
-    radial-gradient(900px 520px at 70% 20%, rgba(34,197,94,0.18), transparent 60%),
+    radial-gradient(900px 520px at 20% 10%, rgba(239,68,68,0.22), transparent 60%),
+    radial-gradient(900px 520px at 70% 20%, rgba(245,158,11,0.18), transparent 60%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
   color:var(--text);
 }
@@ -127,7 +130,7 @@ body.modal-open{
 .cta{
   text-decoration:none;
   color:var(--text);
-  background:linear-gradient(90deg, rgba(124,58,237,0.95), rgba(34,197,94,0.85));
+  background:linear-gradient(90deg, rgba(239,68,68,0.95), rgba(245,158,11,0.85));
   border:1px solid rgba(255,255,255,0.10);
   padding:10px 14px;
   border-radius:12px;
@@ -194,7 +197,7 @@ body.modal-open{
 .btn:hover{transform:translateY(-1px)}
 .primary{
   color:#0b0f14;
-  background:linear-gradient(90deg, rgba(34,197,94,0.95), rgba(124,58,237,0.92));
+  background:linear-gradient(90deg, rgba(239,68,68,0.95), rgba(245,158,11,0.92));
 }
 .ghost{
   color:var(--text);
@@ -237,7 +240,7 @@ body.modal-open{
 .dot{width:9px; height:9px; border-radius:50%}
 .red{background:#ef4444}
 .yellow{background:#f59e0b}
-.green{background:#22c55e}
+.green{background:var(--accent2)}
 .hero-card-title{margin-left:6px; color:rgba(255,255,255,0.82); font-size:0.82rem}
 
 .hero-card-body{padding:14px 12px}
@@ -256,7 +259,7 @@ body.modal-open{
   width:38px;
   height:38px;
   border-radius:12px;
-  background:linear-gradient(135deg, rgba(124,58,237,0.95), rgba(34,197,94,0.88));
+  background:linear-gradient(135deg, rgba(239,68,68,0.95), rgba(245,158,11,0.88));
   position:relative;
 }
 .play:after{
@@ -293,8 +296,8 @@ body.modal-open{
   inset:auto -20% -180px -20%;
   height:240px;
   background:
-    radial-gradient(520px 220px at 30% 30%, rgba(124,58,237,0.22), transparent 60%),
-    radial-gradient(520px 220px at 70% 30%, rgba(34,197,94,0.18), transparent 60%);
+    radial-gradient(520px 220px at 30% 30%, rgba(239,68,68,0.20), transparent 60%),
+    radial-gradient(520px 220px at 70% 30%, rgba(245,158,11,0.16), transparent 60%);
 }
 
 /* Sections */
