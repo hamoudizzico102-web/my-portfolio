@@ -39,6 +39,7 @@ function setFolder(key){
 
   const titles = {
     "sebastien": "Sébastien Koubar",
+    "hisham-ghanem-library": "hisham.ghanem.library",
     "client-intellident": "Intellident Dental Clinic",
     "client-oqunet": "Oqunet Software"
   };
@@ -48,11 +49,66 @@ function setFolder(key){
   folderContent.appendChild(tpl.content.cloneNode(true));
 }
 
-function openFolder(key){
+// ===== Instagram embed loader (safe: loads once) =====
+let igEmbedLoading = false;
+let igEmbedReady = false;
+
+function loadInstagramEmbedScript(){
+  if(igEmbedReady) return Promise.resolve(true);
+  if(igEmbedLoading) return new Promise((resolve) => {
+    const t = setInterval(() => {
+      if(igEmbedReady){
+        clearInterval(t);
+        resolve(true);
+      }
+    }, 60);
+  });
+
+  igEmbedLoading = true;
+
+  return new Promise((resolve) => {
+    const s = document.createElement('script');
+    s.async = true;
+    s.defer = true;
+    s.src = "https://www.instagram.com/embed.js";
+    s.onload = () => {
+      igEmbedReady = true;
+      igEmbedLoading = false;
+      resolve(true);
+    };
+    s.onerror = () => {
+      igEmbedLoading = false;
+      resolve(false);
+    };
+    document.body.appendChild(s);
+  });
+}
+
+async function processInstagramEmbeds(){
+  // If Instagram global exists -> process immediately
+  if(window.instgrm && window.instgrm.Embeds && typeof window.instgrm.Embeds.process === "function"){
+    window.instgrm.Embeds.process();
+    return;
+  }
+
+  // else load script then process
+  const ok = await loadInstagramEmbedScript();
+  if(ok && window.instgrm && window.instgrm.Embeds && typeof window.instgrm.Embeds.process === "function"){
+    window.instgrm.Embeds.process();
+  }
+}
+
+async function openFolder(key){
   setFolder(key);
   fb.classList.add('is-open');
   fb.setAttribute('aria-hidden','false');
   lock();
+
+  // ✅ Run Instagram processing only for this folder
+  if(key === "hisham-ghanem-library"){
+    // small tick so DOM is ready inside modal
+    setTimeout(() => { processInstagramEmbeds(); }, 40);
+  }
 }
 
 function closeFolder(){
