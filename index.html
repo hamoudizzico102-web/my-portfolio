@@ -1,132 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamad Moukaddem | Visual Director</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamad Moukaddem | Visual Director</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+  <!-- Custom cursor (CSS/JS will auto-disable on touch devices) -->
+  <div class="cursor-inner"></div>
+  <div class="cursor-outer"></div>
 
-    <div class="cursor-inner"></div>
-    <div class="cursor-outer"></div>
+  <header class="nav-blur">
+    <div class="nav-content">
+      <div class="logo-zone">
+        <img src="230.png" class="main-logo" alt="Logo" loading="lazy" />
+        <span class="m-name">M. MOUKADDEM</span>
+      </div>
 
-    <header class="nav-blur">
-        <div class="nav-content">
-            <div class="logo-zone">
-                <img src="230.png" class="main-logo">
-                <span class="m-name">M. MOUKADDEM</span>
-            </div>
-            <nav class="links">
-                <a href="#editing" class="hover-target">Editing</a>
-                <a href="#design" class="hover-target">Design</a>
-                <a href="#client" class="hover-target">Client Work</a>
-                <button class="resume-btn hover-target" onclick="openCV()">RESUME</button>
-            </nav>
-        </div>
-    </header>
+      <nav class="links">
+        <a href="#editing" class="hover-target">Editing</a>
+        <a href="#design" class="hover-target">Design</a>
+        <a href="#client" class="hover-target">Client Work</a>
+        <button class="resume-btn hover-target" type="button" onclick="openCV()">RESUME</button>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero">
-        <div class="hero-visuals">
-            <div class="glow-orb"></div>
+  <section class="hero" id="home">
+    <div class="hero-visuals" aria-hidden="true">
+      <div class="glow-orb"></div>
+    </div>
+
+    <div class="hero-text">
+      <h1 class="main-title">
+        STORY <br />
+        <span class="blue-stroke">TELLING.</span>
+      </h1>
+
+      <p class="sub-text">
+        High-Retention Video Editor & Visual Designer crafting legendary digital experiences.
+      </p>
+
+      <div class="actions">
+        <button
+          class="btn-p hover-target"
+          type="button"
+          onclick="document.getElementById('editing').scrollIntoView({ behavior: 'smooth', block: 'start' })"
+        >
+          EXPLORE
+        </button>
+        <button class="btn-s hover-target" type="button" onclick="openCV()">ABOUT</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="netflix-rows">
+    <!-- VIDEO EDITING -->
+    <section id="editing" class="row">
+      <h2 class="row-label">// VIDEO EDITING</h2>
+
+      <div class="slider" role="list">
+        <div class="n-item hover-target" role="listitem" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
+          <img
+            src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj"
+            alt="Sébastien Koubar"
+            loading="lazy"
+          />
+          <div class="n-info">
+            <h3>Sébastien Koubar</h3>
+            <p>Showreel</p>
+          </div>
         </div>
-        <div class="hero-text">
-            <h1 class="main-title">STORY <br> <span class="blue-stroke">TELLING.</span></h1>
-            <p class="sub-text">High-Retention Video Editor & Visual Designer crafting legendary digital experiences.</p>
-            <div class="actions">
-                <button class="btn-p hover-target" onclick="document.getElementById('editing').scrollIntoView()">EXPLORE</button>
-                <button class="btn-s hover-target" onclick="openCV()">ABOUT</button>
-            </div>
+
+        <div class="n-item hover-target" role="listitem" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
+          <img
+            src="405229718_183715348153605_6175495872810790746_n.jpg"
+            alt="Hisham Ghanem"
+            loading="lazy"
+          />
+          <div class="n-info">
+            <h3>Hisham Ghanem</h3>
+            <p>Reels</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <main class="netflix-rows">
-        <div id="editing" class="row">
-            <h2 class="row-label">// VIDEO EDITING</h2>
-            <div class="slider">
-                <div class="n-item hover-target" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
-                    <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj">
-                    <div class="n-info"><h3>Sébastien Koubar</h3><p>Showreel</p></div>
-                </div>
-                <div class="n-item hover-target" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
-                    <img src="405229718_183715348153605_6175495872810790746_n.jpg">
-                    <div class="n-info"><h3>Hisham Ghanem</h3><p>Reels</p></div>
-                </div>
-            </div>
+    <!-- VISUAL DESIGN -->
+    <section id="design" class="row">
+      <h2 class="row-label">// VISUAL DESIGN</h2>
+
+      <div class="slider" role="list">
+        <div class="n-item hover-target" role="listitem" onclick="openImage('5.png')">
+          <img src="5.png" alt="Design 5" loading="lazy" />
         </div>
 
-        <div id="design" class="row">
-            <h2 class="row-label">// VISUAL DESIGN</h2>
-            <div class="slider">
-                <div class="n-item hover-target" onclick="openImage('5.png')"><img src="5.png"></div>
-                <div class="n-item hover-target" onclick="openImage('1.png')"><img src="1.png"></div>
-                <div class="n-item hover-target" onclick="openImage('me.png')"><img src="me.png"></div>
-            </div>
+        <div class="n-item hover-target" role="listitem" onclick="openImage('1.png')">
+          <img src="1.png" alt="Design 1" loading="lazy" />
         </div>
 
-        <div id="client" class="row">
-            <h2 class="row-label">// CLIENT WORK</h2>
-            <div class="slider">
-                <div class="n-item hover-target" onclick="openModal('tpl-tradesmart', 'TradeSmart')"><img src="514064519_17860801818435683_5097951599889091948_n.jpg"></div>
-                <div class="n-item hover-target" onclick="openModal('tpl-intellident', 'Intellident Clinic')"><img src="logo (2).png"></div>
-            </div>
+        <div class="n-item hover-target" role="listitem" onclick="openImage('me.png')">
+          <img src="me.png" alt="Design me" loading="lazy" />
         </div>
-    </main>
+      </div>
+    </section>
 
-    <footer id="contact" class="mega-footer">
-        <h2 class="f-title">HIRE MOHAMAD.</h2>
-        <div class="f-links">
-            <a href="mailto:hamoudizzico102@outlook.com" class="hover-target">Email</a>
-            <a href="https://wa.me/96170577697" target="_blank" class="hover-target">WhatsApp</a>
-        </div>
-    </footer>
+    <!-- CLIENT WORK -->
+    <section id="client" class="row">
+      <h2 class="row-label">// CLIENT WORK</h2>
 
-    <div id="modal" class="modal-wrap">
-        <div class="m-bg" onclick="closeModal()"></div>
-        <div class="m-content">
-            <div class="m-head"><h3 id="modal-title"></h3><i class="ri-close-line" onclick="closeModal()"></i></div>
-            <div id="modal-content" class="m-body"></div>
+      <div class="slider" role="list">
+        <div class="n-item hover-target" role="listitem" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
+          <img
+            src="514064519_17860801818435683_5097951599889091948_n.jpg"
+            alt="TradeSmart"
+            loading="lazy"
+          />
+          <div class="n-info">
+            <h3>TradeSmart</h3>
+            <p>Instagram Content</p>
+          </div>
         </div>
+
+        <div class="n-item hover-target" role="listitem" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
+          <img src="logo (2).png" alt="Intellident Clinic" loading="lazy" />
+          <div class="n-info">
+            <h3>Intellident Clinic</h3>
+            <p>Instagram Content</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="mega-footer">
+    <h2 class="f-title">HIRE MOHAMAD.</h2>
+
+    <div class="f-links">
+      <a href="mailto:hamoudizzico102@outlook.com" class="hover-target">Email</a>
+      <a href="https://wa.me/96170577697" target="_blank" rel="noopener" class="hover-target">WhatsApp</a>
     </div>
+  </footer>
 
-    <div id="lightbox" class="lightbox-wrap" onclick="closeLightbox()">
-        <img id="lb-img">
+  <!-- Modal (Video/Instagram grids) -->
+  <div id="modal" class="modal-wrap" aria-hidden="true">
+    <div class="m-bg" onclick="closeModal()" aria-hidden="true"></div>
+
+    <div class="m-content" role="dialog" aria-modal="true" aria-label="Content Modal">
+      <div class="m-head">
+        <h3 id="modal-title"></h3>
+        <i class="ri-close-line hover-target" onclick="closeModal()" aria-label="Close"></i>
+      </div>
+      <div id="modal-content" class="m-body"></div>
     </div>
+  </div>
 
-    <div id="cv-modal" class="modal-wrap">
-        <div class="m-bg" onclick="closeCV()"></div>
-        <div class="m-content cv-size">
-            <iframe src="Mohamad Mokaddem CV 2025 (1).pdf"></iframe>
-        </div>
+  <!-- Lightbox for images -->
+  <div id="lightbox" class="lightbox-wrap" onclick="closeLightbox()" aria-hidden="true">
+    <img id="lb-img" alt="Preview" />
+  </div>
+
+  <!-- CV Modal -->
+  <div id="cv-modal" class="modal-wrap" aria-hidden="true">
+    <div class="m-bg" onclick="closeCV()" aria-hidden="true"></div>
+
+    <div class="m-content cv-size" role="dialog" aria-modal="true" aria-label="Resume">
+      <div class="m-head">
+        <h3>Resume</h3>
+        <i class="ri-close-line hover-target" onclick="closeCV()" aria-label="Close"></i>
+      </div>
+
+      <div class="m-body" style="padding:0;">
+        <iframe
+          title="Mohamad Mokaddem CV"
+          src="Mohamad Mokaddem CV 2025 (1).pdf"
+          loading="lazy"
+        ></iframe>
+      </div>
     </div>
+  </div>
 
-    <template id="tpl-sebastien">
-        <div class="grid-layout">
-            <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M"></iframe>
-            <iframe src="https://www.youtube.com/embed/ChGxyGwRdFE"></iframe>
-            <iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307"></iframe>
-            <iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502"></iframe>
-            <iframe src="https://www.youtube.com/embed/SNmD--JxL9k"></iframe>
-        </div>
-    </template>
+  <!-- Templates -->
+  <template id="tpl-sebastien">
+    <div class="grid-layout">
+      <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" title="YouTube video" loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" title="YouTube video" loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307" title="YouTube video" loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502" title="YouTube video" loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/SNmD--JxL9k" title="YouTube video" loading="lazy"></iframe>
+    </div>
+  </template>
 
-    <template id="tpl-tradesmart">
-        <div class="grid-layout insta-v">
-            <iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIB2ZyjIC2Q/embed"></iframe>
-        </div>
-    </template>
+  <!-- Added: Missing template to prevent empty modal -->
+  <template id="tpl-hisham">
+    <div class="grid-layout">
+      <!-- Replace these iframes with the correct links when you have them -->
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="Hisham Ghanem - Sample"
+        loading="lazy"
+      ></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="Hisham Ghanem - Sample"
+        loading="lazy"
+      ></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="Hisham Ghanem - Sample"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </template>
 
-    <template id="tpl-intellident">
-        <div class="grid-layout insta-v">
-            <iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHvvma5tA_A/embed"></iframe>
-        </div>
-    </template>
+  <template id="tpl-tradesmart">
+    <div class="grid-layout insta-v">
+      <iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed" title="Instagram post" loading="lazy"></iframe>
+      <iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed" title="Instagram post" loading="lazy"></iframe>
+      <iframe src="https://www.instagram.com/p/DIB2ZyjIC2Q/embed" title="Instagram post" loading="lazy"></iframe>
+    </div>
+  </template>
 
-    <script src="script.js"></script>
+  <template id="tpl-intellident">
+    <div class="grid-layout insta-v">
+      <iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed" title="Instagram post" loading="lazy"></iframe>
+      <iframe src="https://www.instagram.com/p/DHvvma5tA_A/embed" title="Instagram post" loading="lazy"></iframe>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
 </body>
 </html>
