@@ -4,119 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamad Moukaddem | Visual Director</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="cursor-follower"></div>
-    <div class="cursor-dot"></div>
+    <div class="cursor-inner"></div>
+    <div class="cursor-outer"></div>
 
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="nav-left">
-                <img src="230.png" class="nav-logo" alt="MM">
-                <span class="nav-name">M. MOUKADDEM</span>
+    <header class="nav-blur">
+        <div class="nav-content">
+            <div class="logo-zone">
+                <img src="230.png" class="main-logo">
+                <span class="m-name">M. MOUKADDEM</span>
             </div>
-            <nav class="nav-links">
-                <a href="#editing">Editing</a>
-                <a href="#design">Design</a>
-                <a href="#client">Client Work</a>
-                <button class="btn-cv" onclick="openCV()">RESUME</button>
+            <nav class="links">
+                <a href="#editing" class="hover-target">Editing</a>
+                <a href="#design" class="hover-target">Design</a>
+                <a href="#client" class="hover-target">Client Work</a>
+                <button class="resume-btn hover-target" onclick="openCV()">RESUME</button>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-video-bg"></div>
-        <div class="hero-content">
-            <div class="badge-new">NEW PORTFOLIO 2025</div>
-            <h1 class="hero-title">CINEMATIC<br><span class="blue-gradient">EXPERIENCE.</span></h1>
-            <p class="hero-sub">Visual Artist & Motion Designer. Crafting the next generation of digital content.</p>
-            <div class="hero-actions">
-                <button class="btn-play" onclick="document.getElementById('editing').scrollIntoView()"><i class="ri-play-fill"></i> Browse Works</button>
-                <button class="btn-info" onclick="openCV()"><i class="ri-information-line"></i> More Info</button>
+        <div class="hero-visuals">
+            <div class="glow-orb"></div>
+        </div>
+        <div class="hero-text">
+            <h1 class="main-title">STORY <br> <span class="blue-stroke">TELLING.</span></h1>
+            <p class="sub-text">High-Retention Video Editor & Visual Designer crafting legendary digital experiences.</p>
+            <div class="actions">
+                <button class="btn-p hover-target" onclick="document.getElementById('editing').scrollIntoView()">EXPLORE</button>
+                <button class="btn-s hover-target" onclick="openCV()">ABOUT</button>
             </div>
         </div>
     </section>
 
-    <main class="netflix-layout">
+    <main class="netflix-rows">
         <div id="editing" class="row">
-            <h2 class="row-header">Video Production</h2>
-            <div class="row-inner">
-                <div class="nft-card" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
-                    <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="">
-                    <div class="nft-overlay"><h3>Sébastien Koubar</h3><p>Showreel</p></div>
+            <h2 class="row-label">// VIDEO EDITING</h2>
+            <div class="slider">
+                <div class="n-item hover-target" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
+                    <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj">
+                    <div class="n-info"><h3>Sébastien Koubar</h3><p>Showreel</p></div>
                 </div>
-                <div class="nft-card" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
-                    <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="">
-                    <div class="nft-overlay"><h3>Hisham Ghanem</h3><p>Reels</p></div>
-                </div>
-                <div class="nft-card" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
-                    <img src="logo-01.png" alt="">
-                    <div class="nft-overlay"><h3>Oqunet</h3><p>Editing</p></div>
+                <div class="n-item hover-target" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
+                    <img src="405229718_183715348153605_6175495872810790746_n.jpg">
+                    <div class="n-info"><h3>Hisham Ghanem</h3><p>Reels</p></div>
                 </div>
             </div>
         </div>
 
         <div id="design" class="row">
-            <h2 class="row-header">Visual Identity</h2>
-            <div class="row-inner">
-                <div class="nft-card" onclick="openImage('5.png')"><img src="5.png"><div class="nft-overlay"><h3>Saudi Day</h3></div></div>
-                <div class="nft-card" onclick="openImage('1.png')"><img src="1.png"><div class="nft-overlay"><h3>Identity</h3></div></div>
-                <div class="nft-card" onclick="openImage('me.png')"><img src="me.png"><div class="nft-overlay"><h3>Portrait</h3></div></div>
+            <h2 class="row-label">// VISUAL DESIGN</h2>
+            <div class="slider">
+                <div class="n-item hover-target" onclick="openImage('5.png')"><img src="5.png"></div>
+                <div class="n-item hover-target" onclick="openImage('1.png')"><img src="1.png"></div>
+                <div class="n-item hover-target" onclick="openImage('me.png')"><img src="me.png"></div>
             </div>
         </div>
 
         <div id="client" class="row">
-            <h2 class="row-header">Client Portfolios</h2>
-            <div class="row-inner">
-                <div class="nft-card" onclick="openModal('tpl-tradesmart', 'TradeSmart')"><img src="514064519_17860801818435683_5097951599889091948_n.jpg"><div class="nft-overlay"><h3>TradeSmart</h3></div></div>
-                <div class="nft-card" onclick="openModal('tpl-intellident', 'Intellident Clinic')"><img src="logo (2).png"><div class="nft-overlay"><h3>Intellident</h3></div></div>
-                <div class="nft-card" onclick="openModal('tpl-maven', 'The Maven')"><img src="market maven logo.png"><div class="nft-overlay"><h3>Maven</h3></div></div>
+            <h2 class="row-label">// CLIENT WORK</h2>
+            <div class="slider">
+                <div class="n-item hover-target" onclick="openModal('tpl-tradesmart', 'TradeSmart')"><img src="514064519_17860801818435683_5097951599889091948_n.jpg"></div>
+                <div class="n-item hover-target" onclick="openModal('tpl-intellident', 'Intellident Clinic')"><img src="logo (2).png"></div>
             </div>
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-wrap">
-            <h2>MOHAMAD MOUKADDEM</h2>
-            <div class="socials">
-                <a href="mailto:hamoudizzico102@outlook.com">Email</a>
-                <a href="https://wa.me/96170577697" target="_blank">WhatsApp</a>
-            </div>
+    <footer id="contact" class="mega-footer">
+        <h2 class="f-title">HIRE MOHAMAD.</h2>
+        <div class="f-links">
+            <a href="mailto:hamoudizzico102@outlook.com" class="hover-target">Email</a>
+            <a href="https://wa.me/96170577697" target="_blank" class="hover-target">WhatsApp</a>
         </div>
     </footer>
 
-    <div id="modal" class="modal-blur"><div class="modal-container"><div class="modal-nav"><h3 id="modal-title"></h3><i class="ri-close-line close-btn" onclick="closeModal()"></i></div><div id="modal-content" class="modal-body"></div></div></div>
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()"><img id="lb-img" src=""></div>
-    <div id="cv-modal" class="modal-blur"><div class="modal-container cv-container"><i class="ri-close-line close-btn" onclick="closeCV()"></i><iframe src="Mohamad Mokaddem CV 2025 (1).pdf"></iframe></div></div>
+    <div id="modal" class="modal-wrap">
+        <div class="m-bg" onclick="closeModal()"></div>
+        <div class="m-content">
+            <div class="m-head"><h3 id="modal-title"></h3><i class="ri-close-line" onclick="closeModal()"></i></div>
+            <div id="modal-content" class="m-body"></div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox-wrap" onclick="closeLightbox()">
+        <img id="lb-img">
+    </div>
+
+    <div id="cv-modal" class="modal-wrap">
+        <div class="m-bg" onclick="closeCV()"></div>
+        <div class="m-content cv-size">
+            <iframe src="Mohamad Mokaddem CV 2025 (1).pdf"></iframe>
+        </div>
+    </div>
 
     <template id="tpl-sebastien">
-        <div class="grid-view">
-            <div class="grid-box"><iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" allowfullscreen></iframe></div>
-            <div class="grid-box"><iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" allowfullscreen></iframe></div>
-            <div class="grid-box"><iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307" allowfullscreen></iframe></div>
-            <div class="grid-box"><iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502" allowfullscreen></iframe></div>
-            <div class="grid-box"><iframe src="https://www.youtube.com/embed/NYKqIV2CT7w" allowfullscreen></iframe></div>
+        <div class="grid-layout">
+            <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M"></iframe>
+            <iframe src="https://www.youtube.com/embed/ChGxyGwRdFE"></iframe>
+            <iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307"></iframe>
+            <iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502"></iframe>
+            <iframe src="https://www.youtube.com/embed/SNmD--JxL9k"></iframe>
         </div>
     </template>
 
     <template id="tpl-tradesmart">
-        <div class="grid-view">
-            <div class="grid-box insta"><iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed"></iframe></div>
-            <div class="grid-box insta"><iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed"></iframe></div>
-            <div class="grid-box insta"><iframe src="https://www.instagram.com/p/DIB2ZyjIC2Q/embed"></iframe></div>
-            <div class="grid-box insta"><iframe src="https://www.instagram.com/p/DI6JJYqspJA/embed"></iframe></div>
+        <div class="grid-layout insta-v">
+            <iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/DIB2ZyjIC2Q/embed"></iframe>
         </div>
     </template>
 
     <template id="tpl-intellident">
-        <div class="grid-view">
-            <div class="grid-box insta"><iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed"></iframe></div>
-            <div class="grid-box insta"><iframe src="https://www.instagram.com/p/DHvvma5tA_A/embed"></iframe></div>
-            <div class="grid-box img" onclick="openImage('logo (2).png')"><img src="logo (2).png"></div>
+        <div class="grid-layout insta-v">
+            <iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/DHvvma5tA_A/embed"></iframe>
         </div>
     </template>
 
