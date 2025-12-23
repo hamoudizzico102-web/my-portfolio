@@ -3,244 +3,358 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohamed Moukaddem — Visual Artist</title>
+  <title>Mohamed Moukaddem — Creative Video Editor</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-  
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================
-       1. CORE VISUALS (The "Kharafi" Part)
+       CSS: THE BLOODY RED THEME (UPDATED)
        ========================================= */
     :root {
-      --bg-deep: #030305;
-      --glass: rgba(255, 255, 255, 0.03);
-      --glass-hover: rgba(255, 255, 255, 0.08);
-      --border: rgba(255, 255, 255, 0.1);
-      --glow-primary: #3b82f6; /* Electric Blue */
-      --glow-secondary: #8b5cf6; /* Electric Purple */
-      --text-main: #ffffff;
-      --text-muted: #94a3b8;
+      --bg: #050000;         /* أسود قاتم جداً */
+      --bg2: #0f0202;        /* أسود محمر خفيف */
+      --card: #1a0505;       /* لون الكروت */
+      --text: #eef2ff;
+      --muted: rgba(238, 242, 255, 0.6);
+      --line: rgba(220, 38, 38, 0.15); /* خطوط حمراء خفيفة */
+
+      /* الألوان الأساسية: أحمر وبرتقالي ناري */
+      --accent: #ef4444;    /* Red 500 */
+      --accent2: #dc2626;   /* Red 600 */
+      
+      --radius: 18px;
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.7);
+
+      /* Red Glow Variables (بدل الأزرق) */
+      --glow-color: #ef4444; 
+      --glow-soft: rgba(239, 68, 68, 0.15);
+      --glow-strong: rgba(239, 68, 68, 0.45);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
-    html { scroll-behavior: smooth; }
-    
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
     body {
-      background-color: var(--bg-deep);
-      color: var(--text-main);
-      font-family: 'Outfit', sans-serif;
+      margin: 0;
+      font-family: "Poppins", system-ui, -apple-system, sans-serif;
+      /* خلفية دموية متدرجة */
+      background:
+        radial-gradient(900px 520px at 20% 10%, rgba(220, 38, 38, 0.15), transparent 60%),
+        radial-gradient(900px 520px at 80% 30%, rgba(185, 28, 28, 0.1), transparent 60%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      color: var(--text);
       overflow-x: hidden;
-      /* خلفية ناعمة ثابتة */
-      background-image: 
-        radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%);
     }
 
-    /* Scrollbar Design */
+    /* Red Scrollbar */
     ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg-deep); }
-    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--glow-primary); }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #450a0a; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; }
+    body.modal-open { overflow: hidden; }
 
-    /* =========================================
-       2. HEADER (Glass & Blur)
-       ========================================= */
-    header {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-      background: rgba(3, 3, 5, 0.7);
+    /* Layout */
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 18px; }
+
+    /* Header */
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(5, 0, 0, 0.85);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
     }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-    
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; }
-    .brand-avatar { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--glow-primary); box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
-    .brand-text span { display: block; }
-    .brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; letter-spacing: -0.5px; }
-    .brand-role { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 
-    .nav-links { display: flex; gap: 30px; }
-    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.95rem; transition: 0.3s; position: relative; }
-    .nav-links a:hover { color: white; text-shadow: 0 0 8px rgba(255,255,255,0.5); }
-    
-    .cta-btn {
-      background: linear-gradient(135deg, var(--glow-primary), var(--glow-secondary));
-      padding: 10px 24px; border-radius: 50px; color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); transition: transform 0.2s, box-shadow 0.2s;
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 0; }
+
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+    .brand-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 0 15px var(--glow-soft); }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand-name { font-size: 1rem; font-weight: 700; letter-spacing: -0.5px; }
+    .brand-role { font-size: 0.75rem; color: var(--muted); }
+
+    .nav { display: flex; gap: 20px; align-items: center; }
+    .nav a { text-decoration: none; color: var(--muted); font-size: 0.9rem; transition: 0.3s; }
+    .nav a:hover { color: var(--accent); text-shadow: 0 0 10px var(--glow-soft); }
+
+    /* CV Button */
+    .nav-cv {
+      position: relative; padding: 6px 12px; border-radius: 10px; border: 1px solid transparent;
+      transition: all 0.2s ease;
     }
-    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4); }
-
-    /* =========================================
-       3. HERO (The Impact)
-       ========================================= */
-    .hero { min-height: 90vh; display: flex; align-items: center; padding-top: 80px; position: relative; }
-    
-    /* Glow text effect */
-    .glow-text {
-      font-family: 'Space Grotesk', sans-serif; font-size: 4rem; line-height: 1.1; margin-bottom: 24px;
-      background: linear-gradient(to right, #fff, #a5b4fc);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.2));
+    .nav-cv:hover, .nav-cv.is-open {
+      color: white;
+      background: rgba(239, 68, 68, 0.1);
+      border-color: rgba(239, 68, 68, 0.4);
+      box-shadow: 0 0 15px var(--glow-soft);
     }
+
+    /* CTA Button (Hire Me) */
+    .cta {
+      position: relative; overflow: hidden; text-decoration: none; color: white;
+      background: linear-gradient(135deg, var(--accent2), #7f1d1d);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 20px; border-radius: 12px; font-weight: 600;
+      box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+      transition: transform 0.2s;
+    }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 0 25px var(--glow-strong); }
     
-    .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; line-height: 1.7; }
+    /* Sweep Effect */
+    .cta::after {
+      content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+    .cta:hover::after { left: 100%; }
 
-    /* =========================================
-       4. CARDS (The Magic Interaction)
-       ========================================= */
-    .section { padding: 100px 0; }
-    .section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 10px; color: white; }
-    .section-head { margin-bottom: 50px; }
+    /* Hero Section */
+    .hero { position: relative; padding: 80px 0 40px; }
+    .hero-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+    .tag {
+      display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent);
+      padding: 6px 12px; border-radius: 50px;
+      border: 1px solid rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05);
+      margin-bottom: 20px; letter-spacing: 1px;
+    }
 
+    .headline {
+      margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; font-weight: 700;
+      background: linear-gradient(to right, #fff, #fca5a5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .sub { margin: 20px 0 30px; color: var(--muted); font-size: 1.05rem; line-height: 1.6; max-width: 600px; }
+
+    .actions { display: flex; gap: 15px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
+      padding: 12px 24px; border-radius: 12px; font-weight: 600; transition: 0.3s;
+    }
+    .btn.primary { background: white; color: black; }
+    .btn.primary:hover { background: #e5e5e5; transform: translateY(-2px); box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+    .btn.ghost { border: 1px solid rgba(255,255,255,0.2); color: white; }
+    .btn.ghost:hover { border-color: white; background: rgba(255,255,255,0.05); }
+
+    .stats { margin-top: 40px; display: flex; gap: 30px; border-top: 1px solid var(--line); padding-top: 20px; }
+    .stat-num { font-size: 1.2rem; font-weight: 700; color: white; }
+    .stat-label { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+
+    /* Hero Right (Showreel Card) */
+    .hero-right .hero-card {
+      background: rgba(20, 5, 5, 0.6); border: 1px solid var(--line);
+      border-radius: var(--radius); overflow: hidden; backdrop-filter: blur(10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .hero-card-top { display: flex; gap: 8px; padding: 15px; border-bottom: 1px solid var(--line); }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot.red { background: #ef4444; } .dot.yellow { background: #f59e0b; } .dot.green { background: #22c55e; }
+    .hero-card-body { padding: 20px; }
+    
+    .preview {
+      display: flex; gap: 15px; align-items: center; padding: 15px;
+      background: rgba(0,0,0,0.4); border-radius: 12px; border: 1px solid var(--line);
+    }
+    .play {
+      width: 40px; height: 40px; border-radius: 10px; background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 15px var(--glow-strong);
+    }
+    .play::after { content: ""; border-left: 10px solid black; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+    .preview-title { font-weight: 700; font-size: 0.9rem; }
+    .preview-sub { font-size: 0.75rem; color: var(--muted); }
+
+    .chips { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
+    .chip { font-size: 0.7rem; padding: 4px 10px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #ccc; }
+
+    /* Sections */
+    .section { padding: 60px 0; }
+    .section-head { margin-bottom: 30px; display: flex; justify-content: space-between; align-items: end; }
+    .section-head h2 { font-size: 2rem; margin: 0; background: linear-gradient(to right, white, #999); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .section-head p { color: var(--muted); margin: 0; }
+
+    /* Grids & Cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    
     .card {
-      background: var(--glass);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      position: relative;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* حركة مرنة */
-      cursor: pointer;
-      text-align: left;
-      padding: 0;
-      width: 100%;
-      display: block;
+      background: var(--card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius);
+      overflow: hidden; transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); cursor: pointer; position: relative;
     }
 
-    /* Hover Effect: Glow Border + Lift */
+    /* RED HOVER EFFECT */
     .card:hover {
       transform: translateY(-8px);
-      border-color: rgba(59, 130, 246, 0.5);
-      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5), 0 0 20px rgba(59, 130, 246, 0.1); /* Glow خفيف */
+      border-color: var(--accent);
+      box-shadow: 0 10px 40px -10px rgba(239, 68, 68, 0.3); /* توهج أحمر */
     }
 
-    .card img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s; display: block; }
-    .card:hover img { transform: scale(1.05); }
-
-    .card-body { padding: 24px; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8)); position: relative; }
-    .card-title { font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 6px; }
-    .card-meta { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; }
+    .card img { width: 100%; height: 240px; object-fit: cover; display: block; }
     
-    /* Folder Specifics */
-    .folder-cover { background: none; border: none; width: 100%; padding: 0; text-align: left; }
-    .folder-icon-overlay {
-        position: absolute; top: 15px; right: 15px; 
-        background: rgba(0,0,0,0.6); padding: 5px 10px; border-radius: 8px; 
-        color: white; font-size: 0.8rem; backdrop-filter: blur(4px);
-    }
+    .card-foot { padding: 15px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); }
+    .card-title { font-weight: 600; font-size: 1.05rem; color: white; }
+    .card-meta { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+    
+    /* Clickable Buttons reset */
+    .card-click { width: 100%; padding: 0; border: none; text-align: left; background: none; color: inherit; cursor: pointer; }
 
-    /* =========================================
-       5. MODAL / LIGHTBOX (The "Click" Fix)
-       ========================================= */
-    .lightbox {
-      position: fixed; inset: 0; z-index: 2000;
-      display: flex; justify-content: center; align-items: center;
-      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    /* Folder Style */
+    .folder-cover { display: block; position: relative; width: 100%; border: none; padding: 0; background: none; text-align: left; cursor: pointer; }
+    .folder-yt {
+      position: absolute; top: 10px; right: 10px; background: #cc0000; color: white; padding: 4px 10px;
+      font-size: 0.7rem; border-radius: 4px; text-decoration: none; font-weight: 700; z-index: 2;
     }
     
-    .lightbox[aria-hidden="false"] { opacity: 1; pointer-events: auto; }
+    /* Services */
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+    .service { padding: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; transition: 0.3s; }
+    .service:hover { border-color: var(--accent); background: rgba(239,68,68,0.05); }
+    .service-title { font-weight: 700; color: white; margin-bottom: 8px; font-size: 1.1rem; }
+    .service-desc { font-size: 0.85rem; color: var(--muted); }
 
-    .lightbox-backdrop {
-      position: absolute; inset: 0; background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-    }
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .contact-card { padding: 25px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
+    .contact-link { font-size: 1.2rem; color: white; text-decoration: none; font-weight: 700; display: block; margin-top: 5px; }
+    .contact-link:hover { color: var(--accent); }
+    
+    .footer { text-align: center; padding: 40px 0; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--line); margin-top: 40px; }
 
+    /* ===== LIGHTBOX & MODALS ===== */
+    .lightbox { position: fixed; inset: 0; z-index: 1000; display: none; justify-content: center; align-items: center; }
+    .lightbox.is-open { display: flex; }
+    
+    .lightbox-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(15px); }
+    
     .lightbox-panel {
-      position: relative; z-index: 2001;
-      background: #0f0f11;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      width: 90%; max-width: 1000px; max-height: 90vh;
-      display: flex; flex-direction: column;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-      transform: scale(0.95); transition: transform 0.3s ease;
+      position: relative; z-index: 1001; width: 90%; max-width: 1000px; max-height: 90vh;
+      background: #0a0202; border: 1px solid var(--accent); border-radius: 20px;
+      display: flex; flex-direction: column; box-shadow: 0 0 50px rgba(239, 68, 68, 0.2);
     }
     
-    .lightbox[aria-hidden="false"] .lightbox-panel { transform: scale(1); }
+    .lightbox-close {
+      position: absolute; top: 15px; right: 15px; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; z-index: 10;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: var(--accent); }
 
-    .lightbox-head {
-      padding: 20px; border-bottom: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center;
-    }
+    .lightbox-media { flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; background: black; border-radius: 20px 20px 0 0; }
+    .lightbox-media img { max-width: 100%; max-height: 80vh; object-fit: contain; }
     
-    .lightbox-title { font-weight: 700; font-size: 1.2rem; font-family: 'Space Grotesk', sans-serif; }
-    .lightbox-close { 
-        background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 5px; 
-        transition: color 0.2s;
-    }
-    .lightbox-close:hover { color: var(--glow-primary); }
+    .lightbox-foot { padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); background: #110505; border-radius: 0 0 20px 20px; }
+    
+    /* Folder Modal Specifics */
+    .folder-panel .folder-scroll { overflow-y: auto; padding: 20px; }
+    .folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .folder-head { padding: 15px 20px; border-bottom: 1px solid var(--line); font-size: 1.2rem; font-weight: 700; color: var(--accent); }
 
-    /* Scrollable Area */
-    .folder-scroll { overflow-y: auto; padding: 24px; }
-    
-    /* Grid inside Modal */
-    .modal-grid { 
-        display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; 
-    }
-
-    /* Video Embeds */
-    .video-box {
-        position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border);
-        background: #000;
-    }
-    .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-    
-    /* Instagram specific */
+    /* Video Embeds in Folder */
+    .video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: black; }
+    .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     .ig-box { padding-bottom: 120%; } /* Taller for reels */
 
-    /* Contact Section */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .contact-card {
-        padding: 40px; background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-        border: 1px solid var(--border); border-radius: 20px;
+    /* Tooltip */
+    .tooltip {
+      position: fixed; pointer-events: none; z-index: 2000; padding: 8px 12px; background: rgba(0,0,0,0.9);
+      border: 1px solid var(--accent); border-radius: 8px; color: white; font-size: 0.8rem; display: none;
+      box-shadow: 0 0 15px var(--glow-strong);
     }
-    .contact-card:hover { border-color: var(--glow-primary); }
-    .contact-val { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; display: block; margin-top: 10px; }
 
+    /* Responsive */
     @media (max-width: 768px) {
-        .glow-text { font-size: 2.8rem; }
-        .contact-grid { grid-template-columns: 1fr; }
-        .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-right { display: none; }
+      .grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .headline { font-size: 2.5rem; }
+      .sub { margin: 20px auto; }
+      .actions { justify-content: center; }
+      .stats { justify-content: center; }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="wrap nav-inner">
-      <a href="#" class="brand">
-        <img src="230.png" class="brand-avatar" alt="MM">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#home">
+        <img class="brand-avatar" src="230.png" alt="MM">
         <div class="brand-text">
-            <span class="brand-name">Moukaddem.</span>
-            <span class="brand-role">Visual Artist</span>
+          <span class="brand-name">Mohamed Moukaddem</span>
+          <span class="brand-role">Creative Video Editor</span>
         </div>
       </a>
-      <nav class="nav-links">
+
+      <nav class="nav">
         <a href="#design">Design</a>
         <a href="#editing">Editing</a>
-        <a href="#client">Clients</a>
+        <a href="#client">Client Work</a>
+        <a href="#contact">Contact</a>
+        
+        <a href="#" class="nav-cv" data-open-cv="1" aria-label="Open CV">CV</a>
       </nav>
-      <a href="#contact" class="cta-btn">Hire Me</a>
+
+      <a class="cta" href="#contact">Hire Me</a>
     </div>
   </header>
 
-  <main>
+  <main id="home">
     <section class="hero">
-      <div class="wrap">
-        <div class="tag" style="color: var(--glow-primary); margin-bottom: 20px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">● Available for Freelance</div>
-        <h1 class="glow-text">Cinematic Visuals <br> That Demand Attention.</h1>
-        <p>I craft high-impact video edits and premium graphic designs tailored for brands that refuse to blend in.</p>
-        <div style="display: flex; gap: 15px;">
-             <a href="#editing" class="cta-btn" style="padding: 15px 40px; font-size: 1rem;">See My Work</a>
+      <div class="wrap hero-inner">
+        <div class="hero-left">
+          <div class="tag">● AVAILABLE FOR FREELANCE</div>
+          <h1 class="headline">Cinematic edits & modern visuals.</h1>
+          <p class="sub">
+            I craft high-impact video edits, brand visuals, and motion-ready content designed for social platforms.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="#editing">View Editing</a>
+            <a class="btn ghost" href="#design">View Design</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-num">Fast</div>
+              <div class="stat-label">Delivery</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">Clean</div>
+              <div class="stat-label">Cuts + Timing</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">Sharp</div>
+              <div class="stat-label">Visual Style</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-top">
+              <div class="dot red"></div>
+              <div class="dot yellow"></div>
+              <div class="dot green"></div>
+              <div class="hero-card-title">Showreel Preview</div>
+            </div>
+            <div class="hero-card-body">
+              <div class="preview">
+                <div class="play"></div>
+                <div class="preview-text">
+                  <div class="preview-title">Watch Reel</div>
+                  <div class="preview-sub">Cinematic & Dynamic Cuts</div>
+                </div>
+              </div>
+              <div class="chips">
+                <span class="chip">Color Grading</span>
+                <span class="chip">Sound Design</span>
+                <span class="chip">Motion</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -248,264 +362,378 @@
     <section id="design" class="section">
       <div class="wrap">
         <div class="section-head">
-            <h2>Selected Designs</h2>
-            <p style="color: var(--text-muted);">High-resolution artboards & identities.</p>
+          <h2>Design</h2>
+          <p>Click a project to preview.</p>
         </div>
-        
+
         <div class="grid">
           <button class="card card-click" type="button" data-preview="5.png" data-title="Saudi National Day">
-            <div style="position: relative;">
-                <img src="5.png" alt="Saudi National Day">
-                <div class="folder-icon-overlay"><i class="ri-fullscreen-line"></i> View</div>
-            </div>
-            <div class="card-body">
+            <img src="5.png" alt="Saudi National Day design">
+            <div class="card-foot">
               <div class="card-title">Saudi National Day</div>
-              <div class="card-meta"><i class="ri-brush-line"></i> Poster Design</div>
+              <div class="card-meta">Poster / Visual</div>
             </div>
           </button>
 
-          <button class="card card-click" type="button" data-preview="1.png" data-title="Brand Identity">
-            <div style="position: relative;">
-                <img src="1.png" alt="Brand Identity">
-                <div class="folder-icon-overlay"><i class="ri-fullscreen-line"></i> View</div>
-            </div>
-            <div class="card-body">
-              <div class="card-title">Visual Identity</div>
-              <div class="card-meta"><i class="ri-vip-diamond-line"></i> Branding</div>
+          <button class="card card-click" type="button" data-preview="1.png" data-title="Creative Visual Identity">
+            <img src="1.png" alt="Creative Visual Identity">
+            <div class="card-foot">
+              <div class="card-title">Creative Visual Identity</div>
+              <div class="card-meta">Brand / Identity</div>
             </div>
           </button>
 
           <button class="card card-click" type="button" data-preview="me.png" data-title="Course Design">
-            <div style="position: relative;">
-                <img src="me.png" alt="Course Design">
-                <div class="folder-icon-overlay"><i class="ri-fullscreen-line"></i> View</div>
-            </div>
-            <div class="card-body">
+            <img src="me.png" alt="Course Design">
+            <div class="card-foot">
               <div class="card-title">Course Design</div>
-              <div class="card-meta"><i class="ri-book-open-line"></i> Education</div>
+              <div class="card-meta">Visual System</div>
             </div>
           </button>
         </div>
       </div>
     </section>
 
-    <section id="editing" class="section" style="background: linear-gradient(to bottom, var(--bg-deep), #08080a);">
+    <section id="editing" class="section">
       <div class="wrap">
         <div class="section-head">
-            <h2>Video Editing</h2>
-            <p style="color: var(--text-muted);">Click a folder to reveal projects.</p>
+          <h2>Editing</h2>
+          <p>Open a folder to view videos.</p>
         </div>
-        
+
         <div class="grid">
-            <button class="card card-click" type="button" data-open-folder="sebastien">
-                <div style="position: relative;">
-                    <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sebastien">
-                    <div class="folder-icon-overlay"><i class="ri-folder-open-fill"></i> 10+ Videos</div>
-                </div>
-                <div class="card-body">
-                    <div class="card-title">Sébastien Koubar</div>
-                    <div class="card-meta"><i class="ri-youtube-fill"></i> Long-form Editing</div>
-                </div>
+          <div class="card folder-card">
+            <button class="folder-cover" type="button" data-open-folder="sebastien">
+              <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sebastien">
+              <div class="card-foot">
+                <div class="card-title">Sébastien Koubar</div>
+                <div class="card-meta">Long-form Videos</div>
+              </div>
             </button>
+            <a class="folder-yt" href="https://www.youtube.com/" target="_blank">YouTube</a>
+          </div>
 
-            <button class="card card-click" type="button" data-open-folder="hisham-ghanem-library">
-                <div style="position: relative;">
-                    <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham">
-                    <div class="folder-icon-overlay"><i class="ri-folder-open-fill"></i> Reels</div>
-                </div>
-                <div class="card-body">
-                    <div class="card-title">Hisham Ghanem</div>
-                    <div class="card-meta"><i class="ri-instagram-line"></i> Instagram Reels</div>
-                </div>
+          <div class="card folder-card">
+            <button class="folder-cover" type="button" data-open-folder="hisham-ghanem-library">
+              <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham">
+              <div class="card-foot">
+                <div class="card-title">hisham.ghanem.library</div>
+                <div class="card-meta">Instagram Reels</div>
+              </div>
             </button>
+          </div>
 
-            <button class="card card-click" type="button" data-open-folder="oqunet-editing">
-                <div style="position: relative;">
-                    <img src="logo-01.png" alt="Oqunet">
-                    <div class="folder-icon-overlay"><i class="ri-folder-open-fill"></i> Promo</div>
-                </div>
-                <div class="card-body">
-                    <div class="card-title">Oqunet Software</div>
-                    <div class="card-meta"><i class="ri-code-box-line"></i> Tech Promo</div>
-                </div>
+          <div class="card folder-card">
+            <button class="folder-cover" type="button" data-open-folder="oqunet-editing">
+              <img src="logo-01.png" alt="Oqunet">
+              <div class="card-foot">
+                <div class="card-title">Oqunet Software</div>
+                <div class="card-meta">Tech Promo</div>
+              </div>
             </button>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="client" class="section">
-        <div class="wrap">
-            <div class="section-head">
-                <h2>Client Work</h2>
-            </div>
-            <div class="grid">
-                 <button class="card card-click" type="button" data-open-folder="client-intellident">
-                    <div style="position: relative;">
-                        <img src="logo (2).png" alt="Intellident">
-                        <div class="folder-icon-overlay"><i class="ri-briefcase-4-fill"></i> Projects</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-title">Intellident Clinic</div>
-                        <div class="card-meta">Social Media & Branding</div>
-                    </div>
-                </button>
-                
-                 <button class="card card-click" type="button" data-open-folder="client-marketing-maven">
-                    <div style="position: relative;">
-                        <img src="market maven logo.png" alt="Maven">
-                        <div class="folder-icon-overlay"><i class="ri-briefcase-4-fill"></i> Projects</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-title">Marketing Maven</div>
-                        <div class="card-meta">Artboards & Ads</div>
-                    </div>
-                </button>
-            </div>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Client Work</h2>
         </div>
+        <div class="grid">
+          <div class="card folder-card">
+            <button class="folder-cover" type="button" data-open-folder="client-intellident">
+              <img src="logo (2).png" alt="Intellident">
+              <div class="card-foot">
+                <div class="card-title">Intellident Clinic</div>
+                <div class="card-meta">Design & Social</div>
+              </div>
+            </button>
+          </div>
+
+          <div class="card folder-card">
+            <button class="folder-cover" type="button" data-open-folder="client-oqunet">
+              <img src="logo-01.png" alt="Oqunet">
+              <div class="card-foot">
+                <div class="card-title">Oqunet Software</div>
+                <div class="card-meta">Campaigns</div>
+              </div>
+            </button>
+          </div>
+
+          <div class="card folder-card">
+            <button class="folder-cover" type="button" data-open-folder="client-marketing-maven">
+              <img src="market maven logo.png" alt="Maven">
+              <div class="card-foot">
+                <div class="card-title">The Marketing Maven</div>
+                <div class="card-meta">Artboards</div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="wrap">
+        <div class="section-head"><h2>Services</h2></div>
+        <div class="services">
+          <div class="service">
+            <div class="service-title">Video Editing</div>
+            <div class="service-desc">Pacing, cuts, and retention-focused editing.</div>
+          </div>
+          <div class="service">
+            <div class="service-title">Color Grading</div>
+            <div class="service-desc">Cinematic look and consistent tones.</div>
+          </div>
+          <div class="service">
+            <div class="service-title">Motion Graphics</div>
+            <div class="service-desc">Intros, lower thirds, and titles.</div>
+          </div>
+          <div class="service">
+            <div class="service-title">Graphic Design</div>
+            <div class="service-desc">Posters, thumbnails, and identities.</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="contact" class="section">
-        <div class="wrap">
-            <div class="section-head"><h2>Let's Work Together</h2></div>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div style="color: var(--text-muted);">Email Me</div>
-                    <a href="mailto:hamoudizzico102@outlook.com" class="contact-val">hamoudizzico102@outlook.com</a>
-                </div>
-                <div class="contact-card">
-                    <div style="color: var(--text-muted);">Call Me</div>
-                    <a href="tel:+96170577697" class="contact-val">+961 70 577 697</a>
-                </div>
-            </div>
+      <div class="wrap">
+        <div class="section-head"><h2>Contact</h2></div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="label">Email</div>
+            <a class="contact-link" href="mailto:hamoudizzico102@outlook.com">hamoudizzico102@outlook.com</a>
+          </div>
+          <div class="contact-card">
+            <div class="label">Phone</div>
+            <a class="contact-link" href="tel:+96170577697">+961 70 577 697</a>
+          </div>
         </div>
+        <div class="note" style="margin-top: 20px; color: var(--muted);">For editing work, send me your Unlisted YouTube link.</div>
+      </div>
     </section>
+
+    <footer class="footer">
+      <div class="wrap">© 2025 Mohamed Moukaddem. All rights reserved.</div>
+    </footer>
+
   </main>
 
-  <div class="lightbox" id="main-lightbox" aria-hidden="true">
-      <div class="lightbox-backdrop" data-close="true"></div>
-      
-      <div class="lightbox-panel">
-          <div class="lightbox-head">
-              <div class="lightbox-title" id="lb-title">Gallery</div>
-              <button class="lightbox-close" data-close="true"><i class="ri-close-line"></i></button>
-          </div>
-          
-          <div class="folder-scroll">
-              <div id="lb-content" style="width: 100%;"></div>
-          </div>
-      </div>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-close="1"></div>
+    <div class="lightbox-panel">
+      <button class="lightbox-close" data-close="1">×</button>
+      <div class="lightbox-media"><img id="lightboxImg" src=""></div>
+      <div class="lightbox-foot"><div class="lightbox-title" id="lightboxTitle"></div></div>
+    </div>
   </div>
 
+  <div class="lightbox" id="folderbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-folder-close="1"></div>
+    <div class="lightbox-panel folder-panel">
+      <div class="folder-head">
+        <span id="folderTitle">Folder</span>
+        <button class="lightbox-close" data-folder-close="1" style="position:static; float:right;">×</button>
+      </div>
+      <div class="folder-scroll">
+        <div class="folder-body">
+          <div class="grid folder-grid" id="folderContent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="cvbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-cv-close="1"></div>
+    <div class="lightbox-panel cv-panel">
+      <div class="folder-head">
+        <span>Mohamed Moukaddem — CV</span>
+        <button class="lightbox-close" data-cv-close="1" style="position:static; float:right;">×</button>
+      </div>
+      <div class="folder-scroll">
+         <iframe class="video-box" style="height:80vh;" src="Mohamad Mokaddem CV 2025 (1).pdf"></iframe>
+      </div>
+    </div>
+  </div>
 
   <template id="tpl-sebastien">
-      <div class="modal-grid">
-        <article class="card">
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" frameborder="0" allowfullscreen></iframe></div>
-            <div class="card-body" style="padding:15px;"><div class="card-title" style="font-size:1rem;">How Booking manipulates you</div></div>
-        </article>
-        <article class="card">
-            <div class="video-box"><iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" frameborder="0" allowfullscreen></iframe></div>
-            <div class="card-body" style="padding:15px;"><div class="card-title" style="font-size:1rem;">Ryanair Dark Truth</div></div>
-        </article>
-        </div>
-  </template>
+    <article class="card video" style="cursor:default;">
+      <div class="video-box"><iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" allowfullscreen></iframe></div>
+      <div class="card-foot"><div class="card-title">How Booking manipulates you</div></div>
+    </article>
+    <article class="card video" style="cursor:default;">
+      <div class="video-box"><iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" allowfullscreen></iframe></div>
+      <div class="card-foot"><div class="card-title">Ryanair: The dark truth</div></div>
+    </article>
+    </template>
 
   <template id="tpl-hisham-ghanem-library">
-      <div class="modal-grid">
-         <article class="card">
-            <div class="video-box ig-box"><iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed/" frameborder="0"></iframe></div>
-         </article>
-         <article class="card">
-            <div class="video-box ig-box"><iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed/" frameborder="0"></iframe></div>
-         </article>
-      </div>
+    <article class="card video ig"><div class="video-box ig-box"><iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed/"></iframe></div></article>
+    <article class="card video ig"><div class="video-box ig-box"><iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed/"></iframe></div></article>
   </template>
 
   <template id="tpl-oqunet-editing">
-      <div class="modal-grid">
-         <article class="card">
-            <div class="video-box ig-box"><iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed/" frameborder="0"></iframe></div>
-         </article>
-      </div>
+    <article class="card video ig"><div class="video-box ig-box"><iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed/"></iframe></div></article>
   </template>
 
   <template id="tpl-client-intellident">
-      <div class="modal-grid">
-          <img src="logo (2).png" style="border-radius:12px; width:100%;">
-          <img src="caro 3-4.png" style="border-radius:12px; width:100%;">
-          <img src="MOTHER.png" style="border-radius:12px; width:100%;">
-      </div>
+    <div class="card"><img src="logo (2).png"><div class="card-foot"><div class="card-title">Brand Cover</div></div></div>
+    <div class="card"><img src="caro 3-4.png"><div class="card-foot"><div class="card-title">Brand Launch</div></div></div>
+    <div class="card"><img src="MOTHER.png"><div class="card-foot"><div class="card-title">Awareness</div></div></div>
+  </template>
+
+  <template id="tpl-client-oqunet">
+    <div class="card"><img src="logo-01.png"><div class="card-foot"><div class="card-title">Brand Cover</div></div></div>
+    <div class="card"><img src="labor day.png"><div class="card-foot"><div class="card-title">Labor Day</div></div></div>
   </template>
 
   <template id="tpl-client-marketing-maven">
-      <div class="modal-grid">
-          <img src="Artboard 1.png" style="border-radius:12px; width:100%;">
-          <img src="Artboard 2.png" style="border-radius:12px; width:100%;">
-          <img src="Artboard 3.png" style="border-radius:12px; width:100%;">
-      </div>
+     <div class="card"><img src="Artboard 1.png"><div class="card-foot"><div class="card-title">Artboard 1</div></div></div>
+     <div class="card"><img src="Artboard 2.png"><div class="card-foot"><div class="card-title">Artboard 2</div></div></div>
   </template>
 
-
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const lightbox = document.getElementById('main-lightbox');
-        const lbContent = document.getElementById('lb-content');
-        const lbTitle = document.getElementById('lb-title');
+    // prevent background scroll when modal open
+    function lock(){ document.body.classList.add('modal-open'); }
+    function unlock(){ document.body.classList.remove('modal-open'); }
+
+    // ===== Design/Preview Lightbox =====
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbTitle = document.getElementById('lightboxTitle');
+
+    function openLightbox(src, title){
+      lbImg.src = src;
+      lbTitle.textContent = title || "";
+      lb.classList.add('is-open');
+      lb.setAttribute('aria-hidden', 'false');
+      lock();
+    }
+
+    function closeLightbox(){
+      lb.classList.remove('is-open');
+      lb.setAttribute('aria-hidden', 'true');
+      unlock();
+      setTimeout(() => { lbImg.src = ""; lbTitle.textContent = ""; }, 150);
+    }
+
+    // ===== Folder Lightbox =====
+    const fb = document.getElementById('folderbox');
+    const folderTitle = document.getElementById('folderTitle');
+    const folderContent = document.getElementById('folderContent');
+
+    function setFolder(key){
+      const tpl = document.getElementById(`tpl-${key}`);
+      if(!tpl) return;
+      
+      const titles = {
+        "sebastien": "Sébastien Koubar",
+        "hisham-ghanem-library": "hisham.ghanem.library",
+        "oqunet-editing": "Oqunet Software",
+        "client-intellident": "Intellident Dental Clinic",
+        "client-oqunet": "Oqunet Software",
+        "client-marketing-maven": "The Marketing Maven"
+      };
+
+      folderTitle.textContent = titles[key] || "Folder";
+      folderContent.innerHTML = "";
+      folderContent.appendChild(tpl.content.cloneNode(true));
+    }
+
+    function openFolder(key){
+      setFolder(key);
+      fb.classList.add('is-open');
+      fb.setAttribute('aria-hidden','false');
+      lock();
+    }
+
+    function closeFolder(){
+      fb.classList.remove('is-open');
+      fb.setAttribute('aria-hidden','true');
+      unlock();
+      // stop videos
+      fb.querySelectorAll('iframe').forEach(f => {
+        const src = f.getAttribute('src');
+        f.setAttribute('src', src);
+      });
+      setTimeout(() => { folderContent.innerHTML = ""; }, 150);
+    }
+
+    // ===== CV Lightbox =====
+    const cvBox = document.getElementById('cvbox');
+    const navCv = document.querySelector('.nav-cv');
+
+    function openCV(){
+      cvBox.classList.add('is-open');
+      cvBox.setAttribute('aria-hidden','false');
+      lock();
+      if(navCv) navCv.classList.add('is-open'); 
+    }
+
+    function closeCV(){
+      cvBox.classList.remove('is-open');
+      cvBox.setAttribute('aria-hidden','true');
+      unlock();
+      if(navCv) navCv.classList.remove('is-open');
+    }
+
+    // ===== Global Event Listener =====
+    document.addEventListener('click', (e) => {
+      // CV
+      if(e.target.closest('[data-open-cv="1"]')){
+        e.preventDefault(); openCV(); return;
+      }
+      // Preview Image
+      const previewBtn = e.target.closest('[data-preview]');
+      if(previewBtn){
+        e.preventDefault();
+        openLightbox(previewBtn.getAttribute('data-preview'), previewBtn.getAttribute('data-title'));
+        return;
+      }
+      // Open Folder
+      const folderBtn = e.target.closest('[data-open-folder]');
+      if(folderBtn){
+        e.preventDefault();
+        openFolder(folderBtn.getAttribute('data-open-folder'));
+        return;
+      }
+      // Closers
+      if (e.target.closest('[data-close="1"]')) { closeLightbox(); }
+      if (e.target.closest('[data-folder-close="1"]')) { closeFolder(); }
+      if (e.target.closest('[data-cv-close="1"]')) { closeCV(); }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCV(); closeFolder(); closeLightbox();
+      }
+    });
+
+    // Tooltip Logic
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    document.body.appendChild(tooltip);
+
+    document.addEventListener('mouseover', (e) => {
+        const target = e.target.closest('[data-title], [aria-label], .card');
+        if(!target) { tooltip.style.display = 'none'; return; }
         
-        // Function to open Lightbox
-        function openModal(title, content) {
-            lbTitle.textContent = title;
-            lbContent.innerHTML = ''; // Clear previous
-            lbContent.appendChild(content);
-            lightbox.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // Stop background scroll
+        let text = target.getAttribute('data-title') || target.getAttribute('aria-label');
+        if(!text && target.classList.contains('card')) text = "Click to View";
+        
+        if(text) {
+            tooltip.textContent = text;
+            tooltip.style.display = 'block';
         }
+    });
 
-        // Function to close Lightbox
-        function closeModal() {
-            lightbox.setAttribute('aria-hidden', 'true');
-            lbContent.innerHTML = ''; // Stop videos from playing
-            document.body.style.overflow = '';
-        }
-
-        // Global Click Listener (Event Delegation)
-        document.body.addEventListener('click', (e) => {
-            const target = e.target.closest('.card-click, [data-close="true"]');
-            if (!target) return;
-
-            // 1. Close Button
-            if (target.dataset.close === "true") {
-                closeModal();
-                return;
-            }
-
-            // 2. Open Folder
-            if (target.dataset.openFolder) {
-                const folderId = target.dataset.openFolder;
-                const template = document.getElementById(`tpl-${folderId}`);
-                if (template) {
-                    const clone = template.content.cloneNode(true);
-                    // Find card title for modal header
-                    const title = target.querySelector('.card-title')?.textContent || 'Folder';
-                    openModal(title, clone);
-                }
-            }
-
-            // 3. Open Single Image Preview
-            if (target.dataset.preview) {
-                const img = document.createElement('img');
-                img.src = target.dataset.preview;
-                img.style.width = '100%';
-                img.style.borderRadius = '12px';
-                img.style.boxShadow = '0 0 30px rgba(0,0,0,0.5)';
-                openModal(target.dataset.title || 'Preview', img);
-            }
-        });
-
-        // Close on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-        });
+    document.addEventListener('mousemove', (e) => {
+        tooltip.style.left = (e.clientX + 15) + 'px';
+        tooltip.style.top = (e.clientY + 15) + 'px';
     });
   </script>
 
