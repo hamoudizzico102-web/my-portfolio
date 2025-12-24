@@ -1,33 +1,51 @@
-// --- 1. SIMPLE CURSOR ---
-const cursor = document.querySelector('.cursor');
+// --- 1. TECH RING CURSOR ---
+const dot = document.querySelector('.cursor-dot');
+const outline = document.querySelector('.cursor-outline');
+
+let mx = 0, my = 0; // Mouse Pos
+let ox = 0, oy = 0; // Outline Pos
 
 window.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+    mx = e.clientX;
+    my = e.clientY;
+    
+    // Dot follows instantly
+    dot.style.left = mx + 'px';
+    dot.style.top = my + 'px';
 });
 
+function animateCursor() {
+    // Outline follows with lag
+    ox += (mx - ox) * 0.15;
+    oy += (my - oy) * 0.15;
+    
+    outline.style.left = ox + 'px';
+    outline.style.top = oy + 'px';
+    
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Hover Effects
 document.querySelectorAll('a, button, .card-3d').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
+    el.addEventListener('mouseenter', () => outline.classList.add('hover'));
+    el.addEventListener('mouseleave', () => outline.classList.remove('hover'));
 });
 
-// --- 2. 3D TILT EFFECT LOGIC ---
+// --- 2. 3D TILT EFFECT ---
 document.querySelectorAll('.card-3d').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const content = card.querySelector('.card-content');
         const rect = card.getBoundingClientRect();
         
-        // Calculate mouse position relative to card center
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
         
-        // Rotate based on mouse position (Sensitivity: 20)
         content.style.transform = `rotateY(${x / 20}deg) rotateX(${-y / 20}deg)`;
     });
 
     card.addEventListener('mouseleave', () => {
         const content = card.querySelector('.card-content');
-        // Reset position
         content.style.transform = `rotateY(0) rotateX(0)`;
     });
 });
@@ -48,24 +66,15 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// --- 4. LIGHTBOX LOGIC ---
+// --- 4. LIGHTBOX & CV ---
 function openImage(src) {
     document.getElementById('lb-img').src = src;
     document.getElementById('lightbox').classList.add('active');
 }
-
-function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-}
-
-// --- 5. CV LOGIC ---
+function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); }
 function openCV() { document.getElementById('cv-modal').classList.add('active'); }
 function closeCV() { document.getElementById('cv-modal').classList.remove('active'); }
 
 window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape') {
-        closeModal();
-        closeLightbox();
-        closeCV();
-    }
+    if(e.key === 'Escape') { closeModal(); closeLightbox(); closeCV(); }
 });
