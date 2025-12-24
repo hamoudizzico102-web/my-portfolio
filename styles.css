@@ -2,33 +2,46 @@
     --bg: #030303;
     --text: #ffffff;
     --blue: #0066ff;
-    --blue-glow: rgba(0, 102, 255, 0.3);
-    --grid-line: rgba(255, 255, 255, 0.04);
+    --blue-glow: rgba(0, 102, 255, 0.6);
+    --grid-color: rgba(255, 255, 255, 0.05);
     --font: 'Outfit', sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
+* { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text); font-family: var(--font); overflow-x: hidden; }
 
-/* 1. THE SQUARE GRID BACKGROUND */
+/* 1. FIXED BACKGROUND SYSTEM */
 .grid-bg {
     position: fixed; inset: 0; z-index: -2;
     background-size: 50px 50px;
     background-image: 
-        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+        linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
 }
 
-/* 2. BLUE GLOW FOLLOWING MOUSE */
-.mouse-glow {
-    position: fixed; width: 400px; height: 400px;
-    background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%);
-    transform: translate(-50%, -50%); pointer-events: none; z-index: -1;
-    transition: width 0.2s, height 0.2s; /* Smooth visual */
+.fixed-glow {
+    position: fixed; top: 50%; left: 50%; 
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: -3;
+    pointer-events: none;
+    animation: pulseGlow 5s infinite alternate;
 }
 
-/* 3. NAVBAR */
+@keyframes pulseGlow { from { opacity: 0.8; } to { opacity: 0.5; } }
+
+/* 2. INVERTED CURSOR */
+.cursor {
+    position: fixed; width: 25px; height: 25px; background: white;
+    border-radius: 50%; pointer-events: none; z-index: 10000;
+    mix-blend-mode: difference; transition: transform 0.1s ease;
+}
+.cursor.grow { transform: scale(3); }
+
+/* 3. NAV */
 .navbar {
     position: fixed; top: 0; width: 100%; padding: 25px 5%; z-index: 1000;
     display: flex; justify-content: space-between; align-items: center;
@@ -53,23 +66,28 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 .hero { height: 90vh; display: flex; align-items: center; padding: 0 5%; }
 .hero-content { max-width: 900px; }
 
-/* Text Mask for Slide Effect */
-.text-mask { overflow: hidden; margin-bottom: 5px; }
-.slide-anim {
+/* Mask for Slide Effect */
+.mask { overflow: hidden; margin-bottom: 5px; }
+.slide-up {
     transform: translateY(110%);
-    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: textSlide 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .label-text { color: var(--blue); font-weight: 900; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px; }
-.hero-title { font-size: clamp(4rem, 10vw, 7rem); line-height: 0.9; font-weight: 900; }
-.hero-title.blue { color: transparent; -webkit-text-stroke: 2px var(--blue); }
+.hero-title { font-size: clamp(4rem, 10vw, 7.5rem); line-height: 0.9; font-weight: 900; }
+
+/* THE FIX: SOLID BOLD BLUE TEXT */
+.hero-title.accent-mode {
+    color: var(--blue);
+    text-shadow: 0 0 40px var(--blue-glow);
+}
 
 .hero-sub { color: #888; font-size: 1.2rem; line-height: 1.5; margin-top: 30px; max-width: 500px; }
 .hero-btns { margin-top: 40px; display: flex; gap: 20px; }
 
 .btn { padding: 16px 40px; font-weight: 900; border: none; cursor: pointer; transition: 0.3s; }
 .btn.primary { background: white; color: black; }
-.btn.primary:hover { background: var(--blue); color: white; }
+.btn.primary:hover { background: var(--blue); color: white; box-shadow: 0 0 20px var(--blue-glow); }
 .btn.secondary { background: transparent; color: white; border: 1px solid white; }
 .btn.secondary:hover { background: rgba(255,255,255,0.1); }
 
@@ -81,13 +99,17 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 
 .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
 
-/* 6. SQUARE CARDS WITH GLOW */
+/* 6. CARDS */
 .card {
     background: #080808; border: 1px solid #222;
     padding: 15px; transition: 0.3s; cursor: pointer;
     position: relative; overflow: hidden;
 }
-.card:hover { border-color: var(--blue); box-shadow: 0 0 30px rgba(0, 102, 255, 0.15); transform: translateY(-5px); }
+.card:hover { 
+    border-color: var(--blue); 
+    box-shadow: 0 0 30px rgba(0, 102, 255, 0.15); 
+    transform: translateY(-5px); 
+}
 
 .card-img { height: 240px; overflow: hidden; margin-bottom: 20px; background: #000; }
 .card-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
@@ -108,7 +130,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
     position: relative; width: 90%; max-width: 1000px; height: 85vh;
     background: #050505; border: 1px solid #333;
     display: flex; flex-direction: column;
-    box-shadow: 0 0 50px black;
+    box-shadow: 0 0 60px black;
 }
 .modal-header {
     padding: 20px 30px; border-bottom: 1px solid #222;
@@ -125,16 +147,16 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 .insta iframe { aspect-ratio: 9/16; min-height: 500px; }
 .img-btn img { width: 100%; cursor: pointer; border: 1px solid #333; }
 
-/* MAVEN GRID FIX */
-.maven-grid img { width: 100%; cursor: pointer; border: 1px solid #222; transition: 0.3s; }
+/* MAVEN FULL WIDTH FIX */
+.maven-grid { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+.maven-grid img { width: 100%; max-width: 900px; border: 1px solid #222; cursor: pointer; transition: 0.3s; }
 .maven-grid img:hover { border-color: var(--blue); }
 
-/* 8. LIGHTBOX */
+/* 8. LIGHTBOX & CV */
 .lightbox-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 3000; display: none; justify-content: center; align-items: center; }
 .lightbox-overlay.active { display: flex; }
 #lb-img { max-width: 90%; max-height: 90vh; border: 2px solid var(--blue); }
 
-/* CV */
 .cv-box { max-width: 1000px; height: 95vh; }
 .cv-box iframe { width: 100%; height: 100%; border: none; }
 .close-abs { position: absolute; top: 20px; right: 20px; background: black; color: white; border: 1px solid white; padding: 5px 15px; cursor: pointer; }
@@ -146,7 +168,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 .socials a { color: var(--blue); font-weight: 900; text-decoration: none; font-size: 1.2rem; }
 .copy { color: #444; font-size: 0.8rem; }
 
-@keyframes slideUp { to { transform: translateY(0); } }
+@keyframes textSlide { to { transform: translateY(0); } }
 
 @media (max-width: 768px) {
     .menu { display: none; }
