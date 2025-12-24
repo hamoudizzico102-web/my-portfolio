@@ -26,8 +26,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
     width: 60vw; height: 60vw;
     background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
     transform: translate(-50%, -50%);
-    z-index: -3;
-    pointer-events: none;
+    z-index: -3; pointer-events: none;
     animation: pulseGlow 5s infinite alternate;
 }
 
@@ -62,11 +61,10 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 }
 .cv-btn:hover { background: var(--blue); border-color: var(--blue); }
 
-/* 4. HERO WITH SLIDE TEXT */
+/* 4. HERO WITH SLIDE TEXT & SOLID BOLD */
 .hero { height: 90vh; display: flex; align-items: center; padding: 0 5%; }
 .hero-content { max-width: 900px; }
 
-/* Mask for Slide Effect */
 .mask { overflow: hidden; margin-bottom: 5px; }
 .slide-up {
     transform: translateY(110%);
@@ -75,12 +73,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 
 .label-text { color: var(--blue); font-weight: 900; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px; }
 .hero-title { font-size: clamp(4rem, 10vw, 7.5rem); line-height: 0.9; font-weight: 900; }
-
-/* THE FIX: SOLID BOLD BLUE TEXT */
-.hero-title.accent-mode {
-    color: var(--blue);
-    text-shadow: 0 0 40px var(--blue-glow);
-}
+.hero-title.accent-mode { color: var(--blue); text-shadow: 0 0 40px var(--blue-glow); }
 
 .hero-sub { color: #888; font-size: 1.2rem; line-height: 1.5; margin-top: 30px; max-width: 500px; }
 .hero-btns { margin-top: 40px; display: flex; gap: 20px; }
@@ -97,26 +90,46 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 .num { color: var(--blue); font-weight: 900; font-size: 1.2rem; }
 .sec-head h2 { font-size: 2rem; font-weight: 900; }
 
-.grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+.grid-cards { 
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 40px; perspective: 1000px; /* Essential for 3D */
+}
 
-/* 6. CARDS */
-.card {
+/* 6. 3D CARD SYSTEM */
+.card-3d {
+    position: relative; height: 320px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    cursor: pointer;
+}
+
+.card-content {
+    position: absolute; inset: 0;
     background: #080808; border: 1px solid #222;
-    padding: 15px; transition: 0.3s; cursor: pointer;
-    position: relative; overflow: hidden;
-}
-.card:hover { 
-    border-color: var(--blue); 
-    box-shadow: 0 0 30px rgba(0, 102, 255, 0.15); 
-    transform: translateY(-5px); 
+    padding: 20px;
+    display: flex; flex-direction: column;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out; /* Smooth JS tilt */
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
 }
 
-.card-img { height: 240px; overflow: hidden; margin-bottom: 20px; background: #000; }
-.card-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
-.card:hover img { opacity: 1; transform: scale(1.05); }
+/* Depth for Image */
+.card-img { 
+    height: 200px; overflow: hidden; margin-bottom: 20px; background: #000;
+    transform: translateZ(20px); /* Pushes image forward */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.card-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
 
+/* Depth for Info */
+.card-info { transform: translateZ(30px); /* Pushes text even more forward */ }
 .card-info h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 5px; color: white; }
 .card-info p { color: #666; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; }
+
+/* Hover States (Managed by JS for rotation, CSS for colors) */
+.card-3d:hover .card-content { border-color: var(--blue); box-shadow: 0 20px 50px rgba(0, 102, 255, 0.2); }
+.card-3d:hover img { opacity: 1; transform: scale(1.1); }
+.card-3d:hover .card-info p { color: var(--blue); }
 
 /* 7. MODALS */
 .modal-overlay {
@@ -138,16 +151,12 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 }
 .modal-header h3 { color: var(--blue); font-weight: 900; }
 .modal-header button { background: none; border: 1px solid #555; color: white; padding: 5px 15px; cursor: pointer; }
-
 .modal-body { padding: 30px; overflow-y: auto; flex: 1; }
 
-/* Grid inside modal */
 .grid-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
 .grid-layout iframe { width: 100%; aspect-ratio: 16/9; border: none; background: #000; }
 .insta iframe { aspect-ratio: 9/16; min-height: 500px; }
 .img-btn img { width: 100%; cursor: pointer; border: 1px solid #333; }
-
-/* MAVEN FULL WIDTH FIX */
 .maven-grid { display: flex; flex-direction: column; align-items: center; gap: 30px; }
 .maven-grid img { width: 100%; max-width: 900px; border: 1px solid #222; cursor: pointer; transition: 0.3s; }
 .maven-grid img:hover { border-color: var(--blue); }
