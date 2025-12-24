@@ -25,7 +25,7 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* 2. GLASS NAVBAR */
+/* 2. NAVBAR */
 .navbar {
     position: fixed; top: 0; width: 100%; padding: 18px 5%; z-index: 1000;
     display: flex; justify-content: space-between; align-items: center;
@@ -68,17 +68,49 @@ body {
 }
 
 .hero-content { max-width: 800px; position: relative; z-index: 2; }
+
+/* ANIMATION CLASSES */
+.text-mask { overflow: hidden; display: block; margin-bottom: 5px; }
+
+.slide-text {
+    display: block;
+    transform: translateY(110%);
+    opacity: 0;
+    animation: revealText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: simpleFade 1s ease forwards;
+}
+
+/* Delay Utils */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+.delay-4 { animation-delay: 0.6s; }
+
+/* TEXT STYLES */
 .badge {
     background: rgba(37, 99, 235, 0.2); color: #60a5fa;
     padding: 6px 12px; font-size: 0.75rem; font-weight: 700;
-    display: inline-block; margin-bottom: 20px; border-radius: 4px; letter-spacing: 1.5px;
+    display: inline-block; margin-bottom: 15px; border-radius: 4px; letter-spacing: 1.5px;
 }
 
 .hero-title { 
-    font-family: var(--font-display); font-size: clamp(3.5rem, 9vw, 6rem); 
-    line-height: 0.9; font-weight: 900; margin-bottom: 25px; 
+    font-family: var(--font-display); 
+    font-size: clamp(3.5rem, 9vw, 6rem); 
+    line-height: 0.95; 
+    font-weight: 900; 
+    margin-bottom: 25px; 
 }
-.text-stroke { -webkit-text-stroke: 1.5px white; color: transparent; opacity: 0.9; }
+
+/* THE FIX: SOLID BOLD BLUE TEXT */
+.text-accent {
+    color: var(--accent); /* Solid Blue */
+    text-shadow: 0 0 30px var(--accent-glow); /* Soft Glow */
+    font-weight: 900;
+}
 
 .hero-desc { 
     color: #ccc; font-size: 1.1rem; line-height: 1.6; margin-bottom: 40px; 
@@ -111,10 +143,9 @@ body {
 }
 .row-num { font-size: 1rem; color: var(--accent); font-weight: 900; opacity: 0.8; }
 
-/* Custom Horizontal Scrollbar */
 .scroll-wrapper {
     overflow-x: auto; overflow-y: hidden;
-    padding: 40px 0; margin: -40px 0; /* Creates space for hover pop-out */
+    padding: 40px 0; margin: -40px 0;
     scrollbar-color: #333 transparent; scrollbar-width: thin;
 }
 .scroll-wrapper::-webkit-scrollbar { height: 6px; }
@@ -124,7 +155,7 @@ body {
 
 .tiles-track { display: inline-flex; gap: 12px; padding-right: 5%; }
 
-/* REMASTERED TILES (3D POP) */
+/* TILES (3D POP) */
 .tile-card {
     position: relative; flex-shrink: 0;
     width: 300px; height: 169px; /* 16:9 Aspect */
@@ -148,7 +179,6 @@ body {
 }
 .meta-tags span::before { content: '• '; color: var(--accent); }
 
-/* The Hover Effect */
 .tile-card:hover {
     transform: scale(1.3);
     z-index: 999;
@@ -158,12 +188,12 @@ body {
 .tile-card:hover .card-info { opacity: 1; }
 .tile-card:hover .card-media img { filter: brightness(1.1); }
 
-/* 5. MODALS */
+/* 5. MODALS & OTHERS */
 .modal-overlay {
     position: fixed; inset: 0; z-index: 2000; display: none;
     justify-content: center; align-items: center;
 }
-.modal-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
+.modal-overlay.active { display: flex; animation: simpleFade 0.3s ease; }
 .backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
 
 .modal-panel {
@@ -186,11 +216,10 @@ body {
 .insta iframe { aspect-ratio: 9/16; min-height: 550px; }
 .img-btn img { width: 100%; cursor: pointer; border-radius: 6px; transition: 0.3s; }
 .img-btn img:hover { filter: brightness(1.1); }
-
 .maven-grid { display: flex; flex-direction: column; align-items: center; gap: 30px; }
 .maven-grid img { width: 100%; max-width: 900px; border: 1px solid #222; cursor: pointer; }
 
-/* 6. LIGHTBOX & CV */
+/* Lightbox & CV */
 .lightbox-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 3000; display: none; justify-content: center; align-items: center; }
 .lightbox-overlay.active { display: flex; }
 #lb-img { max-width: 95%; max-height: 95vh; box-shadow: 0 0 40px rgba(0,0,0,0.5); border-radius: 4px; }
@@ -203,16 +232,20 @@ body {
     border-radius: 50px; font-weight: 700; cursor: pointer;
 }
 
-/* 7. FOOTER */
+/* Footer */
 .footer { padding: 80px 5%; text-align: center; color: #555; border-top: 1px solid #222; margin-top: 50px; }
 .socials { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
 .socials a { color: #888; text-decoration: none; font-weight: 600; transition: 0.3s; }
 .socials a:hover { color: var(--accent); }
 .copyright { font-size: 0.75rem; letter-spacing: 1px; }
 
-@keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+/* Keyframes */
+@keyframes revealText { from { transform: translateY(110%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes simpleFade { from { opacity: 0; } to { opacity: 1; } }
 
 @media (max-width: 768px) {
     .hero-title { font-size: 3rem; }
     .nav-links { display: none; }
-    .tile-card {
+    .tile-card { width: 240px; height: 135px; }
+    .tile-card:hover { transform: scale(1.15); }
+}
