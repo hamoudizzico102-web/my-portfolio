@@ -1,46 +1,30 @@
-// --- 1. DYNAMIC CURSOR ---
-const dot = document.querySelector('.cursor-dot');
-const ring = document.querySelector('.cursor-ring');
-
-let mouseX = 0, mouseY = 0;
-let ringX = 0, ringY = 0;
+// --- 1. DIFFERENCE CURSOR LOGIC ---
+const cursor = document.querySelector('.cursor');
 
 window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    
-    // Dot moves instantly
-    dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    // Immediate movement, no lag
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
 });
 
-function animateCursor() {
-    // Lerp for smooth ring movement (0.15 = speed)
-    ringX += (mouseX - ringX) * 0.15;
-    ringY += (mouseY - ringY) * 0.15;
-    
-    ring.style.transform = `translate(${ringX - 20}px, ${ringY - 20}px)`;
-    requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-// Hover Effects
-document.querySelectorAll('.magnetic-link, .cinematic-card, button').forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('hover-active'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('hover-active'));
+// Hover Grow Effect
+document.querySelectorAll('.link-hover').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
 });
 
-// --- 2. MODAL SYSTEM ---
-function openModal(templateId, title) {
-    const tpl = document.getElementById(templateId);
+// --- 2. MODAL LOGIC (FIXED SIZE) ---
+function openModal(id, title) {
+    const tpl = document.getElementById(id);
     const content = document.getElementById('modal-content');
     
-    // Clean & Inject
+    // Clear & Inject
     content.innerHTML = '';
     content.appendChild(tpl.content.cloneNode(true));
     
     document.getElementById('modal-title').innerText = title;
     document.getElementById('modal').classList.add('active');
-    document.body.style.overflow = 'hidden'; // Stop scroll
+    document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
@@ -48,7 +32,7 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// --- 3. LIGHTBOX SYSTEM ---
+// --- 3. LIGHTBOX LOGIC ---
 function openImage(src) {
     document.getElementById('lb-img').src = src;
     document.getElementById('lightbox').classList.add('active');
@@ -58,11 +42,11 @@ function closeLightbox() {
     document.getElementById('lightbox').classList.remove('active');
 }
 
-// --- 4. CV SYSTEM ---
+// --- 4. CV LOGIC ---
 function openCV() { document.getElementById('cv-modal').classList.add('active'); }
 function closeCV() { document.getElementById('cv-modal').classList.remove('active'); }
 
-// Close on Escape
+// Escape Key
 window.addEventListener('keydown', (e) => {
     if(e.key === 'Escape') {
         closeModal();
