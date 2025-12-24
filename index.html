@@ -12,84 +12,94 @@
     
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="loading">
+<body>
 
-    <div class="noise"></div>
+    <div class="aura-bg">
+        <div class="aura-1"></div>
+        <div class="aura-2"></div>
+    </div>
     
+    <div class="noise-overlay"></div>
+    <div class="vignette"></div>
+
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursor-follower"></div>
 
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="brand magnetic-item">
-                <span class="brand-initials">MM</span>
-                <span class="brand-full">MOUKADDEM<span class="dot">.</span></span>
+                <span class="brand-text hacker-effect" data-value="MOUKADDEM">MOUKADDEM</span>
+                <span class="dot">.</span>
             </a>
             
             <div class="nav-links">
-                <a href="#editing" class="nav-item magnetic-item"><span>EDITING</span></a>
-                <a href="#design" class="nav-item magnetic-item"><span>DESIGN</span></a>
-                <a href="#client" class="nav-item magnetic-item"><span>CLIENTS</span></a>
+                <a href="#editing" class="nav-item magnetic-item hacker-effect" data-value="EDITING">EDITING</a>
+                <a href="#design" class="nav-item magnetic-item hacker-effect" data-value="DESIGN">DESIGN</a>
+                <a href="#client" class="nav-item magnetic-item hacker-effect" data-value="CLIENTS">CLIENTS</a>
             </div>
 
             <button class="resume-btn magnetic-item" onclick="openCV()">
-                RESUME <i class="ri-arrow-right-up-line"></i>
+                <span class="hacker-effect" data-value="RESUME">RESUME</span>
+                <i class="ri-arrow-right-up-line"></i>
             </button>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <div class="label-wrapper reveal-text">
-                <span class="label">VISUAL DIRECTOR & EDITOR</span>
-                <div class="line"></div>
+            <div class="label-wrapper reveal">
+                <span class="spike-line"></span>
+                <span class="label hacker-effect" data-value="VISUAL DIRECTOR">VISUAL DIRECTOR</span>
             </div>
             
             <h1 class="hero-title">
-                <div class="overflow-hidden"><span class="reveal-up">CRAFTING</span></div>
-                <div class="overflow-hidden"><span class="reveal-up highlight">VISUAL</span></div>
-                <div class="overflow-hidden"><span class="reveal-up">LEGACIES</span></div>
+                <div class="line-mask"><span class="reveal-text glow-text">CRAFTING</span></div>
+                <div class="line-mask"><span class="reveal-text glow-text blue-spike">VISUAL</span></div>
+                <div class="line-mask"><span class="reveal-text glow-text">LEGACIES</span></div>
             </h1>
 
-            <div class="hero-footer reveal-text delay-2">
+            <div class="hero-footer reveal delay-2">
                 <p>Specializing in high-end cinematic content and brand identities.</p>
                 <div class="cta-group">
-                    <button class="btn-primary magnetic-item" onclick="document.getElementById('editing').scrollIntoView()">EXPLORE WORK</button>
-                    <a href="https://wa.me/96170577697" class="btn-ghost magnetic-item">HIRE ME</a>
+                    <button class="btn-primary magnetic-item" onclick="document.getElementById('editing').scrollIntoView()">
+                        <span class="hacker-effect" data-value="EXPLORE WORK">EXPLORE WORK</span>
+                    </button>
+                    <a href="https://wa.me/96170577697" class="btn-ghost magnetic-item">
+                        <span class="hacker-effect" data-value="HIRE ME">HIRE ME</span>
+                    </a>
                 </div>
             </div>
         </div>
-        
-        <div class="hero-gradient"></div>
     </header>
 
     <main>
         <section id="editing" class="section">
-            <div class="section-head">
+            <div class="section-head reveal">
                 <span class="section-number">01</span>
-                <h2 class="section-title">VIDEO EDITING</h2>
+                <h2 class="section-title hacker-effect" data-value="VIDEO EDITING">VIDEO EDITING</h2>
+                <div class="spike-bar"></div>
             </div>
             
-            <div class="gallery-track-wrapper" id="track-editing">
+            <div class="gallery-track-wrapper">
                 <div class="gallery-track">
-                    <div class="card magnetic-item" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
+                    <div class="card magnetic-item reveal-card" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
                         <div class="card-img-box"><img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sébastien"></div>
                         <div class="card-info">
-                            <h3>Sébastien Koubar</h3>
+                            <h3 class="hacker-hover" data-value="Sébastien Koubar">Sébastien Koubar</h3>
                             <p>YouTube Masterclass</p>
                         </div>
                     </div>
-                    <div class="card magnetic-item" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
+                    <div class="card magnetic-item reveal-card delay-1" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
                         <div class="card-img-box"><img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham"></div>
                         <div class="card-info">
-                            <h3>Hisham Ghanem</h3>
+                            <h3 class="hacker-hover" data-value="Hisham Ghanem">Hisham Ghanem</h3>
                             <p>Reels Library</p>
                         </div>
                     </div>
-                    <div class="card magnetic-item" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
+                    <div class="card magnetic-item reveal-card delay-2" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
                         <div class="card-img-box"><img src="logo-01.png" alt="Oqunet"></div>
                         <div class="card-info">
-                            <h3>Oqunet</h3>
+                            <h3 class="hacker-hover" data-value="Oqunet">Oqunet</h3>
                             <p>Tech Promos</p>
                         </div>
                     </div>
@@ -98,48 +108,50 @@
         </section>
 
         <section id="design" class="section">
-            <div class="section-head">
+            <div class="section-head reveal">
                 <span class="section-number">02</span>
-                <h2 class="section-title">BRAND DESIGN</h2>
+                <h2 class="section-title hacker-effect" data-value="BRAND DESIGN">BRAND DESIGN</h2>
+                <div class="spike-bar"></div>
             </div>
             
             <div class="gallery-track-wrapper">
                 <div class="gallery-track">
-                    <div class="card magnetic-item" onclick="openImage('5.png')">
+                    <div class="card magnetic-item reveal-card" onclick="openImage('5.png')">
                         <div class="card-img-box"><img src="5.png" alt="Saudi Day"></div>
-                        <div class="card-info"><h3>Saudi Day</h3><p>Identity</p></div>
+                        <div class="card-info"><h3 class="hacker-hover" data-value="Saudi Day">Saudi Day</h3><p>Identity</p></div>
                     </div>
-                    <div class="card magnetic-item" onclick="openImage('1.png')">
+                    <div class="card magnetic-item reveal-card delay-1" onclick="openImage('1.png')">
                         <div class="card-img-box"><img src="1.png" alt="Identity"></div>
-                        <div class="card-info"><h3>Identity</h3><p>Branding</p></div>
+                        <div class="card-info"><h3 class="hacker-hover" data-value="Identity">Identity</h3><p>Branding</p></div>
                     </div>
-                    <div class="card magnetic-item" onclick="openImage('me.png')">
+                    <div class="card magnetic-item reveal-card delay-2" onclick="openImage('me.png')">
                         <div class="card-img-box"><img src="me.png" alt="Visual Art"></div>
-                        <div class="card-info"><h3>Visual Art</h3><p>Concept</p></div>
+                        <div class="card-info"><h3 class="hacker-hover" data-value="Visual Art">Visual Art</h3><p>Concept</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="client" class="section">
-            <div class="section-head">
+            <div class="section-head reveal">
                 <span class="section-number">03</span>
-                <h2 class="section-title">CLIENT WORK</h2>
+                <h2 class="section-title hacker-effect" data-value="CLIENT WORK">CLIENT WORK</h2>
+                <div class="spike-bar"></div>
             </div>
             
             <div class="gallery-track-wrapper">
                 <div class="gallery-track">
-                    <div class="card magnetic-item" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
+                    <div class="card magnetic-item reveal-card" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
                         <div class="card-img-box"><img src="514064519_17860801818435683_5097951599889091948_n.jpg" alt="TradeSmart"></div>
-                        <div class="card-info"><h3>TradeSmart</h3><p>Crypto Series</p></div>
+                        <div class="card-info"><h3 class="hacker-hover" data-value="TradeSmart">TradeSmart</h3><p>Crypto Series</p></div>
                     </div>
-                    <div class="card magnetic-item" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
+                    <div class="card magnetic-item reveal-card delay-1" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
                         <div class="card-img-box"><img src="logo (2).png" alt="Intellident"></div>
-                        <div class="card-info"><h3>Intellident</h3><p>Medical</p></div>
+                        <div class="card-info"><h3 class="hacker-hover" data-value="Intellident">Intellident</h3><p>Medical</p></div>
                     </div>
-                    <div class="card magnetic-item" onclick="openModal('tpl-maven', 'The Maven')">
+                    <div class="card magnetic-item reveal-card delay-2" onclick="openModal('tpl-maven', 'The Maven')">
                         <div class="card-img-box"><img src="market maven logo.png" alt="Maven"></div>
-                        <div class="card-info"><h3>Marketing Maven</h3><p>Identity</p></div>
+                        <div class="card-info"><h3 class="hacker-hover" data-value="Marketing Maven">Marketing Maven</h3><p>Identity</p></div>
                     </div>
                 </div>
             </div>
@@ -147,11 +159,11 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-inner">
-            <h2 class="footer-title">LET'S BUILD<br>THE FUTURE.</h2>
+        <div class="footer-inner reveal">
+            <h2 class="footer-title">LET'S BUILD<br><span class="blue-spike">THE FUTURE.</span></h2>
             <div class="footer-contact">
-                <a href="mailto:hamoudizzico102@outlook.com" class="magnetic-item">EMAIL</a>
-                <a href="https://wa.me/96170577697" class="magnetic-item">WHATSAPP</a>
+                <a href="mailto:hamoudizzico102@outlook.com" class="magnetic-item hacker-effect" data-value="EMAIL">EMAIL</a>
+                <a href="https://wa.me/96170577697" class="magnetic-item hacker-effect" data-value="WHATSAPP">WHATSAPP</a>
             </div>
             <div class="copyright">
                 © 2025 MOHAMAD MOUKADDEM
@@ -162,7 +174,7 @@
     <div id="modal" class="modal-overlay">
         <div class="modal-container">
             <div class="modal-header">
-                <h3 id="modal-title">PROJECT TITLE</h3>
+                <h3 id="modal-title" class="hacker-effect" data-value="PROJECT">PROJECT</h3>
                 <button class="modal-close magnetic-item" onclick="closeModal()">CLOSE <i class="ri-close-line"></i></button>
             </div>
             <div id="modal-content" class="modal-body"></div>
@@ -185,89 +197,13 @@
         </div>
     </div>
 
-    <template id="tpl-sebastien">
-        <div class="grid-video">
-            <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M"></iframe>
-            <iframe src="https://www.youtube.com/embed/ChGxyGwRdFE"></iframe>
-            <iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307"></iframe>
-            <iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502"></iframe>
-            <iframe src="https://www.youtube.com/embed/SNmD--JxL9k"></iframe>
-            <iframe src="https://www.youtube.com/embed/kKaPwbr9HDY?start=240"></iframe>
-            <iframe src="https://www.youtube.com/embed/6bEAqazXi6o?start=2"></iframe>
-            <iframe src="https://www.youtube.com/embed/quGLWi_C2RE?start=300"></iframe>
-            <iframe src="https://www.youtube.com/embed/KVbUAiagfFQ?start=64"></iframe>
-            <iframe src="https://www.youtube.com/embed/jAARKmDX8ks?start=97"></iframe>
-            <iframe src="https://www.youtube.com/embed/41ZofgY-PyY"></iframe>
-            <iframe src="https://www.youtube.com/embed/ous2-sCWMWU"></iframe>
-            <iframe src="https://www.youtube.com/embed/DqyomfbWu4A"></iframe>
-            <iframe src="https://www.youtube.com/embed/a9mvgDKxnTQ"></iframe>
-            <iframe src="https://www.youtube.com/embed/1g8ozutYC1s"></iframe>
-            <iframe src="https://www.youtube.com/embed/J2AIq5G4qzk"></iframe>
-            <iframe src="https://www.youtube.com/embed/NYKqIV2CT7w"></iframe>
-        </div>
-    </template>
+    <template id="tpl-sebastien"><div class="grid-video"><iframe src="https://www.youtube.com/embed/AzAXmB-KY5M"></iframe><iframe src="https://www.youtube.com/embed/ChGxyGwRdFE"></iframe><iframe src="https://www.youtube.com/embed/SNmD--JxL9k"></iframe></div></template>
+    
+    <template id="tpl-tradesmart"><div class="grid-insta"><iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed"></iframe><iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed"></iframe></div></template>
 
-    <template id="tpl-tradesmart">
-        <div class="grid-insta">
-            <iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIB2ZyjIC2Q/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIJfDAtoeQ5/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIJuMPaILTR/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIO0tHQoGbO/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIO01hTIHes/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIRakq8oFtI/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIReQ2-M59X/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIgaq5IMfDc/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIjXmIbIRF9/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIlfnnxslQf/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DI6JJYqspJA/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DJCYpU4sgng/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DJEuB9tMfDN/embed"></iframe>
-        </div>
-    </template>
-
-    <template id="tpl-intellident">
-        <div class="grid-insta">
-            <iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHBxGX8t-pa/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHG8d64tvJW/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHJeaH3tFoO/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHOihUVtI5Z/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHbXC8tNPBq/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHoPqwtt-gC/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHtbQX2tn9z/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHvvma5tA_A/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHyb_4CtX-o/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DH6JLv4NXQs/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIBpi3-t4jb/embed"></iframe>
-        </div>
-    </template>
-
-    <template id="tpl-oqunet-edit">
-        <div class="grid-insta">
-            <iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DGTe92gi_EW/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DGle_mUC-Ap/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DG6CrGoCI4m/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHWZ1h0Csk4/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHoM5zEqvxB/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DICErEJCate/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DI9R_zGioCs/embed"></iframe>
-        </div>
-    </template>
-
-    <template id="tpl-maven">
-        <div class="grid-images">
-            <img src="Artboard 1.png" onclick="openImage(this.src)">
-            <img src="Artboard 2.png" onclick="openImage(this.src)">
-            <img src="Artboard 3.png" onclick="openImage(this.src)">
-            <img src="Artboard 4.png" onclick="openImage(this.src)">
-            <img src="Artboard 5.png" onclick="openImage(this.src)">
-            <img src="Artboard 6.png" onclick="openImage(this.src)">
-            <img src="Artboard 7.png" onclick="openImage(this.src)">
-        </div>
-    </template>
+    <template id="tpl-intellident"><div class="grid-insta"><iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed"></iframe></div></template>
+    <template id="tpl-oqunet-edit"><div class="grid-insta"><iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed"></iframe></div></template>
+    <template id="tpl-maven"><div class="grid-images"><img src="Artboard 1.png" onclick="openImage(this.src)"></div></template>
 
     <script src="script.js"></script>
 </body>
