@@ -1,23 +1,17 @@
-// --- 1. DIFFERENCE CURSOR LOGIC ---
-const cursor = document.querySelector('.cursor');
+// --- GLOW MOUSE EFFECT ---
+const glow = document.querySelector('.mouse-glow');
 
 window.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+    // Moves the glow to cursor position
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
 });
 
-// Hover Grow Effect
-document.querySelectorAll('.link-hover').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
-});
-
-// --- 2. MODAL LOGIC ---
+// --- MODAL LOGIC ---
 function openModal(id, title) {
     const tpl = document.getElementById(id);
     const content = document.getElementById('modal-content');
     
-    // Clear & Inject
     content.innerHTML = '';
     content.appendChild(tpl.content.cloneNode(true));
     
@@ -31,7 +25,7 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// --- 3. LIGHTBOX LOGIC ---
+// --- LIGHTBOX LOGIC ---
 function openImage(src) {
     document.getElementById('lb-img').src = src;
     document.getElementById('lightbox').classList.add('active');
@@ -41,11 +35,10 @@ function closeLightbox() {
     document.getElementById('lightbox').classList.remove('active');
 }
 
-// --- 4. CV LOGIC ---
+// --- CV LOGIC ---
 function openCV() { document.getElementById('cv-modal').classList.add('active'); }
 function closeCV() { document.getElementById('cv-modal').classList.remove('active'); }
 
-// Escape Key
 window.addEventListener('keydown', (e) => {
     if(e.key === 'Escape') {
         closeModal();
