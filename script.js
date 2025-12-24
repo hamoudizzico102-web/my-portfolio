@@ -1,131 +1,100 @@
-// --- 1. Custom Smooth Cursor (LERP) ---
-const dot = document.querySelector('.cursor-dot');
-const outline = document.querySelector('.cursor-outline');
+// --- MAGNETIC CURSOR LOGIC ---
+const cursor = document.getElementById('cursor');
+const follower = document.getElementById('cursor-follower');
+const magneticItems = document.querySelectorAll('.magnetic-item');
 
 let mouseX = 0, mouseY = 0;
-let outlineX = 0, outlineY = 0;
+let posX = 0, posY = 0;
 
-window.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
     
-    // Dot follows instantly
-    dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+    // Direct cursor
+    cursor.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;
 });
 
-function animateCursor() {
-    // Linear Interpolation for smooth delay
-    let speed = 0.15; // Lower = smoother/slower
-    outlineX += (mouseX - outlineX) * speed;
-    outlineY += (mouseY - outlineY) * speed;
+// Smooth follower animation
+function animate() {
+    posX += (mouseX - posX) / 9;
+    posY += (mouseY - posY) / 9;
     
-    outline.style.transform = `translate(${outlineX}px, ${outlineY}px) translate(-50%, -50%)`;
-    requestAnimationFrame(animateCursor);
+    follower.style.transform = `translate3d(${posX - 20}px, ${posY - 20}px, 0)`;
+    requestAnimationFrame(animate);
 }
-animateCursor();
+animate();
 
-// Interactive Elements Hover Effect
-const interactiveEls = document.querySelectorAll('a, button, .project-card');
-interactiveEls.forEach(el => {
-    el.addEventListener('mouseenter', () => outline.classList.add('hovered'));
-    el.addEventListener('mouseleave', () => outline.classList.remove('hovered'));
-});
-
-
-// --- 2. Scroll Reveal Animation (Intersection Observer) ---
-const observerOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px"
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target); // Trigger once
-        }
+// Hover Effects
+magneticItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        follower.classList.add('active');
+        cursor.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0) scale(0)`;
     });
-}, observerOptions);
-
-document.querySelectorAll('.reveal-scroll').forEach(el => {
-    observer.observe(el);
+    item.addEventListener('mouseleave', () => {
+        follower.classList.remove('active');
+        cursor.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0) scale(1)`;
+    });
 });
 
-
-// --- 3. Modal System Logic ---
-const modalContainer = document.getElementById('modal-container');
-const modalBody = document.getElementById('modal-body-content');
-const modalTitle = document.getElementById('modal-title-text');
+// --- MODAL SYSTEM ---
+const modal = document.getElementById('modal');
+const modalContent = document.getElementById('modal-content');
+const modalTitle = document.getElementById('modal-title');
 
 function openModal(templateId, title) {
-    const template = document.getElementById(templateId);
-    if (!template) return;
-
-    modalBody.innerHTML = '';
-    modalBody.appendChild(template.content.cloneNode(true));
+    const tpl = document.getElementById(templateId);
+    if (!tpl) return;
+    
+    modalContent.innerHTML = ''; // Clear previous
+    modalContent.appendChild(tpl.content.cloneNode(true));
     modalTitle.innerText = title;
-
-    modalContainer.style.display = 'flex';
-    // Small delay to allow CSS display:flex to apply before opacity transition
-    setTimeout(() => modalContainer.classList.add('show'), 10);
+    
+    modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
-    modalContainer.classList.remove('show');
-    setTimeout(() => {
-        modalContainer.style.display = 'none';
-        modalBody.innerHTML = ''; // Clean up iframes to stop audio
-    }, 400); // Matches CSS transition duration
+    modal.classList.remove('active');
     document.body.style.overflow = '';
+    setTimeout(() => modalContent.innerHTML = '', 300); // Stop videos
 }
 
-
-// --- 4. Lightbox Logic ---
-const lightbox = document.getElementById('lightbox-view');
-const lbImg = document.getElementById('lightbox-img');
+// --- LIGHTBOX SYSTEM ---
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
 
 function openImage(src) {
     lbImg.src = src;
-    lightbox.classList.add('show');
-    document.body.style.overflow = 'hidden';
+    lightbox.classList.add('active');
 }
 
 function closeLightbox() {
-    lightbox.classList.remove('show');
-    document.body.style.overflow = '';
+    lightbox.classList.remove('active');
 }
 
-
-// --- 5. CV Modal ---
-const cvModal = document.getElementById('cv-container');
-
+// --- CV SYSTEM ---
+const cvModal = document.getElementById('cv-modal');
 function openCV() {
-    cvModal.style.display = 'flex';
-    setTimeout(() => cvModal.classList.add('show'), 10);
+    cvModal.classList.add('active');
 }
-
 function closeCV() {
-    cvModal.classList.remove('show');
-    setTimeout(() => cvModal.style.display = 'none', 400);
+    cvModal.classList.remove('active');
 }
 
-
-// --- 6. Horizontal Scroll Wheel Support ---
-const scrollContainers = document.querySelectorAll('.scroll-wrapper');
-
-scrollContainers.forEach(container => {
-    container.addEventListener('wheel', (evt) => {
-        evt.preventDefault();
-        container.scrollLeft += evt.deltaY;
-    });
-});
-
-// Escape Key to Close All
-window.addEventListener('keydown', (e) => {
+// --- CLOSE ON ESCAPE ---
+document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeModal();
         closeLightbox();
         closeCV();
     }
+});
+
+// --- HORIZONTAL SCROLL ENHANCEMENT ---
+const tracks = document.querySelectorAll('.gallery-track-wrapper');
+tracks.forEach(track => {
+    track.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        track.scrollLeft += e.deltaY;
+    });
 });
