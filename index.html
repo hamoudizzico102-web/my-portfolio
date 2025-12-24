@@ -10,8 +10,7 @@
 </head>
 <body>
 
-    <div class="grid-bg"></div>
-    <div class="mouse-glow"></div>
+    <div class="fixed-glow"></div> <div class="grid-bg"></div> <div class="cursor"></div>
 
     <nav class="navbar">
         <div class="brand">
@@ -28,22 +27,22 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="text-mask"><p class="label-text slide-anim">/// PORTFOLIO 2025</p></div>
+            <div class="mask"><p class="label-text slide-up">/// PORTFOLIO 2025</p></div>
             
-            <div class="text-mask">
-                <h1 class="hero-title slide-anim">VISUAL</h1>
+            <div class="mask">
+                <h1 class="hero-title slide-up">VISUAL</h1>
             </div>
-            <div class="text-mask">
-                <h1 class="hero-title blue slide-anim" style="animation-delay: 0.1s;">ARCHITECT.</h1>
+            <div class="mask">
+                <h1 class="hero-title accent-mode slide-up" style="animation-delay: 0.1s;">ARCHITECT.</h1>
             </div>
 
-            <div class="text-mask">
-                <p class="hero-sub slide-anim" style="animation-delay: 0.2s;">
+            <div class="mask">
+                <p class="hero-sub slide-up" style="animation-delay: 0.2s;">
                     Graphic Design & Video Editing.<br>Precision driven digital experiences.
                 </p>
             </div>
             
-            <div class="hero-btns slide-anim" style="animation-delay: 0.3s;">
+            <div class="hero-btns slide-up" style="animation-delay: 0.3s;">
                 <button class="btn primary" onclick="document.getElementById('editing').scrollIntoView()">VIEW WORK</button>
                 <button class="btn secondary" onclick="window.open('https://wa.me/96170577697')">CONTACT</button>
             </div>
@@ -129,10 +128,7 @@
     <div id="modal" class="modal-overlay">
         <div class="backdrop" onclick="closeModal()"></div>
         <div class="modal-box">
-            <div class="modal-header">
-                <h3 id="modal-title">PROJECT</h3>
-                <button onclick="closeModal()">CLOSE</button>
-            </div>
+            <div class="modal-header"><h3 id="modal-title">PROJECT</h3><button onclick="closeModal()">CLOSE</button></div>
             <div id="modal-content" class="modal-body"></div>
         </div>
     </div>
