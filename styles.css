@@ -11,7 +11,7 @@
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text); font-family: var(--font); overflow-x: hidden; }
 
-/* 1. FIXED BACKGROUND SYSTEM */
+/* 1. FIXED BACKGROUND */
 .grid-bg {
     position: fixed; inset: 0; z-index: -2;
     background-size: 50px 50px;
@@ -32,13 +32,22 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 
 @keyframes pulseGlow { from { opacity: 0.8; } to { opacity: 0.5; } }
 
-/* 2. INVERTED CURSOR */
-.cursor {
-    position: fixed; width: 25px; height: 25px; background: white;
-    border-radius: 50%; pointer-events: none; z-index: 10000;
-    mix-blend-mode: difference; transition: transform 0.1s ease;
+/* 2. TECH RING CURSOR (THE FIX) */
+.cursor-dot {
+    position: fixed; top: 0; left: 0; width: 6px; height: 6px; 
+    background: var(--blue); border-radius: 50%; pointer-events: none; z-index: 10001;
+    transform: translate(-50%, -50%);
 }
-.cursor.grow { transform: scale(3); }
+.cursor-outline {
+    position: fixed; top: 0; left: 0; width: 40px; height: 40px; 
+    border: 1px solid rgba(255,255,255,0.5); border-radius: 50%; 
+    pointer-events: none; z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, border-color 0.2s;
+}
+.cursor-outline.hover {
+    width: 60px; height: 60px; border-color: var(--blue); background: rgba(0,102,255,0.05);
+}
 
 /* 3. NAV */
 .navbar {
@@ -61,7 +70,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 }
 .cv-btn:hover { background: var(--blue); border-color: var(--blue); }
 
-/* 4. HERO WITH SLIDE TEXT & SOLID BOLD */
+/* 4. HERO */
 .hero { height: 90vh; display: flex; align-items: center; padding: 0 5%; }
 .hero-content { max-width: 900px; }
 
@@ -73,7 +82,10 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 
 .label-text { color: var(--blue); font-weight: 900; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px; }
 .hero-title { font-size: clamp(4rem, 10vw, 7.5rem); line-height: 0.9; font-weight: 900; }
-.hero-title.accent-mode { color: var(--blue); text-shadow: 0 0 40px var(--blue-glow); }
+.hero-title.accent-mode {
+    color: var(--blue);
+    text-shadow: 0 0 40px var(--blue-glow);
+}
 
 .hero-sub { color: #888; font-size: 1.2rem; line-height: 1.5; margin-top: 30px; max-width: 500px; }
 .hero-btns { margin-top: 40px; display: flex; gap: 20px; }
@@ -91,13 +103,15 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
 .sec-head h2 { font-size: 2rem; font-weight: 900; }
 
 .grid-cards { 
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-    gap: 40px; perspective: 1000px; /* Essential for 3D */
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Narrower columns */
+    gap: 40px; perspective: 1000px; 
 }
 
-/* 6. 3D CARD SYSTEM */
+/* 6. VERTICAL (PORTRAIT) 3D CARDS */
 .card-3d {
-    position: relative; height: 320px;
+    position: relative; 
+    height: 420px; /* TALL HEIGHT FOR POSTER LOOK */
     transform-style: preserve-3d;
     transform: perspective(1000px);
     cursor: pointer;
@@ -109,27 +123,31 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); over
     padding: 20px;
     display: flex; flex-direction: column;
     transform-style: preserve-3d;
-    transition: transform 0.1s ease-out; /* Smooth JS tilt */
+    transition: transform 0.1s ease-out;
     box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
 }
 
-/* Depth for Image */
+/* TALLER IMAGE CONTAINER */
 .card-img { 
-    height: 200px; overflow: hidden; margin-bottom: 20px; background: #000;
-    transform: translateZ(20px); /* Pushes image forward */
+    height: 300px; /* Majority of the card */
+    overflow: hidden; margin-bottom: 20px; background: #000;
+    transform: translateZ(20px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 .card-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
 
-/* Depth for Info */
-.card-info { transform: translateZ(30px); /* Pushes text even more forward */ }
-.card-info h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 5px; color: white; }
-.card-info p { color: #666; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; }
+/* Info Section */
+.card-info { transform: translateZ(30px); }
+.card-info h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; color: white; }
+.tags { display: flex; gap: 10px; }
+.tags span { 
+    color: var(--blue); font-size: 0.7rem; font-weight: 900; 
+    background: rgba(0, 102, 255, 0.1); padding: 4px 8px; border-radius: 4px;
+}
 
-/* Hover States (Managed by JS for rotation, CSS for colors) */
+/* Hover States */
 .card-3d:hover .card-content { border-color: var(--blue); box-shadow: 0 20px 50px rgba(0, 102, 255, 0.2); }
 .card-3d:hover img { opacity: 1; transform: scale(1.1); }
-.card-3d:hover .card-info p { color: var(--blue); }
 
 /* 7. MODALS */
 .modal-overlay {
