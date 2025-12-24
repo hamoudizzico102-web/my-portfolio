@@ -2,7 +2,6 @@
 const cursor = document.querySelector('.cursor');
 
 window.addEventListener('mousemove', (e) => {
-    // Immediate movement, no lag
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
 });
@@ -13,7 +12,7 @@ document.querySelectorAll('.link-hover').forEach(el => {
     el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
 });
 
-// --- 2. MODAL LOGIC (FIXED SIZE) ---
+// --- 2. MODAL LOGIC ---
 function openModal(id, title) {
     const tpl = document.getElementById(id);
     const content = document.getElementById('modal-content');
