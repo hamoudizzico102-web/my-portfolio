@@ -10,126 +10,123 @@
 </head>
 <body>
 
-    <div class="fixed-glow"></div>
-    <div class="grid-bg"></div>
-
-    <div class="cursor"></div>
-
     <nav class="navbar">
         <div class="brand">
             <img src="230.png" alt="MM">
-            <span>MOUKADDEM.</span>
+            <span>MOUKADDEM</span>
         </div>
-        <div class="menu">
-            <a href="#editing">EDITING VIDEOS</a>
-            <a href="#design">VISUAL DESIGN</a>
-            <a href="#client">CLIENTS WORK</a>
-            <button class="cv-btn" onclick="openCV()">RESUME</button>
+        <div class="nav-links">
+            <a href="#editing">Editing</a>
+            <a href="#design">Design</a>
+            <a href="#client">Clients</a>
+            <button class="resume-btn" onclick="openCV()">RESUME</button>
         </div>
     </nav>
 
-    <section class="hero">
+    <header class="hero">
+        <div class="hero-bg">
+            <img src="me.png" alt="Hero Background">
+            <div class="vignette"></div>
+        </div>
         <div class="hero-content">
-            <div class="mask"><p class="label-text slide-up">/// PORTFOLIO 2025</p></div>
-            
-            <div class="mask">
-                <h1 class="hero-title slide-up">VISUAL</h1>
-            </div>
-            <div class="mask">
-                <h1 class="hero-title accent-mode slide-up" style="animation-delay: 0.1s;">ARCHITECT.</h1>
-            </div>
-
-            <div class="mask">
-                <p class="hero-sub slide-up" style="animation-delay: 0.2s;">
-                    Graphic Design & Video Editing.<br>Precision driven digital experiences.
-                </p>
-            </div>
-            
-            <div class="hero-btns slide-up" style="animation-delay: 0.3s;">
-                <button class="btn primary" onclick="document.getElementById('editing').scrollIntoView()">VIEW WORK</button>
-                <button class="btn secondary" onclick="window.open('https://wa.me/96170577697')">CONTACT</button>
+            <div class="hero-badge">VISUAL DIRECTOR</div>
+            <h1 class="hero-title">VISUAL <br> ARCHITECT.</h1>
+            <p class="hero-desc">High-End Video Editing & Strategic Brand Identity.<br>Crafting digital legacies from Tripoli to the world.</p>
+            <div class="hero-buttons">
+                <button class="btn-play" onclick="document.getElementById('editing').scrollIntoView()">
+                    <i class="ri-play-fill"></i> VIEW WORK
+                </button>
+                <button class="btn-info" onclick="window.open('https://wa.me/96170577697')">
+                    <i class="ri-whatsapp-line"></i> CONTACT
+                </button>
             </div>
         </div>
-    </section>
+    </header>
 
-    <main>
-        
-        <section id="editing" class="section">
-            <div class="sec-head">
-                <span class="num">01</span>
-                <h2>EDITING VIDEOS</h2>
-            </div>
-            <div class="grid-cards">
-                <div class="card-3d" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
-                    <div class="card-content">
-                        <div class="card-img"><img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj"></div>
-                        <div class="card-info"><h3>Sébastien Koubar</h3><p>17 VIDEOS</p></div>
+    <main class="main-content">
+
+        <section id="editing" class="row-section">
+            <h2 class="row-title">Editing Videos <span class="row-count">01</span></h2>
+            <div class="row-container">
+                <div class="row-track">
+                    <div class="tile" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
+                        <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sebastien">
+                        <div class="tile-details">
+                            <h3>Sébastien Koubar</h3>
+                            <p>17 VIDEOS • YOUTUBE</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card-3d" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
-                    <div class="card-content">
-                        <div class="card-img"><img src="405229718_183715348153605_6175495872810790746_n.jpg"></div>
-                        <div class="card-info"><h3>Hisham Ghanem</h3><p>REELS LIBRARY</p></div>
+                    <div class="tile" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
+                        <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham">
+                        <div class="tile-details">
+                            <h3>Hisham Ghanem</h3>
+                            <p>REELS • LIBRARY</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card-3d" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
-                    <div class="card-content">
-                        <div class="card-img"><img src="logo-01.png"></div>
-                        <div class="card-info"><h3>Oqunet</h3><p>TECH PROMO</p></div>
+                    <div class="tile" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
+                        <img src="logo-01.png" alt="Oqunet">
+                        <div class="tile-details">
+                            <h3>Oqunet</h3>
+                            <p>TECH • PROMO</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="design" class="section">
-            <div class="sec-head">
-                <span class="num">02</span>
-                <h2>VISUAL DESIGN</h2>
-            </div>
-            <div class="grid-cards">
-                <div class="card-3d" onclick="openImage('5.png')">
-                    <div class="card-content">
-                        <div class="card-img"><img src="5.png"></div>
-                        <div class="card-info"><h3>Saudi National Day</h3><p>POSTER</p></div>
+        <section id="design" class="row-section">
+            <h2 class="row-title">Visual Design <span class="row-count">02</span></h2>
+            <div class="row-container">
+                <div class="row-track">
+                    <div class="tile" onclick="openImage('5.png')">
+                        <img src="5.png" alt="Saudi">
+                        <div class="tile-details">
+                            <h3>Saudi National Day</h3>
+                            <p>POSTER • ART</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card-3d" onclick="openImage('1.png')">
-                    <div class="card-content">
-                        <div class="card-img"><img src="1.png"></div>
-                        <div class="card-info"><h3>Visual Identity</h3><p>BRANDING</p></div>
+                    <div class="tile" onclick="openImage('1.png')">
+                        <img src="1.png" alt="Identity">
+                        <div class="tile-details">
+                            <h3>Visual Identity</h3>
+                            <p>BRANDING</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card-3d" onclick="openImage('me.png')">
-                    <div class="card-content">
-                        <div class="card-img"><img src="me.png"></div>
-                        <div class="card-info"><h3>Personal Art</h3><p>PORTRAIT</p></div>
+                    <div class="tile" onclick="openImage('me.png')">
+                        <img src="me.png" alt="Portrait">
+                        <div class="tile-details">
+                            <h3>Personal Art</h3>
+                            <p>PORTRAIT</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="client" class="section">
-            <div class="sec-head">
-                <span class="num">03</span>
-                <h2>CLIENTS WORK</h2>
-            </div>
-            <div class="grid-cards">
-                <div class="card-3d" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
-                    <div class="card-content">
-                        <div class="card-img"><img src="514064519_17860801818435683_5097951599889091948_n.jpg"></div>
-                        <div class="card-info"><h3>TradeSmart</h3><p>15 CRYPTO POSTS</p></div>
+        <section id="client" class="row-section">
+            <h2 class="row-title">Clients Work <span class="row-count">03</span></h2>
+            <div class="row-container">
+                <div class="row-track">
+                    <div class="tile" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
+                        <img src="514064519_17860801818435683_5097951599889091948_n.jpg" alt="TradeSmart">
+                        <div class="tile-details">
+                            <h3>TradeSmart</h3>
+                            <p>15 POSTS • CRYPTO</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card-3d" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
-                    <div class="card-content">
-                        <div class="card-img"><img src="logo (2).png"></div>
-                        <div class="card-info"><h3>Intellident</h3><p>DENTAL BRANDING</p></div>
+                    <div class="tile" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
+                        <img src="logo (2).png" alt="Intellident">
+                        <div class="tile-details">
+                            <h3>Intellident</h3>
+                            <p>DENTAL • BRANDING</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card-3d" onclick="openModal('tpl-maven', 'Marketing Maven')">
-                    <div class="card-content">
-                        <div class="card-img"><img src="market maven logo.png"></div>
-                        <div class="card-info"><h3>Marketing Maven</h3><p>ARTBOARDS</p></div>
+                    <div class="tile" onclick="openModal('tpl-maven', 'Marketing Maven')">
+                        <img src="market maven logo.png" alt="Maven">
+                        <div class="tile-details">
+                            <h3>Marketing Maven</h3>
+                            <p>ARTBOARDS</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -138,19 +135,21 @@
     </main>
 
     <footer class="footer">
-        <h2>WORK WITH ME.</h2>
         <div class="socials">
-            <a href="mailto:hamoudizzico102@outlook.com">EMAIL</a>
-            <a href="https://wa.me/96170577697" target="_blank">WHATSAPP</a>
+            <a href="mailto:hamoudizzico102@outlook.com">Email</a>
+            <a href="https://wa.me/96170577697" target="_blank">WhatsApp</a>
         </div>
-        <p class="copy">© 2025 MOHAMAD MOUKADDEM</p>
+        <p>© 2025 Mohamad Moukaddem. All rights reserved.</p>
     </footer>
 
     <div id="modal" class="modal-overlay">
         <div class="backdrop" onclick="closeModal()"></div>
-        <div class="modal-box">
-            <div class="modal-header"><h3 id="modal-title">PROJECT</h3><button onclick="closeModal()">CLOSE</button></div>
-            <div id="modal-content" class="modal-body"></div>
+        <div class="modal-content-box">
+            <div class="modal-header">
+                <h3 id="modal-title">TITLE</h3>
+                <button onclick="closeModal()"><i class="ri-close-line"></i></button>
+            </div>
+            <div id="modal-body" class="modal-scroll"></div>
         </div>
     </div>
 
@@ -160,7 +159,7 @@
 
     <div id="cv-modal" class="modal-overlay">
         <div class="backdrop" onclick="closeCV()"></div>
-        <div class="modal-box cv-box">
+        <div class="cv-box">
             <button class="close-abs" onclick="closeCV()">CLOSE</button>
             <iframe src="Mohamad Mokaddem CV 2025 (1).pdf"></iframe>
         </div>
