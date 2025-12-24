@@ -1,56 +1,73 @@
-// Modal System
-const modal = document.getElementById('modal');
-const modalContent = document.getElementById('modal-content');
-const modalTitle = document.getElementById('modal-title');
+// --- SMOOTH & SNAPPY CURSOR ---
+const dot = document.querySelector('.cursor-dot');
+const circle = document.querySelector('.cursor-circle');
 
+let mouseX = 0, mouseY = 0;
+let circleX = 0, circleY = 0;
+
+window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Dot moves instantly
+    dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+});
+
+function animateCursor() {
+    // Circle follows with LERP (Linear Interpolation)
+    // 0.2 is the speed factor. Higher = Snappier, Lower = Floatier
+    circleX += (mouseX - circleX) * 0.2; 
+    circleY += (mouseY - circleY) * 0.2;
+    
+    circle.style.transform = `translate(${circleX - 20}px, ${circleY - 20}px)`;
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// --- HOVER INTERACTIONS ---
+const hoverLinks = document.querySelectorAll('.hover-link');
+hoverLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+    link.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+});
+
+// --- MODAL SYSTEM ---
 function openModal(templateId, title) {
     const tpl = document.getElementById(templateId);
-    if (!tpl) return;
+    const content = document.getElementById('modal-content');
     
-    // Smooth scroll to top then show
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    content.innerHTML = '';
+    // Clone content to ensure clean slate
+    const clone = tpl.content.cloneNode(true);
+    content.appendChild(clone);
     
-    modalContent.innerHTML = '';
-    modalContent.appendChild(tpl.content.cloneNode(true));
-    modalTitle.innerText = title;
-    
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Stop scrolling
-}
-
-function closeModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-    // Stop any playing video by clearing content
-    setTimeout(() => { modalContent.innerHTML = ''; }, 500);
-}
-
-// Lightbox for Images
-function openImage(src) {
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lb-img');
-    lbImg.src = src;
-    lb.style.display = 'flex';
-}
-
-function closeLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
-}
-
-// Resume CV
-function openCV() {
-    document.getElementById('cv-modal').classList.add('active');
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-function closeCV() {
-    document.getElementById('cv-modal').classList.remove('active');
+function closeModal() {
+    document.getElementById('modal').classList.remove('active');
     document.body.style.overflow = '';
 }
 
-// Keyboard Accessibility
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+// --- LIGHTBOX SYSTEM ---
+function openImage(src) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+}
+
+// --- CV SYSTEM ---
+function openCV() { document.getElementById('cv-modal').classList.add('active'); }
+function closeCV() { document.getElementById('cv-modal').classList.remove('active'); }
+
+// --- ESCAPE KEY CLOSE ---
+window.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') {
         closeModal();
         closeLightbox();
         closeCV();
