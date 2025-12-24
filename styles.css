@@ -85,7 +85,7 @@ body { background: var(--bg-color); color: var(--text-primary); font-family: var
 .gallery-section { padding: 80px 0; border-top: 1px solid #111; }
 .section-head { padding: 0 5% 40px; display: flex; align-items: baseline; gap: 20px; }
 .index { font-family: var(--font-head); font-size: 1.5rem; color: var(--accent); }
-.section-head h2 { font-size: 2rem; font-weight: 800; letter-spacing: -1px; }
+.section-head h2 { font-family: var(--font-head); font-size: 2.2rem; font-weight: 800; letter-spacing: 1px; color: #fff; text-transform: uppercase; }
 
 .horizontal-slider {
     display: flex; gap: 25px; overflow-x: auto; padding: 20px 5% 50px;
