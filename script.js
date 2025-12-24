@@ -1,4 +1,4 @@
-// --- SMOOTH & SNAPPY CURSOR ---
+// --- SMOOTH CURSOR ---
 const dot = document.querySelector('.cursor-dot');
 const circle = document.querySelector('.cursor-circle');
 
@@ -8,39 +8,32 @@ let circleX = 0, circleY = 0;
 window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    
-    // Dot moves instantly
     dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
 });
 
 function animateCursor() {
-    // Circle follows with LERP (Linear Interpolation)
-    // 0.2 is the speed factor. Higher = Snappier, Lower = Floatier
-    circleX += (mouseX - circleX) * 0.2; 
-    circleY += (mouseY - circleY) * 0.2;
+    // Faster Interpolation for snappy feel
+    circleX += (mouseX - circleX) * 0.25; 
+    circleY += (mouseY - circleY) * 0.25;
     
-    circle.style.transform = `translate(${circleX - 20}px, ${circleY - 20}px)`;
+    circle.style.transform = `translate(${circleX - 22}px, ${circleY - 22}px)`;
     requestAnimationFrame(animateCursor);
 }
 animateCursor();
 
-// --- HOVER INTERACTIONS ---
-const hoverLinks = document.querySelectorAll('.hover-link');
-hoverLinks.forEach(link => {
+// --- HOVER EFFECT ---
+const links = document.querySelectorAll('.hover-link');
+links.forEach(link => {
     link.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
     link.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
 });
 
 // --- MODAL SYSTEM ---
-function openModal(templateId, title) {
-    const tpl = document.getElementById(templateId);
+function openModal(tid, title) {
+    const tpl = document.getElementById(tid);
     const content = document.getElementById('modal-content');
-    
     content.innerHTML = '';
-    // Clone content to ensure clean slate
-    const clone = tpl.content.cloneNode(true);
-    content.appendChild(clone);
-    
+    content.appendChild(tpl.content.cloneNode(true));
     document.getElementById('modal-title').innerText = title;
     document.getElementById('modal').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -51,25 +44,16 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// --- LIGHTBOX SYSTEM ---
 function openImage(src) {
     document.getElementById('lb-img').src = src;
     document.getElementById('lightbox').classList.add('active');
 }
 
-function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-}
+function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); }
 
-// --- CV SYSTEM ---
 function openCV() { document.getElementById('cv-modal').classList.add('active'); }
 function closeCV() { document.getElementById('cv-modal').classList.remove('active'); }
 
-// --- ESCAPE KEY CLOSE ---
 window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape') {
-        closeModal();
-        closeLightbox();
-        closeCV();
-    }
+    if(e.key === 'Escape') { closeModal(); closeLightbox(); closeCV(); }
 });
