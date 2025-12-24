@@ -1,13 +1,18 @@
-// --- GLOW MOUSE EFFECT ---
-const glow = document.querySelector('.mouse-glow');
+// --- 1. SIMPLE CURSOR ---
+const cursor = document.querySelector('.cursor');
 
 window.addEventListener('mousemove', (e) => {
-    // Moves the glow to cursor position
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
 });
 
-// --- MODAL LOGIC ---
+// Hover Effect
+document.querySelectorAll('a, button, .card').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
+});
+
+// --- 2. MODAL LOGIC ---
 function openModal(id, title) {
     const tpl = document.getElementById(id);
     const content = document.getElementById('modal-content');
@@ -25,7 +30,7 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// --- LIGHTBOX LOGIC ---
+// --- 3. LIGHTBOX LOGIC ---
 function openImage(src) {
     document.getElementById('lb-img').src = src;
     document.getElementById('lightbox').classList.add('active');
@@ -35,7 +40,7 @@ function closeLightbox() {
     document.getElementById('lightbox').classList.remove('active');
 }
 
-// --- CV LOGIC ---
+// --- 4. CV LOGIC ---
 function openCV() { document.getElementById('cv-modal').classList.add('active'); }
 function closeCV() { document.getElementById('cv-modal').classList.remove('active'); }
 
