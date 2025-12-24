@@ -4,124 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamad Moukaddem | Visual Director</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-circle"></div>
+    <div class="noise-layer"></div>
 
-    <div class="ambient-glow"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
 
     <nav class="navbar">
-        <div class="nav-wrapper">
-            <div class="brand">
-                <img src="230.png" alt="MM" class="avatar">
-                <span class="logo-type">MOUKADDEM.</span>
-            </div>
-            <div class="menu">
-                <a href="#editing" class="hover-link">EDITING</a>
-                <a href="#design" class="hover-link">DESIGN</a>
-                <a href="#client" class="hover-link">CLIENTS</a>
-                <button class="cv-btn hover-link" onclick="openCV()">RESUME</button>
-            </div>
+        <div class="nav-brand">
+            <img src="230.png" alt="MM" class="brand-avatar">
+            <span class="brand-name">MOUKADDEM.</span>
+        </div>
+        <div class="nav-menu">
+            <a href="#editing" class="magnetic-link">Editing</a>
+            <a href="#design" class="magnetic-link">Design</a>
+            <a href="#client" class="magnetic-link">Clients</a>
+            <button class="resume-btn magnetic-link" onclick="openCV()">RESUME</button>
         </div>
     </nav>
 
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-text-box">
-                <h1 class="glow-text">VISUAL <br> STORYTELLER.</h1>
-            </div>
-            <p class="hero-desc">High-End Video Editing & Strategic Brand Identity.<br>Crafting digital legacies from Tripoli to the world.</p>
+        <div class="spotlight"></div>
+        <div class="hero-content">
+            <div class="label-caps">VISUAL DIRECTOR</div>
+            <h1 class="hero-title">
+                <span class="line">CRAFTING</span><br>
+                <span class="line highlight">LEGENDS.</span>
+            </h1>
+            <p class="hero-sub">Specialized in High-Retention Video Editing & Strategic Brand Identity.<br>Turning pixels into emotions.</p>
             
-            <div class="hero-btns">
-                <button class="btn-primary hover-link" onclick="document.getElementById('editing').scrollIntoView()">EXPLORE WORK</button>
-                <button class="btn-secondary hover-link" onclick="window.open('https://wa.me/96170577697')">CONTACT ME</button>
+            <div class="hero-actions">
+                <button class="btn-primary magnetic-link" onclick="document.getElementById('editing').scrollIntoView()">
+                    <i class="ri-play-fill"></i> VIEW WORK
+                </button>
+                <button class="btn-outline magnetic-link" onclick="window.open('https://wa.me/96170577697')">
+                    CONTACT ME
+                </button>
             </div>
         </div>
     </section>
 
-    <main class="content">
+    <main class="gallery-container">
 
-        <section id="editing" class="work-section">
-            <div class="section-header">
-                <span class="num">01 //</span>
-                <h2>VIDEO EDITING</h2>
+        <section id="editing" class="gallery-section">
+            <div class="section-head">
+                <span class="index">01</span>
+                <h2>VIDEO PRODUCTION</h2>
             </div>
-            <div class="gallery-track">
-                <div class="card hover-link" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
-                    <img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sebastien">
-                    <div class="card-info">
+            <div class="horizontal-slider">
+                <div class="cinematic-card" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
+                    <div class="card-image"><img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sebastien"></div>
+                    <div class="card-meta">
                         <h3>Sébastien Koubar</h3>
-                        <span>17 YouTube Videos</span>
+                        <p>17 YouTube Masterpieces</p>
                     </div>
                 </div>
-                <div class="card hover-link" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
-                    <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham">
-                    <div class="card-info">
+                <div class="cinematic-card" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
+                    <div class="card-image"><img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham"></div>
+                    <div class="card-meta">
                         <h3>Hisham Ghanem</h3>
-                        <span>Instagram Reels</span>
+                        <p>Reels Library</p>
                     </div>
                 </div>
-                <div class="card hover-link" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
-                    <img src="logo-01.png" alt="Oqunet">
-                    <div class="card-info">
+                <div class="cinematic-card" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
+                    <div class="card-image"><img src="logo-01.png" alt="Oqunet"></div>
+                    <div class="card-meta">
                         <h3>Oqunet</h3>
-                        <span>Promo Editing</span>
+                        <p>Tech Promo Editing</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="design" class="work-section">
-            <div class="section-header">
-                <span class="num">02 //</span>
-                <h2>VISUAL DESIGN</h2>
+        <section id="design" class="gallery-section">
+            <div class="section-head">
+                <span class="index">02</span>
+                <h2>VISUAL IDENTITY</h2>
             </div>
-            <div class="gallery-track">
-                <div class="card hover-link" onclick="openImage('5.png')">
-                    <img src="5.png" alt="Saudi Day">
-                    <div class="card-info"><h3>Saudi National Day</h3></div>
+            <div class="horizontal-slider">
+                <div class="cinematic-card" onclick="openImage('5.png')">
+                    <div class="card-image"><img src="5.png" alt="Saudi Day"></div>
+                    <div class="card-meta"><h3>Saudi National Day</h3><p>Poster Art</p></div>
                 </div>
-                <div class="card hover-link" onclick="openImage('1.png')">
-                    <img src="1.png" alt="Identity">
-                    <div class="card-info"><h3>Visual Identity</h3></div>
+                <div class="cinematic-card" onclick="openImage('1.png')">
+                    <div class="card-image"><img src="1.png" alt="Identity"></div>
+                    <div class="card-meta"><h3>Visual Identity</h3><p>Branding</p></div>
                 </div>
-                <div class="card hover-link" onclick="openImage('me.png')">
-                    <img src="me.png" alt="Art">
-                    <div class="card-info"><h3>Course Design</h3></div>
+                <div class="cinematic-card" onclick="openImage('me.png')">
+                    <div class="card-image"><img src="me.png" alt="Portrait"></div>
+                    <div class="card-meta"><h3>Course Design</h3><p>Personal Brand</p></div>
                 </div>
             </div>
         </section>
 
-        <section id="client" class="work-section">
-            <div class="section-header">
-                <span class="num">03 //</span>
-                <h2>CLIENT WORK</h2>
+        <section id="client" class="gallery-section">
+            <div class="section-head">
+                <span class="index">03</span>
+                <h2>CLIENT PORTFOLIO</h2>
             </div>
-            <div class="gallery-track">
-                <div class="card hover-link" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
-                    <img src="514064519_17860801818435683_5097951599889091948_n.jpg" alt="TradeSmart">
-                    <div class="card-info">
+            <div class="horizontal-slider">
+                <div class="cinematic-card" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
+                    <div class="card-image"><img src="514064519_17860801818435683_5097951599889091948_n.jpg" alt="TradeSmart"></div>
+                    <div class="card-meta">
                         <h3>TradeSmart</h3>
-                        <span>15 Crypto Posts</span>
+                        <p>15 Crypto Posts</p>
                     </div>
                 </div>
-                <div class="card hover-link" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
-                    <img src="logo (2).png" alt="Intellident">
-                    <div class="card-info">
-                        <h3>Intellident</h3>
-                        <span>Dental Clinic</span>
+                <div class="cinematic-card" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
+                    <div class="card-image"><img src="logo (2).png" alt="Intellident"></div>
+                    <div class="card-meta">
+                        <h3>Intellident Clinic</h3>
+                        <p>Medical Branding</p>
                     </div>
                 </div>
-                <div class="card hover-link" onclick="openModal('tpl-maven', 'Marketing Maven')">
-                    <img src="market maven logo.png" alt="Maven">
-                    <div class="card-info">
+                <div class="cinematic-card" onclick="openModal('tpl-maven', 'Marketing Maven')">
+                    <div class="card-image"><img src="market maven logo.png" alt="Maven"></div>
+                    <div class="card-meta">
                         <h3>Marketing Maven</h3>
-                        <span>Brand Artboards</span>
+                        <p>Artboards</p>
                     </div>
                 </div>
             </div>
@@ -130,22 +135,22 @@
     </main>
 
     <footer class="footer">
-        <h2 class="glow-text small">LET'S CREATE <br> THE LEGEND.</h2>
-        <div class="social-links">
-            <a href="mailto:hamoudizzico102@outlook.com" class="hover-link">EMAIL</a>
-            <a href="https://wa.me/96170577697" target="_blank" class="hover-link">WHATSAPP</a>
+        <h2 class="footer-cta">LET'S MAKE HISTORY.</h2>
+        <div class="footer-links">
+            <a href="mailto:hamoudizzico102@outlook.com" class="magnetic-link">EMAIL</a>
+            <a href="https://wa.me/96170577697" target="_blank" class="magnetic-link">WHATSAPP</a>
         </div>
-        <div class="credits">© 2025 Mohamad Moukaddem.</div>
+        <div class="copyright">© 2025 Mohamad Moukaddem.</div>
     </footer>
 
     <div id="modal" class="modal-overlay">
-        <div class="modal-backdrop" onclick="closeModal()"></div>
-        <div class="modal-container">
-            <div class="modal-top">
-                <h3 id="modal-title">Project Name</h3>
-                <button class="close-btn hover-link" onclick="closeModal()">CLOSE</button>
+        <div class="modal-blur-bg" onclick="closeModal()"></div>
+        <div class="modal-panel">
+            <div class="modal-header">
+                <h3 id="modal-title">Project Title</h3>
+                <button class="close-btn magnetic-link" onclick="closeModal()">CLOSE</button>
             </div>
-            <div id="modal-content" class="modal-body"></div>
+            <div id="modal-content" class="modal-grid-body"></div>
         </div>
     </div>
 
@@ -154,9 +159,9 @@
     </div>
 
     <div id="cv-modal" class="modal-overlay">
-        <div class="modal-backdrop" onclick="closeCV()"></div>
-        <div class="modal-container cv-container">
-            <button class="close-btn absolute-close hover-link" onclick="closeCV()">CLOSE</button>
+        <div class="modal-blur-bg" onclick="closeCV()"></div>
+        <div class="modal-panel cv-panel">
+            <button class="close-btn abs-close magnetic-link" onclick="closeCV()">CLOSE</button>
             <iframe src="Mohamad Mokaddem CV 2025 (1).pdf"></iframe>
         </div>
     </div>
@@ -184,7 +189,7 @@
     </template>
 
     <template id="tpl-tradesmart">
-        <div class="grid-layout insta-mode">
+        <div class="grid-layout insta">
             <iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed"></iframe>
             <iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed"></iframe>
             <iframe src="https://www.instagram.com/p/DIB2ZyjIC2Q/embed"></iframe>
@@ -204,8 +209,8 @@
     </template>
 
     <template id="tpl-intellident">
-        <div class="grid-layout insta-mode">
-            <div class="img-wrap" onclick="openImage('logo (2).png')"><img src="logo (2).png"></div>
+        <div class="grid-layout insta">
+            <div class="img-trigger" onclick="openImage('logo (2).png')"><img src="logo (2).png"></div>
             <iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed"></iframe>
             <iframe src="https://www.instagram.com/p/DHBxGX8t-pa/embed"></iframe>
             <iframe src="https://www.instagram.com/p/DHG8d64tvJW/embed"></iframe>
@@ -222,7 +227,7 @@
     </template>
 
     <template id="tpl-oqunet-edit">
-        <div class="grid-layout insta-mode">
+        <div class="grid-layout insta">
             <iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed"></iframe>
             <iframe src="https://www.instagram.com/p/DGTe92gi_EW/embed"></iframe>
             <iframe src="https://www.instagram.com/p/DGle_mUC-Ap/embed"></iframe>
@@ -235,7 +240,7 @@
     </template>
 
     <template id="tpl-oqunet-client">
-        <div class="grid-layout images-mode">
+        <div class="grid-layout images">
             <img src="logo-01.png" onclick="openImage(this.src)">
             <img src="labor day.png" onclick="openImage(this.src)">
             <img src="COVERLIE 5.png" onclick="openImage(this.src)">
@@ -246,7 +251,7 @@
     </template>
 
     <template id="tpl-maven">
-        <div class="grid-layout images-mode">
+        <div class="grid-layout images">
             <img src="Artboard 1.png" onclick="openImage(this.src)">
             <img src="Artboard 2.png" onclick="openImage(this.src)">
             <img src="Artboard 3.png" onclick="openImage(this.src)">
