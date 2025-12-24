@@ -12,7 +12,7 @@
 
     <div class="cursor"></div>
 
-    <div class="grid-bg"></div>
+    <div class="glow-map"></div>
 
     <nav class="nav-bar">
         <div class="logo">
@@ -29,9 +29,18 @@
 
     <header class="hero">
         <div class="hero-inner">
-            <p class="tiny-label">/// PORTFOLIO 2025</p>
-            <h1 class="big-title">VISUAL <br> ARCHITECT</h1>
-            <p class="hero-desc">Graphic Design & Video Editing.<br>Building digital experiences with precision.</p>
+            <div class="reveal-box"><p class="tiny-label">/// PORTFOLIO 2025</p></div>
+            
+            <div class="reveal-box">
+                <h1 class="big-title">VISUAL</h1>
+            </div>
+            <div class="reveal-box">
+                <h1 class="big-title outline">ARCHITECT.</h1>
+            </div>
+
+            <div class="reveal-box">
+                <p class="hero-desc">Graphic Design & Video Editing.<br>Building digital experiences with precision.</p>
+            </div>
             
             <div class="cta-group">
                 <button class="btn-solid link-hover" onclick="document.getElementById('editing').scrollIntoView()">VIEW PROJECTS</button>
@@ -178,6 +187,18 @@
         </div>
     </template>
 
+    <template id="tpl-hisham">
+        <div class="grid-layout insta">
+            <iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/C_nDS4kIjDq/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/C_nFgW9ILdX/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/C_oOlmToOkm/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/C_5-k1kIqEo/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/DAMLpBwS20w/embed"></iframe>
+        </div>
+    </template>
+
     <template id="tpl-tradesmart">
         <div class="grid-layout insta">
             <iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed"></iframe>
@@ -241,7 +262,7 @@
     </template>
 
     <template id="tpl-maven">
-        <div class="grid-layout images">
+        <div class="grid-layout maven-mode">
             <img src="Artboard 1.png" onclick="openImage(this.src)">
             <img src="Artboard 2.png" onclick="openImage(this.src)">
             <img src="Artboard 3.png" onclick="openImage(this.src)">
