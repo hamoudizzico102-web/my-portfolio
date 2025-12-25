@@ -1,14 +1,11 @@
-// --- NAVBAR SCROLL EFFECT ---
+// Navbar Effect
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
 });
 
-// --- MODAL LOGIC ---
+// Modal Control
 function openModal(id, title) {
     const tpl = document.getElementById(id);
     const content = document.getElementById('modal-body');
@@ -24,7 +21,7 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// --- LIGHTBOX LOGIC ---
+// Lightbox
 function openImage(src) {
     document.getElementById('lb-img').src = src;
     document.getElementById('lightbox').classList.add('active');
@@ -33,11 +30,11 @@ function closeLightbox() {
     document.getElementById('lightbox').classList.remove('active');
 }
 
-// --- CV LOGIC ---
+// CV
 function openCV() { document.getElementById('cv-modal').classList.add('active'); }
 function closeCV() { document.getElementById('cv-modal').classList.remove('active'); }
 
-// ESCAPE KEY CLOSE
+// Close on ESC
 window.addEventListener('keydown', (e) => {
     if(e.key === 'Escape') {
         closeModal();
