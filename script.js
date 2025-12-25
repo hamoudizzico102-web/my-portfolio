@@ -16,18 +16,21 @@ function openModal(templateId, title) {
         content.appendChild(tpl.content.cloneNode(true));
         document.getElementById('modal-title').innerText = title;
         wrapper.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Stop scroll
+        document.body.style.overflow = 'hidden'; 
     }
 }
 
 function closeModal() {
     const wrapper = document.getElementById('modal');
     wrapper.classList.remove('active');
-    setTimeout(() => { document.getElementById('modal-content').innerHTML = ''; }, 300);
+    setTimeout(() => { 
+        if(document.getElementById('modal-content')) 
+            document.getElementById('modal-content').innerHTML = ''; 
+    }, 300);
     document.body.style.overflow = '';
 }
 
-// Lightbox System (Improved)
+// Lightbox System
 function openImage(src) {
     const lb = document.getElementById('lightbox');
     const img = document.getElementById('lb-image');
