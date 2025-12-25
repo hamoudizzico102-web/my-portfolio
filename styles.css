@@ -1,8 +1,7 @@
 :root {
     --bg: #050505;
     --card-bg: #111111;
-    --accent: #3b82f6; /* Modern Blue */
-    --accent-glow: rgba(59, 130, 246, 0.5);
+    --accent: #3b82f6; 
     --text: #ffffff;
     --text-dim: #888888;
     --font-head: 'Outfit', sans-serif;
@@ -13,7 +12,7 @@
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text); font-family: var(--font-body); overflow-x: hidden; }
 
-/* 1. CINEMATIC OVERLAYS (Fixed Z-Index to 1 so clicks work) */
+/* 1. CINEMATIC OVERLAYS */
 .film-grain {
     position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.04;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -57,51 +56,72 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 
 .hero-content { max-width: 800px; position: relative; z-index: 20; }
 .status-badge { background: rgba(59, 130, 246, 0.1); color: var(--accent); border: 1px solid rgba(59,130,246,0.3); padding: 8px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; display: inline-block; margin-bottom: 25px; letter-spacing: 1px; }
-
 .hero-title { font-family: var(--font-head); font-size: clamp(3.5rem, 8vw, 6rem); line-height: 0.95; font-weight: 900; margin-bottom: 30px; }
 .outline-text { -webkit-text-stroke: 1px rgba(255,255,255,0.3); color: transparent; }
-.solid-text { color: var(--accent); text-shadow: 0 0 40px var(--accent-glow); }
-
+.solid-text { color: var(--accent); text-shadow: 0 0 40px rgba(59,130,246,0.4); }
 .hero-sub { color: #ccc; font-size: 1.2rem; line-height: 1.6; margin-bottom: 40px; border-left: 2px solid var(--accent); padding-left: 20px; }
 
 .cta-group { display: flex; gap: 20px; }
-.btn-primary { background: var(--accent); color: white; border: none; padding: 16px 32px; font-weight: 700; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px var(--accent-glow); transition: 0.3s; }
+.btn-primary { background: var(--accent); color: white; border: none; padding: 16px 32px; font-weight: 700; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px rgba(59,130,246,0.4); transition: 0.3s; }
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 50px var(--accent); }
 .btn-secondary { background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 16px 32px; font-weight: 700; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 10px; backdrop-filter: blur(10px); transition: 0.3s; }
 .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: white; }
 
-/* 4. MAIN LAYOUT (Netflix Style) */
+/* 4. MAIN LAYOUT - FIXED CLIPPING ISSUE */
 .main-content { position: relative; z-index: 50; margin-top: -100px; padding-bottom: 100px; }
 .section-row { margin-bottom: 60px; padding-left: 5%; }
 .section-head { display: flex; align-items: baseline; gap: 15px; margin-bottom: 25px; }
 .section-head h2 { font-family: var(--font-head); font-size: 1.8rem; font-weight: 700; }
 .count { font-family: var(--font-head); font-size: 4rem; font-weight: 900; color: rgba(255,255,255,0.05); line-height: 0.5; position: relative; top: 10px; }
 
-.carousel { overflow-x: auto; padding-bottom: 40px; margin-bottom: -20px; scrollbar-width: none; }
-.carousel::-webkit-scrollbar { display: none; }
-.carousel-track { display: flex; gap: 20px; padding-right: 5%; }
+/* Crucial Fix: Padding prevents pop-up clip */
+.carousel-wrapper { overflow-x: auto; padding: 40px 0; margin: -40px 0; scrollbar-width: none; }
+.carousel-wrapper::-webkit-scrollbar { display: none; }
+.carousel-track { display: flex; gap: 25px; padding-right: 5%; }
 
-/* 5. CARDS (The Fix for Visual Design) */
+/* 5. CARDS (LIGHT SWEEP & WHITE GLOW) */
 .card {
     position: relative; flex-shrink: 0; 
-    border-radius: 12px; overflow: hidden; cursor: pointer;
-    background: var(--card-bg); transition: 0.4s cubic-bezier(0.3, 1, 0.3, 1);
-    border: 1px solid #222;
+    border-radius: 12px; cursor: pointer;
+    background: var(--card-bg); 
+    transition: 0.4s cubic-bezier(0.3, 1, 0.3, 1);
+    /* No overflow:hidden on parent to allow border effects */
 }
 
-/* Specific Sizes */
+/* Card Sizes */
 .video-card { width: 320px; height: 180px; }
-.design-card { width: 280px; height: 350px; } /* Taller for Posters */
+.design-card { width: 280px; height: 380px; } 
 .client-card { width: 250px; height: 250px; }
 
-.card-img { width: 100%; height: 100%; }
+/* Images */
+.card-img { width: 100%; height: 100%; border-radius: 12px; overflow: hidden; position: relative; z-index: 2; }
 .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
 
-/* HOVER EFFECTS & OVERLAY */
+/* THE GLOW BORDER EFFECT */
+.card::before {
+    content: ''; position: absolute; inset: -2px; border-radius: 14px;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.8), transparent);
+    z-index: 1; opacity: 0; transition: opacity 0.3s;
+}
+
+/* THE LIGHT SWEEP EFFECT */
+.card::after {
+    content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-20deg); z-index: 3; pointer-events: none; transition: 0s;
+}
+
+/* Hover Actions */
+.card:hover { transform: scale(1.1); z-index: 100; box-shadow: 0 0 25px rgba(255,255,255,0.3); } /* White Glow */
+.card:hover::before { opacity: 1; }
+.card:hover::after { left: 150%; transition: 0.6s ease-in-out; }
+.card:hover .card-img img { transform: scale(1.05); }
+
+/* Inner Overlay */
 .card-overlay {
-    position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
     display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;
-    opacity: 0; transition: 0.3s;
+    opacity: 0; transition: 0.3s; z-index: 4; border-radius: 12px;
 }
 .icon-play, .icon-view {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.5);
@@ -110,24 +130,24 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 .info h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
 .info p { font-size: 0.7rem; color: var(--accent); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
 
-/* Hover States */
-.card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); border-color: var(--accent); }
-.card:hover .card-img img { transform: scale(1.1); filter: brightness(0.6); }
 .card:hover .card-overlay { opacity: 1; }
 .card:hover .icon-play, .card:hover .icon-view { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
-/* 6. MODALS (Fixed) */
+
+/* 6. MODALS (BLURRED BACKGROUND FIX) */
 .modal-wrapper, .lightbox-wrapper {
     position: fixed; inset: 0; z-index: 9000; display: none;
     align-items: center; justify-content: center;
 }
 .modal-wrapper.active, .lightbox-wrapper.active { display: flex; animation: fadeIn 0.3s ease; }
-.modal-bg { position: absolute; inset: 0; background: rgba(0,0,0,0.9); backdrop-filter: blur(15px); }
+/* The Blur Magic */
+.modal-bg, .lightbox-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
 
 .modal-container {
     position: relative; width: 90%; max-width: 1200px; height: 85vh;
     background: #0f0f0f; border: 1px solid #333; border-radius: 16px; 
     z-index: 9001; display: flex; flex-direction: column; overflow: hidden;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
 .modal-header { padding: 20px 30px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; background: #0f0f0f; }
 .modal-body { flex: 1; overflow-y: auto; padding: 40px; }
@@ -150,7 +170,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 .vertical-stack img { max-width: 100%; border: 1px solid #222; cursor: zoom-in; }
 
 /* Lightbox Image */
-#lb-image { max-width: 95%; max-height: 90vh; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.5); z-index: 9002; position: relative; }
+#lb-image { max-width: 90%; max-height: 90vh; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.8); z-index: 9002; position: relative; }
 
 /* CV */
 .cv-container { position: relative; width: 90%; height: 90vh; z-index: 9001; max-width: 1000px; }
