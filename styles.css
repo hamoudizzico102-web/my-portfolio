@@ -34,7 +34,8 @@ body { background: var(--bg-main); color: var(--text-white); font-family: var(--
 .brand img { width: 42px; border-radius: 6px; border: 1px solid #333; }
 .brand-info { display: flex; flex-direction: column; }
 .brand-name { font-family: var(--font-heading); font-weight: 800; letter-spacing: 2px; line-height: 1; }
-.brand-role { font-size: 0.6rem; color: var(--blue-accent); font-weight: 700; letter-spacing: 1.5px; margin-top: 2px; }
+/* Font size adjusted for longer text */
+.brand-role { font-size: 0.5rem; color: var(--blue-accent); font-weight: 700; letter-spacing: 1.5px; margin-top: 2px; }
 
 .nav-links { display: flex; gap: 25px; align-items: center; }
 .nav-links a { color: var(--text-gray); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
@@ -66,7 +67,7 @@ body { background: var(--bg-main); color: var(--text-white); font-family: var(--
 
 /* --- FIXED BUTTON ANIMATION (Contained Sweep) --- */
 .btn-anim {
-    position: relative; overflow: hidden; /* Fixes the overflow issue */
+    position: relative; overflow: hidden;
     z-index: 1; transition: 0.3s;
 }
 .btn-anim::after {
@@ -188,4 +189,3 @@ footer { padding: 60px 5%; border-top: 1px solid #222; margin-top: 60px; display
 @keyframes slideUpAnim { from { transform: translateY(110%); } to { transform: translateY(0); } }
 @keyframes sweepAnim { 0% { left: -100%; } 40%, 100% { left: 200%; } }
 .fade-in { opacity: 0; animation: fadeIn 1s ease forwards; }
-
