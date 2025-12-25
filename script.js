@@ -1,42 +1,53 @@
-// Navbar Scroll Logic
-const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
-});
-
-// Modal Logic
-function openModal(id, title) {
-    const tpl = document.getElementById(id);
-    const content = document.getElementById('modal-body');
-    content.innerHTML = '';
-    content.appendChild(tpl.content.cloneNode(true));
-    document.getElementById('modal-title').innerText = title;
-    document.getElementById('modal').classList.add('active');
-    document.body.style.overflow = 'hidden';
+// Function to open project modals
+function openModal(templateId, title) {
+    const modal = document.getElementById('modal');
+    const body = document.getElementById('modal-body');
+    const tpl = document.getElementById(templateId);
+    
+    if (tpl) {
+        body.innerHTML = '';
+        body.appendChild(tpl.content.cloneNode(true));
+        document.getElementById('modal-title').innerText = title;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Stop background scroll
+    }
 }
 
 function closeModal() {
-    document.getElementById('modal').classList.remove('active');
-    document.body.style.overflow = '';
+    const modal = document.getElementById('modal');
+    modal.classList.remove('active');
+    document.getElementById('modal-body').innerHTML = '';
+    document.body.style.overflow = 'auto'; // Restore scroll
 }
 
-// Lightbox Logic
+// Function for Image Lightbox
 function openImage(src) {
-    document.getElementById('lb-img').src = src;
-    document.getElementById('lightbox').classList.add('active');
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lb-img');
+    img.src = src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
+
 function closeLightbox() {
     document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = 'auto';
 }
 
-// CV Modal
-function openCV() { document.getElementById('cv-modal').classList.add('active'); }
-function closeCV() { document.getElementById('cv-modal').classList.remove('active'); }
+// Function for CV
+function openCV() {
+    document.getElementById('cv-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
-// Key Events
+function closeCV() {
+    document.getElementById('cv-modal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close everything on Escape key
 window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape') {
+    if (e.key === 'Escape') {
         closeModal();
         closeLightbox();
         closeCV();
