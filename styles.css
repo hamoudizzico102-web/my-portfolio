@@ -56,9 +56,25 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 
 .hero-content { max-width: 800px; position: relative; z-index: 20; }
 .status-badge { background: rgba(59, 130, 246, 0.1); color: var(--accent); border: 1px solid rgba(59,130,246,0.3); padding: 8px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; display: inline-block; margin-bottom: 25px; letter-spacing: 1px; }
-.hero-title { font-family: var(--font-head); font-size: clamp(3.5rem, 8vw, 6rem); line-height: 0.95; font-weight: 900; margin-bottom: 30px; }
-.outline-text { -webkit-text-stroke: 1px rgba(255,255,255,0.3); color: transparent; }
-.solid-text { color: var(--accent); text-shadow: 0 0 40px rgba(59,130,246,0.4); }
+
+/* SLIDE IN & GRADIENT TEXT (UPDATED) */
+.hero-title { font-family: var(--font-head); font-size: clamp(3.5rem, 8vw, 6rem); line-height: 1; font-weight: 900; margin-bottom: 30px; }
+.text-mask { overflow: hidden; display: block; }
+.slide-text {
+    display: block;
+    transform: translateY(100%);
+    animation: slideUp 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+.delay-1 { animation-delay: 0.2s; }
+
+/* Blue Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, #ffffff 10%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+}
+
 .hero-sub { color: #ccc; font-size: 1.2rem; line-height: 1.6; margin-bottom: 40px; border-left: 2px solid var(--accent); padding-left: 20px; }
 
 .cta-group { display: flex; gap: 20px; }
@@ -74,18 +90,22 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 .section-head h2 { font-family: var(--font-head); font-size: 1.8rem; font-weight: 700; }
 .count { font-family: var(--font-head); font-size: 4rem; font-weight: 900; color: rgba(255,255,255,0.05); line-height: 0.5; position: relative; top: 10px; }
 
-/* CAROUSEL PADDING FIX */
-.carousel-wrapper { overflow-x: auto; padding: 40px 0; margin: -40px 0; scrollbar-width: none; }
+/* PADDING FIX FOR POP EFFECT */
+.carousel-wrapper { 
+    overflow-x: auto; 
+    padding: 50px 0; /* Extra padding so pop doesn't cut off */
+    margin: -50px 0; 
+    scrollbar-width: none; 
+}
 .carousel-wrapper::-webkit-scrollbar { display: none; }
 .carousel-track { display: flex; gap: 25px; padding-right: 5%; }
 
-/* 5. CARDS (CLEAN HOVER, NO OUTER SWEEP) */
+/* 5. CARDS */
 .card {
     position: relative; flex-shrink: 0; 
     border-radius: 12px; cursor: pointer;
     background: var(--card-bg); 
     transition: 0.4s cubic-bezier(0.3, 1, 0.3, 1);
-    /* No overflow:hidden on parent to allow border glow */
 }
 
 /* Card Sizes */
@@ -97,16 +117,8 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 .card-img { width: 100%; height: 100%; border-radius: 12px; overflow: hidden; position: relative; z-index: 2; }
 .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
 
-/* BORDER GLOW (BEFORE) */
-.card::before {
-    content: ''; position: absolute; inset: -2px; border-radius: 14px;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.6), transparent);
-    z-index: 1; opacity: 0; transition: opacity 0.3s;
-}
-
 /* HOVER STATES - CLEAN & SCALE */
 .card:hover { transform: scale(1.1); z-index: 100; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
-.card:hover::before { opacity: 1; }
 .card:hover .card-img img { transform: scale(1.05); }
 
 /* Inner Overlay */
@@ -161,14 +173,11 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
     background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
     transform: skewX(-25deg);
     pointer-events: none;
-    animation: softSweep 4s infinite linear; /* Very slow and soft */
+    animation: softSweep 4s infinite linear;
     z-index: 9003;
 }
 
-@keyframes softSweep {
-    0% { left: -100%; }
-    50%, 100% { left: 200%; } /* Pause for a bit */
-}
+@keyframes softSweep { 0% { left: -100%; } 50%, 100% { left: 200%; } }
 
 /* Close Buttons */
 .close-btn, .close-fixed {
@@ -194,9 +203,4 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 /* Footer */
 footer { padding: 60px 5%; border-top: 1px solid #222; margin-top: 50px; }
 .footer-content { display: flex; justify-content: space-between; align-items: center; }
-.social-links a { color: #666; margin-left: 20px; text-decoration: none; font-weight: 600; transition: 0.3s; }
-.social-links a:hover { color: var(--accent); }
-
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.fade-in { animation: fadeIn 1s ease forwards; opacity: 0; }
-.delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.4s; }
+.social
