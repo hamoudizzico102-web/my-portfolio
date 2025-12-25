@@ -67,25 +67,25 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 .btn-secondary { background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 16px 32px; font-weight: 700; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 10px; backdrop-filter: blur(10px); transition: 0.3s; }
 .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: white; }
 
-/* 4. MAIN LAYOUT - FIXED CLIPPING ISSUE */
+/* 4. MAIN LAYOUT */
 .main-content { position: relative; z-index: 50; margin-top: -100px; padding-bottom: 100px; }
 .section-row { margin-bottom: 60px; padding-left: 5%; }
 .section-head { display: flex; align-items: baseline; gap: 15px; margin-bottom: 25px; }
 .section-head h2 { font-family: var(--font-head); font-size: 1.8rem; font-weight: 700; }
 .count { font-family: var(--font-head); font-size: 4rem; font-weight: 900; color: rgba(255,255,255,0.05); line-height: 0.5; position: relative; top: 10px; }
 
-/* Crucial Fix: Padding prevents pop-up clip */
+/* CAROUSEL PADDING FIX */
 .carousel-wrapper { overflow-x: auto; padding: 40px 0; margin: -40px 0; scrollbar-width: none; }
 .carousel-wrapper::-webkit-scrollbar { display: none; }
 .carousel-track { display: flex; gap: 25px; padding-right: 5%; }
 
-/* 5. CARDS (LIGHT SWEEP & WHITE GLOW) */
+/* 5. CARDS (CLEAN HOVER, NO OUTER SWEEP) */
 .card {
     position: relative; flex-shrink: 0; 
     border-radius: 12px; cursor: pointer;
     background: var(--card-bg); 
     transition: 0.4s cubic-bezier(0.3, 1, 0.3, 1);
-    /* No overflow:hidden on parent to allow border effects */
+    /* No overflow:hidden on parent to allow border glow */
 }
 
 /* Card Sizes */
@@ -97,24 +97,16 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 .card-img { width: 100%; height: 100%; border-radius: 12px; overflow: hidden; position: relative; z-index: 2; }
 .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
 
-/* THE GLOW BORDER EFFECT */
+/* BORDER GLOW (BEFORE) */
 .card::before {
     content: ''; position: absolute; inset: -2px; border-radius: 14px;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.8), transparent);
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.6), transparent);
     z-index: 1; opacity: 0; transition: opacity 0.3s;
 }
 
-/* THE LIGHT SWEEP EFFECT */
-.card::after {
-    content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transform: skewX(-20deg); z-index: 3; pointer-events: none; transition: 0s;
-}
-
-/* Hover Actions */
-.card:hover { transform: scale(1.1); z-index: 100; box-shadow: 0 0 25px rgba(255,255,255,0.3); } /* White Glow */
+/* HOVER STATES - CLEAN & SCALE */
+.card:hover { transform: scale(1.1); z-index: 100; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
 .card:hover::before { opacity: 1; }
-.card:hover::after { left: 150%; transition: 0.6s ease-in-out; }
 .card:hover .card-img img { transform: scale(1.05); }
 
 /* Inner Overlay */
@@ -134,14 +126,15 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 .card:hover .icon-play, .card:hover .icon-view { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
 
-/* 6. MODALS (BLURRED BACKGROUND FIX) */
+/* 6. MODALS & LIGHTBOX (WITH SOFT SWEEP & BLUR) */
 .modal-wrapper, .lightbox-wrapper {
     position: fixed; inset: 0; z-index: 9000; display: none;
     align-items: center; justify-content: center;
 }
 .modal-wrapper.active, .lightbox-wrapper.active { display: flex; animation: fadeIn 0.3s ease; }
-/* The Blur Magic */
-.modal-bg, .lightbox-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+/* BLURRED BACKGROUND */
+.modal-bg, .lightbox-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
 
 .modal-container {
     position: relative; width: 90%; max-width: 1200px; height: 85vh;
@@ -151,6 +144,31 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 }
 .modal-header { padding: 20px 30px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; background: #0f0f0f; }
 .modal-body { flex: 1; overflow-y: auto; padding: 40px; }
+
+/* LIGHTBOX SPECIFIC STYLES (SWEEP ADDED HERE) */
+.lb-container {
+    position: relative; z-index: 9002;
+    max-width: 90%; max-height: 90vh;
+    border-radius: 8px; overflow: hidden;
+    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+}
+
+#lb-image { display: block; max-width: 100%; max-height: 90vh; }
+
+/* THE SOFT LIGHT SWEEP ON PREVIEW */
+.lb-sweep {
+    position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    transform: skewX(-25deg);
+    pointer-events: none;
+    animation: softSweep 4s infinite linear; /* Very slow and soft */
+    z-index: 9003;
+}
+
+@keyframes softSweep {
+    0% { left: -100%; }
+    50%, 100% { left: 200%; } /* Pause for a bit */
+}
 
 /* Close Buttons */
 .close-btn, .close-fixed {
@@ -168,9 +186,6 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 .insta-mode iframe { aspect-ratio: 9/16; min-height: 550px; }
 .vertical-stack { display: flex; flex-direction: column; align-items: center; gap: 30px; }
 .vertical-stack img { max-width: 100%; border: 1px solid #222; cursor: zoom-in; }
-
-/* Lightbox Image */
-#lb-image { max-width: 90%; max-height: 90vh; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.8); z-index: 9002; position: relative; }
 
 /* CV */
 .cv-container { position: relative; width: 90%; height: 90vh; z-index: 9001; max-width: 1000px; }
