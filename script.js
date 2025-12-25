@@ -1,13 +1,13 @@
-// Navbar Scroll
+// Navbar
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) navbar.classList.add('scrolled');
     else navbar.classList.remove('scrolled');
 });
 
-// Modal System
+// Modals
 function openModal(templateId, title) {
-    const wrapper = document.getElementById('modal');
+    const overlay = document.getElementById('modal');
     const content = document.getElementById('modal-content');
     const tpl = document.getElementById(templateId);
     
@@ -15,27 +15,27 @@ function openModal(templateId, title) {
         content.innerHTML = '';
         content.appendChild(tpl.content.cloneNode(true));
         document.getElementById('modal-title').innerText = title;
-        wrapper.classList.add('active');
-        document.body.style.overflow = 'hidden'; 
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
 }
 
 function closeModal() {
-    const wrapper = document.getElementById('modal');
-    wrapper.classList.remove('active');
+    const overlay = document.getElementById('modal');
+    overlay.classList.remove('active');
     setTimeout(() => { 
-        if(document.getElementById('modal-content')) 
+        if(document.getElementById('modal-content'))
             document.getElementById('modal-content').innerHTML = ''; 
     }, 300);
     document.body.style.overflow = '';
 }
 
-// Lightbox System
+// Lightbox
 function openImage(src) {
-    const lb = document.getElementById('lightbox');
+    const overlay = document.getElementById('lightbox');
     const img = document.getElementById('lb-image');
     img.src = src;
-    lb.classList.add('active');
+    overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
@@ -44,7 +44,7 @@ function closeLightbox() {
     document.body.style.overflow = '';
 }
 
-// CV System
+// CV
 function openCV() {
     document.getElementById('cv-modal').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -55,7 +55,7 @@ function closeCV() {
     document.body.style.overflow = '';
 }
 
-// Keyboard Support
+// Keys
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeModal();
