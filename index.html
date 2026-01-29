@@ -7,9 +7,11 @@
     <meta name="keywords" content="Graphic Designer, Video Editor, Lebanon, Tripoli, Freelance, Portfolio, Motion Graphics, Visual Identity">
     <meta property="og:image" content="me.png">
     
-    <title>Mohamad Moukaddem | Graphic Designer & Video Editor</title>
+    <title>Mohamad Moukaddem | High-End Creative</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -17,20 +19,21 @@
 
     <div class="film-grain"></div>
     <div class="vignette"></div>
-
-    <nav class="navbar">
+    <div class="ambient-light"></div> <nav class="navbar">
         <div class="brand">
-            <img src="230.png" alt="MM Logo">
+            <div class="brand-logo-container glow-effect">
+                <img src="230.png" alt="MM Logo">
+            </div>
             <div class="brand-info">
                 <span class="brand-name">MOUKADDEM</span>
                 <span class="brand-role">GRAPHIC DESIGNER & VIDEO EDITOR</span>
             </div>
         </div>
         <div class="nav-links">
-            <a href="#editing">Video Editing</a>
-            <a href="#design">Visual Arts</a>
-            <a href="#client">Clients</a>
-            <button class="resume-btn btn-anim" onclick="openCV()">
+            <a href="#editing" class="nav-link">Video Editing</a>
+            <a href="#design" class="nav-link">Visual Arts</a>
+            <a href="#client" class="nav-link">Clients</a>
+            <button class="resume-btn btn-glow" onclick="openCV()">
                 RESUME <i class="ri-file-text-line"></i>
             </button>
         </div>
@@ -39,31 +42,34 @@
     <header class="hero">
         <div class="hero-bg">
             <img src="me.png" alt="Background">
-            <div class="hero-overlay"></div>
+            <div class="hero-overlay-gradient"></div>
         </div>
         
         <div class="hero-content">
-            <div class="badge fade-in">AVAILABLE FOR FREELANCE</div>
+            <div class="badge-container fade-in">
+                <div class="badge glow-pulse">AVAILABLE FOR FREELANCE</div>
+            </div>
             
             <h1 class="hero-title">
                 <div class="mask-container">
-                    <span class="slide-up gradient-text">DESIGN</span>
+                    <span class="slide-up gradient-text-anim">DESIGN</span>
                 </div>
                 <div class="mask-container">
-                    <span class="slide-up gradient-text delay-1">& VIDEO.</span>
+                    <span class="slide-up gradient-text-anim delay-1">& VIDEO.</span>
                 </div>
             </h1>
             
             <p class="hero-sub fade-in delay-2">
                 High-End Video Editing & Strategic Brand Identity.<br>
-                Crafting digital legacies from Tripoli to the world.
+                Crafting cinematic digital legacies from Tripoli to the world.
             </p>
             
             <div class="cta-box fade-in delay-3">
-                <button class="btn-primary btn-anim" onclick="document.getElementById('editing').scrollIntoView({behavior: 'smooth'})">
+                <button class="btn-primary btn-super-glow" onclick="document.getElementById('editing').scrollIntoView({behavior: 'smooth'})">
                     <i class="ri-play-circle-fill"></i> VIEW WORK
+                    <div class="btn-reflection"></div>
                 </button>
-                <button class="btn-secondary btn-anim" onclick="window.open('https://wa.me/96170577697')">
+                <button class="btn-secondary btn-glass" onclick="window.open('https://wa.me/96170577697')">
                     <i class="ri-whatsapp-line"></i> CONTACT
                 </button>
             </div>
@@ -79,29 +85,32 @@
                     <span class="row-number">01</span>
                 </div>
                 <div class="nav-arrows">
-                    <button class="nav-btn" onclick="scrollTrack('track-editing', -350)"><i class="ri-arrow-left-s-line"></i></button>
-                    <button class="nav-btn" onclick="scrollTrack('track-editing', 350)"><i class="ri-arrow-right-s-line"></i></button>
+                    <button class="nav-btn" onclick="scrollTrack('track-editing', -400)"><i class="ri-arrow-left-s-line"></i></button>
+                    <button class="nav-btn" onclick="scrollTrack('track-editing', 400)"><i class="ri-arrow-right-s-line"></i></button>
                 </div>
             </div>
             <div class="scroll-track-wrapper" id="track-editing">
                 <div class="scroll-track">
-                    <div class="card video-card" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
+                    <div class="card video-card glow-on-hover" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="sebastien.jpg" alt="Sebastien Koubar"></div>
-                        <div class="card-hover">
+                        <div class="card-hover-content">
                             <i class="ri-youtube-fill center-icon"></i>
                             <div class="card-meta"><h3>Sébastien Koubar</h3><p>17 VIDEOS • YOUTUBE</p></div>
                         </div>
                     </div>
-                    <div class="card video-card" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
+                    <div class="card video-card glow-on-hover" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham"></div>
-                        <div class="card-hover">
+                        <div class="card-hover-content">
                             <i class="ri-instagram-fill center-icon"></i>
                             <div class="card-meta"><h3>Hisham Ghanem</h3><p>REELS LIBRARY</p></div>
                         </div>
                     </div>
-                    <div class="card video-card" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
+                    <div class="card video-card glow-on-hover" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="logo-01.png" alt="Oqunet"></div>
-                        <div class="card-hover">
+                        <div class="card-hover-content">
                             <i class="ri-film-fill center-icon"></i>
                             <div class="card-meta"><h3>Oqunet</h3><p>TECH PROMO</p></div>
                         </div>
@@ -117,54 +126,60 @@
                     <span class="row-number">02</span>
                 </div>
                 <div class="nav-arrows">
-                    <button class="nav-btn" onclick="scrollTrack('track-design', -300)"><i class="ri-arrow-left-s-line"></i></button>
-                    <button class="nav-btn" onclick="scrollTrack('track-design', 300)"><i class="ri-arrow-right-s-line"></i></button>
+                    <button class="nav-btn" onclick="scrollTrack('track-design', -350)"><i class="ri-arrow-left-s-line"></i></button>
+                    <button class="nav-btn" onclick="scrollTrack('track-design', 350)"><i class="ri-arrow-right-s-line"></i></button>
                 </div>
             </div>
             <div class="scroll-track-wrapper" id="track-design">
                 <div class="scroll-track">
                     
-                    <div class="card poster-card" onclick="openImage('gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png')">
+                    <div class="card poster-card glow-on-hover" onclick="openImage('gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png" alt="Istanbul Vision"></div>
-                        <div class="card-hover">
+                        <div class="card-hover-content">
                             <i class="ri-eye-line center-icon"></i>
-                            <div class="card-meta"><h3>Istanbul — A Global Visionary Hub</h3><p>CONCEPT ART</p></div>
+                            <div class="card-meta"><h3>Istanbul — Visionary Hub</h3><p>CONCEPT ART</p></div>
                         </div>
                     </div>
 
-                    <div class="card poster-card" onclick="openImage('IMG_20251225_020344.png')">
+                    <div class="card poster-card glow-on-hover" onclick="openImage('IMG_20251225_020344.png')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="IMG_20251225_020344.png" alt="GamePass"></div>
-                        <div class="card-hover">
-                            <i class="ri-eye-line center-icon"></i>
+                        <div class="card-hover-content">
+                            <i class="ri-gamepad-line center-icon"></i>
                             <div class="card-meta"><h3>GamePass</h3><p>GAMING POSTER</p></div>
                         </div>
                     </div>
 
-                    <div class="card poster-card" onclick="openImage('5.png')">
+                    <div class="card poster-card glow-on-hover" onclick="openImage('5.png')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="5.png" alt="Saudi"></div>
-                        <div class="card-hover">
-                            <i class="ri-eye-line center-icon"></i>
+                        <div class="card-hover-content">
+                            <i class="ri-flag-line center-icon"></i>
                             <div class="card-meta"><h3>Saudi National Day</h3><p>POSTER ART</p></div>
                         </div>
                     </div>
-                    <div class="card poster-card" onclick="openImage('1.png')">
+                    <div class="card poster-card glow-on-hover" onclick="openImage('1.png')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="1.png" alt="Identity"></div>
-                        <div class="card-hover">
-                            <i class="ri-eye-line center-icon"></i>
+                        <div class="card-hover-content">
+                            <i class="ri-palette-line center-icon"></i>
                             <div class="card-meta"><h3>Visual Identity</h3><p>BRANDING</p></div>
                         </div>
                     </div>
-                    <div class="card poster-card" onclick="openImage('me.png')">
+                    <div class="card poster-card glow-on-hover" onclick="openImage('me.png')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="me.png" alt="Portrait"></div>
-                        <div class="card-hover">
-                            <i class="ri-eye-line center-icon"></i>
+                        <div class="card-hover-content">
+                            <i class="ri-user-smile-line center-icon"></i>
                             <div class="card-meta"><h3>Personal Art</h3><p>PORTRAIT</p></div>
                         </div>
                     </div>
-                    <div class="card poster-card" onclick="openImage('gemini-3-pro-image-preview-2k (nano-banana-pro)_a_Subject_&_Compositio.png')">
+                    <div class="card poster-card glow-on-hover" onclick="openImage('gemini-3-pro-image-preview-2k (nano-banana-pro)_a_Subject_&_Compositio.png')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="gemini-3-pro-image-preview-2k (nano-banana-pro)_a_Subject_&_Compositio.png" alt="AI"></div>
-                        <div class="card-hover">
-                            <i class="ri-eye-line center-icon"></i>
+                        <div class="card-hover-content">
+                            <i class="ri-robot-line center-icon"></i>
                             <div class="card-meta"><h3>AI Concept</h3><p>COMPOSITION</p></div>
                         </div>
                     </div>
@@ -179,27 +194,31 @@
                     <span class="row-number">03</span>
                 </div>
                 <div class="nav-arrows">
-                    <button class="nav-btn" onclick="scrollTrack('track-client', -280)"><i class="ri-arrow-left-s-line"></i></button>
-                    <button class="nav-btn" onclick="scrollTrack('track-client', 280)"><i class="ri-arrow-right-s-line"></i></button>
+                    <button class="nav-btn" onclick="scrollTrack('track-client', -300)"><i class="ri-arrow-left-s-line"></i></button>
+                    <button class="nav-btn" onclick="scrollTrack('track-client', 300)"><i class="ri-arrow-right-s-line"></i></button>
                 </div>
             </div>
             <div class="scroll-track-wrapper" id="track-client">
                 <div class="scroll-track">
-                    <div class="card square-card" onclick="openModal('tpl-oqunet-software', 'Oqunet Software')">
+                    <div class="card square-card glow-on-hover" onclick="openModal('tpl-oqunet-software', 'Oqunet Software')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="logo-01.png"></div>
-                        <div class="card-hover"><div class="card-meta"><h3>Oqunet Software</h3><p>13 POSTS</p></div></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>Oqunet Software</h3><p>SOCIAL MEDIA</p></div></div>
                     </div>
-                    <div class="card square-card" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
+                    <div class="card square-card glow-on-hover" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="514064519_17860801818435683_5097951599889091948_n.jpg"></div>
-                        <div class="card-hover"><div class="card-meta"><h3>TradeSmart</h3><p>CRYPTO</p></div></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>TradeSmart</h3><p>CRYPTO FUND</p></div></div>
                     </div>
-                    <div class="card square-card" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
+                    <div class="card square-card glow-on-hover" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="logo (2).png"></div>
-                        <div class="card-hover"><div class="card-meta"><h3>Intellident</h3><p>DENTAL</p></div></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>Intellident</h3><p>DENTAL CLINIC</p></div></div>
                     </div>
-                    <div class="card square-card" onclick="openModal('tpl-maven', 'Marketing Maven')">
+                    <div class="card square-card glow-on-hover" onclick="openModal('tpl-maven', 'Marketing Maven')">
+                        <div class="card-border-gradient"></div>
                         <div class="card-image"><img src="market maven logo.png"></div>
-                        <div class="card-hover"><div class="card-meta"><h3>Marketing Maven</h3><p>ARTBOARDS</p></div></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>Marketing Maven</h3><p>BRANDING KITS</p></div></div>
                     </div>
                 </div>
             </div>
@@ -208,37 +227,36 @@
     </main>
 
     <footer>
-        <p>© 2025 MOHAMAD MOUKADDEM</p>
+        <p>© 2025 MOHAMAD MOUKADDEM. All Rights Reserved.</p>
         <div class="footer-links">
-            <a href="mailto:hamoudizzico102@outlook.com" class="footer-btn btn-anim">Email <i class="ri-mail-line"></i></a>
-            <a href="https://wa.me/96170577697" class="footer-btn btn-anim">WhatsApp <i class="ri-whatsapp-line"></i></a>
+            <a href="mailto:hamoudizzico102@outlook.com" class="footer-btn btn-glass">Email <i class="ri-mail-line"></i></a>
+            <a href="https://wa.me/96170577697" class="footer-btn btn-glass">WhatsApp <i class="ri-whatsapp-line"></i></a>
         </div>
     </footer>
 
     <div id="modal" class="overlay">
         <div class="overlay-bg" onclick="closeModal()"></div>
-        <div class="modal-box">
+        <div class="modal-box glass-panel">
             <div class="modal-header">
                 <h3 id="modal-title">TITLE</h3>
                 <button onclick="closeModal()" class="close-ui"><i class="ri-close-line"></i></button>
             </div>
-            <div id="modal-content" class="modal-body"></div>
+            <div id="modal-content" class="modal-body custom-scrollbar"></div>
         </div>
     </div>
 
     <div id="lightbox" class="overlay">
         <div class="overlay-bg" onclick="closeLightbox()"></div>
         <button class="close-fixed" onclick="closeLightbox()"><i class="ri-close-line"></i></button>
-        <div class="lb-wrapper">
+        <div class="lb-wrapper glow-effect">
             <img id="lb-image" src="">
-            <div class="lb-sweep-effect"></div>
         </div>
     </div>
 
     <div id="cv-modal" class="overlay">
         <div class="overlay-bg" onclick="closeCV()"></div>
-        <div class="cv-box">
-            <button class="close-fixed" onclick="closeCV()"><i class="ri-close-line"></i></button>
+        <div class="cv-box glass-panel">
+            <button class="close-fixed-cv" onclick="closeCV()"><i class="ri-close-line"></i></button>
             <iframe src="Mohamad Mokaddem CV 2025 (1).pdf"></iframe>
         </div>
     </div>
@@ -330,7 +348,7 @@
 
     <template id="tpl-intellident">
         <div class="grid-layout insta-layout">
-            <div class="img-full" onclick="openImage('logo (2).png')"><img src="logo (2).png"></div>
+            <div class="img-full glow-on-hover" onclick="openImage('logo (2).png')"><img src="logo (2).png"></div>
             <iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed" loading="lazy"></iframe>
             <iframe src="https://www.instagram.com/p/DHBxGX8t-pa/embed" loading="lazy"></iframe>
             <iframe src="https://www.instagram.com/p/DHG8d64tvJW/embed" loading="lazy"></iframe>
@@ -348,13 +366,13 @@
 
     <template id="tpl-maven">
         <div class="maven-stack">
-            <img src="Artboard 1.png" onclick="openImage(this.src)">
-            <img src="Artboard 2.png" onclick="openImage(this.src)">
-            <img src="Artboard 3.png" onclick="openImage(this.src)">
-            <img src="Artboard 4.png" onclick="openImage(this.src)">
-            <img src="Artboard 5.png" onclick="openImage(this.src)">
-            <img src="Artboard 6.png" onclick="openImage(this.src)">
-            <img src="Artboard 7.png" onclick="openImage(this.src)">
+            <img src="Artboard 1.png" onclick="openImage(this.src)" class="glow-on-hover">
+            <img src="Artboard 2.png" onclick="openImage(this.src)" class="glow-on-hover">
+            <img src="Artboard 3.png" onclick="openImage(this.src)" class="glow-on-hover">
+            <img src="Artboard 4.png" onclick="openImage(this.src)" class="glow-on-hover">
+            <img src="Artboard 5.png" onclick="openImage(this.src)" class="glow-on-hover">
+            <img src="Artboard 6.png" onclick="openImage(this.src)" class="glow-on-hover">
+            <img src="Artboard 7.png" onclick="openImage(this.src)" class="glow-on-hover">
         </div>
     </template>
 
