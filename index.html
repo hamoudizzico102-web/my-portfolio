@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mohamad Moukaddem - Professional Graphic Designer & Video Editor based in Lebanon. High-end video editing, branding, and visual arts portfolio.">
+    <meta name="keywords" content="Graphic Designer, Video Editor, Lebanon, Tripoli, Freelance, Portfolio, Motion Graphics, Visual Identity">
+    <meta property="og:image" content="me.png">
+    
     <title>Mohamad Moukaddem | Graphic Designer & Video Editor</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -15,7 +20,7 @@
 
     <nav class="navbar">
         <div class="brand">
-            <img src="230.png" alt="MM">
+            <img src="230.png" alt="MM Logo">
             <div class="brand-info">
                 <span class="brand-name">MOUKADDEM</span>
                 <span class="brand-role">GRAPHIC DESIGNER & VIDEO EDITOR</span>
@@ -69,13 +74,19 @@
 
         <section id="editing" class="row-section">
             <div class="row-header">
-                <h2>Video Editing</h2>
-                <span class="row-number">01</span>
+                <div class="title-group">
+                    <h2>Video Editing</h2>
+                    <span class="row-number">01</span>
+                </div>
+                <div class="nav-arrows">
+                    <button class="nav-btn" onclick="scrollTrack('track-editing', -350)"><i class="ri-arrow-left-s-line"></i></button>
+                    <button class="nav-btn" onclick="scrollTrack('track-editing', 350)"><i class="ri-arrow-right-s-line"></i></button>
+                </div>
             </div>
-            <div class="scroll-track-wrapper">
+            <div class="scroll-track-wrapper" id="track-editing">
                 <div class="scroll-track">
                     <div class="card video-card" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
-                        <div class="card-image"><img src="https://yt3.googleusercontent.com/Pm8Oup-yrdgd8dvMsnX6VhAm2AwGiGGDTqRdzoxd8EkslzZ3F8u3xlc9XMWWaCjZDzrF3Oegbvg=s160-c-k-c0x00ffffff-no-rj" alt="Sebastien"></div>
+                        <div class="card-image"><img src="sebastien.jpg" alt="Sebastien Koubar"></div>
                         <div class="card-hover">
                             <i class="ri-youtube-fill center-icon"></i>
                             <div class="card-meta"><h3>Sébastien Koubar</h3><p>17 VIDEOS • YOUTUBE</p></div>
@@ -101,10 +112,16 @@
 
         <section id="design" class="row-section">
             <div class="row-header">
-                <h2>Visual Design</h2>
-                <span class="row-number">02</span>
+                <div class="title-group">
+                    <h2>Visual Design</h2>
+                    <span class="row-number">02</span>
+                </div>
+                <div class="nav-arrows">
+                    <button class="nav-btn" onclick="scrollTrack('track-design', -300)"><i class="ri-arrow-left-s-line"></i></button>
+                    <button class="nav-btn" onclick="scrollTrack('track-design', 300)"><i class="ri-arrow-right-s-line"></i></button>
+                </div>
             </div>
-            <div class="scroll-track-wrapper">
+            <div class="scroll-track-wrapper" id="track-design">
                 <div class="scroll-track">
                     
                     <div class="card poster-card" onclick="openImage('gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png')">
@@ -157,10 +174,16 @@
 
         <section id="client" class="row-section">
             <div class="row-header">
-                <h2>Clients Work</h2>
-                <span class="row-number">03</span>
+                <div class="title-group">
+                    <h2>Clients Work</h2>
+                    <span class="row-number">03</span>
+                </div>
+                <div class="nav-arrows">
+                    <button class="nav-btn" onclick="scrollTrack('track-client', -280)"><i class="ri-arrow-left-s-line"></i></button>
+                    <button class="nav-btn" onclick="scrollTrack('track-client', 280)"><i class="ri-arrow-right-s-line"></i></button>
+                </div>
             </div>
-            <div class="scroll-track-wrapper">
+            <div class="scroll-track-wrapper" id="track-client">
                 <div class="scroll-track">
                     <div class="card square-card" onclick="openModal('tpl-oqunet-software', 'Oqunet Software')">
                         <div class="card-image"><img src="logo-01.png"></div>
@@ -222,104 +245,104 @@
 
     <template id="tpl-sebastien">
         <div class="grid-layout">
-            <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M"></iframe>
-            <iframe src="https://www.youtube.com/embed/ChGxyGwRdFE"></iframe>
-            <iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307"></iframe>
-            <iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502"></iframe>
-            <iframe src="https://www.youtube.com/embed/SNmD--JxL9k"></iframe>
-            <iframe src="https://www.youtube.com/embed/kKaPwbr9HDY?start=240"></iframe>
-            <iframe src="https://www.youtube.com/embed/6bEAqazXi6o?start=2"></iframe>
-            <iframe src="https://www.youtube.com/embed/quGLWi_C2RE?start=300"></iframe>
-            <iframe src="https://www.youtube.com/embed/KVbUAiagfFQ?start=64"></iframe>
-            <iframe src="https://www.youtube.com/embed/jAARKmDX8ks?start=97"></iframe>
-            <iframe src="https://www.youtube.com/embed/41ZofgY-PyY"></iframe>
-            <iframe src="https://www.youtube.com/embed/ous2-sCWMWU"></iframe>
-            <iframe src="https://www.youtube.com/embed/DqyomfbWu4A"></iframe>
-            <iframe src="https://www.youtube.com/embed/a9mvgDKxnTQ"></iframe>
-            <iframe src="https://www.youtube.com/embed/1g8ozutYC1s"></iframe>
-            <iframe src="https://www.youtube.com/embed/J2AIq5G4qzk"></iframe>
-            <iframe src="https://www.youtube.com/embed/NYKqIV2CT7w"></iframe>
+            <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/SNmD--JxL9k" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/kKaPwbr9HDY?start=240" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/6bEAqazXi6o?start=2" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/quGLWi_C2RE?start=300" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/KVbUAiagfFQ?start=64" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/jAARKmDX8ks?start=97" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/41ZofgY-PyY" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/ous2-sCWMWU" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/DqyomfbWu4A" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/a9mvgDKxnTQ" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/1g8ozutYC1s" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/J2AIq5G4qzk" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/NYKqIV2CT7w" loading="lazy" allowfullscreen></iframe>
         </div>
     </template>
 
     <template id="tpl-hisham">
         <div class="grid-layout insta-layout">
-            <iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/C_nDS4kIjDq/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/C_nFgW9ILdX/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/C_oOlmToOkm/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/C_5-k1kIqEo/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DAMLpBwS20w/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/C_nDS4kIjDq/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/C_nFgW9ILdX/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/C_oOlmToOkm/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/C_5-k1kIqEo/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DAMLpBwS20w/embed" loading="lazy"></iframe>
         </div>
     </template>
 
     <template id="tpl-oqunet-edit">
         <div class="grid-layout insta-layout">
-            <iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DGTe92gi_EW/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DGle_mUC-Ap/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DG6CrGoCI4m/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHWZ1h0Csk4/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHoM5zEqvxB/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DICErEJCate/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DI9R_zGioCs/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DGTe92gi_EW/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DGle_mUC-Ap/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DG6CrGoCI4m/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHWZ1h0Csk4/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHoM5zEqvxB/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DICErEJCate/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DI9R_zGioCs/embed" loading="lazy"></iframe>
         </div>
     </template>
 
     <template id="tpl-oqunet-software">
         <div class="grid-layout insta-layout">
-            <iframe src="https://www.instagram.com/p/DGTULOwC8Ec/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DGYkp3Tiia5/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DGiwjPPilFd/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DG53gjSiwXR/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHBrkjui38p/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHOoZ28CGoz/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHbOFpSixB6/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHdb_aOi2Go/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DH6S1iFCyVl/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIEVuIMiLRK/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DI_xB_dCbYQ/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DJZfVqdih7x/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DLKOufzi0eA/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/DGTULOwC8Ec/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DGYkp3Tiia5/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DGiwjPPilFd/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DG53gjSiwXR/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHBrkjui38p/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHOoZ28CGoz/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHbOFpSixB6/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHdb_aOi2Go/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DH6S1iFCyVl/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIEVuIMiLRK/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DI_xB_dCbYQ/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DJZfVqdih7x/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DLKOufzi0eA/embed" loading="lazy"></iframe>
         </div>
     </template>
 
     <template id="tpl-tradesmart">
         <div class="grid-layout insta-layout">
-            <iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIB2ZyjIC2Q/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIJfDAtoeQ5/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIJuMPaILTR/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIO0tHQoGbO/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIO01hTIHes/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIRakq8oFtI/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIReQ2-M59X/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIgaq5IMfDc/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIjXmIbIRF9/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIlfnnxslQf/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DI6JJYqspJA/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DJCYpU4sgng/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DJEuB9tMfDN/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIB2ZyjIC2Q/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIJfDAtoeQ5/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIJuMPaILTR/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIO0tHQoGbO/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIO01hTIHes/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIRakq8oFtI/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIReQ2-M59X/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIgaq5IMfDc/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIjXmIbIRF9/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIlfnnxslQf/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DI6JJYqspJA/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DJCYpU4sgng/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DJEuB9tMfDN/embed" loading="lazy"></iframe>
         </div>
     </template>
 
     <template id="tpl-intellident">
         <div class="grid-layout insta-layout">
             <div class="img-full" onclick="openImage('logo (2).png')"><img src="logo (2).png"></div>
-            <iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHBxGX8t-pa/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHG8d64tvJW/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHJeaH3tFoO/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHOihUVtI5Z/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHbXC8tNPBq/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHoPqwtt-gC/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHtbQX2tn9z/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHvvma5tA_A/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DHyb_4CtX-o/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DH6JLv4NXQs/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DIBpi3-t4jb/embed"></iframe>
+            <iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHBxGX8t-pa/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHG8d64tvJW/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHJeaH3tFoO/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHOihUVtI5Z/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHbXC8tNPBq/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHoPqwtt-gC/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHtbQX2tn9z/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHvvma5tA_A/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DHyb_4CtX-o/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DH6JLv4NXQs/embed" loading="lazy"></iframe>
+            <iframe src="https://www.instagram.com/p/DIBpi3-t4jb/embed" loading="lazy"></iframe>
         </div>
     </template>
 
