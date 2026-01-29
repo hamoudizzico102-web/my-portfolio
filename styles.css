@@ -189,3 +189,23 @@ footer { padding: 60px 5%; border-top: 1px solid #222; margin-top: 60px; display
 @keyframes slideUpAnim { from { transform: translateY(110%); } to { transform: translateY(0); } }
 @keyframes sweepAnim { 0% { left: -100%; } 40%, 100% { left: 200%; } }
 .fade-in { opacity: 0; animation: fadeIn 1s ease forwards; }
+<div class="card square-card" onclick="openImage('images/design 1.png')">
+  <div class="card-image"><img src="images/design 1.png" alt="design 1"></div>
+  <div class="card-hover"><div class="card-meta"><h3>design 1</h3><p>client work</p></div></div>
+</div>
+
+<div class="card square-card" onclick="openImage('images/design 2.png')">
+  <div class="card-image"><img src="images/design 2.png" alt="design 2"></div>
+  <div class="card-hover"><div class="card-meta"><h3>design 2</h3><p>client work</p></div></div>
+</div>
+
+<div class="card square-card" onclick="openImage('images/design 3.png')">
+  <div class="card-image"><img src="images/design 3.png" alt="design 3"></div>
+  <div class="card-hover"><div class="card-meta"><h3>design 3</h3><p>client work</p></div></div>
+</div>
+
+<div class="card square-card" onclick="openImage('images/design 4.png')">
+  <div class="card-image"><img src="images/design 4.png" alt="design 4"></div>
+  <div class="card-hover"><div class="card-meta"><h3>design 4</h3><p>client work</p></div></div>
+</div>
+
