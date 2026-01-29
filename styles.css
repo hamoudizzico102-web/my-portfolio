@@ -1,379 +1,171 @@
-/* --- 1. CORE VARIABLES & RESET (THE "HIGH-END" PALETTE) --- */
 :root {
-    --bg-main: #050507; /* Deeper, colder black */
-    --bg-secondary: #0a0a0f;
-    --card-bg: rgba(20, 20, 25, 0.6); /* Translucent */
-    
-    /* The "Power" Color - A vibrant, electric blue */
+    --bg-main: #050507;
+    --card-bg: rgba(20, 20, 25, 0.8); /* Darker opacity for performance */
     --primary-blue: #2563eb;
-    --primary-glow: rgba(37, 99, 235, 0.6);
-    --accent-cyan: #06b6d4; /* Secondary accent for gradients */
-    
+    --accent-cyan: #06b6d4;
     --text-white: #ffffff;
     --text-muted: #9ca3af;
-    
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
-
-    /* Standardized Glow Effects */
-    --glow-sm: 0 0 15px rgba(37, 99, 235, 0.3);
-    --glow-md: 0 0 30px rgba(37, 99, 235, 0.4);
-    --glow-lg: 0 0 60px rgba(37, 99, 235, 0.5), 0 0 100px rgba(6, 182, 212, 0.2);
+    
+    /* Optimized Glows (Less Spread) */
+    --glow-sm: 0 0 10px rgba(37, 99, 235, 0.3);
+    --glow-lg: 0 0 40px rgba(37, 99, 235, 0.4);
     
     --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-    --glass-bg: rgba(15, 15, 20, 0.75);
+    --glass-bg: rgba(15, 15, 20, 0.85); /* Less transparency = Faster render */
 }
 
+/* Base Setup */
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 body { 
-    background: var(--bg-main); 
-    color: var(--text-white); 
-    font-family: var(--font-body); 
-    overflow-x: hidden;
-    /* Subtle ambient background gradient */
-    background-image: radial-gradient(circle at 20% 30%, rgba(37,99,235,0.08) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 80%, rgba(6,182,212,0.05) 0%, transparent 50%);
+    background: var(--bg-main); color: var(--text-white); font-family: var(--font-body); 
+    overflow-x: hidden; 
+    /* Static Gradient instead of complex rendering */
+    background: radial-gradient(circle at top left, #0f1525, #050507 40%);
 }
 
-/* --- 2. ATMOSPHERE & FX LAYERS --- */
+/* Layers */
 .film-grain {
-    position: fixed; inset: 0; pointer-events: none; z-index: 9998; opacity: 0.035;
+    position: fixed; inset: 0; pointer-events: none; z-index: 9000; opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    mix-blend-mode: overlay;
 }
 .vignette {
-    position: fixed; inset: 0; pointer-events: none; z-index: 9999;
-    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.9) 100%);
-}
-/* Adds a very subtle light leak effect near top */
-.ambient-light {
-    position: fixed; top: -20%; left: -20%; width: 70%; height: 70%;
-    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-    opacity: 0.15; filter: blur(100px); z-index: 1; pointer-events: none;
+    position: fixed; inset: 0; pointer-events: none; z-index: 9001;
+    background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.8) 100%);
 }
 
-/* --- 3. NAVBAR (GLASSMORPHISM) --- */
+/* Navbar */
 .navbar {
-    position: fixed; top: 0; width: 100%; padding: 18px 5%; 
+    position: fixed; top: 0; width: 100%; padding: 15px 5%; 
     display: flex; justify-content: space-between; align-items: center; z-index: 1000;
-    background: linear-gradient(to bottom, rgba(5,5,7,0.8), transparent); 
-    transition: 0.4s ease; border-bottom: 1px solid transparent;
+    transition: 0.3s ease;
+    will-change: background; /* Hardware Acceleration */
 }
 .navbar.scrolled { 
-    background: var(--glass-bg); 
-    backdrop-filter: blur(15px) saturate(120%);
-    -webkit-backdrop-filter: blur(15px) saturate(120%);
-    border-bottom: var(--glass-border);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background: rgba(5, 5, 7, 0.95); /* Solid color is faster than blur */
+    border-bottom: 1px solid #222;
+}
+@supports (backdrop-filter: blur(10px)) {
+    .navbar.scrolled { background: rgba(5, 5, 7, 0.85); backdrop-filter: blur(10px); }
 }
 
-.brand { display: flex; align-items: center; gap: 15px; }
-.brand-logo-container img { 
-    width: 45px; border-radius: 8px; border: var(--glass-border); 
-    transition: 0.3s;
-}
-.navbar.scrolled .brand-logo-container img { border-color: var(--primary-blue); box-shadow: var(--glow-sm); }
-
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-logo-container img { border-radius: 8px; border: 1px solid #333; }
 .brand-info { display: flex; flex-direction: column; }
-.brand-name { font-family: var(--font-heading); font-weight: 900; letter-spacing: 2px; line-height: 1; font-size: 1.1rem; }
-.brand-role { font-size: 0.55rem; color: var(--primary-blue); font-weight: 700; letter-spacing: 2px; margin-top: 4px; text-shadow: 0 0 10px var(--primary-glow); }
+.brand-name { font-family: var(--font-heading); font-weight: 800; line-height: 1; font-size: 1.1rem; }
+.brand-role { font-size: 0.55rem; color: var(--primary-blue); font-weight: 700; letter-spacing: 1.5px; }
 
-.nav-links { display: flex; gap: 30px; align-items: center; }
-.nav-link { 
-    color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; 
-    text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; position: relative;
-}
-.nav-link:hover { color: var(--text-white); text-shadow: 0 0 8px rgba(255,255,255,0.5); }
-/* Underline animation */
-.nav-link::after {
-    content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
-    background: var(--primary-blue); transition: 0.3s; box-shadow: var(--glow-sm);
-}
-.nav-link:hover::after { width: 100%; }
+.nav-links { display: flex; gap: 25px; align-items: center; }
+.nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: 0.2s; }
+.nav-link:hover { color: white; }
 
-/* --- 4. HERO SECTION (CINEMATIC IMPACT) --- */
-.hero { position: relative; height: 100vh; display: flex; align-items: center; padding: 0 5%; z-index: 10; overflow: hidden; }
+/* Hero */
+.hero { position: relative; height: 100vh; display: flex; align-items: center; padding: 0 5%; z-index: 10; }
 .hero-bg { position: absolute; inset: 0; z-index: -1; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; filter: contrast(1.1) saturate(1.1); }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
 .hero-overlay-gradient { 
     position: absolute; inset: 0; 
-    background: linear-gradient(90deg, var(--bg-main) 15%, rgba(5,5,7,0.8) 50%, transparent 100%),
-                linear-gradient(0deg, var(--bg-main) 0%, transparent 40%);
+    background: linear-gradient(90deg, var(--bg-main) 10%, rgba(5,5,7,0.7) 60%, transparent 100%);
 }
 
-.hero-content { max-width: 900px; position: relative; z-index: 20; margin-top: 40px; }
-.badge-container { margin-bottom: 25px; }
-.badge { 
-    display: inline-block; 
-    background: rgba(37, 99, 235, 0.15); 
-    border: 1px solid var(--primary-blue); 
-    color: var(--primary-blue); 
-    padding: 10px 20px; font-size: 0.75rem; font-weight: 800; 
-    border-radius: 50px; letter-spacing: 1px;
-    box-shadow: var(--glow-sm);
-}
-.glow-pulse { animation: pulseGlow 3s infinite ease-in-out; }
+.hero-content { max-width: 800px; position: relative; z-index: 20; }
+.badge { display: inline-block; background: rgba(37,99,235,0.15); border: 1px solid var(--primary-blue); color: var(--primary-blue); padding: 8px 18px; font-size: 0.75rem; font-weight: 700; border-radius: 50px; margin-bottom: 20px; }
 
-.hero-title { 
-    font-family: var(--font-heading); font-size: clamp(4rem, 9vw, 7.5rem); 
-    font-weight: 900; line-height: 1.05; margin-bottom: 30px; 
-    text-transform: uppercase; letter-spacing: -0.02em;
-}
-.mask-container { overflow: hidden; display: block; }
-.slide-up { display: block; transform: translateY(110%) skewY(5deg); opacity:0; animation: slideUpCinematic 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
-.delay-1 { animation-delay: 0.2s; }
+.hero-title { font-family: var(--font-heading); font-size: clamp(3.5rem, 8vw, 6.5rem); font-weight: 900; line-height: 1.05; margin-bottom: 25px; }
+.mask-container { overflow: hidden; }
+.slide-up { display: block; transform: translateY(100%); animation: slideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
+.delay-1 { animation-delay: 0.1s; }
 
-/* Enhanced Gradient Text with Stroke */
 .gradient-text-anim {
-    background: linear-gradient(135deg, #ffffff 0%, var(--primary-blue) 40%, var(--accent-cyan) 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientMove 5s linear infinite alternate;
-    /* Fallback text shadow for a "neon border" look if background-clip fails, or to enhance it */
-    text-shadow: 0 0 50px var(--primary-glow);
-    /* Optional: Add a subtle stroke for definition */
-     -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+    background: linear-gradient(135deg, #fff 0%, var(--primary-blue) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
-.hero-sub { 
-    color: var(--text-muted); font-size: 1.25rem; line-height: 1.7; max-width: 600px;
-    margin-bottom: 45px; border-left: 3px solid var(--primary-blue); padding-left: 25px; 
-    letter-spacing: 0.01em; font-weight: 400;
-}
-.cta-box { display: flex; gap: 20px; }
+.hero-sub { color: var(--text-muted); font-size: 1.15rem; line-height: 1.6; margin-bottom: 35px; border-left: 3px solid var(--primary-blue); padding-left: 20px; }
+.cta-box { display: flex; gap: 15px; }
 
-/* --- 5. BUTTONS (HIGH-TECH GLOW) --- */
-.btn-primary, .btn-secondary, .resume-btn, .footer-btn {
-    position: relative; overflow: hidden; cursor: pointer; transition: 0.4s;
-    font-family: var(--font-body); display: flex; align-items: center; gap: 10px;
-    border-radius: 8px; font-weight: 700; letter-spacing: 0.5px;
-}
+/* Buttons */
+.btn-primary { background: var(--primary-blue); color: white; padding: 15px 35px; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; display: flex; gap: 10px; align-items: center; transition: 0.3s; }
+.btn-primary:hover { box-shadow: var(--glow-lg); transform: translateY(-2px); }
+.btn-secondary { background: rgba(255,255,255,0.05); color: white; padding: 15px 35px; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; font-weight: 700; cursor: pointer; display: flex; gap: 10px; align-items: center; }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); }
+.resume-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 8px 20px; border-radius: 4px; cursor: pointer; display: flex; gap: 5px; align-items: center; }
 
-/* Super Glow Primary Button */
-.btn-super-glow {
-    background: var(--primary-blue); color: white; border: none;
-    padding: 16px 40px; font-size: 1rem;
-    box-shadow: var(--glow-md); /* Stronger initial glow */
-    z-index: 1;
-}
-/* The "shine" sweep effect */
-.btn-reflection {
-    position: absolute; top: 0; left: -150%; width: 60%; height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
-    transform: skewX(-25deg); transition: 0.7s; z-index: -1;
-}
-.btn-super-glow:hover .btn-reflection { left: 150%; }
-.btn-super-glow:hover { 
-    transform: translateY(-3px); 
-    box-shadow: var(--glow-lg); /* Massive glow on hover */
-    background: #3b82f6; /* Slightly lighter on hover */
-}
+/* Main Section */
+.main-container { position: relative; z-index: 50; margin-top: -60px; padding-bottom: 80px; }
+.row-section { margin-bottom: 80px; padding: 0 5%; }
+.row-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid #222; padding-bottom: 15px; }
+.row-header h2 { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; }
+.row-number { font-family: var(--font-heading); font-size: 3.5rem; font-weight: 900; color: #111; -webkit-text-stroke: 1px #333; }
 
-/* Glass Secondary Button */
-.btn-glass {
-    background: rgba(255,255,255,0.03); color: var(--text-white);
-    border: var(--glass-border); padding: 16px 40px; font-size: 1rem;
-    backdrop-filter: blur(5px);
-}
-.btn-glass:hover {
-    background: rgba(255,255,255,0.08); border-color: var(--primary-blue);
-    box-shadow: var(--glow-sm); transform: translateY(-3px);
-}
+.nav-arrows { display: flex; gap: 10px; }
+.nav-btn { background: #111; border: 1px solid #333; color: #888; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: 0.2s; }
+.nav-btn:hover { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
 
-/* Resume Button (Small) */
-.btn-glow {
-    background: rgba(255,255,255,0.05); color: white; padding: 10px 22px;
-    border: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem;
-}
-.btn-glow:hover { background: var(--primary-blue); border-color: var(--primary-blue); box-shadow: var(--glow-sm); }
-
-
-/* --- 6. MAIN SECTIONS & HEADERS --- */
-.main-container { position: relative; z-index: 50; margin-top: -60px; padding-bottom: 120px; }
-.row-section { margin-bottom: 100px; padding-left: 5%; padding-right: 5%; }
-
-.row-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 35px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
-.title-group { display: flex; align-items: baseline; gap: 15px; }
-.row-header h2 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; text-transform: uppercase; }
-.row-number { font-family: var(--font-heading); font-size: 4rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.05); line-height: 0; position: relative; top: 8px; }
-
-/* Nav Arrows (Glowing) */
-.nav-arrows { display: flex; gap: 12px; }
-.nav-btn {
-    background: rgba(255,255,255,0.03); border: var(--glass-border); color: var(--text-muted);
-    width: 45px; height: 45px; border-radius: 50%; cursor: pointer; transition: 0.3s;
-    display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
-    backdrop-filter: blur(5px);
-}
-.nav-btn:hover { 
-    background: var(--primary-blue); border-color: var(--primary-blue); 
-    color: white; box-shadow: var(--glow-sm); transform: scale(1.05);
-}
-
-
-/* --- 7. THE CARDS (THE STAR OF THE SHOW) --- */
-.scroll-track-wrapper { overflow-x: auto; padding: 60px 20px; margin: -60px -20px; scrollbar-width: none; }
+/* Scroll Track */
+.scroll-track-wrapper { overflow-x: auto; padding: 30px 10px; margin: -30px -10px; scrollbar-width: none; }
 .scroll-track-wrapper::-webkit-scrollbar { display: none; }
-.scroll-track { display: flex; gap: 30px; }
+.scroll-track { display: flex; gap: 20px; }
 
+/* Optimized Cards */
 .card {
-    position: relative; flex-shrink: 0; 
-    background: var(--card-bg);
-    border-radius: 16px; cursor: pointer; 
-    /* The border is now handled by a pseudo-element for gradient effect */
-    border: 1px solid transparent; 
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    overflow: visible; /* Allow glow to spill out */
-    z-index: 1;
+    position: relative; flex-shrink: 0; background: var(--card-bg);
+    border-radius: 12px; cursor: pointer; border: 1px solid #222;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Hardware acceleration fix */
+    transform: translateZ(0);
 }
+.video-card { width: 320px; height: 180px; }
+.poster-card { width: 280px; height: 380px; }
+.square-card { width: 260px; height: 260px; }
 
-/* Sizes remain the same */
-.video-card { width: 340px; height: 190px; }
-.poster-card { width: 290px; height: 400px; }
-.square-card { width: 270px; height: 270px; }
+.card-image { width: 100%; height: 100%; border-radius: 12px; overflow: hidden; position: relative; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
 
-/* The Image Container */
-.card-image { 
-    width: 100%; height: 100%; border-radius: 16px; overflow: hidden; 
-    position: relative; z-index: 2;
-    /* Subtle inner shadow for depth */
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
-}
-.card-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-
-/* The Hover Overlay (Dark Gradient) */
+/* Hover Effects - Simplified for Performance */
 .card-hover-content {
-    position: absolute; inset: 0; z-index: 5;
-    background: linear-gradient(to top, var(--bg-main) 0%, rgba(5,5,7,0.6) 50%, transparent 100%);
-    opacity: 0; transition: 0.4s ease; border-radius: 16px;
-    display: flex; flex-direction: column; justify-content: flex-end; padding: 25px;
-    backdrop-filter: blur(0px); /* Animate to blur on hover */
+    position: absolute; inset: 0; background: rgba(0,0,0,0.8);
+    opacity: 0; transition: opacity 0.3s; border-radius: 12px;
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;
 }
+.card:hover .card-hover-content { opacity: 1; }
+.card:hover { transform: translateY(-5px); border-color: var(--primary-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.card-border-gradient { display: none; } /* Disabled complicated gradient for performance, relies on border-color */
 
-/* The Animated Border Gradient Pseudo-element */
-.card-border-gradient {
-    position: absolute; inset: -2px; /* Slightly larger than the card */
-    border-radius: 18px; z-index: 0; opacity: 0; transition: 0.5s;
-    background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan), var(--primary-blue));
-    background-size: 200% 200%;
-    animation: gradientMove 3s linear infinite;
-    filter: blur(8px); /* Blurs the border to create a soft glow */
-}
+.center-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: white; opacity: 0; transition: 0.3s; }
+.card:hover .center-icon { opacity: 1; }
 
-/* --- CARD HOVER STATES (THE MAGIC) --- */
-.card:hover { 
-    transform: translateY(-10px) scale(1.02); 
-    z-index: 100; 
-    /* The main big glow on the card itself */
-    box-shadow: var(--glow-lg);
-}
-.card:hover .card-border-gradient { opacity: 0.7; inset: -3px; /* Expand and show border glow */ }
-.card:hover .card-image img { transform: scale(1.08) rotate(-1deg); /* Subtle rotation adds dynamism */ }
-.card:hover .card-hover-content { opacity: 1; backdrop-filter: blur(3px); }
+.card-meta h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 5px; }
+.card-meta p { font-size: 0.7rem; color: var(--primary-blue); font-weight: 700; letter-spacing: 1px; }
 
-/* Card Meta Data & Icons */
-.center-icon {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -30%) scale(0.5);
-    font-size: 3.5rem; color: var(--primary-blue); opacity: 0; transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    filter: drop-shadow(0 0 10px var(--primary-glow));
-}
-.card:hover .center-icon { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+/* Modal */
+.overlay { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.9); }
+.overlay.active { display: flex; }
+.modal-box { width: 95%; max-width: 1100px; height: 85vh; background: #0f0f0f; border: 1px solid #333; border-radius: 12px; display: flex; flex-direction: column; }
+.modal-header { padding: 15px 25px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; }
+.modal-body { flex: 1; overflow-y: auto; padding: 30px; }
 
-.card-meta h3 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; color: white; }
-.card-meta p { font-size: 0.75rem; color: var(--accent-cyan); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+/* Footer */
+footer { padding: 50px 5%; border-top: 1px solid #222; margin-top: 50px; display: flex; justify-content: space-between; align-items: center; color: #555; }
+.footer-links { display: flex; gap: 15px; }
+.footer-btn { color: #888; text-decoration: none; border: 1px solid #333; padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; transition: 0.2s; }
+.footer-btn:hover { border-color: var(--primary-blue); color: white; }
 
+/* Animations */
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.fade-in { animation: fadeIn 1s ease forwards; opacity: 0; }
 
-/* --- 8. MODALS & OVERLAYS (GLASS PANELS) --- */
-.overlay { position: fixed; inset: 0; z-index: 9000; display: none; align-items: center; justify-content: center; padding: 20px; }
-.overlay.active { display: flex; animation: overlayIn 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
-.overlay-bg { position: absolute; inset: 0; background: rgba(3, 3, 5, 0.9); backdrop-filter: blur(20px) saturate(150%); }
+/* Helper classes */
+.grid-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
+.grid-layout iframe, .img-full img { width: 100%; aspect-ratio: 16/9; border-radius: 8px; border: none; background: #000; }
+.insta-layout iframe { aspect-ratio: 9/16; min-height: 480px; }
+.cv-box iframe { width: 100%; height: 100%; border: none; }
 
-/* Glassmorphism Box Style */
-.glass-panel {
-    background: var(--glass-bg);
-    border: var(--glass-border);
-    box-shadow: var(--glow-md), inset 0 0 30px rgba(0,0,0,0.5);
-    backdrop-filter: blur(20px) saturate(120%);
-    -webkit-backdrop-filter: blur(20px) saturate(120%);
-    border-radius: 20px; overflow: hidden;
-}
-
-.modal-box { position: relative; width: 100%; max-width: 1100px; height: 85vh; z-index: 9001; display: flex; flex-direction: column; transform: scale(0.95); opacity: 0; transition: 0.4s; }
-.overlay.active .modal-box { transform: scale(1); opacity: 1; }
-
-.modal-header { 
-    padding: 25px 35px; border-bottom: 1px solid rgba(255,255,255,0.05); 
-    display: flex; justify-content: space-between; align-items: center; 
-    background: rgba(0,0,0,0.3);
-}
-.modal-header h3 { font-family: var(--font-heading); font-weight: 800; letter-spacing: 1px; font-size: 1.3rem; }
-.modal-body { flex: 1; overflow-y: auto; padding: 40px; }
-
-/* Custom Scrollbar for Modals */
-.custom-scrollbar::-webkit-scrollbar { width: 8px; }
-.custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
-.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(37, 99, 235, 0.5); border-radius: 10px; }
-.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--primary-blue); }
-
-
-/* Close UI Elements */
-.close-ui, .close-fixed, .close-fixed-cv { 
-    background: rgba(255,255,255,0.05); border: var(--glass-border); color: white; 
-    width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; 
-    display: flex; align-items: center; justify-content: center; transition: 0.3s; 
-    backdrop-filter: blur(5px);
-}
-.close-ui:hover, .close-fixed:hover, .close-fixed-cv:hover { 
-    background: #ef4444; border-color: #ef4444; 
-    transform: rotate(90deg) scale(1.1); box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
-}
-.close-fixed { position: fixed; top: 30px; right: 30px; z-index: 9005; width: 55px; height: 55px; font-size: 1.6rem; }
-.close-fixed-cv { position: absolute; top: 20px; right: 20px; z-index: 10; }
-
-
-/* --- 9. GRID LAYOUTS & CV --- */
-.grid-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
-.grid-layout iframe, .img-full img { 
-    width: 100%; aspect-ratio: 16/9; border: var(--glass-border); border-radius: 12px; background: black; 
-    transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-.grid-layout iframe:hover, .img-full img:hover { border-color: var(--primary-blue); box-shadow: var(--glow-sm); transform: translateY(-3px); }
-
-.insta-layout iframe { aspect-ratio: 9/16; min-height: 500px; }
-.img-full { cursor: zoom-in; }
-
-.maven-stack { display: flex; flex-direction: column; align-items: center; gap: 40px; }
-.maven-stack img { max-width: 90%; border-radius: 8px; border: var(--glass-border); cursor: zoom-in; transition: 0.3s; }
-
-.cv-box { position: relative; width: 95%; height: 92vh; max-width: 1000px; z-index: 9001; padding: 10px; transform: translateY(50px); opacity: 0; transition: 0.4s; }
-.overlay.active .cv-box { transform: translateY(0); opacity: 1; }
-.cv-box iframe { width: 100%; height: 100%; border: none; border-radius: 16px; background: #1a1a1a; }
-
-/* --- 10. FOOTER --- */
-footer { 
-    padding: 80px 5%; border-top: 1px solid rgba(255,255,255,0.05); 
-    margin-top: 100px; display: flex; justify-content: space-between; align-items: center; 
-    color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
-    background: linear-gradient(to top, rgba(5,5,7,1), transparent);
-}
-.footer-links { display: flex; gap: 20px; }
-
-
-/* --- 11. ANIMATIONS --- */
-@keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-@keyframes pulseGlow { 0%, 100% { box-shadow: var(--glow-sm); } 50% { box-shadow: var(--glow-md); } }
-@keyframes overlayIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideUpCinematic { 
-    0% { transform: translateY(120%) skewY(5deg); opacity: 0; filter: blur(10px); } 
-    100% { transform: translateY(0) skewY(0); opacity: 1; filter: blur(0); } 
-}
-.fade-in { opacity: 0; animation: overlayIn 1s ease forwards 0.5s; }
-
-/* Responsive tweaks for header */
+/* Mobile */
 @media (max-width: 768px) {
-    .hero-title { font-size: 3.5rem; }
-    .nav-arrows { display: none; } /* Hide arrows on mobile, touch is better */
-    .row-header { justify-content: center; } .title-group { flex-direction: column; align-items: center; } .row-number { display: none; }
+    .nav-arrows { display: none; }
+    .hero-title { font-size: 3rem; }
 }
