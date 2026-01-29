@@ -189,19 +189,3 @@ footer { padding: 60px 5%; border-top: 1px solid #222; margin-top: 60px; display
 @keyframes slideUpAnim { from { transform: translateY(110%); } to { transform: translateY(0); } }
 @keyframes sweepAnim { 0% { left: -100%; } 40%, 100% { left: 200%; } }
 .fade-in { opacity: 0; animation: fadeIn 1s ease forwards; }
-#client .row-header{
-  position: relative;
-}
-
-#client .row-header::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 5%;
-  bottom: -10px;
-  height: 1px;
-  background-image: url("images/30x1.png");
-  background-repeat: repeat-x;
-  background-position: left center;
-  opacity: 0.8;
-}
