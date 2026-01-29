@@ -1,9 +1,17 @@
-// Navbar
+// Navbar Effect
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) navbar.classList.add('scrolled');
     else navbar.classList.remove('scrolled');
 });
+
+// NEW: Scroll Track Function (For Nav Buttons)
+function scrollTrack(trackId, amount) {
+    const track = document.getElementById(trackId);
+    if(track) {
+        track.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+}
 
 // Modals
 function openModal(templateId, title) {
@@ -44,7 +52,7 @@ function closeLightbox() {
     document.body.style.overflow = '';
 }
 
-// CV
+// CV Modal
 function openCV() {
     document.getElementById('cv-modal').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -55,7 +63,7 @@ function closeCV() {
     document.body.style.overflow = '';
 }
 
-// Keys
+// Keyboard Support
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeModal();
