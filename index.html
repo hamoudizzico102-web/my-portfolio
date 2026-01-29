@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mohamad Moukaddem - Professional Graphic Designer & Video Editor based in Lebanon. High-end video editing, branding, and visual arts portfolio.">
-    <meta name="keywords" content="Graphic Designer, Video Editor, Lebanon, Tripoli, Freelance, Portfolio, Motion Graphics, Visual Identity">
-    <meta property="og:image" content="me.png">
-    
+    <meta name="description" content="Mohamad Moukaddem - Professional Graphic Designer & Video Editor based in Lebanon.">
     <title>Mohamad Moukaddem | High-End Creative</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -19,10 +16,11 @@
 
     <div class="film-grain"></div>
     <div class="vignette"></div>
-    <div class="ambient-light"></div> <nav class="navbar">
+
+    <nav class="navbar">
         <div class="brand">
-            <div class="brand-logo-container glow-effect">
-                <img src="230.png" alt="MM Logo">
+            <div class="brand-logo-container">
+                <img src="230.png" alt="MM Logo" width="45" height="45">
             </div>
             <div class="brand-info">
                 <span class="brand-name">MOUKADDEM</span>
@@ -41,7 +39,7 @@
 
     <header class="hero">
         <div class="hero-bg">
-            <img src="me.png" alt="Background">
+            <img src="me.png" alt="Mohamad Moukaddem" fetchpriority="high">
             <div class="hero-overlay-gradient"></div>
         </div>
         
@@ -61,13 +59,12 @@
             
             <p class="hero-sub fade-in delay-2">
                 High-End Video Editing & Strategic Brand Identity.<br>
-                Crafting cinematic digital legacies from Tripoli to the world.
+                Crafting cinematic digital legacies.
             </p>
             
             <div class="cta-box fade-in delay-3">
                 <button class="btn-primary btn-super-glow" onclick="document.getElementById('editing').scrollIntoView({behavior: 'smooth'})">
                     <i class="ri-play-circle-fill"></i> VIEW WORK
-                    <div class="btn-reflection"></div>
                 </button>
                 <button class="btn-secondary btn-glass" onclick="window.open('https://wa.me/96170577697')">
                     <i class="ri-whatsapp-line"></i> CONTACT
@@ -85,34 +82,43 @@
                     <span class="row-number">01</span>
                 </div>
                 <div class="nav-arrows">
-                    <button class="nav-btn" onclick="scrollTrack('track-editing', -400)"><i class="ri-arrow-left-s-line"></i></button>
-                    <button class="nav-btn" onclick="scrollTrack('track-editing', 400)"><i class="ri-arrow-right-s-line"></i></button>
+                    <button class="nav-btn" aria-label="Scroll Left" onclick="scrollTrack('track-editing', -400)"><i class="ri-arrow-left-s-line"></i></button>
+                    <button class="nav-btn" aria-label="Scroll Right" onclick="scrollTrack('track-editing', 400)"><i class="ri-arrow-right-s-line"></i></button>
                 </div>
             </div>
             <div class="scroll-track-wrapper" id="track-editing">
                 <div class="scroll-track">
+                    
                     <div class="card video-card glow-on-hover" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
                         <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="sebastien.jpg" alt="Sebastien Koubar"></div>
+                        <div class="card-image">
+                            <img src="sebastien_thumb.jpg" alt="Sebastien" loading="lazy" decoding="async">
+                        </div>
                         <div class="card-hover-content">
                             <i class="ri-youtube-fill center-icon"></i>
-                            <div class="card-meta"><h3>Sébastien Koubar</h3><p>17 VIDEOS • YOUTUBE</p></div>
+                            <div class="card-meta"><h3>Sébastien Koubar</h3><p>YOUTUBE</p></div>
                         </div>
                     </div>
+
                     <div class="card video-card glow-on-hover" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
                         <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham"></div>
+                        <div class="card-image">
+                            <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham" loading="lazy" decoding="async">
+                        </div>
                         <div class="card-hover-content">
                             <i class="ri-instagram-fill center-icon"></i>
-                            <div class="card-meta"><h3>Hisham Ghanem</h3><p>REELS LIBRARY</p></div>
+                            <div class="card-meta"><h3>Hisham Ghanem</h3><p>REELS</p></div>
                         </div>
                     </div>
+
                     <div class="card video-card glow-on-hover" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
                         <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="logo-01.png" alt="Oqunet"></div>
+                        <div class="card-image">
+                            <img src="logo-01.png" alt="Oqunet" loading="lazy" decoding="async">
+                        </div>
                         <div class="card-hover-content">
                             <i class="ri-film-fill center-icon"></i>
-                            <div class="card-meta"><h3>Oqunet</h3><p>TECH PROMO</p></div>
+                            <div class="card-meta"><h3>Oqunet</h3><p>PROMO</p></div>
                         </div>
                     </div>
                 </div>
@@ -132,56 +138,34 @@
             </div>
             <div class="scroll-track-wrapper" id="track-design">
                 <div class="scroll-track">
-                    
                     <div class="card poster-card glow-on-hover" onclick="openImage('gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png')">
                         <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png" alt="Istanbul Vision"></div>
+                        <div class="card-image"><img src="gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png" loading="lazy" decoding="async"></div>
                         <div class="card-hover-content">
                             <i class="ri-eye-line center-icon"></i>
-                            <div class="card-meta"><h3>Istanbul — Visionary Hub</h3><p>CONCEPT ART</p></div>
+                            <div class="card-meta"><h3>Istanbul Vision</h3><p>CONCEPT</p></div>
                         </div>
                     </div>
 
                     <div class="card poster-card glow-on-hover" onclick="openImage('IMG_20251225_020344.png')">
                         <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="IMG_20251225_020344.png" alt="GamePass"></div>
+                        <div class="card-image"><img src="IMG_20251225_020344.png" loading="lazy" decoding="async"></div>
                         <div class="card-hover-content">
                             <i class="ri-gamepad-line center-icon"></i>
-                            <div class="card-meta"><h3>GamePass</h3><p>GAMING POSTER</p></div>
+                            <div class="card-meta"><h3>GamePass</h3><p>GAMING</p></div>
                         </div>
                     </div>
 
                     <div class="card poster-card glow-on-hover" onclick="openImage('5.png')">
                         <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="5.png" alt="Saudi"></div>
-                        <div class="card-hover-content">
-                            <i class="ri-flag-line center-icon"></i>
-                            <div class="card-meta"><h3>Saudi National Day</h3><p>POSTER ART</p></div>
-                        </div>
+                        <div class="card-image"><img src="5.png" loading="lazy" decoding="async"></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>Saudi National Day</h3><p>POSTER</p></div></div>
                     </div>
+                    
                     <div class="card poster-card glow-on-hover" onclick="openImage('1.png')">
                         <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="1.png" alt="Identity"></div>
-                        <div class="card-hover-content">
-                            <i class="ri-palette-line center-icon"></i>
-                            <div class="card-meta"><h3>Visual Identity</h3><p>BRANDING</p></div>
-                        </div>
-                    </div>
-                    <div class="card poster-card glow-on-hover" onclick="openImage('me.png')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="me.png" alt="Portrait"></div>
-                        <div class="card-hover-content">
-                            <i class="ri-user-smile-line center-icon"></i>
-                            <div class="card-meta"><h3>Personal Art</h3><p>PORTRAIT</p></div>
-                        </div>
-                    </div>
-                    <div class="card poster-card glow-on-hover" onclick="openImage('gemini-3-pro-image-preview-2k (nano-banana-pro)_a_Subject_&_Compositio.png')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="gemini-3-pro-image-preview-2k (nano-banana-pro)_a_Subject_&_Compositio.png" alt="AI"></div>
-                        <div class="card-hover-content">
-                            <i class="ri-robot-line center-icon"></i>
-                            <div class="card-meta"><h3>AI Concept</h3><p>COMPOSITION</p></div>
-                        </div>
+                        <div class="card-image"><img src="1.png" loading="lazy" decoding="async"></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>Identity</h3><p>BRANDING</p></div></div>
                     </div>
                 </div>
             </div>
@@ -190,7 +174,7 @@
         <section id="client" class="row-section">
             <div class="row-header">
                 <div class="title-group">
-                    <h2>Clients Work</h2>
+                    <h2>Clients</h2>
                     <span class="row-number">03</span>
                 </div>
                 <div class="nav-arrows">
@@ -202,35 +186,34 @@
                 <div class="scroll-track">
                     <div class="card square-card glow-on-hover" onclick="openModal('tpl-oqunet-software', 'Oqunet Software')">
                         <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="logo-01.png"></div>
-                        <div class="card-hover-content"><div class="card-meta"><h3>Oqunet Software</h3><p>SOCIAL MEDIA</p></div></div>
+                        <div class="card-image"><img src="logo-01.png" loading="lazy"></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>Oqunet</h3><p>SOFTWARE</p></div></div>
                     </div>
                     <div class="card square-card glow-on-hover" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
                         <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="514064519_17860801818435683_5097951599889091948_n.jpg"></div>
-                        <div class="card-hover-content"><div class="card-meta"><h3>TradeSmart</h3><p>CRYPTO FUND</p></div></div>
+                        <div class="card-image"><img src="514064519_17860801818435683_5097951599889091948_n.jpg" loading="lazy"></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>TradeSmart</h3><p>CRYPTO</p></div></div>
                     </div>
                     <div class="card square-card glow-on-hover" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
                         <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="logo (2).png"></div>
-                        <div class="card-hover-content"><div class="card-meta"><h3>Intellident</h3><p>DENTAL CLINIC</p></div></div>
+                        <div class="card-image"><img src="logo (2).png" loading="lazy"></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>Intellident</h3><p>DENTAL</p></div></div>
                     </div>
                     <div class="card square-card glow-on-hover" onclick="openModal('tpl-maven', 'Marketing Maven')">
                         <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="market maven logo.png"></div>
-                        <div class="card-hover-content"><div class="card-meta"><h3>Marketing Maven</h3><p>BRANDING KITS</p></div></div>
+                        <div class="card-image"><img src="market maven logo.png" loading="lazy"></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>Maven</h3><p>AGENCY</p></div></div>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer>
-        <p>© 2025 MOHAMAD MOUKADDEM. All Rights Reserved.</p>
+        <p>© 2025 MOHAMAD MOUKADDEM</p>
         <div class="footer-links">
-            <a href="mailto:hamoudizzico102@outlook.com" class="footer-btn btn-glass">Email <i class="ri-mail-line"></i></a>
-            <a href="https://wa.me/96170577697" class="footer-btn btn-glass">WhatsApp <i class="ri-whatsapp-line"></i></a>
+            <a href="mailto:hamoudizzico102@outlook.com" class="footer-btn btn-glass">Email</a>
+            <a href="https://wa.me/96170577697" class="footer-btn btn-glass">WhatsApp</a>
         </div>
     </footer>
 
@@ -257,122 +240,55 @@
         <div class="overlay-bg" onclick="closeCV()"></div>
         <div class="cv-box glass-panel">
             <button class="close-fixed-cv" onclick="closeCV()"><i class="ri-close-line"></i></button>
-            <iframe src="Mohamad Mokaddem CV 2025 (1).pdf"></iframe>
+            <iframe src="Mohamad Mokaddem CV 2025 (1).pdf" loading="lazy"></iframe>
         </div>
     </div>
 
     <template id="tpl-sebastien">
         <div class="grid-layout">
-            <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/LQPSqEHvv5U?start=307" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/OYtj5BNpjeY?start=502" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/SNmD--JxL9k" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/kKaPwbr9HDY?start=240" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/6bEAqazXi6o?start=2" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/quGLWi_C2RE?start=300" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/KVbUAiagfFQ?start=64" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/jAARKmDX8ks?start=97" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/41ZofgY-PyY" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/ous2-sCWMWU" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/DqyomfbWu4A" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/a9mvgDKxnTQ" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/1g8ozutYC1s" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/J2AIq5G4qzk" loading="lazy" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/NYKqIV2CT7w" loading="lazy" allowfullscreen></iframe>
-        </div>
+            <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" loading="lazy" title="Video" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" loading="lazy" title="Video" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/SNmD--JxL9k" loading="lazy" title="Video" allowfullscreen></iframe>
+            </div>
     </template>
-
+    
     <template id="tpl-hisham">
         <div class="grid-layout insta-layout">
             <iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed" loading="lazy"></iframe>
             <iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/C_nDS4kIjDq/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/C_nFgW9ILdX/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/C_oOlmToOkm/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/C_5-k1kIqEo/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DAMLpBwS20w/embed" loading="lazy"></iframe>
         </div>
     </template>
 
     <template id="tpl-oqunet-edit">
         <div class="grid-layout insta-layout">
             <iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DGTe92gi_EW/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DGle_mUC-Ap/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DG6CrGoCI4m/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHWZ1h0Csk4/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHoM5zEqvxB/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DICErEJCate/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DI9R_zGioCs/embed" loading="lazy"></iframe>
         </div>
     </template>
 
     <template id="tpl-oqunet-software">
         <div class="grid-layout insta-layout">
             <iframe src="https://www.instagram.com/p/DGTULOwC8Ec/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DGYkp3Tiia5/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DGiwjPPilFd/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DG53gjSiwXR/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHBrkjui38p/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHOoZ28CGoz/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHbOFpSixB6/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHdb_aOi2Go/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DH6S1iFCyVl/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIEVuIMiLRK/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DI_xB_dCbYQ/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DJZfVqdih7x/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DLKOufzi0eA/embed" loading="lazy"></iframe>
         </div>
     </template>
 
     <template id="tpl-tradesmart">
         <div class="grid-layout insta-layout">
             <iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DH6PfdwIVF1/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIB2ZyjIC2Q/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIJfDAtoeQ5/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIJuMPaILTR/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIO0tHQoGbO/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIO01hTIHes/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIRakq8oFtI/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIReQ2-M59X/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIgaq5IMfDc/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIjXmIbIRF9/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIlfnnxslQf/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DI6JJYqspJA/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DJCYpU4sgng/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DJEuB9tMfDN/embed" loading="lazy"></iframe>
         </div>
     </template>
 
     <template id="tpl-intellident">
         <div class="grid-layout insta-layout">
-            <div class="img-full glow-on-hover" onclick="openImage('logo (2).png')"><img src="logo (2).png"></div>
+            <div class="img-full" onclick="openImage('logo (2).png')"><img src="logo (2).png"></div>
             <iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHBxGX8t-pa/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHG8d64tvJW/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHJeaH3tFoO/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHOihUVtI5Z/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHbXC8tNPBq/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHoPqwtt-gC/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHtbQX2tn9z/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHvvma5tA_A/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DHyb_4CtX-o/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DH6JLv4NXQs/embed" loading="lazy"></iframe>
-            <iframe src="https://www.instagram.com/p/DIBpi3-t4jb/embed" loading="lazy"></iframe>
         </div>
     </template>
 
     <template id="tpl-maven">
         <div class="maven-stack">
-            <img src="Artboard 1.png" onclick="openImage(this.src)" class="glow-on-hover">
-            <img src="Artboard 2.png" onclick="openImage(this.src)" class="glow-on-hover">
-            <img src="Artboard 3.png" onclick="openImage(this.src)" class="glow-on-hover">
-            <img src="Artboard 4.png" onclick="openImage(this.src)" class="glow-on-hover">
-            <img src="Artboard 5.png" onclick="openImage(this.src)" class="glow-on-hover">
-            <img src="Artboard 6.png" onclick="openImage(this.src)" class="glow-on-hover">
-            <img src="Artboard 7.png" onclick="openImage(this.src)" class="glow-on-hover">
+            <img src="Artboard 1.png" onclick="openImage(this.src)" loading="lazy">
+            <img src="Artboard 2.png" onclick="openImage(this.src)" loading="lazy">
+            <img src="Artboard 3.png" onclick="openImage(this.src)" loading="lazy">
         </div>
     </template>
 
