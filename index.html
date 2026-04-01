@@ -10,6 +10,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        /* التعديلات الأساسية لنمط Netflix والفخامة */
+        :root {
+            --netflix-red: #e50914;
+            --dark-bg: #0f0f0f;
+            --glass: rgba(20, 20, 20, 0.95);
+        }
+
+        /* تعديل الـ Resume ليصبح فخماً */
+        .cv-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        .cv-box::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(from 180deg at 50% 50%, transparent 0%, var(--netflix-red) 25%, transparent 50%);
+            animation: rotateGlow 6s linear infinite;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
+
+        /* تعديل المودال ليكون Netflix Opening Style */
+        .modal-box {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100vw !important;
+            max-height: 100vh !important;
+            border-radius: 0 !important;
+            background: var(--dark-bg) !important;
+            transform: scale(1.1);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #modal.active .modal-box { transform: scale(1); }
+        
+        .modal-header {
+            padding: 40px 60px 10px !important;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+        }
+        .modal-body { padding: 20px 60px !important; }
+    </style>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -31,7 +79,7 @@
             <a href="#editing" class="nav-link">Video Editing</a>
             <a href="#design" class="nav-link">Visual Arts</a>
             <a href="#client" class="nav-link">Clients</a>
-            <button type="button" class="resume-btn btn-glow" onclick="openCV()">
+            <button type="button" class="resume-btn btn-glow" style="background: var(--netflix-red); border:none; font-weight:900; letter-spacing:1px;" onclick="openCV()">
                 RESUME <i class="ri-file-text-line" aria-hidden="true"></i>
             </button>
         </div>
@@ -63,11 +111,11 @@
             </p>
             
             <div class="cta-box fade-in delay-3">
-                <button type="button" class="btn-primary btn-super-glow" onclick="document.getElementById('editing').scrollIntoView({behavior: 'smooth'})">
+                <button type="button" class="btn-primary btn-super-glow" style="background: #fff; color: #000;" onclick="document.getElementById('editing').scrollIntoView({behavior: 'smooth'})">
                     <i class="ri-play-circle-fill" aria-hidden="true"></i> VIEW WORK
                 </button>
                 <button type="button" class="btn-secondary btn-glass" onclick="window.open('https://wa.me/96170577697')">
-                    <i class="ri-whatsapp-line" aria-hidden="true"></i> CONTACT
+                    <i class="ri-information-line" aria-hidden="true"></i> MORE INFO
                 </button>
             </div>
         </div>
@@ -75,137 +123,99 @@
 
     <main class="main-container">
 
-        <section id="editing" class="netflix-row">
-            <h2 class="netflix-row-title">Video Editing</h2>
-            <div class="netflix-slider-container">
-                <button class="handle left-handle" onclick="scrollTrack('track-editing', -800)">
-                    <i class="ri-arrow-left-s-line"></i>
-                </button>
-                <div class="netflix-track" id="track-editing">
-                    
-                    <div class="netflix-card" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
-                        <img src="sebastien_thumb.jpg" alt="Sébastien Koubar" loading="lazy">
-                        <div class="netflix-card-info">
-                            <div class="icons"><i class="ri-play-fill"></i><i class="ri-add-line"></i></div>
-                            <h3>Sébastien Koubar</h3>
-                            <p><span>98% Match</span> YouTube • Cinematic</p>
-                        </div>
-                    </div>
-
-                    <div class="netflix-card" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
-                        <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham Ghanem" loading="lazy">
-                        <div class="netflix-card-info">
-                            <div class="icons"><i class="ri-play-fill"></i><i class="ri-add-line"></i></div>
-                            <h3>Hisham Ghanem</h3>
-                            <p><span>New</span> Reels • Dynamic</p>
-                        </div>
-                    </div>
-
-                    <div class="netflix-card" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
-                        <img src="logo-01.png" alt="Oqunet Promo" loading="lazy">
-                        <div class="netflix-card-info">
-                            <div class="icons"><i class="ri-play-fill"></i><i class="ri-add-line"></i></div>
-                            <h3>Oqunet</h3>
-                            <p>Promo • Software</p>
-                        </div>
-                    </div>
-
+        <section id="editing" class="row-section">
+            <div class="row-header">
+                <div class="title-group">
+                    <h2>Video Editing</h2>
+                    <span class="row-number">01</span>
                 </div>
-                <button class="handle right-handle" onclick="scrollTrack('track-editing', 800)">
-                    <i class="ri-arrow-right-s-line"></i>
-                </button>
+                <div class="nav-arrows">
+                    <button type="button" class="nav-btn" aria-label="Scroll Left" onclick="scrollTrack('track-editing', -400)"><i class="ri-arrow-left-s-line"></i></button>
+                    <button type="button" class="nav-btn" aria-label="Scroll Right" onclick="scrollTrack('track-editing', 400)"><i class="ri-arrow-right-s-line"></i></button>
+                </div>
+            </div>
+            <div class="scroll-track-wrapper" id="track-editing">
+                <div class="scroll-track">
+                    
+                    <div class="card video-card glow-on-hover" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
+                        <div class="card-border-gradient"></div>
+                        <div class="card-image">
+                            <img src="sebastien_thumb.jpg" alt="Sébastien Koubar" loading="lazy">
+                        </div>
+                        <div class="card-hover-content">
+                            <i class="ri-play-fill center-icon"></i>
+                            <div class="card-meta"><h3>Sébastien Koubar</h3><p>98% Match</p></div>
+                        </div>
+                    </div>
+
+                    <div class="card video-card glow-on-hover" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
+                        <div class="card-border-gradient"></div>
+                        <div class="card-image">
+                            <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham Ghanem" loading="lazy">
+                        </div>
+                        <div class="card-hover-content">
+                            <i class="ri-play-fill center-icon"></i>
+                            <div class="card-meta"><h3>Hisham Ghanem</h3><p>New Content</p></div>
+                        </div>
+                    </div>
+
+                    <div class="card video-card glow-on-hover" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
+                        <div class="card-border-gradient"></div>
+                        <div class="card-image">
+                            <img src="logo-01.png" alt="Oqunet Promo" loading="lazy">
+                        </div>
+                        <div class="card-hover-content">
+                            <i class="ri-play-fill center-icon"></i>
+                            <div class="card-meta"><h3>Oqunet</h3><p>Cinematic</p></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="design" class="netflix-row">
-            <h2 class="netflix-row-title">Visual Arts</h2>
-            <div class="netflix-slider-container">
-                <button class="handle left-handle" onclick="scrollTrack('track-design', -800)">
-                    <i class="ri-arrow-left-s-line"></i>
-                </button>
-                <div class="netflix-track" id="track-design">
-                    
-                    <div class="netflix-card" onclick="openImage('gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png')">
-                        <img src="gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png" alt="Istanbul Vision" loading="lazy">
-                        <div class="netflix-card-info">
-                            <div class="icons"><i class="ri-eye-line"></i></div>
-                            <h3>Istanbul Vision</h3>
-                            <p>Concept Art</p>
-                        </div>
-                    </div>
-
-                    <div class="netflix-card" onclick="openImage('IMG_20251225_020344.png')">
-                        <img src="IMG_20251225_020344.png" alt="GamePass Design" loading="lazy">
-                        <div class="netflix-card-info">
-                            <div class="icons"><i class="ri-eye-line"></i></div>
-                            <h3>GamePass</h3>
-                            <p>Gaming Poster</p>
-                        </div>
-                    </div>
-
-                    <div class="netflix-card" onclick="openImage('5.png')">
-                        <img src="5.png" alt="Saudi National Day" loading="lazy">
-                        <div class="netflix-card-info">
-                            <div class="icons"><i class="ri-eye-line"></i></div>
-                            <h3>Saudi National Day</h3>
-                            <p>Poster Design</p>
-                        </div>
-                    </div>
-
-                    <div class="netflix-card" onclick="openImage('1.png')">
-                        <img src="1.png" alt="Brand Identity" loading="lazy">
-                        <div class="netflix-card-info">
-                            <div class="icons"><i class="ri-eye-line"></i></div>
-                            <h3>Identity</h3>
-                            <p>Branding</p>
-                        </div>
-                    </div>
-
+        <section id="design" class="row-section">
+            <div class="row-header">
+                <div class="title-group">
+                    <h2>Visual Design</h2>
+                    <span class="row-number">02</span>
                 </div>
-                <button class="handle right-handle" onclick="scrollTrack('track-design', 800)">
-                    <i class="ri-arrow-right-s-line"></i>
-                </button>
+                <div class="nav-arrows">
+                    <button type="button" class="nav-btn" aria-label="Scroll Left" onclick="scrollTrack('track-design', -350)"><i class="ri-arrow-left-s-line"></i></button>
+                    <button type="button" class="nav-btn" aria-label="Scroll Right" onclick="scrollTrack('track-design', 350)"><i class="ri-arrow-right-s-line"></i></button>
+                </div>
+            </div>
+            <div class="scroll-track-wrapper" id="track-design">
+                <div class="scroll-track">
+                    <div class="card poster-card glow-on-hover" onclick="openImage('gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png')">
+                        <div class="card-border-gradient"></div>
+                        <div class="card-image"><img src="gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png" alt="Istanbul" loading="lazy"></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>Istanbul Vision</h3><p>Ultra HD</p></div></div>
+                    </div>
+                    </div>
             </div>
         </section>
 
-        <section id="client" class="netflix-row">
-            <h2 class="netflix-row-title">Top Clients</h2>
-            <div class="netflix-slider-container">
-                <button class="handle left-handle" onclick="scrollTrack('track-client', -800)">
-                    <i class="ri-arrow-left-s-line"></i>
-                </button>
-                <div class="netflix-track" id="track-client">
-                    
-                    <div class="netflix-card" onclick="openModal('tpl-oqunet-software', 'Oqunet Software')">
-                        <img src="logo-01.png" alt="Oqunet Software" loading="lazy">
-                        <div class="netflix-card-info"><h3>Oqunet</h3><p>Software</p></div>
-                    </div>
-                    
-                    <div class="netflix-card" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
-                        <img src="514064519_17860801818435683_5097951599889091948_n.jpg" alt="TradeSmart" loading="lazy">
-                        <div class="netflix-card-info"><h3>TradeSmart</h3><p>Crypto</p></div>
-                    </div>
-                    
-                    <div class="netflix-card" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
-                        <img src="logo (2).png" alt="Intellident" loading="lazy">
-                        <div class="netflix-card-info"><h3>Intellident</h3><p>Dental</p></div>
-                    </div>
-                    
-                    <div class="netflix-card" onclick="openModal('tpl-maven', 'Marketing Maven')">
-                        <img src="market maven logo.png" alt="Maven Agency" loading="lazy">
-                        <div class="netflix-card-info"><h3>Maven</h3><p>Agency</p></div>
-                    </div>
-
+        <section id="client" class="row-section">
+            <div class="row-header">
+                <div class="title-group">
+                    <h2>Clients</h2>
+                    <span class="row-number">03</span>
                 </div>
-                <button class="handle right-handle" onclick="scrollTrack('track-client', 800)">
-                    <i class="ri-arrow-right-s-line"></i>
-                </button>
+            </div>
+            <div class="scroll-track-wrapper" id="track-client">
+                <div class="scroll-track">
+                    <div class="card square-card glow-on-hover" onclick="openModal('tpl-oqunet-software', 'Oqunet Software')">
+                        <div class="card-border-gradient"></div>
+                        <div class="card-image"><img src="logo-01.png" alt="Oqunet" loading="lazy"></div>
+                        <div class="card-hover-content"><div class="card-meta"><h3>Oqunet</h3><p>Software Partner</p></div></div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 MOHAMAD MOUKADDEM</p>
+        <p>© 2026 MOHAMAD MOUKADDEM</p>
         <div class="footer-links">
             <a href="mailto:hamoudizzico102@outlook.com" class="footer-btn btn-glass">Email</a>
             <a href="https://wa.me/96170577697" class="footer-btn btn-glass">WhatsApp</a>
@@ -214,10 +224,10 @@
 
     <div id="modal" class="overlay">
         <div class="overlay-bg" onclick="closeModal()"></div>
-        <div class="modal-box glass-panel">
+        <div class="modal-box">
             <div class="modal-header">
-                <h3 id="modal-title">TITLE</h3>
-                <button type="button" onclick="closeModal()" class="close-ui" aria-label="Close Modal"><i class="ri-close-line"></i></button>
+                <h3 id="modal-title" style="font-size: 3rem; font-weight: 900;">TITLE</h3>
+                <button type="button" onclick="closeModal()" class="close-ui" style="background:rgba(255,255,255,0.1); border-radius:50%; width:50px; height:50px;"><i class="ri-close-line"></i></button>
             </div>
             <div id="modal-content" class="modal-body custom-scrollbar"></div>
         </div>
@@ -225,7 +235,7 @@
 
     <div id="lightbox" class="overlay">
         <div class="overlay-bg" onclick="closeLightbox()"></div>
-        <button type="button" class="close-fixed" onclick="closeLightbox()" aria-label="Close Image Preview"><i class="ri-close-line"></i></button>
+        <button type="button" class="close-fixed" onclick="closeLightbox()"><i class="ri-close-line"></i></button>
         <div class="lb-wrapper glow-effect">
             <img id="lb-image" src="" alt="Full size preview">
         </div>
@@ -233,62 +243,55 @@
 
     <div id="cv-modal" class="overlay">
         <div class="overlay-bg" onclick="closeCV()"></div>
-        <div class="cv-box glass-panel">
-            <button type="button" class="close-fixed-cv" onclick="closeCV()" aria-label="Close CV Preview"><i class="ri-close-line"></i></button>
-            <iframe src="Mohamad Mokaddem CV 2025 (1).pdf" loading="lazy" title="Mohamad Moukaddem CV"></iframe>
+        <div class="cv-box" style="width: 85%; height: 90%; margin: auto;">
+            <div style="padding: 15px; display: flex; justify-content: space-between; align-items: center; background: #000;">
+                <span style="color: var(--netflix-red); font-weight: 900;">PROFESSIONAL DOSSIER</span>
+                <button type="button" onclick="closeCV()" style="background: none; border: none; color: #fff; cursor: pointer; font-size: 1.5rem;"><i class="ri-close-circle-fill"></i></button>
+            </div>
+            <iframe src="Mohamad Mokaddem CV 2025 (1).pdf" style="width: 100%; height: calc(100% - 60px); border: none;" loading="lazy"></iframe>
         </div>
     </div>
 
     <template id="tpl-sebastien">
-        <div class="grid-layout">
-            <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" loading="lazy" title="Sébastien Koubar Video 1" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/ChGxyGwRdFE" loading="lazy" title="Sébastien Koubar Video 2" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/SNmD--JxL9k" loading="lazy" title="Sébastien Koubar Video 3" allowfullscreen></iframe>
+        <div class="grid-layout" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <iframe src="https://www.youtube.com/embed/AzAXmB-KY5M" width="100%" height="450" style="border-radius: 8px;" allowfullscreen></iframe>
         </div>
     </template>
     
     <template id="tpl-hisham">
-        <div class="grid-layout insta-layout">
-            <iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed" loading="lazy" title="Hisham Ghanem Instagram Reel 1"></iframe>
-            <iframe src="https://www.instagram.com/p/C_m8MwZICH0/embed" loading="lazy" title="Hisham Ghanem Instagram Reel 2"></iframe>
-        </div>
-    </template>
-
-    <template id="tpl-oqunet-edit">
-        <div class="grid-layout insta-layout">
-            <iframe src="https://www.instagram.com/p/DF8NgDICiJP/embed" loading="lazy" title="Oqunet Promo Instagram Reel"></iframe>
-        </div>
-    </template>
-
-    <template id="tpl-oqunet-software">
-        <div class="grid-layout insta-layout">
-            <iframe src="https://www.instagram.com/p/DGTULOwC8Ec/embed" loading="lazy" title="Oqunet Software Instagram Post"></iframe>
-        </div>
-    </template>
-
-    <template id="tpl-tradesmart">
-        <div class="grid-layout insta-layout">
-            <iframe src="https://www.instagram.com/p/DHgfmnlo50G/embed" loading="lazy" title="TradeSmart Instagram Post"></iframe>
-        </div>
-    </template>
-
-    <template id="tpl-intellident">
-        <div class="grid-layout insta-layout">
-            <div class="img-full" onclick="openImage('logo (2).png')">
-                <img src="logo (2).png" alt="Intellident Clinic Full Logo">
-            </div>
-            <iframe src="https://www.instagram.com/p/C_LgeixNs4j/embed" loading="lazy" title="Intellident Instagram Post"></iframe>
-        </div>
-    </template>
-
-    <template id="tpl-maven">
-        <div class="maven-stack">
-            <img src="Artboard 1.png" onclick="openImage(this.src)" loading="lazy" alt="Maven Agency Artboard 1">
-            <img src="Artboard 2.png" onclick="openImage(this.src)" loading="lazy" alt="Maven Agency Artboard 2">
-            <img src="Artboard 3.png" onclick="openImage(this.src)" loading="lazy" alt="Maven Agency Artboard 3">
+        <div class="grid-layout insta-layout" style="display: flex; gap: 20px; overflow-x: auto;">
+            <iframe src="https://www.instagram.com/p/C_fgsF7o5QK/embed" width="400" height="600" style="border-radius: 8px;"></iframe>
         </div>
     </template>
 
     <script src="script.js"></script>
+    <script>
+        // إضافات بسيطة للـ JS لتعزيز تجربة Netflix
+        function openModal(templateId, title) {
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+            const tpl = document.getElementById(templateId);
+            document.getElementById('modal-title').innerText = title;
+            content.innerHTML = '';
+            content.appendChild(tpl.content.cloneNode(true));
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openCV() {
+            document.getElementById('cv-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCV() {
+            document.getElementById('cv-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
 </body>
 </html>
