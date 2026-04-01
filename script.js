@@ -1,13 +1,13 @@
 /**
  * Mohamad Moukaddem Portfolio - Professional Scripting
- * Enhanced for Performance and UX
+ * Netflix UI Edition - Enhanced for Performance and UX
  */
 
 // --- Navbar Scroll Logic ---
 const navbar = document.querySelector('.navbar');
 
 const handleScroll = () => {
-    if (window.scrollY > 20) {
+    if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
@@ -17,12 +17,15 @@ const handleScroll = () => {
 // Use passive: true for better scroll performance
 window.addEventListener('scroll', handleScroll, { passive: true });
 
-// --- Horizontal Scroll Tracks ---
+// --- Netflix Style Horizontal Scroll ---
 function scrollTrack(trackId, amount) {
     const track = document.getElementById(trackId);
     if (track) {
+        // حساب المسافة بناءً على عرض الشاشة لضمان تجربة Netflix الحقيقية
+        const scrollAmount = amount === 0 ? track.clientWidth * 0.8 : amount;
+        
         track.scrollBy({ 
-            left: amount, 
+            left: scrollAmount, 
             behavior: 'smooth' 
         });
     }
@@ -34,7 +37,15 @@ const allOverlays = ['modal', 'lightbox', 'cv-modal'];
 function closeAllOverlays() {
     allOverlays.forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.classList.remove('active');
+        if (el) {
+            el.classList.remove('active');
+            // إخفاء الـ Overlay بعد انتهاء الترانزيشن
+            setTimeout(() => {
+                if (!el.classList.contains('active')) {
+                    el.style.display = 'none';
+                }
+            }, 300);
+        }
     });
     
     // Reset specific contents after transition
@@ -63,7 +74,9 @@ function openModal(templateId, title) {
         
         if (titleEl) titleEl.innerText = title;
         
-        overlay.classList.add('active');
+        overlay.style.display = 'flex';
+        // Delay small to trigger CSS transition
+        setTimeout(() => overlay.classList.add('active'), 10);
         document.body.style.overflow = 'hidden';
     }
 }
@@ -78,7 +91,8 @@ function openImage(src) {
     
     if (img && overlay) {
         img.src = src;
-        overlay.classList.add('active');
+        overlay.style.display = 'flex';
+        setTimeout(() => overlay.classList.add('active'), 10);
         document.body.style.overflow = 'hidden';
     }
 }
@@ -89,7 +103,8 @@ const closeLightbox = closeAllOverlays;
 function openCV() {
     const cvModal = document.getElementById('cv-modal');
     if (cvModal) {
-        cvModal.classList.add('active');
+        cvModal.style.display = 'flex';
+        setTimeout(() => cvModal.classList.add('active'), 10);
         document.body.style.overflow = 'hidden';
     }
 }
@@ -106,4 +121,13 @@ window.addEventListener('keydown', (e) => {
 // Optional: Close on clicking outside the modal box (Overlay Background)
 document.querySelectorAll('.overlay-bg').forEach(bg => {
     bg.addEventListener('click', closeAllOverlays);
+});
+
+// --- Initialize Display States ---
+// التأكد من أن جميع الـ Overlays مخفية في البداية برمجياً
+document.addEventListener('DOMContentLoaded', () => {
+    allOverlays.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+    });
 });
