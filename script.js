@@ -1,64 +1,131 @@
-// Scroll Effect
-const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
-});
+/**
+ * Mohamad Moukaddem Portfolio Core Logic
+ * Clean, Optimized & Professional ES6+
+ */
 
-// Scroll Track Buttons
-function scrollTrack(trackId, amount) {
-    const track = document.getElementById(trackId);
-    if(track) track.scrollBy({ left: amount, behavior: 'smooth' });
-}
-
-// Modal System
-function openModal(templateId, title) {
-    const overlay = document.getElementById('modal');
-    const content = document.getElementById('modal-content');
-    const tpl = document.getElementById(templateId);
+document.addEventListener('DOMContentLoaded', () => {
     
-    if (tpl) {
-        content.innerHTML = '';
-        content.appendChild(tpl.content.cloneNode(true));
-        document.getElementById('modal-title').innerText = title;
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-}
+    // --- 1. Smart Navbar (Performance Optimized) ---
+    const navbar = document.querySelector('.navbar');
+    const hero = document.querySelector('.hero');
 
-function closeModal() {
-    document.getElementById('modal').classList.remove('active');
-    setTimeout(() => { 
-        if(document.getElementById('modal-content')) 
-            document.getElementById('modal-content').innerHTML = ''; 
-    }, 200);
-    document.body.style.overflow = '';
-}
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // إذا غاب الـ Hero عن العين، نغير ستايل النبار
+            if (!entry.isIntersecting) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }, { threshold: 0.1 });
 
-function openImage(src) {
-    const overlay = document.getElementById('lightbox');
-    document.getElementById('lb-image').src = src;
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
+    if (hero) navObserver.observe(hero);
 
-function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-    document.body.style.overflow = '';
-}
 
-function openCV() {
-    document.getElementById('cv-modal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
+    // --- 2. Unified Overlay System (Modals, Lightbox, CV) ---
+    const toggleBodyScroll = (lock) => {
+        document.body.style.overflow = lock ? 'hidden' : '';
+    };
 
-function closeCV() {
-    document.getElementById('cv-modal').classList.remove('active');
-    document.body.style.overflow = '';
-}
+    window.openOverlay = (id) => {
+        const overlay = document.getElementById(id);
+        if (overlay) {
+            overlay.classList.add('active');
+            toggleBodyScroll(true);
+        }
+    };
 
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeModal(); closeLightbox(); closeCV();
-    }
+    window.closeAllOverlays = () => {
+        document.querySelectorAll('.overlay').forEach(ov => ov.classList.remove('active'));
+        toggleBodyScroll(false);
+        // تنظيف المحتوى بعد الإغلاق لضمان الأداء
+        setTimeout(() => {
+            const modalContent = document.getElementById('modal-content');
+            if (modalContent) modalContent.innerHTML = '';
+        }, 300);
+    };
+
+
+    // --- 3. Dynamic Modal Engine ---
+    window.openModal = (templateId, title) => {
+        const content = document.getElementById('modal-content');
+        const tpl = document.getElementById(templateId);
+        const titleElement = document.getElementById('modal-title');
+
+        if (tpl && content) {
+            content.innerHTML = '';
+            content.appendChild(tpl.content.cloneNode(true));
+            if (titleElement) titleElement.innerText = title;
+            openOverlay('modal');
+        }
+    };
+
+
+    // --- 4. Lightbox Engine ---
+    window.openImage = (src) => {
+        const lbImg = document.getElementById('lb-image');
+        if (lbImg) {
+            lbImg.src = src;
+            openOverlay('lightbox');
+        }
+    };
+
+
+    // --- 5. CV Loader (Lazy Loading) ---
+    window.openCV = () => {
+        const frame = document.getElementById('cv-frame');
+        // شحن ملف الـ PDF فقط عند الطلب
+        if (frame && frame.src === 'about:blank') {
+            frame.src = 'Mohamad Mokaddem CV 2025 (1).pdf';
+        }
+        openOverlay('cv-modal');
+    };
+
+
+    // --- 6. Smooth Scroll Track Control ---
+    window.scrollTrack = (trackId, amount) => {
+        const track = document.getElementById(trackId);
+        if (track) {
+            track.scrollBy({ left: amount, behavior: 'smooth' });
+        }
+    };
+
+    // ميزة إضافية: Drag-to-Scroll للـ Tracks (اختياري لكنه احترافي)
+    const tracks = document.querySelectorAll('.scroll-track-wrapper');
+    tracks.forEach(track => {
+        let isDown = false;
+        let scrollLeft;
+        let startX;
+
+        track.addEventListener('mousedown', (e) => {
+            isDown = true;
+            track.classList.add('active-drag');
+            startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+        });
+        track.addEventListener('mouseleave', () => { isDown = false; });
+        track.addEventListener('mouseup', () => { isDown = false; });
+        track.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            const walk = (x - startX) * 2;
+            track.scrollLeft = scrollLeft - walk;
+        });
+    });
+
+
+    // --- 7. Event Listeners (Global) ---
+    
+    // إغلاق أي Overlay بمجرد الضغط على الـ Escape
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAllOverlays();
+    });
+
+    // ربط أزرار الإغلاق بشكل موحد
+    window.closeModal = closeAllOverlays;
+    window.closeLightbox = closeAllOverlays;
+    window.closeCV = closeAllOverlays;
+
 });
