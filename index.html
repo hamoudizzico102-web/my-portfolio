@@ -75,141 +75,131 @@
 
     <main class="main-container">
 
-        <section id="editing" class="row-section">
-            <div class="row-header">
-                <div class="title-group">
-                    <h2>Video Editing</h2>
-                    <span class="row-number">01</span>
-                </div>
-                <div class="nav-arrows">
-                    <button type="button" class="nav-btn" aria-label="Scroll Left" onclick="scrollTrack('track-editing', -400)"><i class="ri-arrow-left-s-line"></i></button>
-                    <button type="button" class="nav-btn" aria-label="Scroll Right" onclick="scrollTrack('track-editing', 400)"><i class="ri-arrow-right-s-line"></i></button>
-                </div>
-            </div>
-            <div class="scroll-track-wrapper" id="track-editing">
-                <div class="scroll-track">
+        <section id="editing" class="netflix-row">
+            <h2 class="netflix-row-title">Video Editing</h2>
+            <div class="netflix-slider-container">
+                <button class="handle left-handle" onclick="scrollTrack('track-editing', -800)">
+                    <i class="ri-arrow-left-s-line"></i>
+                </button>
+                <div class="netflix-track" id="track-editing">
                     
-                    <div class="card video-card glow-on-hover" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image">
-                            <img src="sebastien_thumb.jpg" alt="Sébastien Koubar YouTube Video Thumbnail" loading="lazy" decoding="async">
-                        </div>
-                        <div class="card-hover-content">
-                            <i class="ri-youtube-fill center-icon"></i>
-                            <div class="card-meta"><h3>Sébastien Koubar</h3><p>YOUTUBE</p></div>
+                    <div class="netflix-card" onclick="openModal('tpl-sebastien', 'Sébastien Koubar')">
+                        <img src="sebastien_thumb.jpg" alt="Sébastien Koubar" loading="lazy">
+                        <div class="netflix-card-info">
+                            <div class="icons"><i class="ri-play-fill"></i><i class="ri-add-line"></i></div>
+                            <h3>Sébastien Koubar</h3>
+                            <p><span>98% Match</span> YouTube • Cinematic</p>
                         </div>
                     </div>
 
-                    <div class="card video-card glow-on-hover" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image">
-                            <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham Ghanem Instagram Reels Thumbnail" loading="lazy" decoding="async">
-                        </div>
-                        <div class="card-hover-content">
-                            <i class="ri-instagram-fill center-icon"></i>
-                            <div class="card-meta"><h3>Hisham Ghanem</h3><p>REELS</p></div>
+                    <div class="netflix-card" onclick="openModal('tpl-hisham', 'Hisham Ghanem')">
+                        <img src="405229718_183715348153605_6175495872810790746_n.jpg" alt="Hisham Ghanem" loading="lazy">
+                        <div class="netflix-card-info">
+                            <div class="icons"><i class="ri-play-fill"></i><i class="ri-add-line"></i></div>
+                            <h3>Hisham Ghanem</h3>
+                            <p><span>New</span> Reels • Dynamic</p>
                         </div>
                     </div>
 
-                    <div class="card video-card glow-on-hover" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image">
-                            <img src="logo-01.png" alt="Oqunet Promo Video Thumbnail" loading="lazy" decoding="async">
-                        </div>
-                        <div class="card-hover-content">
-                            <i class="ri-film-fill center-icon"></i>
-                            <div class="card-meta"><h3>Oqunet</h3><p>PROMO</p></div>
+                    <div class="netflix-card" onclick="openModal('tpl-oqunet-edit', 'Oqunet Promo')">
+                        <img src="logo-01.png" alt="Oqunet Promo" loading="lazy">
+                        <div class="netflix-card-info">
+                            <div class="icons"><i class="ri-play-fill"></i><i class="ri-add-line"></i></div>
+                            <h3>Oqunet</h3>
+                            <p>Promo • Software</p>
                         </div>
                     </div>
+
                 </div>
+                <button class="handle right-handle" onclick="scrollTrack('track-editing', 800)">
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
             </div>
         </section>
 
-        <section id="design" class="row-section">
-            <div class="row-header">
-                <div class="title-group">
-                    <h2>Visual Design</h2>
-                    <span class="row-number">02</span>
-                </div>
-                <div class="nav-arrows">
-                    <button type="button" class="nav-btn" aria-label="Scroll Left" onclick="scrollTrack('track-design', -350)"><i class="ri-arrow-left-s-line"></i></button>
-                    <button type="button" class="nav-btn" aria-label="Scroll Right" onclick="scrollTrack('track-design', 350)"><i class="ri-arrow-right-s-line"></i></button>
-                </div>
-            </div>
-            <div class="scroll-track-wrapper" id="track-design">
-                <div class="scroll-track">
+        <section id="design" class="netflix-row">
+            <h2 class="netflix-row-title">Visual Arts</h2>
+            <div class="netflix-slider-container">
+                <button class="handle left-handle" onclick="scrollTrack('track-design', -800)">
+                    <i class="ri-arrow-left-s-line"></i>
+                </button>
+                <div class="netflix-track" id="track-design">
                     
-                    <div class="card poster-card glow-on-hover" onclick="openImage('gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png" alt="Istanbul Vision Concept Art" loading="lazy" decoding="async"></div>
-                        <div class="card-hover-content">
-                            <i class="ri-eye-line center-icon"></i>
-                            <div class="card-meta"><h3>Istanbul Vision</h3><p>CONCEPT</p></div>
+                    <div class="netflix-card" onclick="openImage('gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png')">
+                        <img src="gemini-3-pro-image-preview-2k (nano-banana-pro)_a_A_hyper-cinematic_ve (1).png" alt="Istanbul Vision" loading="lazy">
+                        <div class="netflix-card-info">
+                            <div class="icons"><i class="ri-eye-line"></i></div>
+                            <h3>Istanbul Vision</h3>
+                            <p>Concept Art</p>
                         </div>
                     </div>
 
-                    <div class="card poster-card glow-on-hover" onclick="openImage('IMG_20251225_020344.png')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="IMG_20251225_020344.png" alt="GamePass Gaming Poster Design" loading="lazy" decoding="async"></div>
-                        <div class="card-hover-content">
-                            <i class="ri-gamepad-line center-icon"></i>
-                            <div class="card-meta"><h3>GamePass</h3><p>GAMING</p></div>
+                    <div class="netflix-card" onclick="openImage('IMG_20251225_020344.png')">
+                        <img src="IMG_20251225_020344.png" alt="GamePass Design" loading="lazy">
+                        <div class="netflix-card-info">
+                            <div class="icons"><i class="ri-eye-line"></i></div>
+                            <h3>GamePass</h3>
+                            <p>Gaming Poster</p>
                         </div>
                     </div>
 
-                    <div class="card poster-card glow-on-hover" onclick="openImage('5.png')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="5.png" alt="Saudi National Day Poster" loading="lazy" decoding="async"></div>
-                        <div class="card-hover-content"><div class="card-meta"><h3>Saudi National Day</h3><p>POSTER</p></div></div>
+                    <div class="netflix-card" onclick="openImage('5.png')">
+                        <img src="5.png" alt="Saudi National Day" loading="lazy">
+                        <div class="netflix-card-info">
+                            <div class="icons"><i class="ri-eye-line"></i></div>
+                            <h3>Saudi National Day</h3>
+                            <p>Poster Design</p>
+                        </div>
                     </div>
-                    
-                    <div class="card poster-card glow-on-hover" onclick="openImage('1.png')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="1.png" alt="Brand Identity Design" loading="lazy" decoding="async"></div>
-                        <div class="card-hover-content"><div class="card-meta"><h3>Identity</h3><p>BRANDING</p></div></div>
+
+                    <div class="netflix-card" onclick="openImage('1.png')">
+                        <img src="1.png" alt="Brand Identity" loading="lazy">
+                        <div class="netflix-card-info">
+                            <div class="icons"><i class="ri-eye-line"></i></div>
+                            <h3>Identity</h3>
+                            <p>Branding</p>
+                        </div>
                     </div>
+
                 </div>
+                <button class="handle right-handle" onclick="scrollTrack('track-design', 800)">
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
             </div>
         </section>
 
-        <section id="client" class="row-section">
-            <div class="row-header">
-                <div class="title-group">
-                    <h2>Clients</h2>
-                    <span class="row-number">03</span>
+        <section id="client" class="netflix-row">
+            <h2 class="netflix-row-title">Top Clients</h2>
+            <div class="netflix-slider-container">
+                <button class="handle left-handle" onclick="scrollTrack('track-client', -800)">
+                    <i class="ri-arrow-left-s-line"></i>
+                </button>
+                <div class="netflix-track" id="track-client">
+                    
+                    <div class="netflix-card" onclick="openModal('tpl-oqunet-software', 'Oqunet Software')">
+                        <img src="logo-01.png" alt="Oqunet Software" loading="lazy">
+                        <div class="netflix-card-info"><h3>Oqunet</h3><p>Software</p></div>
+                    </div>
+                    
+                    <div class="netflix-card" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
+                        <img src="514064519_17860801818435683_5097951599889091948_n.jpg" alt="TradeSmart" loading="lazy">
+                        <div class="netflix-card-info"><h3>TradeSmart</h3><p>Crypto</p></div>
+                    </div>
+                    
+                    <div class="netflix-card" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
+                        <img src="logo (2).png" alt="Intellident" loading="lazy">
+                        <div class="netflix-card-info"><h3>Intellident</h3><p>Dental</p></div>
+                    </div>
+                    
+                    <div class="netflix-card" onclick="openModal('tpl-maven', 'Marketing Maven')">
+                        <img src="market maven logo.png" alt="Maven Agency" loading="lazy">
+                        <div class="netflix-card-info"><h3>Maven</h3><p>Agency</p></div>
+                    </div>
+
                 </div>
-                <div class="nav-arrows">
-                    <button type="button" class="nav-btn" aria-label="Scroll Left" onclick="scrollTrack('track-client', -300)"><i class="ri-arrow-left-s-line"></i></button>
-                    <button type="button" class="nav-btn" aria-label="Scroll Right" onclick="scrollTrack('track-client', 300)"><i class="ri-arrow-right-s-line"></i></button>
-                </div>
-            </div>
-            <div class="scroll-track-wrapper" id="track-client">
-                <div class="scroll-track">
-                    
-                    <div class="card square-card glow-on-hover" onclick="openModal('tpl-oqunet-software', 'Oqunet Software')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="logo-01.png" alt="Oqunet Software Logo" loading="lazy"></div>
-                        <div class="card-hover-content"><div class="card-meta"><h3>Oqunet</h3><p>SOFTWARE</p></div></div>
-                    </div>
-                    
-                    <div class="card square-card glow-on-hover" onclick="openModal('tpl-tradesmart', 'TradeSmart')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="514064519_17860801818435683_5097951599889091948_n.jpg" alt="TradeSmart Crypto Logo" loading="lazy"></div>
-                        <div class="card-hover-content"><div class="card-meta"><h3>TradeSmart</h3><p>CRYPTO</p></div></div>
-                    </div>
-                    
-                    <div class="card square-card glow-on-hover" onclick="openModal('tpl-intellident', 'Intellident Clinic')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="logo (2).png" alt="Intellident Dental Clinic Logo" loading="lazy"></div>
-                        <div class="card-hover-content"><div class="card-meta"><h3>Intellident</h3><p>DENTAL</p></div></div>
-                    </div>
-                    
-                    <div class="card square-card glow-on-hover" onclick="openModal('tpl-maven', 'Marketing Maven')">
-                        <div class="card-border-gradient"></div>
-                        <div class="card-image"><img src="market maven logo.png" alt="Maven Agency Logo" loading="lazy"></div>
-                        <div class="card-hover-content"><div class="card-meta"><h3>Maven</h3><p>AGENCY</p></div></div>
-                    </div>
-                </div>
+                <button class="handle right-handle" onclick="scrollTrack('track-client', 800)">
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
             </div>
         </section>
     </main>
